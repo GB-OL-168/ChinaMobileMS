@@ -29,6 +29,18 @@ public class UserController {
 		session.setAttribute("user", user);
 		
 //		return "redirect:index.jsp?username=" + user.getUserName();
-		return new ModelAndView("index").addObject("username", user.getUserName());
+		return new ModelAndView("main").addObject("username", user.getUserName());
+	}
+	
+	@RequestMapping(value="/top", method=RequestMethod.GET)
+	public ModelAndView top(User user, HttpSession session){
+		
+		return new ModelAndView("top");
+	}
+	
+	@RequestMapping(value="/left", method=RequestMethod.GET)
+	public ModelAndView left(User user, HttpSession session){
+		
+		return new ModelAndView("left");
 	}
 }
