@@ -38,4 +38,25 @@ public class FunctionController {
 		else
 			return new ModelAndView("forward:/");
 	}
+	
+	
+	@RequestMapping(value="/property-", method=RequestMethod.GET)
+	public ModelAndView propertyUser(User user, HttpSession session,@RequestParam("id") String id){
+		
+		if(id.equals("server"))
+			return new ModelAndView("/function/property-server");
+		else if(id.equals("auditing"))
+			return new ModelAndView("/function/property-auditing");
+		else if(id.equals("management"))
+			return new ModelAndView("/function/property-management");
+		else if(id.equals("management-data"))
+			return new ModelAndView("/function/property-management-data");
+		else if(id.equals("management-system"))
+			return new ModelAndView("/function/property-management-system");
+		else if(id.equals("applicant"))
+			return new ModelAndView("/function/property-applicant");
+		else
+			return new ModelAndView("forward:/");
+	}
+	
 }

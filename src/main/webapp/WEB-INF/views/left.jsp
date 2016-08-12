@@ -46,7 +46,13 @@
                                     <li><a href="/function/" target="main">配餐中心用餐申请</a></li>
                                     <li><a href="/function/" target="main">省公司公务通信服务</a></li>
                                     <li><a href="/function/" target="main">办公家具请购</a></li>
-                                    <li><a href="function/" target="main">物业服务需求申请</a></li>
+                                    <li><a href="function/" target="main">物业服务需求申请</a>
+                                        <ul>
+                                            <li><a href="/property-?id=server" target="main">申请方应用</a></li>
+                                            <li><a href="/property-?id=auditing" target="main">审核方应用</a></li>
+                                            <li><a href="/property-?id=management" target="main">管理方应用</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="/function/" target="main">面点预订</a></li>
                                     <li><a href="/function/" target="main">省公司房屋分配</a></li>
                                     <li><a href="/function/" target="main">海报张贴服务</a></li>
@@ -71,6 +77,10 @@
                 e.preventDefault();
                 $( this ).siblings("ul").slideToggle().parent("li").siblings().children("ul").slideUp();
             });
+       $(".menu>li>ul>li>a").click(function(e){
+           e.preventDefault();
+           $( this ).siblings("ul").slideToggle();
+       });
         });
     </script>
 </body>
