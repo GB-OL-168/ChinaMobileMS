@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-TYPE html>
 <html> 
 <head>
 <meta charset="utf-8">
@@ -18,7 +17,7 @@ TYPE html>
 		<div class="row">
 			<div class="col-md-8 main">
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-7">
 						<ol class="breadcrumb">
 						  <li><a href="#">系统设置</a></li>
 						  <li><a href="#">账号管理</a></li>
@@ -26,11 +25,9 @@ TYPE html>
 						</ol>
 					</div>
 
-					<div class="col-md-3">
-						<a href="#" class="btn btn-primary btn-xs">添加角色</a>
-					</div>
 					
-					<div class="col-md-4">
+					
+					<div class="col-md-5">
 						<div class="input-group">
 					      <input type="text" class="form-control input-sm" placeholder="Search for User">
 					      <span class="input-group-btn">

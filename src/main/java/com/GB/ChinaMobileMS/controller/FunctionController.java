@@ -19,14 +19,23 @@ public class FunctionController {
 		
 		if(id.equals("user"))
 			return new ModelAndView("/function/system-user");
+		else if(id.equals("userAdd"))
+			return new ModelAndView("/function/system-user-add");
 		else if(id.equals("role-assignment"))
 			return new ModelAndView("/function/system-role-assignment");
+		else if(id.equals("role-assignment-add"))
+			return new ModelAndView("/function/system-role-assignment-add");
+		else if(id.equals("role-authorization"))
+			return new ModelAndView("/function/system-role-authorization");
+		else if(id.equals("role-authorization-add"))
+			return new ModelAndView("/function/system-role-authorization-add");
+		else if(id.equals("parameter"))
+			return new ModelAndView("/function/system-parameter");
 		else if(id.equals("parameter-update"))
 			return new ModelAndView("/function/system-parameter-update");
 		else if(id.equals("data"))
 			return new ModelAndView("/function/system-data");
 		else
-			return new ModelAndView("/");
+			return new ModelAndView("forward:/");
 	}
-
 }

@@ -21,7 +21,7 @@
                                 <ul>
                                     <li><a href="/system-?id=user" target="main">账号管理</a></li>
                                     <li><a href="/system-?id=role-assignment" target="main">权限设置</a></li>
-                                    <li><a href="/system-?id=parameter-update" target="main">参数配置</a></li>
+                                    <li><a href="/system-?id=parameter" target="main">参数配置</a></li>
                                     <li><a href="/system-?id=data" target="main">数据备份</a></li>
                                 </ul>
                             </li>

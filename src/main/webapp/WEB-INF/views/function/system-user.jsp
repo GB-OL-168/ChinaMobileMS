@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html> 
 <head>
 <meta charset="utf-8">
@@ -25,7 +24,7 @@
 						</ol>
 					</div>
 					<div class="col-md-3">
-						<a class="btn btn-default btn-xs" href="system-user-add.html">增加用户</a>
+						<a class="btn btn-default btn-xs" href="system-?id=userAdd">增加用户</a>
 					</div>
 					
 					<div class="col-md-4">

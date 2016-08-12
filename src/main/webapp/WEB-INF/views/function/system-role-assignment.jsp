@@ -23,16 +23,16 @@
 						  <li><a href="#">系统设置</a></li>
 						  <li><a href="#">权限设置</a></li>
 						  <li class="dropdown active">
-						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色分配 <span class="caret"></span></a>
+						  	<a href="system?id=role-assignment" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色分配 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="system-role-authorization.html">角色授权</a></li>
+					            <li><a href="system-?id=role-authorization">角色授权</a></li>
 					          </ul>
 						  </li>
 						</ol>
 					</div>
 
 					<div class="col-md-3">
-						<a href="system-role-assignment-add.html" class="btn btn-default btn-xs">用户分配角色</a>
+						<a href="system-?id=role-assignment-add" class="btn btn-default btn-xs">用户分配角色</a>
 					</div>
 					
 					<div class="col-md-4">
