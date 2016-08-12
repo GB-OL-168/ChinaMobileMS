@@ -26,9 +26,9 @@
 						  <li class="dropdown active">
 						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">申请状态 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property-?id=management-data">服务数据
+					            <li><a href="/property/management-data">服务数据
 					            </a></li>
-					             <li><a href="/property-?id=management-system">系统参数
+					             <li><a href="/property/management-system">系统参数
 					            </a></li>
 					          </ul>  
 						  </li>

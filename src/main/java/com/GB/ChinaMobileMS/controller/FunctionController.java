@@ -14,12 +14,13 @@ import com.GB.ChinaMobileMS.entity.User;
 @Controller
 public class FunctionController {
 
-	@RequestMapping(value="/system-", method=RequestMethod.GET)
-	public ModelAndView systemUser(User user, HttpSession session,@RequestParam("id") String id){
+	@RequestMapping(value="/system/{id}", method=RequestMethod.GET)
+	public ModelAndView systemUser(User user,@PathVariable("id") String id, HttpSession session){
 		//requestParam获取参数id
+		System.out.println("id="+id);
 		if(id.equals("user"))
 			return new ModelAndView("/function/system-user");
-		else if(id.equals("userAdd"))
+		else if(id.equals("user-add"))
 			return new ModelAndView("/function/system-user-add");
 		else if(id.equals("role-assignment"))
 			return new ModelAndView("/function/system-role-assignment");
@@ -40,8 +41,8 @@ public class FunctionController {
 	}
 	
 	
-	@RequestMapping(value="/property-", method=RequestMethod.GET)
-	public ModelAndView propertyUser(User user, HttpSession session,@RequestParam("id") String id){
+	@RequestMapping(value="/property/{id}", method=RequestMethod.GET)
+	public ModelAndView propertyUser(User user,@PathVariable("id") String id, HttpSession session){
 		
 		if(id.equals("server"))
 			return new ModelAndView("/function/property-server");
@@ -53,6 +54,8 @@ public class FunctionController {
 			return new ModelAndView("/function/property-management-data");
 		else if(id.equals("management-system"))
 			return new ModelAndView("/function/property-management-system");
+		else if(id.equals("management-system-add"))
+			return new ModelAndView("/function/property-management-system-add");
 		else if(id.equals("applicant"))
 			return new ModelAndView("/function/property-applicant");
 		else

@@ -25,16 +25,16 @@
 						  <li class="dropdown active">
 						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 系统参数<span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property-?id=management">申请状态
+					            <li><a href="/property/management">申请状态
 					            </a></li>
-					             <li><a href="/property-?id=management-system">服务数据
+					             <li><a href="/property/management-system">服务数据
 					            </a></li>
 					          </ul>  
 						  </li>
 						</ol>
 					</div>
 					<div class="col-md-3">
-						<a class="btn btn-default btn-xs" href="/property-?id=management-system-add">增加系统参数</a>
+						<a class="btn btn-default btn-xs" href="/property/management-system-add">增加系统参数</a>
 					</div>
 					
 					<div class="col-md-4">

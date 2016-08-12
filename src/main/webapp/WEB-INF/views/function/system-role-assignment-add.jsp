@@ -15,24 +15,21 @@
 	<div class="container">
 		
 		<div class="row">
-			<div class="col-md-10 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-6">
 						<ol class="breadcrumb">
 						  <li><a href="#">系统设置</a></li>
 						  <li><a href="#">权限设置</a></li>
 						  <li class="dropdown active">
-						  	<a href="system-?id=role-assignment-add" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色分配 <span class="caret"></span></a>
+						  	<a href="/system/role-assignment-add" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色分配 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="system-?id=role-authorization">角色授权</a></li>
+					            <li><a href="/system/role-authorization">角色授权</a></li>
 					          </ul>
 						  </li>
 						</ol>
 					</div>
 
-					<div class="col-md-6">
-						<a href="system-?id=userAdd" class="btn btn-primary btn-xs">添加用户</a>
-					</div>
 
 				</div>
 				

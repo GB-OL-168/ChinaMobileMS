@@ -24,7 +24,7 @@
 						</ol>
 					</div>
 					<div class="col-md-3">
-						<a class="btn btn-default btn-xs" href="system-?id=userAdd">增加用户</a>
+						<a class="btn btn-default btn-xs" href="/system/user-add">增加用户</a>
 					</div>
 					
 					<div class="col-md-4">

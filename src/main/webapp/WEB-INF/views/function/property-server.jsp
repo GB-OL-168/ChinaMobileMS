@@ -22,9 +22,9 @@
 						  <li><a href="#">物业服务管理</a></li>
 						  <li><a href="#">申请方应用</a></li>
 						  <li class="dropdown active">
-						  	<a href="/property-?id=server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务状态 <span class="caret"></span></a>
+						  	<a href="/property/server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务状态 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property-?id=applicant">申请表格
+					            <li><a href="/property/applicant">申请表格
 					          </ul>
 						  </li>
 						</ol>
@@ -33,8 +33,8 @@
 						<div class="dropdown active">
 						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">2016 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="property-applicant-server.html">2015
-					            <li><a href="property-applicant-server.html">2014
+					            <li><a href="property/applicant-server">2015
+					            <li><a href="property/applicant-server">2014
 					          </ul>
 						</div>
 					</div>

@@ -22,9 +22,9 @@
 						  <li><a href="#">物业服务管理</a></li>
 						  <li><a href="#">申请方应用</a></li>
 						  <li class="dropdown active">
-						  	<a href="/property-?id=applicant" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">申请表格 <span class="caret"></span></a>
+						  	<a href="/property/applicant" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">申请表格 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property-?id=server">服务状态</a>
+					            <li><a href="/property/server">服务状态</a>
 					          </ul>
 						  </li>
 						</ol>

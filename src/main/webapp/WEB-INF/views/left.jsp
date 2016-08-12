@@ -19,10 +19,10 @@
                             <li>
                                 <a href="#"><i class="icon-cogs icon-2x"></i>&nbsp&nbsp<strong>系统设置</strong></a>
                                 <ul>
-                                    <li><a href="/system-?id=user" target="main">账号管理</a></li>
-                                    <li><a href="/system-?id=role-assignment" target="main">权限设置</a></li>
-                                    <li><a href="/system-?id=parameter" target="main">参数配置</a></li>
-                                    <li><a href="/system-?id=data" target="main">数据备份</a></li>
+                                    <li><a href="/system/user" target="main">账号管理</a></li>
+                                    <li><a href="/system/role-assignment" target="main">权限设置</a></li>
+                                    <li><a href="/system/parameter" target="main">参数配置</a></li>
+                                    <li><a href="/system/data" target="main">数据备份</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -46,11 +46,11 @@
                                     <li><a href="/function/" target="main">配餐中心用餐申请</a></li>
                                     <li><a href="/function/" target="main">省公司公务通信服务</a></li>
                                     <li><a href="/function/" target="main">办公家具请购</a></li>
-                                    <li><a href="function/" target="main">物业服务需求申请</a>
+                                    <li><a>物业服务需求申请</a>
                                         <ul>
-                                            <li><a href="/property-?id=server" target="main">申请方应用</a></li>
-                                            <li><a href="/property-?id=auditing" target="main">审核方应用</a></li>
-                                            <li><a href="/property-?id=management" target="main">管理方应用</a></li>
+                                            <li><a href="/property/server" target="main">申请方应用</a></li>
+                                            <li><a href="/property/auditing" target="main">审核方应用</a></li>
+                                            <li><a href="/property/management" target="main">管理方应用</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/function/" target="main">面点预订</a></li>
@@ -78,7 +78,7 @@
                 $( this ).siblings("ul").slideToggle().parent("li").siblings().children("ul").slideUp();
             });
        $(".menu>li>ul>li>a").click(function(e){
-           e.preventDefault();
+           ///e.preventDefault();
            $( this ).siblings("ul").slideToggle();
        });
         });
