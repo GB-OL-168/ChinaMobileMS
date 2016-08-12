@@ -16,7 +16,7 @@ public class FunctionController {
 
 	@RequestMapping(value="/system-", method=RequestMethod.GET)
 	public ModelAndView systemUser(User user, HttpSession session,@RequestParam("id") String id){
-		
+		//requestParam获取参数id
 		if(id.equals("user"))
 			return new ModelAndView("/function/system-user");
 		else if(id.equals("role-assignment"))

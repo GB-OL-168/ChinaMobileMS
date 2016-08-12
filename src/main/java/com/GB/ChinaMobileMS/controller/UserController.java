@@ -16,20 +16,22 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-	
+	//在Spring中生成set get方法 自动获取userService对象
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView login(User user, HttpSession session){
-		
+		//ModeAndView Spring中的一个方便跳转类  spring 进行解析
 		user = userService.login(user.getUserName(), user.getPassword());
 		System.out.println("after "+user);
 		
 		if(user == null)
 			return new ModelAndView("forward:/");
-		
+		//用户不存在，停留在当前页面；
 		session.setAttribute("user", user);
-		
+		//session 整个会话中一个对象
 //		return "redirect:index.jsp?username=" + user.getUserName();
 		return new ModelAndView("main").addObject("username", user.getUserName());
+		//登录成功跳转页面  main页面的名字；
+		//addObject 相当于request.addAttribute(key,value);
 	}
 	
 	@RequestMapping(value="/top", method=RequestMethod.GET)
