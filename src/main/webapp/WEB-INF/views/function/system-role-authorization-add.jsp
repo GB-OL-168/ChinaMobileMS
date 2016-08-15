@@ -55,10 +55,10 @@
 				    <label  class="col-sm-3 control-label">权限</label>
 				    <div class="col-sm-8">
 				      <label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 超级管理员
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 系统管理员
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 普通管理员
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 分级管理员
 						</label>
 						<label class="checkbox-inline">
 						  <input type="checkbox" id="inlineCheckbox3" value="option3">普通用户
@@ -75,7 +75,7 @@
 				  <div class="form-group">
 				    <div class="col-sm-offset-4 col-sm-8">
 				      <button type="submit" class="btn btn-default">设置</button>
-				      <a href="system-role-authorization.html" class="btn btn-default">取消</a>
+				      <a href="system-?id=role-authorization" class="btn btn-default">取消</a>
 				    </div>
 				  </div>
 				</form>
