@@ -17,11 +17,19 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	//在Spring中生成set get方法 自动获取userService对象
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView login(User user, HttpSession session){
+		
+		String password = user.getPassword();
 		//ModeAndView Spring中的一个方便跳转类  spring 进行解析
 		user = userService.login(user.getUserName(), user.getPassword());
 		System.out.println("after "+user);
+		
+		if (user == null) {
+			return new ModelAndView("forward:/").addObject("id", "user_null");
+		} else if (!password.equals(user.getPassword())) {
+			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
+		}
 //		
 //		if(user == null)
 //			return new ModelAndView("forward:/");

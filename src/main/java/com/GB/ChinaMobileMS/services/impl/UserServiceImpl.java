@@ -18,11 +18,11 @@ public class UserServiceImpl implements UserService {
 		
 		User user = userMapper.findByUserName(userName);
 		//username是一个主键 可以获取user整个对象
-		if(user == null){
-			System.out.println("用户名错误或不存在");
-		}else if(!password.equals(user.getPassword())){
-			System.out.println("用户名或密码错误");
-		}
+//		if(user == null){
+//			System.out.println("用户名错误或不存在");
+//		}else if(!password.equals(user.getPassword())){
+//			System.out.println("用户名或密码错误");
+//		}
 		return user;
 	}
 
