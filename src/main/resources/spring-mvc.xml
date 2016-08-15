@@ -31,13 +31,13 @@
 	<context:component-scan base-package="com.GB.ChinaMobileMS.controller" />
 
 
-	<!-- 拦截器 
+	<!-- 拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/u/**"/>
-			<bean class="cn.edu.scau.weibo.interceptor.LoginInterceptor"/>
+			<mvc:mapping path="/u/*"/>
+			<bean class="com.GB.ChinaMobileMS.Interceptor.LoginInterceptor"/>
 		</mvc:interceptor> 
-	</mvc:interceptors> -->
+	</mvc:interceptors> 
 
 	<!-- 视图 -->
 	<bean
