@@ -38,20 +38,20 @@
 				</div>
 				
 
-				<form class="form-horizontal">
+				<form class="form-horizontal" action = "/addUser"method="post">
 				  <h3 style="text-align: center;">添加用户</h3>
 
 				  <div class="form-group">
 				    <label class="col-sm-4 control-label">账号</label>
 				    <div class="col-sm-5">
-				      <input type="text" class="form-control" placeholder="请输入用账号">
+				      <input name ="userName" type="text" class="form-control" placeholder="请输入用账号">
 				    </div>
 				  </div>
 
 				  <div class="form-group">
 				    <label class="col-sm-4 control-label">密码</label>
 				    <div class="col-sm-5">
-				      <input type="password" class="form-control" placeholder="请输入密码">
+				      <input  type="password" class="form-control" placeholder="请输入密码">
 				    </div>
 				  </div>
 
@@ -139,9 +139,10 @@
 				  <div class="form-group">
 				    <div class="col-sm-offset-5 col-sm-5">
 				      <button type="submit" class="btn btn-default">新建</button>
-				      <a href="system-user.html" class="btn btn-default">返回</a>
+				      <a href="system-?id=user" class="btn btn-default">返回</a>
 				    </div>
 				  </div>
+				  
 				</form>
 			</div>
 		</div>
