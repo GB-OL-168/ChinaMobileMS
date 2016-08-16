@@ -22,7 +22,7 @@
 						  <li><a href="#">系统设置</a></li>
 						  <li><a href="#">参数设置</a></li>
 						  <li class="dropdown active">
-						  	<a href="system-?id=paremeter" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">提醒信息 
+						  	<a href="/system/paremeter" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">提醒信息 
 						  		<!-- <span class="caret"></span> -->
 						  	</a>
 					          <!-- <ul class="dropdown-menu">
@@ -32,7 +32,7 @@
 						</ol>
 					</div>
 					<div class="col-md-3">
-						<a href="system-?id=parameter-update" class="btn btn-default btn-xs">新增信息</a>
+						<a href="/system/parameter-update" class="btn btn-default btn-xs">新增信息</a>
 					</div>
 					
 					

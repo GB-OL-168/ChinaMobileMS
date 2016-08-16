@@ -5,33 +5,36 @@
 <html> 
 <head>
 <meta charset="utf-8">
-	<title>后勤服务中心管理信息系统 - 权限设置</title>
+	<title>上市公司资产信息管理 - 物业服务管理</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
+
 	<div class="container">
-		
+		      
 		<div class="row">
 			<div class="col-md-10 main">
-				<div class="row">
+				<div class="row"> 
 					<div class="col-md-5">
 						<ol class="breadcrumb">
-						  <li><a href="#">系统设置</a></li>
-						  <li><a href="#">权限设置</a></li>
+						  <li><a href="#">物业服务管理</a></li>
+						  <li><a href="#">管理方应用</a></li>
 						  <li class="dropdown active">
-						  	<a href="/system/role-authorization" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色授权 <span class="caret"></span></a>
+						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 系统参数<span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/system/role-assignment">角色分配</a></li>
-					          </ul>
+					            <li><a href="/property/management">申请状态
+					            </a></li>
+					             <li><a href="/property/management-system">服务数据
+					            </a></li>
+					          </ul>  
 						  </li>
 						</ol>
 					</div>
-
 					<div class="col-md-3">
-						<a href="/system/role-authorization-add" class="btn btn-default btn-xs">系统角色设置</a>
+						<a class="btn btn-default btn-xs" href="/property/management-system-add">增加系统参数</a>
 					</div>
 					
 					<div class="col-md-4">
@@ -43,36 +46,20 @@
 					    </div>
 					</div>
 				</div>
-				
-
+				                     
 				<table class="table table-bordered">
-					<h4 style="text-align: center;">已设置角色权限</h4>
-				  <tr>
-				  	<th>编号</th>
-				  	<th>角色名称</th>
-				  	<th>角色权限</th>
-				  	<th>角色描述</th>
+				  <tr>                       
+				  	<th>序号</th>
+				  	<th>服务类型</th>
+				  	<th>常规服务范围描述</th>
+				  	<th>临时需求范围描述</th>
 				  	<th>操作</th>
 				  </tr>
 				  <tr>
 				  	<th>1</th>
 				  	<th>zhangsan</th>
-				  	<th>Admin</th>
-				  	<th>miaoshu</th>
-				  	<th><a href="">update</a> | <a href="">remove</a></th>
-				  </tr>
-				  <tr>
-				  	<th>2</th>
 				  	<th>zhangsan</th>
-				  	<th>role2</th>
-				  	<th>miaoshu</th>
-				  	<th><a href="">update</a> | <a href="">remove</a></th>
-				  </tr>
-				  <tr>
-				  	<th>3</th>
-				  	<th>zhangsan</th>
-				  	<th>role3</th>
-				  	<th>miaoshu</th>
+				  	<th>1234456</th>
 				  	<th><a href="">update</a> | <a href="">remove</a></th>
 				  </tr>
 				</table>

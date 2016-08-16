@@ -19,44 +19,50 @@
                             <li>
                                 <a href="#"><i class="icon-cogs icon-2x"></i>&nbsp&nbsp<strong>系统设置</strong></a>
                                 <ul>
-                                    <li><a href="/system-?id=user" target="main">账号管理</a></li>
-                                    <li><a href="/system-?id=role-assignment" target="main">权限设置</a></li>
-                                    <li><a href="/system-?id=parameter" target="main">参数配置</a></li>
-                                    <li><a href="/system-?id=data" target="main">数据备份</a></li>
+                                    <li><a href="/system/user" target="/u/main">账号管理</a></li>
+                                    <li><a href="/system/role-assignment" target="/u/main">权限设置</a></li>
+                                    <li><a href="/system/parameter" target="/u/main">参数配置</a></li>
+                                    <li><a href="/system/data" target="/u/main">数据备份</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#"><i class="icon-bar-chart icon-2x"></i>&nbsp&nbsp<strong>信息管理平台</strong></a>
                                 <ul>
-                                    <li><a href="/function/" target="main">上市公司资产信息</a></li>
-                                    <li><a href="/function/" target="main">全省车辆信息</a></li>
-                                    <li><a href="/function/" target="main">省公司维修维护信息</a></li>
-                                    <li><a href="/function/" target="main">省公司公务电话信息</a></li>
-                                    <li><a href="/function/" target="main">服务公司资产信息</a></li>
-                                    <li><a href="/function/" target="main">省公司交通信息</a></li>
-                                    <li><a href="/function/" target="main">省公司水电能耗信息</a></li>
+                                    <li><a href="/function/" target="/u/main">上市公司资产信息</a></li>
+                                    <li><a href="/function/" target="/u/main">全省车辆信息</a></li>
+                                    <li><a href="/function/" target="/u/main">省公司维修维护信息</a></li>
+                                    <li><a href="/function/" target="/u/main">省公司公务电话信息</a></li>
+                                    <li><a href="/function/" target="/u/main">服务公司资产信息</a></li>
+                                    <li><a href="/function/" target="/u/main">省公司交通信息</a></li>
+                                    <li><a href="/function/" target="/u/main">省公司水电能耗信息</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#"><i class="icon-briefcase icon-2x"></i>&nbsp&nbsp<strong>服务功能应用</strong></a>
                                 <ul>
-                                    <li><a href="/function/" target="main">办公设备租贷</a></li>
-                                    <li><a href="/function/" target="main">维修维护服务申请</a></li>
-                                    <li><a href="/function/" target="main">配餐维护服务申请</a></li>
-                                    <li><a href="/function/" target="main">配餐中心用餐申请</a></li>
-                                    <li><a href="/function/" target="main">省公司公务通信服务</a></li>
-                                    <li><a href="/function/" target="main">办公家具请购</a></li>
-                                    <li><a href="function/" target="main">物业服务需求申请</a></li>
-                                    <li><a href="/function/" target="main">面点预订</a></li>
-                                    <li><a href="/function/" target="main">省公司房屋分配</a></li>
-                                    <li><a href="/function/" target="main">海报张贴服务</a></li>
+                                    <li><a href="/function/" target="/u/main">办公设备租贷</a></li>
+                                    <li><a href="/function/" target="/u/main">维修维护服务申请</a></li>
+                                    <li><a href="/function/" target="/u/main">配餐维护服务申请</a></li>
+                                    <li><a href="/function/" target="/u/main">配餐中心用餐申请</a></li>
+                                    <li><a href="/function/" target="/u/main">省公司公务通信服务</a></li>
+                                    <li><a href="/function/" target="/u/main">办公家具请购</a></li>
+                                    <li><a>物业服务需求申请</a>
+                                        <ul>
+                                            <li><a href="/property/server" target="/u/main">申请方应用</a></li>
+                                            <li><a href="/property/auditing" target="/u/main">审核方应用</a></li>
+                                            <li><a href="/property/management" target="/u/main">管理方应用</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/function/" target="/u/main">面点预订</a></li>
+                                    <li><a href="/function/" target="/u/main">省公司房屋分配</a></li>
+                                    <li><a href="/function/" target="/u/main">海报张贴服务</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong></a>
                                 <ul>
-                                    <li><a href="/function/" target="main">物业服务考评</a></li>
-                                    <li><a href="/function/" target="main">用餐张贴满意度调查</a></li>
+                                    <li><a href="/function/" target="/u/main">物业服务考评</a></li>
+                                    <li><a href="/function/" target="/u/main">用餐张贴满意度调查</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -71,6 +77,10 @@
                 e.preventDefault();
                 $( this ).siblings("ul").slideToggle().parent("li").siblings().children("ul").slideUp();
             });
+       $(".menu>li>ul>li>a").click(function(e){
+           ///e.preventDefault();
+           $( this ).siblings("ul").slideToggle();
+       });
         });
     </script>
 </body>

@@ -23,9 +23,9 @@
 						  <li><a href="#">系统设置</a></li>
 						  <li><a href="#">权限设置</a></li>
 						  <li class="dropdown active">
-						  	<a href="system-?id=role-authorization" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色授权 <span class="caret"></span></a>
+						  	<a href="/system/role-authorization" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">角色授权 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="system-?id=role-assignment">角色分配</a></li>
+					            <li><a href="/system/role-assignment">角色分配</a></li>
 					          </ul>
 						  </li>
 						</ol>
@@ -55,10 +55,10 @@
 				    <label  class="col-sm-3 control-label">权限</label>
 				    <div class="col-sm-8">
 				      <label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 超级管理员
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 系统管理员
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 普通管理员
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 分级管理员
 						</label>
 						<label class="checkbox-inline">
 						  <input type="checkbox" id="inlineCheckbox3" value="option3">普通用户
