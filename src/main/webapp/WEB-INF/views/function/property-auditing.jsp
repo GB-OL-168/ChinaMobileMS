@@ -50,28 +50,41 @@
 				  	<th>服务地点</th>
 				  	<th>申请人</th>
 				  	<th>联系方式</th>
-				  	<th>临时</th>
+				  	<th>临时需求</th>
+				  	<th>当前状态</th>
 				  	<th>说明</th>
 				  	<th>操作</th>
 				  </tr>
-				    <c:forEach items="${ propertyServiceList}" var="a">
+				    <c:forEach items="${propertyServiceList}" var="a">
 				  <tr>
-				  	<th>1</th>
+				  	<th>${a.propertyTableId}</th>
 				  	<th>${a.applyTime}</th>
 				  	<th>${a.serviceDate}</th>
 				  	<th>${a.concreteTime}</th>
-				  	<th>${a.serviceLocation }</th>
+				  	<th>${a.serviceLocation}</th>
 				  	<th>${a.applyUserName}</th>
 				  	<th>${a.contactInfo}</th>
-				  	<th>${a.enviromentMaintain}</th>
+				  	<th>${a.temporaryDemand}</th>
+				  	<th>${a.status}</th>
 				  	<th>show</th>
-				  	<th><a href="/property/propertyService/${a.propertyTableId}">agree</a> | <a href="">disagree</a></th>
+				  	<th>
+				  	<c:choose>
+				  		<c:when test="${a.status == 2 or a.status == 1}">
+				  			No operation
+				  		</c:when>
+				  		<c:otherwise>
+				  			<a href="/property/propertyService/${a.propertyTableId}/${1}">agree</a> | <a href="/property/propertyService/${a.propertyTableId}/${2} " >disagree</a>
+				  		</c:otherwise>
+				  	</c:choose>
+				 
+				  	</th>
+				  	
 				  </tr>
 				  </c:forEach>
 				</table>
 			</div>
 		</div>
 	</div>
-
+	
 </body>
 </html>

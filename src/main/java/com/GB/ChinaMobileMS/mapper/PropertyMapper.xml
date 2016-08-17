@@ -8,6 +8,12 @@
 		select *
 		from property_table
 	</select>
+	<update id="updateStatus" parameterType="int">
+		update property_table 
+		set
+		status=#{status}
+		where property_table_id=#{id}
+	</update>
 	<!-- SQL语句 namespace命名空间  id UserMapper里面的方法名  
 	parameterType参数列表 resultType 返回的类型 -->
 </mapper>
