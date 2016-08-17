@@ -43,7 +43,13 @@
 				</div>
 				
 				
-				<form class="form-horizontal">
+				<form class="form-horizontal" action = "/addPropertyApplicant"method="post">
+				  <div class="form-group">     
+				    <label for="inputEmail3" class="col-sm-2 control-label">所属公司</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="inputEmail3" placeholder="所属公司">
+				    </div>
+				  </div>
 				  <div class="form-group">     
 				    <label for="inputEmail3" class="col-sm-2 control-label">申请部门</label>
 				    <div class="col-sm-10">
