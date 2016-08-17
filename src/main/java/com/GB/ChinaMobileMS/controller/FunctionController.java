@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
@@ -22,7 +24,8 @@ public class FunctionController {
 
 	@Autowired
 	private UserService userService;
-	
+	@Autowired
+	private PropertyServices propertyServices;
 
 	@RequestMapping(value="/system/{id}", method=RequestMethod.GET)
 	public ModelAndView systemUser(User user,@PathVariable("id") String id, HttpSession session){
@@ -75,8 +78,12 @@ public class FunctionController {
 		
 		if(id.equals("server"))
 			return new ModelAndView("/function/property-server");
-		else if(id.equals("auditing"))
-			return new ModelAndView("/function/property-auditing");
+		else if(id.equals("auditing")){
+			List<PropertyServiceEntity> propertyServiceList = propertyServices.auditParty();
+			Map map =new HashMap();
+			map.put("propertyServiceList",propertyServiceList);//userlist是个Arraylist之类的  
+			return new ModelAndView("/function/property-auditing",map);
+		}
 		else if(id.equals("management"))
 			return new ModelAndView("/function/property-management");
 		else if(id.equals("management-data"))
@@ -90,5 +97,29 @@ public class FunctionController {
 		else
 			return new ModelAndView("forward:/");
 	}
+	
+	@RequestMapping(value="/service/{id}", method=RequestMethod.GET)
+	public ModelAndView ServiceUser(User user,@PathVariable("id") String id, HttpSession session){
+		
+		if(id.equals("management-check"))
+			return new ModelAndView("/function/service-management-check");
+		else if(id.equals("management-table-make")){
+			System.out.println("测试一下");
+			return new ModelAndView("/function/service-management-table-make");	
+		}
+		
+		else if(id.equals("table-info"))
+			return new ModelAndView("/function/service-table-info");
+		else if(id.equals("management-send"))
+			return new ModelAndView("/function/service-management-send");
+		else if(id.equals("date-statistics"))
+			return new ModelAndView("/function/service-date-statistics");
+		else if(id.equals("table-write"))
+			return new ModelAndView("/function/service-table-write");
+		else
+			return new ModelAndView("forward:/");
+	}
+	
+	
 	
 }

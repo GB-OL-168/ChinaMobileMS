@@ -61,7 +61,7 @@
                             <li>
                                 <a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong></a>
                                 <ul>
-                                    <li><a href="/function/" target="/u/main">物业服务考评</a></li>
+                                    <li><a href="/service/management-check" target="/u/main">物业服务考评</a></li>
                                     <li><a href="/function/" target="/u/main">用餐张贴满意度调查</a></li>
                                 </ul>
                             </li>
