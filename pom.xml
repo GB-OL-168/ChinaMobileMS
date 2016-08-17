@@ -22,6 +22,7 @@
 		<dbcp2.version>2.1.1</dbcp2.version>
 		<mysql-connector-java.version>5.1.39</mysql-connector-java.version>
 		<aspectjweaver.version>1.8.9</aspectjweaver.version>
+		<activiti.version>5.21.0</activiti.version>
 	</properties>
 
 	<!-- 依赖管理 -->
@@ -154,6 +155,18 @@
 			<artifactId>woodstox-core-asl</artifactId>
 			<version>${codehaus.woodstox.version}</version>
 		</dependency>
+
+		<!-- Activiti -->
+		<dependency>
+		  <groupId>org.activiti</groupId>
+		  <artifactId>activiti-engine</artifactId>
+		  <version>${activiti.version}</version>
+		</dependency>
+		<dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
 
 		<!-- 上传支持 -->
 		<dependency>
