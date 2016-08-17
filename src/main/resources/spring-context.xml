@@ -18,8 +18,8 @@
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://114.215.101.221:3306/cmcc" />
-		<property name="username" value="remote" />
-		<property name="password" value="remote" />
+		<property name="username" value="manager" />
+		<property name="password" value="manager" />
 	</bean>
 
 	<!-- 配置sqlSessionFactory -->
@@ -31,6 +31,9 @@
 		<property name="mapperLocations">
 			<array>
 				<value>classpath:com/GB/ChinaMobileMS/mapper/*.xml</value>
+				<!-- 
+				<value>classpath:org/activiti/db/mapping/entity/*.xml</value>
+				 -->
 			</array>
 		</property>
 	</bean>
@@ -47,6 +50,27 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<!-- Activiti -->
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+         <property name="dataSource" ref="dataSource" />
+         <property name="transactionManager" ref="transactionManager" />
+         <property name="databaseSchemaUpdate" value="true" />
+         <property name="jobExecutorActivate" value="false" />
+    </bean>
+    <bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+         <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+    </bean>
+    <bean id="repositoryService" factory-bean="processEngine"
+         factory-method="getRepositoryService" />
+    <bean id="runtimeService" factory-bean="processEngine"
+         factory-method="getRuntimeService" />
+    <bean id="taskService" factory-bean="processEngine"
+         factory-method="getTaskService" />
+    <bean id="historyService" factory-bean="processEngine"
+         factory-method="getHistoryService" />
+    <bean id="managementService" factory-bean="processEngine"
+         factory-method="getManagementService" />
 
 	<!-- 注解事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />

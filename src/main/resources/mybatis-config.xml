@@ -8,4 +8,12 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 		<setting name="useGeneratedKeys" value="true"/>
 	</settings>
+	<typeAliases>
+    <typeAlias type="org.activiti.engine.impl.persistence.ByteArrayRefTypeHandler" alias="ByteArrayRefTypeHandler"/>
+  	</typeAliases>
+  	<typeHandlers>
+    	<typeHandler handler="ByteArrayRefTypeHandler" 
+                 javaType="org.activiti.engine.impl.persistence.entity.ByteArrayRef"
+                 jdbcType="VARCHAR"/>
+  	</typeHandlers>
 </configuration>
