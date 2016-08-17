@@ -97,4 +97,28 @@ public class FunctionController {
 			return new ModelAndView("forward:/");
 	}
 	
+	@RequestMapping(value="/service/{id}", method=RequestMethod.GET)
+	public ModelAndView ServiceUser(User user,@PathVariable("id") String id, HttpSession session){
+		
+		if(id.equals("management-check"))
+			return new ModelAndView("/function/service-management-check");
+		else if(id.equals("management-table-make")){
+			System.out.println("测试一下");
+			return new ModelAndView("/function/service-management-table-make");	
+		}
+		
+		else if(id.equals("table-info"))
+			return new ModelAndView("/function/service-table-info");
+		else if(id.equals("management-send"))
+			return new ModelAndView("/function/service-management-send");
+		else if(id.equals("date-statistics"))
+			return new ModelAndView("/function/service-date-statistics");
+		else if(id.equals("table-write"))
+			return new ModelAndView("/function/service-table-write");
+		else
+			return new ModelAndView("forward:/");
+	}
+	
+	
+	
 }
