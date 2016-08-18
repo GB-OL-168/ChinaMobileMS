@@ -24,6 +24,21 @@
 .top>a:hover{
     color:#fff;
 }
+
+/*账号信息样式*/
+.top>.account_info{
+    margin-left:35%;
+    width:200px;
+    height:20px;
+    /*background-color: #fff;*/
+}
+.top>.account_info>a{
+    list-style-type: none;
+    color:black;
+}
+
+
+
 /*天气样式*/
 .wea_time{
     width:100%;

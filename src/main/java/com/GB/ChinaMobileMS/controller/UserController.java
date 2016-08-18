@@ -1,5 +1,7 @@
 package com.GB.ChinaMobileMS.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,56 +34,41 @@ public class UserController {
 		} else if (!password.equals(user.getPassword())) {
 			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
 		}
-//		
-//		if(user == null)
-//			return new ModelAndView("forward:/");
-		//用户不存在，停留在当前页面；
 
 		session.setAttribute("user", user);
-		//session 整个会话中一个对象
-//		return "redirect:index.jsp?username=" + user.getUserName();
-//		return new ModelAndView("main").addObject("username", user.getUserName());
 		return new ModelAndView("redirect:/u/main");
-		//登录成功跳转页面  main页面的名字；
-		//addObject 相当于request.addAttribute(key,value);
 	}
 	
-
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	public ModelAndView addUser(User user){
 		
-		String string = userService.addUser(user);
-		
-		
-//		ModelAndView model = new ModelAndView("main");
-//		model.addObject("list", "");
-		
-//		System.out.println("after "+user);
-		
-//		if(user == null)
-//			return new ModelAndView("forward:/");
-		
-//		session.setAttribute("user", user);
-		
-//		return "redirect:index.jsp?username=" + user.getUserName();
+//		String string = userService.addUser(user);
 		return new ModelAndView("main").addObject("username", user.getUserName());
-//		return model;
 	}
 	
 	
-	
+//	登出
+	@RequestMapping("/logout2")
+	public ModelAndView logout(HttpSession session){
+		System.out.println("退出成功");	
+		session.invalidate();
+		return new ModelAndView("redirect:/login.jsp");
+	}
 
+	
 	@RequestMapping(value="/u/top", method=RequestMethod.GET)
-	public ModelAndView top(User user, HttpSession session){
+	public ModelAndView top(){
+//		User user=(User) session.getAttribute("user");
+//		session.setAttribute("user", user);
 		return new ModelAndView("top");
 	}
 	
 	@RequestMapping(value="/u/left", method=RequestMethod.GET)
-	public ModelAndView left(User user, HttpSession session){
+	public ModelAndView left(HttpSession session){
 		return new ModelAndView("left");
 	}
 	@RequestMapping(value="/u/main", method=RequestMethod.GET)
-	public ModelAndView main(User user,HttpSession session){
+	public ModelAndView main(HttpSession session){
 		//if(session.getAttribute("user")!=null)
 		return new ModelAndView("main");
 		//return new ModelAndView("redirect:/login");
