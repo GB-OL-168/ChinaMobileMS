@@ -44,31 +44,31 @@
 				  <div class="form-group">
 				    <label for="topic" class="col-sm-2 control-label">标题</label>
 				    <div class="col-sm-10">
-				      <label class="control-label-content">A topic.</label>
+				      <label class="control-label-content"><%=request.getAttribute("topic") %> </label>
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="datetime" class="col-sm-2 control-label">提醒时间</label>
 				    <div class="col-sm-10">
-				      <label class="control-label-content">A datetime.</label>
+				      <label class="control-label-content"><%=request.getAttribute("time") %> </label>
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="content" class="col-sm-2 control-label">提醒内容</label>
 				    <div class="col-sm-10">
-				      <label class="control-label-content">A content.</label>
+				      <label class="control-label-content"><%=request.getAttribute("content") %> </label>
 				    </div>
 				  </div>
-				  <div class="form-group">
-				    <label for="file" class="col-sm-2 control-label">附件</label>
-				    <div class="col-sm-10">
-				      <label class="control-label-content">A file.</label>
-				    </div>
-				  </div>
+<!-- 				  <div class="form-group"> -->
+<!-- 				    <label for="file" class="col-sm-2 control-label">附件</label> -->
+<!-- 				    <div class="col-sm-10"> -->
+<!-- 				      <label class="control-label-content">A file.</label> -->
+<!-- 				    </div> -->
+<!-- 				  </div> -->
 				  <div class="form-group">
 				    <label  class="col-sm-2 control-label">提醒对象</label>
 				    <div class="col-sm-10">
-				      <label class="control-label-content">A object.</label>
+				      <label class="control-label-content">Role <%=request.getAttribute("recomandRoleId") %> </label>
 				    </div>
 				  </div>
 				</form>
