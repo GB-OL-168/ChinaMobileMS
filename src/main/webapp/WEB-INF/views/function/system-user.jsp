@@ -43,17 +43,13 @@
 
 
 				<table class="table table-bordered">
-					<h3 style="text-align: center;">设置系统角色</h3>
+					<h3 style="text-align: center;">用户列表</h3>
 					<tr>
 						<th>ID</th>
 						<th>用户名</th>
 						<th>操作</th>
 					</tr>
-					<tr>
-						<th>1</th>
-						<th>zhangsan</th>
-						<th><a href="">修改资料</a> | <a href="">删除用户</a></th>
-					</tr>
+
 
 					<%-- <%
 						List<Object> all = (List<Object>) request.getAttribute("listUser");

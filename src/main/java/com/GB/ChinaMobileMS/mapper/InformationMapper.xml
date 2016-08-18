@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.GB.ChinaMobileMS.dao.InformationMapper">
+	<select id="findbyInfoID"  resultType="com.GB.ChinaMobileMS.entity.Information">
+		select *
+		from information
+		where info_id= 1
+	</select>
+	<insert id="updateInfo"  parameterType="Information" >
+		update
+		information 
+		set
+		topic = #{topic},
+		time = #{time},
+		content = #{content},
+		recomand_role_id = #{recomandRoleId}
+		where info_id = 1
+	</insert>
+	<!-- SQL语句 namespace命名空间  id UserMapper里面的方法名  
+	parameterType参数列表 resultType 返回的类型 -->
+</mapper>
