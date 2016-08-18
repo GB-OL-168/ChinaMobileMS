@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.GB.ChinaMobileMS.entity.Information;
+import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.InfoService;
+import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
@@ -26,7 +28,8 @@ public class FunctionController {
 	private UserService userService;
 	@Autowired
 	private InfoService infoService;
-	
+	@Autowired
+	private PropertyServices propertyService;
 
 	@RequestMapping(value="/system/{id}", method=RequestMethod.GET)
 	public ModelAndView systemUser(User user,@PathVariable("id") String id, HttpSession session){
@@ -72,8 +75,12 @@ public class FunctionController {
 		
 		if(id.equals("server"))
 			return new ModelAndView("/function/property-server");
-		else if(id.equals("auditing"))
-			return new ModelAndView("/function/property-auditing");
+		else if(id.equals("auditing")){
+			List<PropertyServiceEntity> propertyList=propertyService.auditParty();
+			Map map =new HashMap();
+			map.put("propertyServiceList", propertyList);
+			return new ModelAndView("/function/property-auditing",map);
+		}
 		else if(id.equals("management"))
 			return new ModelAndView("/function/property-management");
 		else if(id.equals("management-data"))
