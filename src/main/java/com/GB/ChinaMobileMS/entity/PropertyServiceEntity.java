@@ -20,6 +20,8 @@ public class PropertyServiceEntity {
 	private int gotId;
 	private String applyTime;
 	private String concreteTime;
+	private int status;
+	private String temporaryDemand;
 	public int getPropertyTableId() {
 		return propertyTableId;
 	}
@@ -134,6 +136,20 @@ public class PropertyServiceEntity {
 	}
 	public void setConcreteTime(String concreteTime) {
 		this.concreteTime = concreteTime;
+	}
+	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
+	public String getTemporaryDemand() {
+		return temporaryDemand;
+	}
+	public void setTemporaryDemand(String temporaryDemand) {
+		this.temporaryDemand = temporaryDemand;
 	}
 	@Override
 	public int hashCode() {

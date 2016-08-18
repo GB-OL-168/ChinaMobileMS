@@ -32,7 +32,6 @@ public class FunctionController {
 		//requestParam获取参数id
 		System.out.println("id="+id);
 		if(id.equals("user")){
-			
 			List<User> listUser = userService.listUser();
 			
 //			ModelAndView model = new ModelAndView("main");
@@ -41,7 +40,7 @@ public class FunctionController {
 			
 			Map map =new HashMap();
 			map.put("listUser",listUser);//userlist是个Arraylist之类的  
-
+	
 			return new ModelAndView("/function/system-user",map);
 //			model.addAllObjects();
 //			

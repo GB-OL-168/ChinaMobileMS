@@ -43,7 +43,7 @@ public class TestActiviti {
 	@Test
 	public void nextTest(){//usertask1
 
-		List<Task> tasks = taskService.createTaskQuery().executionId("130001").list();
+		List<Task> tasks = taskService.createTaskQuery().executionId("140001").list();
 //		List<Task> tasks = taskService.createTaskQuery().taskId("110004").list();
 		System.out.println("task size = " + tasks.size());
 		for (Task task : tasks) {
