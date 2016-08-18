@@ -43,8 +43,8 @@
 				</div>
 				
 				
-				<form class="form-horizontal" action = "/addPropertyApplicant"method="post">
-				  <div class="form-group">     
+				<form class="form-horizontal" action = "/addPropertyApplicant" method="post">
+				<div class="form-group">     
 				    <label for="inputEmail3" class="col-sm-2 control-label">所属公司</label>
 				    <div class="col-sm-10">
 				      <input type="text" class="form-control" id="inputEmail3" placeholder="所属公司">
@@ -57,7 +57,7 @@
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <label for="inputPassword3" class="col-sm-2 control-label">申请人</label>
+				    <label  for="inputPassword3" class="col-sm-2 control-label">申请人</label>
 				    <div class="col-sm-10">
 				      <input type="text" class="form-control" id="inputPassword3" placeholder="申请人">
 				    </div>
@@ -65,73 +65,73 @@
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">服务日期</label>
 				    <div class="col-sm-10">
-				      <input type="date" class="form-control" id="inputPassword3" placeholder="服务日期">
+				      <input name ="serviceDate" type="date" class="form-control" id="inputPassword3" placeholder="服务日期">
 				    </div>
 				  </div>
 				  <div class="form-group">   
 				    <label for="inputPassword3" class="col-sm-2 control-label">联系方式</label>
 				    <div class="col-sm-10">
-				      <input type="tel" class="form-control" id="inputPassword3" placeholder="联系方式">
+				      <input name ="contactInfo" type="tel" class="form-control" id="inputPassword3" placeholder="联系方式">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">具体时间</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="具体时间">
+				      <input name ="concreteTime" type="time" class="form-control" id="inputPassword3" placeholder="具体时间">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">服务地点</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="serviceLocation" type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">礼仪接待</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="receptionService" type="text" class="form-control" id="inputPassword3" placeholder="详细描述">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">秩序维护</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="olderMantain" type="text" class="form-control" id="inputPassword3" placeholder="详细描述">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">就餐服务</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="diningService" type="text" class="form-control" id="inputPassword3" placeholder="详细描述">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">环境维护</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="enviromentMaintain" type="text" class="form-control" id="inputPassword3" placeholder="详细描述">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">工程管理</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="engineeringManage" type="text" class="form-control" id="inputPassword3" placeholder="详细描述">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">消防管理</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="firefightingManage" type="text" class="form-control" id="inputPassword3" placeholder="详细描述">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">备注</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="addition" type="text" class="form-control" id="inputPassword3" placeholder="备注">
 				    </div>
 				  </div>
 				  <div class="form-group">        
 				    <div class="col-sm-offset-2 col-sm-10">
-				      <button type="submit" class="btn btn-default">提交</button>
-				      <a href="property-applicant.html" class="btn btn-default">返回</a>
+				     <button type="submit"  class="btn btn-default"  >提交</button>
+				      <input type="button" class="btn btn-default" name="back" value="返回" onclick="javascript:history.back(-1);"/>
 				    </div>
 				  </div>
 				</form>

@@ -47,6 +47,7 @@ public class UserController {
 	}
 	
 
+	@SuppressWarnings("unused")
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	public ModelAndView addUser(User user){
 		

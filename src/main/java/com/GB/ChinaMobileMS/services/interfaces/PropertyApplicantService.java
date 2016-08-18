@@ -2,16 +2,15 @@ package com.GB.ChinaMobileMS.services.interfaces;
 
 import java.util.List;
 
-import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 
 public interface PropertyApplicantService {
-	User login(String userName, String password);
 	
 	/**
-	 * @Arron
-	 *添加用户
+	 * @Cindy
+	 *填写物业服务申请
 	 */
-	String addPropertyApplicant(User user);
+	String addPropertyApplicant(PropertyServiceEntity propertyApplicant);
 	
-	List<User> listUser();
+	List<PropertyServiceEntity> listPropertyApplicant();
 }

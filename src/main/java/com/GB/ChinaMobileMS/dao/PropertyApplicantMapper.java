@@ -2,14 +2,14 @@ package com.GB.ChinaMobileMS.dao;
 
 import java.util.List;
 
-import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 
-public class PropertyApplicantMapper {
+public interface PropertyApplicantMapper {
 	//数据库接口
-	User findByUserName(String userName);
+//	PropertyServiceEntity findByApplyUserName(String applyUserName);
 	
-	int insertUser(User user);
+	int insertPropertyApplicant(PropertyServiceEntity propertyApplicant);
 	
-	List<User> listUser();
+	List<PropertyServiceEntity> listPropertyApplicant();
 
 }

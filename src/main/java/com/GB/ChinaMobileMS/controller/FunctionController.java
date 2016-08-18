@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
+import com.GB.ChinaMobileMS.services.interfaces.PropertyApplicantService;
 
 @Controller
 public class FunctionController {
@@ -22,7 +25,10 @@ public class FunctionController {
 
 	@Autowired
 	private UserService userService;
-	
+	@Autowired
+	private PropertyServices propertyServices;
+	@Autowired
+	private PropertyApplicantService propertyApplicantService;
 
 	@RequestMapping(value="/system/{id}", method=RequestMethod.GET)
 	public ModelAndView systemUser(User user,@PathVariable("id") String id, HttpSession session){
@@ -49,7 +55,6 @@ public class FunctionController {
 //			return model;
 			
 		}else if(id.equals("user-add"))
-
 			return new ModelAndView("/function/system-user-add");
 		else if(id.equals("role-assignment"))
 			return new ModelAndView("/function/system-role-assignment");
@@ -71,12 +76,20 @@ public class FunctionController {
 	
 	
 	@RequestMapping(value="/property/{id}", method=RequestMethod.GET)
-	public ModelAndView propertyUser(User user,@PathVariable("id") String id, HttpSession session){
-		
-		if(id.equals("server"))
-			return new ModelAndView("/function/property-server");
-		else if(id.equals("auditing"))
-			return new ModelAndView("/function/property-auditing");
+	public ModelAndView propertyUser(User user,@PathVariable("id") String id, HttpSession session){	
+		if(id.equals("server")){
+			List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.listPropertyApplicant();
+//			System.out.println("Function controller: "+ listPropertyApplicant);
+			Map map =new HashMap();
+			map.put("listPropertyApplicant",listPropertyApplicant);
+			return new ModelAndView("/function/property-server",map);
+		}
+		else if(id.equals("auditing")){
+			List<PropertyServiceEntity> propertyServiceList = propertyServices.auditParty();
+			Map map =new HashMap();
+			map.put("propertyServiceList",propertyServiceList);//userlist是个Arraylist之类的  
+			return new ModelAndView("/function/property-auditing",map);
+		}
 		else if(id.equals("management"))
 			return new ModelAndView("/function/property-management");
 		else if(id.equals("management-data"))
@@ -84,7 +97,7 @@ public class FunctionController {
 		else if(id.equals("management-system"))
 			return new ModelAndView("/function/property-management-system");
 		else if(id.equals("management-system-add"))
-			return new ModelAndView("/function/property-management-system-add");
+			return new ModelAndView("/function/property-management-system-add");		
 		else if(id.equals("applicant"))
 			return new ModelAndView("/function/property-applicant");
 		else
