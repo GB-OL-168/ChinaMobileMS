@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.GB.ChinaMobileMS.entity.Information;
 import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.services.interfaces.InfoService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyApplicantService;
@@ -26,33 +28,24 @@ public class FunctionController {
 	@Autowired
 	private UserService userService;
 	@Autowired
+
 	private PropertyServices propertyServices;
 	@Autowired
 	private PropertyApplicantService propertyApplicantService;
+
+	private InfoService infoService;
+	@Autowired
+	private PropertyServices propertyService;
+
 
 	@RequestMapping(value="/system/{id}", method=RequestMethod.GET)
 	public ModelAndView systemUser(User user,@PathVariable("id") String id, HttpSession session){
 		//requestParam获取参数id
 		System.out.println("id="+id);
 		if(id.equals("user")){
-			
-			List<User> listUser = userService.listUser();
-			
-//			ModelAndView model = new ModelAndView("main");
-//			System.out.println("User2 = " +listUser.get(2));
-//			model.addObject("listUser", listUser);
-			
-			Map map =new HashMap();
-			map.put("listUser",listUser);//userlist是个Arraylist之类的  
 
-			return new ModelAndView("/function/system-user",map);
-//			model.addAllObjects();
-//			
-//
-//
-//			model.setViewName("/function/system-user");
-//			
-//			return model;
+			return GetUserList();
+
 			
 		}else if(id.equals("user-add"))
 			return new ModelAndView("/function/system-user-add");
@@ -64,10 +57,18 @@ public class FunctionController {
 			return new ModelAndView("/function/system-role-authorization");
 		else if(id.equals("role-authorization-add"))
 			return new ModelAndView("/function/system-role-authorization-add");
-		else if(id.equals("parameter"))
-			return new ModelAndView("/function/system-parameter");
-		else if(id.equals("parameter-update"))
+		else if(id.equals("parameter"))	{
+		
+	
+			
+			return  GetInfo();
+			}
+		else if(id.equals("parameter-update")){
+			
+			
 			return new ModelAndView("/function/system-parameter-update");
+			
+		}
 		else if(id.equals("data"))
 			return new ModelAndView("/function/system-data");
 		else
@@ -85,9 +86,9 @@ public class FunctionController {
 			return new ModelAndView("/function/property-server",map);
 		}
 		else if(id.equals("auditing")){
-			List<PropertyServiceEntity> propertyServiceList = propertyServices.auditParty();
+			List<PropertyServiceEntity> propertyList=propertyService.auditParty();
 			Map map =new HashMap();
-			map.put("propertyServiceList",propertyServiceList);//userlist是个Arraylist之类的  
+			map.put("propertyServiceList", propertyList);
 			return new ModelAndView("/function/property-auditing",map);
 		}
 		else if(id.equals("management"))
@@ -104,4 +105,38 @@ public class FunctionController {
 			return new ModelAndView("forward:/");
 	}
 	
+	
+	public ModelAndView GetInfo()
+	{
+		Information info = infoService.findbyInfoID();
+		
+		ModelAndView mac =new ModelAndView("/function/system-parameter");
+		mac.addObject("topic",info.getTopic() );
+		mac.addObject("time",info.getTime() );
+		mac.addObject("content", info.getContent());
+		mac.addObject("recomandRoleId", info.getRecomandRoleId());
+		
+		return mac;
+	}
+	public  ModelAndView GetUserList()
+	{
+		List<User> listUser = userService.listUser();
+		
+//		ModelAndView model = new ModelAndView("main");
+//		System.out.println("User2 = " +listUser.get(2));
+//		model.addObject("listUser", listUser);
+		
+		Map map =new HashMap();
+		map.put("listUser",listUser);//userlist是个Arraylist之类的  
+
+		return new ModelAndView("/function/system-user",map);
+//		model.addAllObjects();
+//		
+//
+//
+//		model.setViewName("/function/system-user");
+//		
+//		return model;
+		
+	}
 }

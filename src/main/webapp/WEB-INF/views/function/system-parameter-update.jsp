@@ -32,63 +32,54 @@
 						<a href="/system/parameter-update" class="btn btn-default btn-xs">新增信息</a>
 					</div>
 					
-					<div class="col-md-4">
-						<div class="input-group">
-					      <input type="text" class="form-control input-sm" placeholder="Search for User">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default btn-sm" type="button">Go!</button>
-					      </span>
-					    </div>
-					</div>
 				</div>
 				
 
-				<form class="form-horizontal">
+				<form class="form-horizontal" action = "/updateInfo"method="post">
 				  <h4 style="text-align: center;">提醒信息设置</h4>
 				  <div class="form-group">
 				    <label for="topic" class="col-sm-2 control-label">标题</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="topic" placeholder="Topic">
+				      <input type="text" class="form-control" id="topic" placeholder="Topic" name="topic">
 				    </div>
 				  </div>
-				  <div class="form-group">
-				    <label for="datetime" class="col-sm-2 control-label">提醒时间</label>
-				    <div class="col-sm-5">
-				      <input type="date" class="form-control" id="datetime" placeholder="Datetime">
-				    </div>
-				    <div class="col-sm-5">
-				      <input type="time" class="form-control" id="datetime" placeholder="Datetime">
-				    </div>
-				  </div>
+<!-- 				  <div class="form-group"> -->
+<!-- 				    <label for="datetime" class="col-sm-2 control-label">提醒时间</label> -->
+<!-- 				    <div class="col-sm-5"> -->
+<!-- 				      <input type="date" class="form-control" id="datetime" placeholder="Datetime"> -->
+<!-- 				    </div> -->
+<!-- 				    <div class="col-sm-5"> -->
+<!-- 				      <input type="time" class="form-control" id="datetime" placeholder="Datetime"> -->
+<!-- 				    </div> -->
+<!-- 				  </div> -->
 				  <div class="form-group">
 				    <label for="content" class="col-sm-2 control-label">提醒内容</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="content" placeholder="Content">
+				      <input type="text" class="form-control" id="content" placeholder="Content" name="content">
 				    </div>
 				  </div>
-				  <div class="form-group">
-				    <label for="file" class="col-sm-2 control-label">附件</label>
-				    <div class="col-sm-10">
-				      <input type="file" class="" id="file" placeholder="File">
-				    </div>
-				  </div>
+<!-- 				  <div class="form-group"> -->
+<!-- 				    <label for="file" class="col-sm-2 control-label">附件</label> -->
+<!-- 				    <div class="col-sm-10"> -->
+<!-- 				      <input type="file" class="" id="file" placeholder="File"> -->
+<!-- 				    </div> -->
+<!-- 				  </div> -->
 				  <div class="form-group">
 				    <label  class="col-sm-2 control-label">提醒对象</label>
 				    <div class="col-sm-10">
-				      <select class="form-control">
-						  <option>All</option>
-						  <option>Role 1</option>
-						  <option>Role 2</option>
-						  <option>Role 3</option>
-						  <option>Role 4</option>
-						  <option>Role 5</option>
+				      <select class="form-control" name = "recomandRoleId">
+						  <option value="5">All</option>
+						  <option value="1">Role 1</option>
+						  <option value="2">Role 2</option>
+						  <option value="3">Role 3</option>
+						  <option value="4">Role 4</option>
 						</select>
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-4 col-sm-8">
 				      <button type="submit" class="btn btn-default">设置</button>
-				      <a href="system-parameter.html"class="btn btn-default">返回</a>
+				      <button type="submit" class="btn btn-default" onclick="javascript:history.back(-1);">返回</a>
 				    </div>
 				  </div>
 				</form>

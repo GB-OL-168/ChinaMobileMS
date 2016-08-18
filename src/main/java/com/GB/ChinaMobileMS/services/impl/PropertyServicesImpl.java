@@ -18,5 +18,9 @@ public class PropertyServicesImpl implements PropertyServices {
 		List<PropertyServiceEntity> propertylist=propertyMapper.findPropertyInfo();
 		return propertylist;
 	}
-
+	public boolean setStatus(int id,int status){
+		System.out.println("进入了 updateStatus 方法");
+		boolean sure=propertyMapper.updateStatus(id, status);
+		return sure;
+	}
 }
