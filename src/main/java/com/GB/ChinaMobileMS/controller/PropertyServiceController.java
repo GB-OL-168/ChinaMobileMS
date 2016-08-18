@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
+import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 @Controller
 public class PropertyServiceController {
@@ -30,7 +31,7 @@ public class PropertyServiceController {
 		boolean flag;
 		flag=updatePropertyServices.setStatus(id, status);
 		System.out.println(flag);
-		List<PropertyServiceEntity> propertyServiceList=updatePropertyServices.auditParty();
+		List<PropertyServiceEntity> propertyServiceList=updatePropertyServices.getPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
 		Map newmap=new HashMap();
 		newmap.put("propertyServiceList", propertyServiceList);
 		return new ModelAndView("/function/property-auditing",newmap);	

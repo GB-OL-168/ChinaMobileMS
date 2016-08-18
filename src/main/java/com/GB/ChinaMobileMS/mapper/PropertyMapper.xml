@@ -14,6 +14,13 @@
 		status=#{status}
 		where property_table_id=#{id}
 	</update>
+	
+	<select id="queryPopertyTableByID" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.PropertyServiceEntity">
+		select *
+		from property_table
+		where property_table_id = #{propertyTableID}
+	</select>
+	
 	<!-- SQL语句 namespace命名空间  id UserMapper里面的方法名  
 	parameterType参数列表 resultType 返回的类型 -->
 </mapper>

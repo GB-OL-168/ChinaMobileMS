@@ -78,7 +78,7 @@ public class FunctionController {
 		if(id.equals("server"))
 			return new ModelAndView("/function/property-server");
 		else if(id.equals("auditing")){
-			List<PropertyServiceEntity> propertyServiceList = propertyServices.auditParty();
+			List<PropertyServiceEntity> propertyServiceList = propertyServices.getPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
 			Map map =new HashMap();
 			map.put("propertyServiceList",propertyServiceList);//userlist是个Arraylist之类的  
 			return new ModelAndView("/function/property-auditing",map);

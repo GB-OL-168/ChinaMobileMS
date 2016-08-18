@@ -65,15 +65,31 @@
 				  	<th>${a.applyUserName}</th>
 				  	<th>${a.contactInfo}</th>
 				  	<th>${a.temporaryDemand}</th>
-				  	<th>${a.status}</th>
-				  	<th>show</th>
+				  	<th>
+				  		<c:choose>
+				  			<c:when test = "${a.status == 0}">
+				  					未开始
+				  			</c:when>
+				  			<c:when test = "${a.status == 1}">
+				  					审核中
+				  			</c:when>
+				  			<c:when test = "${a.status == 2}">
+				  					拒绝
+				  			</c:when>
+				  			<c:when test = "${a.status == 3}">
+				  					通过
+				  			</c:when>
+				  		</c:choose>
+				  	</th>
+				  	
+				  	<th>详情</th>
 				  	<th>
 				  	<c:choose>
-				  		<c:when test="${a.status == 2 or a.status == 1}">
-				  			No operation
+				  		<c:when test="${a.status == 2 or a.status == 3}">
+				  			已办理
 				  		</c:when>
 				  		<c:otherwise>
-				  			<a href="/property/propertyService/${a.propertyTableId}/${1}">agree</a> | <a href="/property/propertyService/${a.propertyTableId}/${2} " >disagree</a>
+				  			<a href="/property/propertyService/${a.propertyTableId}/${3}">通过</a> | <a href="/property/propertyService/${a.propertyTableId}/${2} " >拒绝</a>
 				  		</c:otherwise>
 				  	</c:choose>
 				 

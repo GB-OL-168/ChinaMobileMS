@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.GB.ChinaMobileMS.dao.ReviewMapper;
 import com.GB.ChinaMobileMS.entity.ReviewEntity;
+import com.GB.ChinaMobileMS.services.interfaces.ReviewService;
 
 @ContextConfiguration(locations = { "classpath:spring-context.xml" })
 public class ActivitiUtil {
@@ -25,7 +26,7 @@ public class ActivitiUtil {
 	private TaskService taskService;
 
 	@Autowired
-	private ReviewMapper reviewMapper;
+	private ReviewService reviewService;
 
 	/**
 	 * 部署流程图到服务器数据库，一个流程图只需部署一次
@@ -44,7 +45,9 @@ public class ActivitiUtil {
 	 */
 	public void startProcess(int propertyTableId, String vertifyUserID) {
 		String excutionID = runtimeService.startProcessInstanceByKey("myProcess").getId();
-		startReviewInDB(propertyTableId, excutionID, vertifyUserID);
+		if (!startReviewInDB(propertyTableId, excutionID, vertifyUserID)) {
+			System.out.println("开启审核失败");
+		}
 	}
 
 	/**
@@ -73,20 +76,8 @@ public class ActivitiUtil {
 	 * @param vertifyUserID
 	 *            审核人ID
 	 */
-	private void startReviewInDB(int propertyTableId, String excutionID, String vertifyUserID) {
-		ReviewEntity entity = new ReviewEntity();
-		entity.setPropertyTableId(propertyTableId);
-		entity.setStatus(0);
-		entity.setExcutionId(excutionID);
-		entity.setStage("申请");
-		entity.setVertifyUser(vertifyUserID);
-		entity.setFlowInfo("未审核");
-
-		int insertResert = reviewMapper.insertReview(entity);
-		if (insertResert == 0) {
-			System.out.println("审核数据插入失败");
-		}
+	private boolean startReviewInDB(int propertyTableId, String excutionID, String vertifyUserID) {
+		return reviewService.startReview(propertyTableId, excutionID, vertifyUserID);
 	}
-	
-	
+
 }
