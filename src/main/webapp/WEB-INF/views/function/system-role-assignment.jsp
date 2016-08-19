@@ -10,7 +10,11 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-
+	<style>
+	th{
+	    width:200px;
+	}
+	</style>
 </head>
 <body>
 
@@ -55,19 +59,19 @@
 				  	<th>操作</th>
 				  </tr>
 				  <tr>
-				  	<th>叶绪创</th>
-				  	<th class="assignment"><span>超级管理员</span></th>
-				  	<th><a class="assignment_modify" href="javascript:void(0)">修改角色</a></th>
+				  	<td>叶绪创</td>
+				  	<td class="assignment"><span>超级管理员</span></td>
+				  	<td><a class="assignment_modify" href="javascript:void(0)">修改角色</a></td>
 				  </tr>
 				  <tr>
-				  	<th>欧卓鸿</th>
-				  	<th>小渣渣</th>
-					  <th><a href="">修改角色</a></th>
+				  	<td>欧卓鸿</th>
+				  	<td>小渣渣</th>
+					  <td><a href="">修改角色</a></td>
 				  </tr>
 				  <tr>
-				  	<th>兰阳佳</th>
-				  	<th>管理员</th>
-					  <th><a href="">修改角色</a></th>
+				  	<td>兰阳佳</td>
+				  	<td>管理员</td>
+					  <td><a href="">修改角色</a></td>
 				  </tr>
 				</table>
 			</div>
