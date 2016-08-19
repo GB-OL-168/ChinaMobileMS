@@ -6,8 +6,8 @@
 <mapper namespace="com.GB.ChinaMobileMS.dao.PropertyApplicantMapper">
  	
 	<insert id="insertPropertyApplicant" parameterType="PropertyServiceEntity"  >
-		INSERT INTO property_table(apply_user_name, service_date, contact_info, concrete_time, service_location, reception_service, order_maintain, dining_service, enviroment_maintain, engineering_manage, firefighting_manage, addition, apply_time)
-		VALUES (#{applyUserName},#{serviceDate},#{contactInfo},#{concreteTime},#{serviceLocation},#{receptionService},#{olderMantain},#{diningService},#{enviromentMaintain},#{engineeringManage},#{firefightingManage},#{addition},#{applyTime})
+		INSERT INTO property_table(apply_user_name, company_id, branch_id, service_date, contact_info, concrete_time, service_location, reception_service, order_maintain, dining_service, enviroment_maintain, engineering_manage, firefighting_manage, addition, apply_time)
+		VALUES (#{applyUserName},#{companyId},#{branchId},#{serviceDate},#{contactInfo},#{concreteTime},#{serviceLocation},#{receptionService},#{olderMantain},#{diningService},#{enviromentMaintain},#{engineeringManage},#{firefightingManage},#{addition},#{applyTime})
 	</insert>
 
 	<select id="listPropertyApplicant"  resultType="com.GB.ChinaMobileMS.entity.PropertyServiceEntity">

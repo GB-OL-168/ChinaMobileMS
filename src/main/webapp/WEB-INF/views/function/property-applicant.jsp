@@ -56,17 +56,16 @@
 				<div class="form-group">     
 				    <label for="inputEmail3" class="col-sm-2 control-label">所属公司</label>
 				    <div class="col-sm-10">
-				    	<%!String branchName, companyName;
-				    	%>
+				    	<%!String branchName, companyName;%>
 				    	<%branchName = (String)request.getAttribute("branchName");
 				    		companyName = (String)request.getAttribute("companyName");%>
-				      <input type="text" readOnly="true" class="form-control" id="inputEmail3" placeholder=<%=branchName %>>
+				      <input type="text" readOnly="true" class="form-control" id="inputEmail3" placeholder=<%=companyName %>>
 				    </div>
 				  </div>
 				  <div class="form-group">     
 				    <label for="inputEmail3" class="col-sm-2 control-label">申请部门</label>
 				    <div class="col-sm-10">
-				      <input type="text" readOnly="true" class="form-control" id="inputEmail3" placeholder=<%=companyName %>>
+				      <input type="text" readOnly="true" class="form-control" id="inputEmail3" placeholder=<%=branchName %>>
 				    </div>
 				  </div>
 				  <div class="form-group">
