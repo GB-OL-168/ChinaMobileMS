@@ -21,10 +21,13 @@ import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.BranchService;
 import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 import com.GB.ChinaMobileMS.services.interfaces.InfoService;
+
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyApplicantService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
+
+
 
 @Controller
 public class FunctionController {
@@ -32,11 +35,9 @@ public class FunctionController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-
 	private PropertyServices propertyServices;
 	@Autowired
 	private PropertyApplicantService propertyApplicantService;
-
 	@Autowired
 	private InfoService infoService;
 	@Autowired
@@ -80,14 +81,11 @@ public class FunctionController {
 	public ModelAndView propertyUser(User user, @PathVariable("id") String id, HttpSession session) {
 		if (id.equals("server")) {
 			List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.listPropertyApplicant();
-
-//			System.out.println("Function controller: "+ listPropertyApplicant);
-			Map map =new HashMap();
-			map.put("listPropertyApplicant",listPropertyApplicant);
+			Map<String, List<PropertyServiceEntity>> map = new HashMap<String, List<PropertyServiceEntity>>();
+			map.put("listPropertyApplicant", listPropertyApplicant);
 			return new ModelAndView("/function/property-server",map);
-		}
-		 else if (id.equals("auditing")) {
-			List<PropertyServiceEntity> propertyList = propertyService.auditParty();
+		} else if (id.equals("auditing")) {
+			List<PropertyServiceEntity> propertyList = propertyService.getPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
 			Map map = new HashMap();
 			map.put("propertyServiceList", propertyList);
 			return new ModelAndView("/function/property-auditing", map);
@@ -135,7 +133,16 @@ public class FunctionController {
 			return new ModelAndView("forward:/");
 	}
 
+	
+	
+	
+	
+	
+	
+
+
 	public ModelAndView GetInfo() {
+
 		Information info = infoService.findbyInfoID();
 
 		ModelAndView mac = new ModelAndView("/function/system-parameter");
