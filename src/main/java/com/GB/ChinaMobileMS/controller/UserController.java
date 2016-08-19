@@ -1,5 +1,9 @@
 package com.GB.ChinaMobileMS.controller;
 
+
+import java.util.HashMap;
+import java.util.List;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -39,11 +43,14 @@ public class UserController {
 		return new ModelAndView("redirect:/u/main");
 	}
 	
+
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	public ModelAndView addUser(User user){
 		
-//		String string = userService.addUser(user);
-		return new ModelAndView("main").addObject("username", user.getUserName());
+
+		String string = userService.addUser(user);
+
+		return  GetUserList();
 	}
 	
 	
@@ -72,5 +79,27 @@ public class UserController {
 		//if(session.getAttribute("user")!=null)
 		return new ModelAndView("main");
 		//return new ModelAndView("redirect:/login");
+	}
+	
+	public  ModelAndView GetUserList()
+	{
+		List<User> listUser = userService.listUser();
+		
+//		ModelAndView model = new ModelAndView("main");
+//		System.out.println("User2 = " +listUser.get(2));
+//		model.addObject("listUser", listUser);
+		
+		Map map =new HashMap();
+		map.put("listUser",listUser);//userlist是个Arraylist之类的  
+
+		return new ModelAndView("/function/system-user",map);
+//		model.addAllObjects();
+//		
+//
+//
+//		model.setViewName("/function/system-user");
+//		
+//		return model;
+		
 	}
 }

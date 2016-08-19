@@ -14,9 +14,9 @@ public class CompanyServiceImpl implements CompanyService {
 	private CompanyMapper companyMapper;
 	
 	@Override
-	public String getCompanyManager(int companyID) {
+	public CompanyEntity getCompanyManager(int companyID) {
 		CompanyEntity entity = companyMapper.queryCompanyByID(companyID);
-		return entity.getCompanyManager();
+		return entity;
 	}
 
 }

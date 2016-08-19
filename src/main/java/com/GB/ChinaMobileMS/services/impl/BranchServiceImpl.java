@@ -14,8 +14,8 @@ public class BranchServiceImpl implements BranchService {
 	private BranchMapper branchMapper;
 	
 	@Override
-	public String getBranchManager(int branchID) {
+	public BranchEntity getBranchManager(int branchID) {
 		BranchEntity entity = branchMapper.queryBranchByID(branchID);
-		return entity.getBranchManager();
+		return entity;
 	}
 }

@@ -1,5 +1,8 @@
 package com.GB.ChinaMobileMS.entity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 public class PropertyServiceEntity {
 	private int propertyTableId;
 	private String applyUserName;
@@ -13,15 +16,17 @@ public class PropertyServiceEntity {
 	private String olderMantain;
 	private int serviceId;
 	private String contactInfo;
-	private String serviceDate;
+	private Date serviceDate;
 	private String serviceLocation;
 	private String serviceCommand;
 	private String addition;
 	private int gotId;
-	private String applyTime;
+	private Timestamp applyTime;
 	private String concreteTime;
+
 	private int status;
 	private String temporaryDemand;
+
 	public int getPropertyTableId() {
 		return propertyTableId;
 	}
@@ -94,10 +99,10 @@ public class PropertyServiceEntity {
 	public void setContactInfo(String contactInfo) {
 		this.contactInfo = contactInfo;
 	}
-	public String getServiceDate() {
+	public Date getServiceDate() {
 		return serviceDate;
 	}
-	public void setServiceDate(String serviceDate) {
+	public void setServiceDate(Date serviceDate) {
 		this.serviceDate = serviceDate;
 	}
 	public String getServiceLocation() {
@@ -125,10 +130,10 @@ public class PropertyServiceEntity {
 		this.gotId = gotId;
 	}
 	
-	public String getApplyTime() {
+	public Timestamp getApplyTime() {
 		return applyTime;
 	}
-	public void setApplyTime(String applyTime) {
+	public void setApplyTime(Timestamp applyTime) {
 		this.applyTime = applyTime;
 	}
 	public String getConcreteTime() {

@@ -1,5 +1,7 @@
 package com.GB.ChinaMobileMS.services.interfaces;
 
+import com.GB.ChinaMobileMS.entity.BranchEntity;
+
 public interface BranchService {
-	public String getBranchManager(int branchID);
+	public BranchEntity getBranchManager(int branchID);
 }
