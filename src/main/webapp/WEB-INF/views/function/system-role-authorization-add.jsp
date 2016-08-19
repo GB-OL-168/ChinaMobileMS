@@ -55,7 +55,7 @@
 				    <label  class="col-sm-3 control-label">权限</label>
 				    <div class="col-sm-8">
 				      <label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 账号管理
+						  <input type="checkbox" id="inlineCheckbox1" value="option1" checked="checked"> 账号管理
 						</label>
 						<label class="checkbox-inline">
 						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 权限设置

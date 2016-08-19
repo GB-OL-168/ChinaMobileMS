@@ -7,11 +7,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>后勤服务中心管理信息系统 - 权限设置</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
+
+	<title>后勤服务中心管理信息系统 - 权限设置</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+
 </head>
 <body>
 
@@ -50,8 +52,9 @@
 				</div>
 
 
-				<table class="table table-bordered">
+				<table class="table table-bordered col-md-8">
 					<h3 style="text-align: center;">设置系统角色</h3>
+
 					<tr>
 						<th>用户名</th>
 						<th>角色</th>
@@ -82,10 +85,27 @@
 							<th><a href="javascript:void(0)">修改资料</a> </th>
 						</tr>
 					</c:forEach>
+
 				</table>
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	<script>
+			$(function(){
+				/* 修改用户角色 */	
+				$(".assignment_modify").click(function(){
+					$input=$("<select></select>").attr("name","assignment_list");
+					$option1=$("<option>超级管理员</option>").attr("value","superuser");
+					$option2=$("<option>管理员</option>").attr("value","user");
+					$a=$("<a>确认修改</a>").attr("href","javascript:void(0)").css("margin-left",5);
+					$input.append($option1).append($option2);
+					$(this).parents().siblings(".assignment").html($input).append($a);
+				});
+			});
+	</script>
 
 </body>
 </html>

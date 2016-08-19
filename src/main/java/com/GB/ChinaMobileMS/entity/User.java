@@ -19,6 +19,9 @@ public class User implements Serializable {
 	private String sex;
 	private String accountName;
 	private String password;
+	
+	private String roleName = null;
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -91,6 +94,12 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,6 +119,8 @@ public class User implements Serializable {
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
 		result = prime * result + roleId;
+		result = prime * result
+				+ ((roleName == null) ? 0 : roleName.hashCode());
 		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
 		result = prime * result
 				+ ((userName == null) ? 0 : userName.hashCode());
@@ -168,6 +179,11 @@ public class User implements Serializable {
 			return false;
 		if (roleId != other.roleId)
 			return false;
+		if (roleName == null) {
+			if (other.roleName != null)
+				return false;
+		} else if (!roleName.equals(other.roleName))
+			return false;
 		if (sex == null) {
 			if (other.sex != null)
 				return false;
@@ -187,8 +203,11 @@ public class User implements Serializable {
 				+ ", email=" + email + ", birthday=" + birthday
 				+ ", department=" + department + ", identification="
 				+ identification + ", sex=" + sex + ", accountName="
-				+ accountName + ", password=" + password + "]";
+				+ accountName + ", password=" + password + ", roleName="
+				+ roleName + "]";
 	}
+
+	
  
 	
 	

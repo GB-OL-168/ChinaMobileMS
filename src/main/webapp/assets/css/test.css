@@ -1,10 +1,10 @@
-@charset "utf-8";
+
 /* CSS Document */
 *{margin:0;padding:0;list-style-type:none;}
 a,img{border:0;}
 /*按钮样式*/
 
-#code {
+#code{
 	border:1px solid black;
 	width: 400px;
 	height: 550px;
@@ -15,17 +15,59 @@ a,img{border:0;}
 	left: 45%;
 	z-index: 1002;
 }
+#modify_div{	
+	border:1px solid black;
+	width: 400px;
+	height: 200px;
+	background-color: #fff;
+	padding: 10px;
+	position: absolute;
+	display: none;
+	left: 45%;
+	z-index: 1002;
+}
+
+
+#check_div{
+	border:1px solid black;
+	width: 400px;
+	height: 200px;
+	background-color: #fff;
+	padding: 10px;
+	position: absolute;
+	display: none;
+	left: 45%;
+	z-index: 1002;	
+}
+
+
 .close1 {
 	width: 380px;
 	height: 20px;
 }
-#closebt {
+#closebt1 {
 	float: right;
 }
-#closebt img {
+#closebt1 img {
 	width: 20px;
 	height:20px;
 }
+#closebt2 {
+	float: right;
+}
+#closebt2 img {
+	width: 20px;
+	height:20px;
+}
+
+#closebt3 {
+	float: right;
+}
+#closebt3 img {
+	width: 20px;
+	height:20px;
+}
+
 .goodtxt {
 	text-align: center;
 }
@@ -36,17 +78,16 @@ a,img{border:0;}
 	color: #000;
 	font-weight: 600;
 }
-.code-img {
-	width: 250px;
-	margin: 30px auto 0 auto;
-	padding: 10px;
-}
-.code-img img {
-	width: 240px;
-}
-
 #code button{
 	margin-left:80px;
 }
+#modify_div button{
+	margin-left:20px;
+}
 
+.a{
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal; 
+}
 
