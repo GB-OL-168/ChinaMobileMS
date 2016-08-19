@@ -55,13 +55,58 @@
 				    <label  class="col-sm-3 control-label">权限</label>
 				    <div class="col-sm-8">
 				      <label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 系统管理员
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 账号管理
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 分级管理员
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 权限设置
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">普通用户
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">参数配置
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">数据备份
+						</label>
+						<br>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 上市公司资产
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 车辆信息
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">维修维护信息
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 公务电话
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 服务公司资产
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">交通
+						</label>
+						
+						<br>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 物业服务需求申请
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 物业服务需求审核
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">物业服务需求管理
+						</label>
+						
+						
+						<br>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 后勤服务考评
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 用餐服务考评
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">物业服务需求管理
 						</label>
 						
 				    </div>

@@ -96,6 +96,32 @@ public class FunctionController {
 	}
 	
 	
+	
+	@RequestMapping(value="/service/{id}", method=RequestMethod.GET)
+	public ModelAndView ServiceUser(@PathVariable("id") String id, HttpSession session){
+		
+		if(id.equals("management-check"))
+			return new ModelAndView("/function/service-management-check");
+		else if(id.equals("management-send"))
+			return new ModelAndView("/function/service-management-send");
+		else if(id.equals("management-table-make"))
+			return new ModelAndView("/function/service-management-table-make");
+		else if(id.equals("table-info"))
+			return new ModelAndView("/function/service-table-info");
+		else if(id.equals("table-write"))
+			return new ModelAndView("/function/service-table-write");
+		else if(id.equals("date-statistics"))
+			return new ModelAndView("/function/service-date-statistics");
+		else
+			return new ModelAndView("forward:/");
+	}
+	
+	
+	
+	
+	
+	
+	
 	public ModelAndView GetInfo()
 	{
 		Information info = infoService.findbyInfoID();

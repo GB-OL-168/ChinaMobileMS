@@ -50,29 +50,29 @@
 				  <tr>
 				  	<th>编号</th>
 				  	<th>角色名称</th>
-				  	<th>角色权限</th>
 				  	<th>角色描述</th>
+				  	<th>详情</th>
 				  	<th>操作</th>
 				  </tr>
 				  <tr>
 				  	<th>1</th>
 				  	<th>zhangsan</th>
 				  	<th>Admin</th>
-				  	<th>miaoshu</th>
+				  	<th><a href="#">查看</a></th>
 				  	<th><a href="">update</a> | <a href="">remove</a></th>
 				  </tr>
 				  <tr>
 				  	<th>2</th>
 				  	<th>zhangsan</th>
 				  	<th>role2</th>
-				  	<th>miaoshu</th>
+				  	<th><a href="#">查看</a></th>
 				  	<th><a href="">update</a> | <a href="">remove</a></th>
 				  </tr>
 				  <tr>
 				  	<th>3</th>
 				  	<th>zhangsan</th>
 				  	<th>role3</th>
-				  	<th>miaoshu</th>
+				  	<th><a href="#">查看</a></th>
 				  	<th><a href="">update</a> | <a href="">remove</a></th>
 				  </tr>
 				</table>
