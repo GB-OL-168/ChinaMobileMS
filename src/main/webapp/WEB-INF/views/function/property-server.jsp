@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html> 
 <head>
@@ -69,32 +71,25 @@
 				  	<th>说明</th>
 				  	<th>操作</th>
 				  </tr>
+				  
+				  <c:forEach items="${listPropertyApplicant}" var="a"  varStatus="status">
 				  <tr>
-				  	<th>1</th>
-				  	<th>zhangsan</th>
-				  	<th>1234456</th>
-				  	<th>成都移动</th>
-				  	<th>权限1</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th><a href="">update</a> | <a href="">remove</a></th>
-				  </tr>
-				  <tr>
-				  	<th>1</th>
-				  	<th>zhangsan</th>
-				  	<th>1234456</th>
-				  	<th>成都移动</th>
-				  	<th>权限1</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th>balabala</th>
-				  	<th><a href="">update</a> | <a href="">remove</a></th>
-				  </tr>
+				  	<th>${ status.index + 1}</th>
+				  	<th>${a.applyTime}</th>
+				  	<th>${a.serviceDate}</th>
+				  	<th>${a.concreteTime}</th>
+				  	<th>${a.serviceLocation }</th>
+				  	<th>${a.applyUserName}</th>
+				  	<th>${a.contactInfo}</th>
+				  	<th>${a.serviceCommand}</th>
+				  	<th>0</th>
+				  	<th>show</th>
+<%-- 				  	<th><a href="/property/propertyApplicant/${a.propertyTableId}">update</a> | <a href="">remove</a></th>
+ --%>				  	
+				  	<th><a href="">修改临时需求</a> | <a href="">查看审核进度</a></th>
+	              </tr>
+				  </c:forEach>
+				  
 				</table>
 			</div>
 		</div>

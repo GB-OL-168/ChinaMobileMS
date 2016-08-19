@@ -43,6 +43,7 @@ public class UserController {
 		return new ModelAndView("redirect:/u/main");
 	}
 	
+
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	public ModelAndView addUser(User user){
 		
