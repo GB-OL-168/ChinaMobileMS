@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+
 </head>
 <body>
 
@@ -46,7 +47,7 @@
 				</div>
 				
 
-				<table class="table table-bordered">
+				<table class="table table-bordered col-md-8">
 					<h3 style="text-align: center;">设置系统角色</h3>
 				  <tr>
 				  	<th>用户名</th>
@@ -54,24 +55,40 @@
 				  	<th>操作</th>
 				  </tr>
 				  <tr>
-				  	<th>zhangsan</th>
-				  	<th>Admin</th>
-				  	<th><a href="">修改</a> | <a href="">删除</a></th>
+				  	<th>叶绪创</th>
+				  	<th class="assignment"><span>超级管理员</span></th>
+				  	<th><a class="assignment_modify" href="javascript:void(0)">修改角色</a></th>
 				  </tr>
 				  <tr>
-				  	<th>zhangsan</th>
-				  	<th>role2</th>
-					  <th><a href="">修改</a> | <a href="">删除</a></th>
+				  	<th>欧卓鸿</th>
+				  	<th>小渣渣</th>
+					  <th><a href="">修改角色</a></th>
 				  </tr>
 				  <tr>
-				  	<th>zhangsan</th>
-				  	<th>role3</th>
-					  <th><a href="">修改</a> | <a href="">删除</a></th>
+				  	<th>兰阳佳</th>
+				  	<th>管理员</th>
+					  <th><a href="">修改角色</a></th>
 				  </tr>
 				</table>
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	<script>
+			$(function(){
+				/* 修改用户角色 */	
+				$(".assignment_modify").click(function(){
+					$input=$("<select></select>").attr("name","assignment_list");
+					$option1=$("<option>超级管理员</option>").attr("value","superuser");
+					$option2=$("<option>管理员</option>").attr("value","user");
+					$a=$("<a>确认修改</a>").attr("href","javascript:void(0)").css("margin-left",5);
+					$input.append($option1).append($option2);
+					$(this).parents().siblings(".assignment").html($input).append($a);
+				});
+			});
+	</script>
 
 </body>
 </html>
