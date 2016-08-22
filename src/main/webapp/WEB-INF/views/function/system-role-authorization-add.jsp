@@ -122,7 +122,7 @@
 				  <div class="form-group">
 				    <div class="col-sm-offset-4 col-sm-8">
 				      <button type="submit" class="btn btn-default">设置</button>
-				      <button type="submit" class="btn btn-default" onclick="javascript:history.back(-1);">返回</a>
+				      <button type="submit" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
 				    </div>
 				  </div>
 				</form>

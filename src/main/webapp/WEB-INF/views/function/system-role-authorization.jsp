@@ -86,8 +86,8 @@
 							<th class="roleId">${a.roleId }</th>
 							<th class="roleName">${a.roleName}</th>
 							<th class="description">${a.description}</th>
-							<th><a href="#">查看</a></th>
-							<th><a href="">移除</a></th>
+							<th><a href="/authorization/details/${a.roleName}" class="btn btn-default btn-xs">查看</a></th>
+							<th><a href="/delRole/${a.roleId}"  class="btn btn-default btn-xs">移除</a></th>
 						</tr>
 					</c:forEach>
 				</table>

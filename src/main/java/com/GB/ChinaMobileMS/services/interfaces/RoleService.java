@@ -8,4 +8,10 @@ public interface RoleService {
 	List<Role> ListRole();
 	
 	String addRole(Role role);
+	
+	Role findRoleByName(String roleName);
+	
+	String updateRole(Role role);
+	
+	String deleteRoleByName(int roleId);
 }

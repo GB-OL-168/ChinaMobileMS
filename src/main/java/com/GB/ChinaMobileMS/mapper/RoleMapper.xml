@@ -20,12 +20,36 @@
 		VALUES
 		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore},#{proServerApplication},#{proAuditingApplication},#{proManagementApplication},#{description})
 	</insert>
-	
-	<select id="findRoleById" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.Role">
+
+	<select id="findRoleByName" parameterType="String"
+		resultType="com.GB.ChinaMobileMS.entity.Role">
 		select * from role
-		where role_id = #{roleId}
+		where role_name = #{roleName}
 
 	</select>
+
+	<update id="updateRole" parameterType="Role">
+		update role
+		set
+		sys_account_manage = #{sysAccountManage},
+		sys_privilege_setting =
+		#{sysPrivilegeSetting},
+		sys_parameter_setting = #{sysParameterSetting},
+		sys_data_restore = #{sysDataRestore},
+		pro_server_application =
+		#{proServerApplication},
+		pro_auditing_application =
+		#{proAuditingApplication},
+		pro_management_application = 
+		#{proManagementApplication},
+		description = #{description}
+		where role_name
+		= #{roleName}
+	</update>
+
+	<delete id="deleteRoleByName" parameterType="int">
+		delete from role where role_id = #{roleId}
+	</delete>
 
 	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
 		返回的类型 -->

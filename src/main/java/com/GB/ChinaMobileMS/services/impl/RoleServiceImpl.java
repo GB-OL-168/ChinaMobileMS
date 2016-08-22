@@ -29,5 +29,31 @@ public class RoleServiceImpl implements RoleService {
 		
 		return "done";
 	}
+	
+	public Role findRoleByName(String roleName)
+	{
+		System.out.println("Enter findRoleByName");
+		
+		Role role = roleMapper.findRoleByName(roleName);
+		
+		return role;
+	}
+	
+	public String updateRole(Role role)
+	{
+		System.out.println("Enter updateRole");
+		
+		int update = roleMapper.updateRole(role);
+		
+		return "done";
+	}
+	
+	public String deleteRoleByName(int roleId){
+		System.out.println("Enter deleteRoleByName");
+		
+		int del = roleMapper.deleteRoleByName(roleId);
+		
+		return "Deleted";
+	}
 
 }
