@@ -62,8 +62,7 @@ public class FunctionController {
 			return GetUserList();
 		} else if (id.equals("parameter")) {
 			return GetInfo();
-		} else if (id.equals("user-add"))
-			return new ModelAndView("/function/system-user-add");
+		} 
 		else if (id.equals("role-assignment"))
 			return GetUserList2();
 		else if (id.equals("role-assignment-add"))
