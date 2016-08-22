@@ -80,6 +80,16 @@ public class FunctionController {
 			return new ModelAndView("forward:/");
 	}
 
+	// 角色分配跳转页面
+	@RequestMapping(value = "/authorization/{id}/{roleName}", method = RequestMethod.GET)
+	public ModelAndView authorizationUser(User user,@PathVariable("id") String id,
+			@PathVariable("roleName") String roleName, HttpSession session) {
+		if(id.equals("details"))
+		return GetRoledetails(roleName);
+		else 
+			return null;
+	}
+
 	// 物业服务 跳转页面
 	@RequestMapping(value = "/property/{id}", method = RequestMethod.GET)
 	public ModelAndView propertyUser(User user, @PathVariable("id") String id,
@@ -144,7 +154,10 @@ public class FunctionController {
 		else
 			return new ModelAndView("forward:/");
 	}
-
+	
+	/*
+	 * 参数设置-获取提醒信息
+	 */
 	public ModelAndView GetInfo() {
 
 		Information info = infoService.findbyInfoID();
@@ -158,6 +171,9 @@ public class FunctionController {
 		return mac;
 	}
 
+	/*
+	 * 帐号管理-获取用户信息
+	 */
 	public ModelAndView GetUserList() {
 		List<User> listUser = userService.listUser();
 		Map map = new HashMap();
@@ -165,6 +181,9 @@ public class FunctionController {
 		return new ModelAndView("/function/system-user", map);
 	}
 
+	/*
+	 * 权限设置-设置系统角色-获取用户信息以及权限信息
+	 */
 	public ModelAndView GetUserList2() {
 		List<User> listUser = userService.listUser();
 		List<Role> listRole = roleService.ListRole();
@@ -190,11 +209,34 @@ public class FunctionController {
 		map.put("listRole", listRole);
 		return new ModelAndView("/function/system-role-assignment", map);
 	}
-
+	/*
+	 * 权限设置-角色授权-获取角色权限信息
+	 */
 	public ModelAndView GetRoleList() {
 		List<Role> listRole = roleService.ListRole();
 		Map map = new HashMap();
 		map.put("listRole", listRole);
 		return new ModelAndView("/function/system-role-authorization", map);
+	}
+
+	/*
+	 * 权限设置-角色授权-获取角色权限详细信息
+	 */
+	public ModelAndView GetRoledetails(String roleName) {
+		Role role = roleService.findRoleByName(roleName);
+		ModelAndView mac = new ModelAndView("/function/system-role-authorization-details");
+//		mac.addObject("roleName", role.getRoleName());
+//		mac.addObject("sysAccountManage", role.getSysAccountManage());
+//		mac.addObject("sysPrivilegeSetting", role.getSysPrivilegeSetting());
+//		mac.addObject("sysParameterSetting", role.getSysParameterSetting());
+//		mac.addObject("sysDataRestore", role.getSysDataRestore());
+//		mac.addObject("proServerApplication", role.getProServerApplication());
+//		mac.addObject("proAuditingApplication",
+//				role.getProAuditingApplication());
+//		mac.addObject("proManagementApplication",
+//				role.getProManagementApplication());
+//		mac.addObject("description", role.getDescription());
+		mac.addObject("Role",role);
+		return mac;
 	}
 }
