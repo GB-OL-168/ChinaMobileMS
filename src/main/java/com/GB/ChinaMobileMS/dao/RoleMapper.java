@@ -6,4 +6,6 @@ import com.GB.ChinaMobileMS.entity.Role;
 
 public interface RoleMapper {
 	List<Role> ListRole();
+	
+	int addRole(Role role);
 }

@@ -35,7 +35,7 @@
 
 					<div class="col-md-3">
 						<a href="/system/role-authorization-add"
-							class="btn btn-default btn-xs">系统角色设置</a>
+							class="btn btn-default btn-xs">新增系统角色</a>
 					</div>
 
 					<div class="col-md-4">
@@ -56,7 +56,7 @@
 						<th>编号</th>
 						<th>角色名称</th>
 						<th>角色描述</th>
-						<!-- 						<th>详情</th> -->
+						<th>详情</th>
 						<th>操作</th>
 					</tr>
 					<!-- 				  <tr> -->
@@ -85,8 +85,9 @@
 						<tr>
 							<th class="roleId">${a.roleId }</th>
 							<th class="roleName">${a.roleName}</th>
+							<th class="description">${a.description}</th>
 							<th><a href="#">查看</a></th>
-							<th><a href="">update</a> | <a href="">remove</a></th>
+							<th><a href="">移除</a></th>
 						</tr>
 					</c:forEach>
 				</table>

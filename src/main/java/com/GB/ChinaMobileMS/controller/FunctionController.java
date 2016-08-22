@@ -173,10 +173,9 @@ public class FunctionController {
 			Iterator<Role> it2 = listRole.iterator();
 			User tmpUser = it1.next();
 
-			int i = 1;
 			while (tmpUser.getRoleName() == null && it2.hasNext()) {
 				Role tmpRole = it2.next();
-				System.out.println("the times of while: " + i++);
+
 				if (tmpUser.getRoleId() == tmpRole.getRoleId()) {
 					tmpUser.setRoleName(tmpRole.getRoleName());
 					break;
@@ -188,6 +187,7 @@ public class FunctionController {
 
 		Map map = new HashMap();
 		map.put("listUser", listUser);// userlist是个Arraylist之类的
+		map.put("listRole", listRole);
 		return new ModelAndView("/function/system-role-assignment", map);
 	}
 

@@ -46,4 +46,11 @@ public class UserServiceImpl implements UserService {
 		return listUser;
 	}
 	
+	public String updateUserRole(User user){
+		System.out.println("进入了 updateUserRole 方法");
+		int updateUserRole= userMapper.updateUserRole(user);
+		
+		return null;
+	}
+	
 }

@@ -4,13 +4,13 @@ public class Role {
 	
 	private int roleId;
 	private String roleName;
-	private int  sysAccountManage;
-	private int  sysPrivilegeSetting;
-	private int  sysParameterSetting;
-	private int  sysDataRestore;
-	private int  proAerverApplication;
-	private int  proAuditingApplication;
-	private int  proManagementApplication;
+	private int  sysAccountManage=0;
+	private int  sysPrivilegeSetting=0;
+	private int  sysParameterSetting=0;
+	private int  sysDataRestore=0;
+	private int  proServerApplication=0;//服务器应用程序
+	private int  proAuditingApplication=0;//审核应用
+	private int  proManagementApplication=0;//管理应用程序
 	private String description;
 	public int getRoleId() {
 		return roleId;
@@ -48,11 +48,11 @@ public class Role {
 	public void setSysDataRestore(int sysDataRestore) {
 		this.sysDataRestore = sysDataRestore;
 	}
-	public int getProAerverApplication() {
-		return proAerverApplication;
+	public int getProServerApplication() {
+		return proServerApplication;
 	}
-	public void setProAerverApplication(int proAerverApplication) {
-		this.proAerverApplication = proAerverApplication;
+	public void setProServerApplication(int proAerverApplication) {
+		this.proServerApplication = proAerverApplication;
 	}
 	public int getProAuditingApplication() {
 		return proAuditingApplication;
@@ -78,7 +78,7 @@ public class Role {
 		int result = 1;
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result + proAerverApplication;
+		result = prime * result + proServerApplication;
 		result = prime * result + proAuditingApplication;
 		result = prime * result + proManagementApplication;
 		result = prime * result + roleId;
@@ -104,7 +104,7 @@ public class Role {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (proAerverApplication != other.proAerverApplication)
+		if (proServerApplication != other.proServerApplication)
 			return false;
 		if (proAuditingApplication != other.proAuditingApplication)
 			return false;
@@ -134,7 +134,7 @@ public class Role {
 				+ ", sysPrivilegeSetting=" + sysPrivilegeSetting
 				+ ", sysParameterSetting=" + sysParameterSetting
 				+ ", sysDataRestore=" + sysDataRestore
-				+ ", proAerverApplication=" + proAerverApplication
+				+ ", proServerApplication=" + proServerApplication
 				+ ", proAuditingApplication=" + proAuditingApplication
 				+ ", proManagementApplication=" + proManagementApplication
 				+ ", description=" + description + "]";

@@ -8,11 +8,11 @@
 <head>
 <meta charset="utf-8">
 
-	<title>后勤服务中心管理信息系统 - 权限设置</title>
-	<link rel="stylesheet" href="/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/assets/css/system.css">
-	<script src="/assets/js/jquery-1.9.1.js"></script>
-	<script src="/assets/js/bootstrap.js"></script>
+<title>后勤服务中心管理信息系统 - 权限设置</title>
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/system.css">
+<script src="/assets/js/jquery-1.9.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
 
 </head>
 <body>
@@ -36,10 +36,7 @@
 						</ol>
 					</div>
 
-					<div class="col-md-3">
-						<a href="/system/role-assignment-add"
-							class="btn btn-default btn-xs">用户分配角色</a>
-					</div>
+
 
 					<div class="col-md-4">
 						<div class="input-group">
@@ -51,38 +48,20 @@
 					</div>
 				</div>
 
-
 				<table class="table table-bordered col-md-8">
 					<h3 style="text-align: center;">设置系统角色</h3>
 
 					<tr>
-						<th>用户名</th>
-						<th>角色</th>
-						<th>操作</th>
+						<th style="width: 100px;">用户名</th>
+						<th style="width: 280px;">角色</th>
+						<th style="width: 50px;">操作</th>
 					</tr>
-
-					<!-- 				  	<th>zhangsan</th> -->
-					<!-- 				  	<th>Admin</th> -->
-					<!-- 				  	<th><a href="">修改</a> | <a href="">删除</a></th> -->
-					<!-- 				  </tr> -->
-					<!-- 				  <tr> -->
-					<!-- 				  	<th>zhangsan</th> -->
-					<!-- 				  	<th>role2</th> -->
-					<!-- 					  <th><a href="">修改</a> | <a href="">删除</a></th> -->
-					<!-- 				  </tr> -->
-					<!-- 				  <tr> -->
-					<!-- 				  	<th>zhangsan</th> -->
-					<!-- 				  	<th>role3</th> -->
-					<!-- 					  <th><a href="">修改</a> | <a href="">删除</a></th> -->
-					<!-- 				  </tr> -->
-
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
-
-							<th class="userName">${a.userName}</th>
-							<th class="roleId">${a.roleName}</th>
-
-							<th><a href="javascript:void(0)">修改资料</a> </th>
+							<td class="userName">${a.userName}</td>
+							<td class="roleId">${a.roleName}</td>
+							<td><a class="assignment_modify" href="javascript:void(0)">修改资料</a>
+							</td>
 						</tr>
 					</c:forEach>
 
@@ -90,23 +69,43 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	<script>
-			$(function(){
-				/* 修改用户角色 */	
-				$(".assignment_modify").click(function(){
-					$input=$("<select></select>").attr("name","assignment_list");
-					$option1=$("<option>超级管理员</option>").attr("value","superuser");
-					$option2=$("<option>管理员</option>").attr("value","user");
-					$a=$("<a>确认修改</a>").attr("href","javascript:void(0)").css("margin-left",5);
-					$input.append($option1).append($option2);
-					$(this).parents().siblings(".assignment").html($input).append($a);
-				});
-			});
-	</script>
 
+
+
+	<form action="/updateUserRole" Method="post" class="assignment_form"
+		style="display: none;">
+		<input name="userName" class="name" style="display: none" tpye="text"></input>
+		<select name="roleName" class="assignment_list" name="assignment_list">
+			<c:forEach items="${listRole}" var="b">
+				<option name="${b.roleName}" value="${b.roleName}">${b.roleName}</td>
+			</c:forEach>
+			<lect> <input type="submit" value="确认修改" /> <input
+				type="button" value="取消" /> </lect>
+	</form>
+
+	<script>
+		$(function() {
+			/* 修改用户角色 */
+			$(".assignment_modify").click(
+					function() {
+
+						/* 写入的位置 */
+						$location = $(this).parents().siblings(".roleId");
+
+						$userName = $(this).parents().siblings(".userName").text();
+						
+						$("input.name").val($userName);
+
+						$location.html($(".assignment_form").clone().css(
+								"display", "inline-block"));
+
+						//	$location.append($modify).append($cancel);
+
+						$(this).unbind("click");
+					});
+
+		});
+	</script>
 </body>
 
 </html>

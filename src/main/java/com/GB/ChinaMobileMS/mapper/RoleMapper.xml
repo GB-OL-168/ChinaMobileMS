@@ -3,18 +3,31 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.GB.ChinaMobileMS.dao.RoleMapper">
 
 
-	
-	<select id="ListRole"  resultType="Role">
-		select * from role;
-		
-	</select>
-	
 
-	<!-- SQL语句 namespace命名空间  id UserMapper里面的方法名  
-	parameterType参数列表 resultType 返回的类型 -->
+	<select id="ListRole" resultType="Role">
+		select * from role;
+
+	</select>
+
+	<insert id="addRole" parameterType="Role">
+		INSERT INTO
+		role(role_name,
+		sys_account_manage,sys_privilege_setting,sys_parameter_setting,sys_data_restore,pro_server_application,pro_auditing_application,pro_management_application,description)
+		VALUES
+		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore},#{proServerApplication},#{proAuditingApplication},#{proManagementApplication},#{description})
+	</insert>
+	
+	<select id="findRoleById" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.Role">
+		select * from role
+		where role_id = #{roleId}
+
+	</select>
+
+	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
+		返回的类型 -->
 
 </mapper>

@@ -11,4 +11,6 @@ public interface UserMapper {
 	int insertUser(User user);
 	
 	List<User> listUser();
+	
+	int updateUserRole(User user);
 }

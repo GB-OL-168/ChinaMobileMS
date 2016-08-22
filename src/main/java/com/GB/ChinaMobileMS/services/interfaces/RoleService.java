@@ -6,4 +6,6 @@ import com.GB.ChinaMobileMS.entity.Role;
 
 public interface RoleService {
 	List<Role> ListRole();
+	
+	String addRole(Role role);
 }

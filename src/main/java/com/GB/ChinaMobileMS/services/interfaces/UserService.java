@@ -13,5 +13,7 @@ public interface UserService {
 	 */
 	String addUser(User user);
 	
+	String updateUserRole(User user);
+	
 	List<User> listUser();
 }

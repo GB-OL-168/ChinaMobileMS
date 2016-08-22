@@ -9,7 +9,7 @@
 		from information
 		where info_id= 1
 	</select>
-	<insert id="updateInfo"  parameterType="Information" >
+	<update id="updateInfo"  parameterType="Information" >
 		update
 		information 
 		set
@@ -18,7 +18,7 @@
 		content = #{content},
 		recomand_role_id = #{recomandRoleId}
 		where info_id = 1
-	</insert>
+	</update>
 	<!-- SQL语句 namespace命名空间  id UserMapper里面的方法名  
 	parameterType参数列表 resultType 返回的类型 -->
 </mapper>

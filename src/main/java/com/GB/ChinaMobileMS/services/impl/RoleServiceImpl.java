@@ -20,5 +20,14 @@ public class RoleServiceImpl implements RoleService {
 		return listRole;
 	}
 	
+	public String addRole(Role role)
+	{
+		System.out.println("Enter addRole");
+		
+		int add = roleMapper.addRole(role);
+		
+		
+		return "done";
+	}
 
 }
