@@ -28,7 +28,14 @@
                             <li>
                                 <a href="#"><i class="icon-bar-chart icon-2x"></i>&nbsp&nbsp<strong>信息管理平台</strong></a>
                                 <ul>
-                                    <li><a href="/function/" target="/u/main">上市公司资产信息</a></li>
+                                    <li><a href="javascript:void(0)" target="/u/main">上市公司资产信息</a>
+                                         <ul>
+                                            <li><a href="../html/function/company-register-houses-add.html" target="main">信息登记</a></li>
+                                            <li><a href="../html/function/company-register-houses.html" target="main">信息查询</a></li>
+                                            <li><a href="../html/function/company-using.html"target="main">使用信息</a></li>
+                                            <li><a href="../html/function/company-count.html" target="main">信息统计</a></li>
+                                        </ul>
+                                        </li>
                                     <li><a href="/function/" target="/u/main">全省车辆信息</a></li>
                                     <li><a href="/function/" target="/u/main">省公司维修维护信息</a></li>
                                     <li><a href="/function/" target="/u/main">省公司公务电话信息</a></li>
