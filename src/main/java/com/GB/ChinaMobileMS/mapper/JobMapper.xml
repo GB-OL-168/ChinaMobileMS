@@ -9,4 +9,9 @@
 		from job
 		where job_id = #{jobID}
 	</select>
+	
+	<select id="queryJob" resultType="com.GB.ChinaMobileMS.entity.JobEntity">
+		select *
+		from job
+	</select>
 </mapper>

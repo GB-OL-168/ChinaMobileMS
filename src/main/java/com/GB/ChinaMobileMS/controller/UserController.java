@@ -11,11 +11,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.GB.ChinaMobileMS.entity.BranchEntity;
+import com.GB.ChinaMobileMS.entity.CompanyEntity;
+import com.GB.ChinaMobileMS.entity.JobEntity;
 import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.services.interfaces.BranchService;
+import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
+import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
@@ -23,6 +30,13 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private CompanyService companyService;
+	@Autowired
+	private BranchService branchService;
+	@Autowired
+	private JobService JobService;
+	
 	//在Spring中生成set get方法 自动获取userService对象
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView login(User user, HttpSession session){
@@ -43,13 +57,67 @@ public class UserController {
 		return new ModelAndView("redirect:/u/main");
 	}
 	
+	@RequestMapping(value = "/deleteUser/{userName}" , method = RequestMethod.GET)
+	public ModelAndView deleteUser( HttpSession session,@PathVariable("userName") String userName){
+		System.out.println("DELETE userName = " + userName );
+		
+		if(userService.findByUserNamefromBranch(userName) != null){
+			System.out.println("此人为某部门的头头");
+		}
+		else if(userService.findByUserNamefromCompany(userName)!= null)
+				System.out.println("此人为某公司的头头");
+		else{	
+			System.out.println("此人为无名氏");
+			userService.deleteUser(userName);
+		}
+			
+		return  GetUserList();
+	}
 
+	//新增一个用户
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	public ModelAndView addUser(User user){
 		
 
 		String string = userService.addUser(user);
 
+		return  GetUserList();
+	}
+	
+	/**
+	 * 删除用户
+	 * @Author Arron
+	 */
+	
+	//跳转新增用户界面
+	@RequestMapping(value="user-add")
+	public ModelAndView useradd(){
+		
+		System.out.println("进入了User-add");
+		List<CompanyEntity> listCompany = companyService.queryCompany();
+		List<BranchEntity> listBranch = branchService.queryBranch();
+		List<JobEntity> listJob = JobService.queryJob();
+		
+		Map map =new HashMap();
+		map.put("listCompany",listCompany);
+		map.put("listBranch", listBranch);
+		map.put("listJob", listJob);
+		
+		System.out.println(listCompany);
+		System.out.println(listBranch);
+		System.out.println(listJob);
+		
+		return new ModelAndView("/function/system-user-add",map);
+	}
+			
+	//修改用户信息
+	@RequestMapping(value="/updateUserInfo" , method=RequestMethod.POST)
+	public ModelAndView updateUserInfo(User user){
+		
+		System.out.println(user);
+		
+		int updateUserInfo = userService.updateUserInfo(user);
+		
 		return  GetUserList();
 	}
 	
@@ -84,22 +152,12 @@ public class UserController {
 	public  ModelAndView GetUserList()
 	{
 		List<User> listUser = userService.listUser();
-		
-//		ModelAndView model = new ModelAndView("main");
-//		System.out.println("User2 = " +listUser.get(2));
-//		model.addObject("listUser", listUser);
-		
+				
 		Map map =new HashMap();
 		map.put("listUser",listUser);//userlist是个Arraylist之类的  
 
 		return new ModelAndView("/function/system-user",map);
-//		model.addAllObjects();
-//		
-//
-//
-//		model.setViewName("/function/system-user");
-//		
-//		return model;
+
 		
 	}
 }

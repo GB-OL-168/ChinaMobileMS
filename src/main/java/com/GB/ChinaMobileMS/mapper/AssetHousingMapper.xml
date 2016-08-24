@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.GB.ChinaMobileMS.dao.AssetHousingMapper">
+
+	<insert id="addAssetHousing" parameterType="AssetHousing">
+		INSERT INTO
+		housing_asset_info(asset_info_id,
+		used_branch_id,building_area,location,room_count,structure_type,
+		building_name,room_usage,addition,remark,is_loan,loan_source,loan_time_start,loan_time_end)
+		VALUES
+		(#{assetInfoId},#{usedBranchId},#{buildingArea},#{location},#{roomCount},#{structureType},
+		#{buildingName},#{roomUsage},#{addition},#{remark},#{isLoan},#{loanSource},#{loanTimeStart},#{loanTimeEnd})
+	</insert>
+
+
+</mapper>

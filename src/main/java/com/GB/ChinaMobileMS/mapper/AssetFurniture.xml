@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.GB.ChinaMobileMS.dao.AssetFurnitureMapper">
+ 
+ <insert id="addFurniture" parameterType="AssetFurniture">
+		INSERT INTO
+		office_furniture_info
+		(house_id,furniture_type,brand,specification,used_branch_id,count,used_situation)
+		VALUES
+		(#{houseId},#{furnitureType},#{brand},#{specification},#{usedBranchId},#{count},#{usedSituation})
+	</insert>
+ 
+ </mapper>
+ 
