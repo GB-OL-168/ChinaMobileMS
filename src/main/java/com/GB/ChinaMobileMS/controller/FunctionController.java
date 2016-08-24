@@ -15,17 +15,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.Information;
+import com.GB.ChinaMobileMS.entity.InvestigationTableEntity;
 import com.GB.ChinaMobileMS.entity.JobEntity;
 import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.entity.WaitForInvestigationUserEntity;
 import com.GB.ChinaMobileMS.services.interfaces.BranchService;
 import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 import com.GB.ChinaMobileMS.services.interfaces.InfoService;
-
+import com.GB.ChinaMobileMS.services.interfaces.InvestigationTableService;
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyApplicantService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
+import com.GB.ChinaMobileMS.services.interfaces.WaitForInvestigationService;
 
 
 
@@ -48,7 +51,10 @@ public class FunctionController {
 	private BranchService branchService;
 	@Autowired
 	private JobService jobService;
-
+	@Autowired
+	private InvestigationTableService investigationTableService;
+	@Autowired
+	private WaitForInvestigationService waitForInvestigationService;
 	// 系统设置 跳转页面
 	@RequestMapping(value = "/system/{id}", method = RequestMethod.GET)
 	public ModelAndView systemUser(User user, @PathVariable("id") String id, HttpSession session) {
@@ -117,8 +123,28 @@ public class FunctionController {
 
 	@RequestMapping(value = "/service/{id}", method = RequestMethod.GET)
 	public ModelAndView ServiceUser(User user, @PathVariable("id") String id, HttpSession session) {
-		if (id.equals("management-check"))
-			return new ModelAndView("/function/service-management-check");
+		if (id.equals("management-check")){
+			/**
+			 * 物业服务考评表格
+			 */
+			User sessionUser = (User)session.getAttribute("user");
+			List<InvestigationTableEntity> investigationTableEntityList =investigationTableService.getInvestigationTableEntityByUserName(sessionUser.getUserName());
+			if(!investigationTableEntityList.isEmpty()&&investigationTableEntityList!=null){
+			Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
+			map.put("investigationTableEntityList",investigationTableEntityList);
+			return new ModelAndView("/function/service-management-check",map);
+			}
+			else{
+			List<WaitForInvestigationUserEntity> waitForInvestigationUserEntityList=waitForInvestigationService.findWaitByUserName(sessionUser.getUserName());
+			for(int i=0;i<waitForInvestigationUserEntityList.size();i++){
+				investigationTableEntityList.add(investigationTableService.getInvestigationTableEntityByid(waitForInvestigationUserEntityList.get(i).getInvestigationId()));
+			}
+			Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
+			map.put("investigationTableEntityList",investigationTableEntityList);
+			return new ModelAndView("/function/service-management-check",map);
+			}
+			
+		}
 		else if (id.equals("management-table-make"))
 			return new ModelAndView("/function/service-management-table-make");
 		else if (id.equals("table-info"))
