@@ -9,4 +9,5 @@ public interface PropertyServices {
 	public boolean setStatus(int id,int status);
 	public List<PropertyServiceEntity> getPropertyTableByID(int propertyID);
 	public List<PropertyServiceEntity> getPropertyTableByVertifyUser(String vertifyUser);
+	public boolean setTemporaryDemand(String temporaryDemand, int id);
 }

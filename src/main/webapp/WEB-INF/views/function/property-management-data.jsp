@@ -27,8 +27,8 @@
 					          <ul class="dropdown-menu">
 					            <li><a href="/property/management">申请状态
 					            </a></li>
-					             <li><a href="/property/management-system">系统参数
-					            </a></li>
+					             <!-- <li><a href="/property/management-system">系统参数
+					            </a></li> -->
 					          </ul>  
 						  </li>
 						</ol>

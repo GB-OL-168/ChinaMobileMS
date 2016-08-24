@@ -1,6 +1,9 @@
 package com.GB.ChinaMobileMS.controller;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.GB.ChinaMobileMS.activiti_util.ActivitiUtil;
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.JobEntity;
@@ -35,7 +39,8 @@ public class PropertyApplicantController {
 	private BranchService branchService;
 	@Autowired
 	private JobService jobService;
-	
+	@Autowired
+	private ActivitiUtil activitiUtil;
 
 	@RequestMapping(value="/addPropertyApplicant", method=RequestMethod.POST)
 	public ModelAndView addPropertyApplicant(PropertyServiceEntity propertyApplicant, HttpSession httpSession){
@@ -54,15 +59,27 @@ public class PropertyApplicantController {
         propertyApplicant.setBranchId(branchEntity.getBranchId());
         propertyApplicant.setCompanyId(companyEntity.getCompanyId());
 		
-		Timestamp time = new Timestamp(System.currentTimeMillis()); 
-		propertyApplicant.setApplyTime(time);
+		propertyApplicant.setApplyTime(formatTime());
 
-		String string = propertyApplicantService.addPropertyApplicant(propertyApplicant);
+		//提取申请表id
+		int propertyID = propertyApplicantService.addPropertyApplicant(propertyApplicant);
+		//开启申请
+		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
 		
-		List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.listPropertyApplicant();
+		List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.getPropertyApplicantByApplyUserName(sessionUser.getUserName());
 		Map map =new HashMap();
 		map.put("listPropertyApplicant",listPropertyApplicant);
 		return new ModelAndView("/function/property-server",map);
 	}
 	
+	private boolean startAcititi(int propertyTableId, String branchVertifyUser, String companyVertifyUser){
+		return activitiUtil.startProcess(propertyTableId, branchVertifyUser, companyVertifyUser);
+	}
+	
+	private Timestamp formatTime(){
+		Date dt = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String nowTime = df.format(dt);
+		return Timestamp.valueOf(nowTime); 
+	}
 }

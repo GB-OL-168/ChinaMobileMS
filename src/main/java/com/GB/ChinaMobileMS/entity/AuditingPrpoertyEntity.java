@@ -3,7 +3,7 @@ package com.GB.ChinaMobileMS.entity;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class PropertyServiceEntity {
+public class AuditingPrpoertyEntity {
 	private int propertyTableId;
 	private String applyUserName;
 	private int companyId;
@@ -26,7 +26,11 @@ public class PropertyServiceEntity {
 
 	private int status;
 	private String temporaryDemand;
-
+	
+	private String currentUser;
+	private String branchVertifyUser;
+	private String companyVertifyUser;
+	private int auditingStatus;
 	public int getPropertyTableId() {
 		return propertyTableId;
 	}
@@ -129,7 +133,6 @@ public class PropertyServiceEntity {
 	public void setGotId(int gotId) {
 		this.gotId = gotId;
 	}
-	
 	public Timestamp getApplyTime() {
 		return applyTime;
 	}
@@ -142,29 +145,57 @@ public class PropertyServiceEntity {
 	public void setConcreteTime(String concreteTime) {
 		this.concreteTime = concreteTime;
 	}
-	
 	public int getStatus() {
 		return status;
 	}
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
 	public String getTemporaryDemand() {
 		return temporaryDemand;
 	}
 	public void setTemporaryDemand(String temporaryDemand) {
 		this.temporaryDemand = temporaryDemand;
 	}
+	public String getCurrentUser() {
+		return currentUser;
+	}
+	public void setCurrentUser(String currentUser) {
+		this.currentUser = currentUser;
+	}
+	public String getBranchVertifyUser() {
+		return branchVertifyUser;
+	}
+	public void setBranchVertifyUser(String branchVertifyUser) {
+		this.branchVertifyUser = branchVertifyUser;
+	}
+	public String getCompanyVertifyUser() {
+		return companyVertifyUser;
+	}
+	public void setCompanyVertifyUser(String companyVertifyUser) {
+		this.companyVertifyUser = companyVertifyUser;
+	}
+	public int getAuditingStatus() {
+		return auditingStatus;
+	}
+	public void setAuditingStatus(int auditingStatus) {
+		this.auditingStatus = auditingStatus;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((addition == null) ? 0 : addition.hashCode());
+		result = prime * result + ((applyTime == null) ? 0 : applyTime.hashCode());
 		result = prime * result + ((applyUserName == null) ? 0 : applyUserName.hashCode());
+		result = prime * result + auditingStatus;
 		result = prime * result + branchId;
+		result = prime * result + ((branchVertifyUser == null) ? 0 : branchVertifyUser.hashCode());
 		result = prime * result + companyId;
+		result = prime * result + ((companyVertifyUser == null) ? 0 : companyVertifyUser.hashCode());
+		result = prime * result + ((concreteTime == null) ? 0 : concreteTime.hashCode());
 		result = prime * result + ((contactInfo == null) ? 0 : contactInfo.hashCode());
+		result = prime * result + ((currentUser == null) ? 0 : currentUser.hashCode());
 		result = prime * result + ((diningService == null) ? 0 : diningService.hashCode());
 		result = prime * result + ((engineeringManage == null) ? 0 : engineeringManage.hashCode());
 		result = prime * result + ((enviromentMaintain == null) ? 0 : enviromentMaintain.hashCode());
@@ -177,6 +208,8 @@ public class PropertyServiceEntity {
 		result = prime * result + ((serviceDate == null) ? 0 : serviceDate.hashCode());
 		result = prime * result + serviceId;
 		result = prime * result + ((serviceLocation == null) ? 0 : serviceLocation.hashCode());
+		result = prime * result + status;
+		result = prime * result + ((temporaryDemand == null) ? 0 : temporaryDemand.hashCode());
 		return result;
 	}
 	@Override
@@ -187,25 +220,52 @@ public class PropertyServiceEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PropertyServiceEntity other = (PropertyServiceEntity) obj;
+		AuditingPrpoertyEntity other = (AuditingPrpoertyEntity) obj;
 		if (addition == null) {
 			if (other.addition != null)
 				return false;
 		} else if (!addition.equals(other.addition))
+			return false;
+		if (applyTime == null) {
+			if (other.applyTime != null)
+				return false;
+		} else if (!applyTime.equals(other.applyTime))
 			return false;
 		if (applyUserName == null) {
 			if (other.applyUserName != null)
 				return false;
 		} else if (!applyUserName.equals(other.applyUserName))
 			return false;
+		if (auditingStatus != other.auditingStatus)
+			return false;
 		if (branchId != other.branchId)
 			return false;
+		if (branchVertifyUser == null) {
+			if (other.branchVertifyUser != null)
+				return false;
+		} else if (!branchVertifyUser.equals(other.branchVertifyUser))
+			return false;
 		if (companyId != other.companyId)
+			return false;
+		if (companyVertifyUser == null) {
+			if (other.companyVertifyUser != null)
+				return false;
+		} else if (!companyVertifyUser.equals(other.companyVertifyUser))
+			return false;
+		if (concreteTime == null) {
+			if (other.concreteTime != null)
+				return false;
+		} else if (!concreteTime.equals(other.concreteTime))
 			return false;
 		if (contactInfo == null) {
 			if (other.contactInfo != null)
 				return false;
 		} else if (!contactInfo.equals(other.contactInfo))
+			return false;
+		if (currentUser == null) {
+			if (other.currentUser != null)
+				return false;
+		} else if (!currentUser.equals(other.currentUser))
 			return false;
 		if (diningService == null) {
 			if (other.diningService != null)
@@ -258,11 +318,18 @@ public class PropertyServiceEntity {
 				return false;
 		} else if (!serviceLocation.equals(other.serviceLocation))
 			return false;
+		if (status != other.status)
+			return false;
+		if (temporaryDemand == null) {
+			if (other.temporaryDemand != null)
+				return false;
+		} else if (!temporaryDemand.equals(other.temporaryDemand))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "PropertyServiceEntity [propertyTableId=" + propertyTableId + ", applyUserName=" + applyUserName
+		return "AuditingPrpoertyEntity [propertyTableId=" + propertyTableId + ", applyUserName=" + applyUserName
 				+ ", companyId=" + companyId + ", branchId=" + branchId + ", diningService=" + diningService
 				+ ", receptionService=" + receptionService + ", enviromentMaintain=" + enviromentMaintain
 				+ ", engineeringManage=" + engineeringManage + ", firefightingManage=" + firefightingManage
@@ -270,18 +337,8 @@ public class PropertyServiceEntity {
 				+ ", serviceDate=" + serviceDate + ", serviceLocation=" + serviceLocation + ", serviceCommand="
 				+ serviceCommand + ", addition=" + addition + ", gotId=" + gotId + ", applyTime=" + applyTime
 				+ ", concreteTime=" + concreteTime + ", status=" + status + ", temporaryDemand=" + temporaryDemand
-				+ ", getPropertyTableId()=" + getPropertyTableId() + ", getApplyUserName()=" + getApplyUserName()
-				+ ", getCompanyId()=" + getCompanyId() + ", getBranchId()=" + getBranchId() + ", getDiningService()="
-				+ getDiningService() + ", getReceptionService()=" + getReceptionService() + ", getEnviromentMaintain()="
-				+ getEnviromentMaintain() + ", getEngineeringManage()=" + getEngineeringManage()
-				+ ", getFirefightingManage()=" + getFirefightingManage() + ", getOlderMantain()=" + getOlderMantain()
-				+ ", getServiceId()=" + getServiceId() + ", getContactInfo()=" + getContactInfo()
-				+ ", getServiceDate()=" + getServiceDate() + ", getServiceLocation()=" + getServiceLocation()
-				+ ", getServiceCommand()=" + getServiceCommand() + ", getAddition()=" + getAddition() + ", getGotId()="
-				+ getGotId() + ", getApplyTime()=" + getApplyTime() + ", getConcreteTime()=" + getConcreteTime()
-				+ ", getStatus()=" + getStatus() + ", getTemporaryDemand()=" + getTemporaryDemand() + ", hashCode()="
-				+ hashCode() + ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
+				+ ", currentUser=" + currentUser + ", branchVertifyUser=" + branchVertifyUser + ", companyVertifyUser="
+				+ companyVertifyUser + ", auditingStatus=" + auditingStatus + "]";
 	}
-	
 	
 }

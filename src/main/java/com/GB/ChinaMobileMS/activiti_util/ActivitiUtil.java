@@ -7,13 +7,13 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
-import com.GB.ChinaMobileMS.dao.ReviewMapper;
-import com.GB.ChinaMobileMS.entity.ReviewEntity;
 import com.GB.ChinaMobileMS.services.interfaces.ReviewService;
 
-@ContextConfiguration(locations = { "classpath:spring-context.xml" })
+@Component
 public class ActivitiUtil {
 
 	@Autowired
@@ -43,11 +43,13 @@ public class ActivitiUtil {
 	 * @param vertifyUserID
 	 *            审核人ID
 	 */
-	public void startProcess(int propertyTableId, String vertifyUserID) {
+	public boolean startProcess(int propertyTableId, String branchVertifyUserID, String companyVertifyUserID) {
 		String excutionID = runtimeService.startProcessInstanceByKey("myProcess").getId();
-		if (!startReviewInDB(propertyTableId, excutionID, vertifyUserID)) {
+		if (!startReviewInDB(propertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID)) {
 			System.out.println("开启审核失败");
+			return false;
 		}
+		return true;
 	}
 
 	/**
@@ -76,8 +78,8 @@ public class ActivitiUtil {
 	 * @param vertifyUserID
 	 *            审核人ID
 	 */
-	private boolean startReviewInDB(int propertyTableId, String excutionID, String vertifyUserID) {
-		return reviewService.startReview(propertyTableId, excutionID, vertifyUserID);
+	private boolean startReviewInDB(int propertyTableId, String excutionID, String branchVertifyUserID, String companyVertifyUserID) {
+		return reviewService.startReview(propertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID);
 	}
 
 }

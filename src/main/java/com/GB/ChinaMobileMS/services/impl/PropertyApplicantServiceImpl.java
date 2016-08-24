@@ -17,13 +17,15 @@ public class PropertyApplicantServiceImpl implements PropertyApplicantService {
 	//PropertyApplicantMapper映射接口，生成一个实现对象
 	
 
-	public String addPropertyApplicant(PropertyServiceEntity propertyApplicant) {
-		System.out.println("进入了 addPropertyApplicant 方法");
-		// TODO Auto-generated method stub
-		int insertResult = propertyApplicantMapper.insertPropertyApplicant(propertyApplicant);
-		System.out.println("insertResult = "  + insertResult);
-		
-		return null;
+	public int addPropertyApplicant(PropertyServiceEntity propertyApplicant) {
+		int result = propertyApplicantMapper.insertPropertyApplicant(propertyApplicant);
+		System.out.println(propertyApplicant);
+		if(result>0){
+			PropertyServiceEntity entity = propertyApplicantMapper.queryPropertyApplicantByAllCols(propertyApplicant);
+			
+			return entity.getPropertyTableId();
+		}else 
+			return 0;
 	}
 	
 	public List<PropertyServiceEntity> listPropertyApplicant() {
@@ -31,5 +33,15 @@ public class PropertyApplicantServiceImpl implements PropertyApplicantService {
 		List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantMapper.listPropertyApplicant();	
 		return listPropertyApplicant;
 	}
-	
+
+	@Override
+	public List<PropertyServiceEntity> getPropertyApplicantByApplyUserName(String userName) {
+		
+		return propertyApplicantMapper.queryPropertyApplicantByUserName(userName);
+	}
+
+	@Override
+	public boolean setPropertyTempDemand(int id, String tempDemand) {
+		return propertyApplicantMapper.updateTempDemand(id, tempDemand);
+	}
 }

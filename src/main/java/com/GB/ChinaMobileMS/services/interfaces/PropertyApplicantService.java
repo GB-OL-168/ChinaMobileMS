@@ -10,7 +10,11 @@ public interface PropertyApplicantService {
 	 * @Cindy
 	 *填写物业服务申请
 	 */
-	String addPropertyApplicant(PropertyServiceEntity propertyApplicant);
+	int addPropertyApplicant(PropertyServiceEntity propertyApplicant);
 	
 	List<PropertyServiceEntity> listPropertyApplicant();
+	
+	public List<PropertyServiceEntity> getPropertyApplicantByApplyUserName(String userName);
+	
+	public boolean setPropertyTempDemand(int id, String tempDemand);
 }
