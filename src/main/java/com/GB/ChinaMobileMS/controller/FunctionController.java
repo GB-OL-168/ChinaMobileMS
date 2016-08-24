@@ -173,8 +173,7 @@ public class FunctionController {
 			return new ModelAndView("/function/service-management-table-make");
 		else if (id.equals("table-info"))
 			return new ModelAndView("/function/service-table-info");
-		else if (id.equals("management-send"))
-			return new ModelAndView("/function/service-management-send");
+
 		else if (id.equals("date-statistics"))
 			return new ModelAndView("/function/service-date-statistics");
 		else if (id.equals("table-write"))

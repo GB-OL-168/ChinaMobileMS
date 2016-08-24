@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,10 +19,9 @@ import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.ServiceManagementSend;
 
-
 @Controller
 public class ServiceManagementSendController {
-	
+
 	@Autowired
 	private ServiceManagementSend serviceManagementSend;
 	@Autowired
@@ -30,33 +30,41 @@ public class ServiceManagementSendController {
 	private BranchService branchService;
 	@Autowired
 	private JobService JobService;
-	
-	@RequestMapping(value="/sendServiceManagement", method=RequestMethod.POST)
-	public ModelAndView sendServiceManagement(InvestigationTableEntity investigationTableEntity){
+
+	@RequestMapping(value = "/sendServiceManagement1/{id}", method = RequestMethod.GET)
+	public ModelAndView sendServiceManagement( @PathVariable("id") String id) {
+
 		
-		
-		String investigationName;
-		int status;
-		investigationTableEntity = serviceManagementSend.getInvestigationName(2);//上一页点击发送时取得ID
-		investigationName = investigationTableEntity.getInvestigationName();
-		status = investigationTableEntity.getStatus();
-		
+//		String investigationName;
+//		int status;
+//		investigationTableEntity = serviceManagementSend.getInvestigationName(2);// 上一页点击发送时取得ID
+//		investigationName = investigationTableEntity.getInvestigationName();
+//		status = investigationTableEntity.getStatus();
+
 		List<CompanyEntity> listCompany = companyService.queryCompany();
 		List<BranchEntity> listBranch = branchService.queryBranch();
 		List<JobEntity> listJob = JobService.queryJob();
-		
-		
-//		return new ModelAndView("/function/service-management-send").addObject("investigationName",investigationName).addObject("status",status);
-		
-		/*int investigationId = sendService.getInvestigationId();
-		System.out.println("ID = " + investigationId);*/
-			
-		//发放状态改变
-		int newStatus=1;
-		investigationTableEntity.setStatus(newStatus);
-				 
-		String string = serviceManagementSend.sendServiceManagement(investigationTableEntity);
-		
-		return null;  //可以返回上一页
+
+		// return new
+		// ModelAndView("/function/service-management-send").addObject("investigationName",investigationName).addObject("status",status);
+
+		/*
+		 * int investigationId = sendService.getInvestigationId();
+		 * System.out.println("ID = " + investigationId);
+		 */
+
+		return new ModelAndView("/function/service-management-send");
 	}
+
+	@RequestMapping(value = "/sendServiceManagement2", method = RequestMethod.GET)
+	public ModelAndView sendServiceManagement2(InvestigationTableEntity investigationTableEntity) {
+		// 发放状态改变
+				int newStatus = 1;
+				investigationTableEntity.setStatus(newStatus);
+
+				String string = serviceManagementSend.sendServiceManagement(investigationTableEntity);
+
+				return null; // 可以返回上一页
+	}
+
 }
