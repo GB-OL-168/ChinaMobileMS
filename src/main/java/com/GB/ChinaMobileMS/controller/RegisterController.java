@@ -25,7 +25,7 @@ import com.GB.ChinaMobileMS.services.interfaces.AssetLoanDeviceService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
-public class AssetController {
+public class RegisterController {
 	@Autowired
 	private AssetHousingService ashService;
 	@Autowired
@@ -37,17 +37,18 @@ public class AssetController {
 	@Autowired
 	private UserService userSerice;
 
-	@RequestMapping(value = "/company/{id}", method = RequestMethod.GET)
-	public ModelAndView AssetUser(User user, @PathVariable("id") String id,
-			HttpSession session) {
+	@RequestMapping(value = "/register/{id}", method = RequestMethod.GET)
+	public ModelAndView AssetUser(User user, @PathVariable("id") String id, HttpSession session) {
 		if (id.equals("houses-add"))
 			return new ModelAndView("/function/company-register-houses-add");
-		else if (id.equals("houses"))
+		else if (id.equals("rooms-add"))
+			return new ModelAndView("/function/company-register-rooms-add");
+		else if (id.equals("furniture-add"))
 			return new ModelAndView("/function/company-register-furniture-add");
-		else if (id.equals("using"))
+		else if (id.equals("lease-add"))
 			return new ModelAndView("/function/company-register-lease-add");
 		else
-			return new ModelAndView("/function/company-register-rooms-add");
+			return new ModelAndView("forward:/");
 	}
 
 	@RequestMapping(value = "/addAH", method = RequestMethod.GET)
@@ -71,8 +72,7 @@ public class AssetController {
 	}
 
 	@RequestMapping(value = "/addFurniture", method = RequestMethod.GET)
-	public ModelAndView addFurniture(AssetFurniture assetfurn,
-			HttpSession session) {
+	public ModelAndView addFurniture(AssetFurniture assetfurn, HttpSession session) {
 		System.out.println("Enter Controller");
 
 		System.out.println("assetfurn:" + assetfurn);

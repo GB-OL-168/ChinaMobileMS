@@ -15,7 +15,7 @@ public class Company {
 			return new ModelAndView("/function/company-query-houses");
 		else if (id.equals("info"))
 			return new ModelAndView("/function/company-info-using");
-		else if(id.equals("count"))
+		else if (id.equals("count"))
 			return new ModelAndView("/function/company-count");
 		else
 			return new ModelAndView("forward:/");

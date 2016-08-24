@@ -40,9 +40,9 @@ ol>li {
 								aria-haspopup="true" aria-expanded="false">房间信息登记 <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="company-register-houses-add.html">房屋资产信息登记</a></li>
-									<li><a href="company-register-furniture-add.html">办公家具信息登记</a></li>
-									<li><a href="company-register-lease-add.html">租赁设备信息登记</a></li>
+									<li><a href="/register/houses-add">房屋资产信息登记</a></li>
+									<li><a href="/register/furniture-add">办公家具信息登记</a></li>
+									<li><a href="/register/lease-add">租赁设备信息登记</a></li>
 								</ul></li>
 						</ol>
 					</div>
@@ -55,9 +55,9 @@ ol>li {
 						<label class="col-sm-3 control-label">所属单位</label>
 						<div class="col-sm-5">
 							<select class="form-control" name="belonngBranchId">
-								<option value= "1">物业服务部</option>
-								<option value= "2">公关部</option>
-								<option value= "3">郫县分公司物业部</option>
+								<option value="1">物业服务部</option>
+								<option value="2">公关部</option>
+								<option value="3">郫县分公司物业部</option>
 							</select>
 						</div>
 					</div>
@@ -88,14 +88,16 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间编号</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" placeholder="请输入房间编号" name="houseId">
-						</div> 
+							<input type="text" class="form-control" placeholder="请输入房间编号"
+								name="houseId">
+						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间面积</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" placeholder="请输入房间面积" name="area">
+							<input type="text" class="form-control" placeholder="请输入房间面积"
+								name="area">
 						</div>
 					</div>
 

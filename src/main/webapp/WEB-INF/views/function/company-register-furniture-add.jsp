@@ -37,9 +37,9 @@
 						  	<li class="dropdown active">
 						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">办公家具信息登记 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="company-register-houses-add.html">房屋资产信息登记</a></li>
-					            <li><a href="company-register-rooms-add.html">房间信息登记</a></li>
-					            <li><a href="company-register-lease-add.html">租赁设备信息登记</a></li>
+					            <li><a href="/register/houses-add">房屋资产信息登记</a></li>
+					            <li><a href="/register/rooms-add">房间信息登记</a></li>
+					            <li><a href="/register/lease-add">租赁设备信息登记</a></li>
 					          </ul>
 						  </li>
 						</ol>
