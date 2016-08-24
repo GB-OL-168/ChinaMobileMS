@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -27,13 +29,7 @@ ol>li {
 						<ol class="breadcrumb">
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">信息登记 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="company-register-houses.html">信息查询</a></li>
-									<li><a href="company-count.html">信息统计</a></li>
-								</ul></li>
+							<li><a href="#">信息登记 </a></li>
 							<li class="dropdown active"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">租赁设备信息登记 <span
@@ -129,17 +125,38 @@ ol>li {
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">使用人</label>
+						<label class="col-sm-4 control-label">公司</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="使用人"
-								name="loanUserName">
+							<select name="company" class="company form-control">
+								<option value="">--请选择公司--</option>
+								<c:forEach items="${listCompany}" var="c">
+									<option value="${c.companyId }">${c.companyName}</option>
+								</c:forEach>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">所在部门</label>
+						<label class="col-sm-4 control-label">部门</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="所在部门"
-								name="belongBranchId">
+							<select name="belongBranchId" class="branch form-control">
+								<option value="">--请选择部门--</option>
+								<c:forEach items="${listBranch}" var="b">
+									<option style="display: none;" class="${b.companyId}"
+										value="${b.branchId }">${b.branchName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">使用人</label>
+						<div class="col-sm-8">
+							<select name="loanUserName" class="loanUserName form-control">
+								<option value="">--请选择使用人--</option>
+								<c:forEach items="${listUser}" var="u">
+									<option style="display: none;" class="${u.jobId}"
+										value="${u.userName}">${u.userName}</option>
+								</c:forEach>
+							</select>
 						</div>
 					</div>
 					<!-- 				  <div class="form-group">   -->
@@ -173,6 +190,31 @@ ol>li {
 			</div>
 		</div>
 	</div>
+	<script>
+		var all = 1;
+		$(function() {
+			$(".branch").change(function() {
+				$(".loanUserName").val("");
+				$("option." + all).css("display", "none");
+				var b = $(".branch").val();
+				all = b;
+				$("option." + b).css("display", "block");
+			});
+		});
+	</script>
 
+	<script>
+		var all = 1;
+		$(function() {
+			$(".company").change(function() {
+				$(".branch").val("");
+				$("option." + all).css("display", "none");
+				var b = $(".company").val();
+				all = b;
+				$("option." + b).css("display", "block");
+
+			});
+		});
+	</script>
 </body>
 </html>

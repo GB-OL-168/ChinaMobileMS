@@ -1,5 +1,7 @@
 package com.GB.ChinaMobileMS.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,11 @@ public class AssetHousingServiceImpl implements AssetHousingService{
 		int addash = ashMapper.addAssetHousing(ash);
 		return "done";
 	}
-
+	
+	public List<AssetHousing> queryAssetHousing(){
+		System.out.println("Enter queryAssetHousing");
+		List<AssetHousing> listash = ashMapper.queryAssetHousing();
+		
+		return listash;
+	}
 }

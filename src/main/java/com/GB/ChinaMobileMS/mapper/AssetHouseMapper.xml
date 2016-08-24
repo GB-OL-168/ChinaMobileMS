@@ -10,5 +10,9 @@
 		house_info(house_id,belonng_branch_id,building,floor,area)
 		VALUES
 		(#{houseId},#{belonngBranchId},#{building},#{floor},#{area})
-		</insert>
+	</insert>
+	
+	<select id="queryAssetHouse" resultType="AssetHouse">
+		select * from house_info
+	</select>
 </mapper>

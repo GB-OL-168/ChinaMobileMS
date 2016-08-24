@@ -1,7 +1,9 @@
 package com.GB.ChinaMobileMS.controller;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,11 +19,15 @@ import com.GB.ChinaMobileMS.entity.AssetFurniture;
 import com.GB.ChinaMobileMS.entity.AssetHouse;
 import com.GB.ChinaMobileMS.entity.AssetHousing;
 import com.GB.ChinaMobileMS.entity.AssetLoanDevice;
+import com.GB.ChinaMobileMS.entity.BranchEntity;
+import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.AssetFurnitureService;
 import com.GB.ChinaMobileMS.services.interfaces.AssetHouseService;
 import com.GB.ChinaMobileMS.services.interfaces.AssetHousingService;
 import com.GB.ChinaMobileMS.services.interfaces.AssetLoanDeviceService;
+import com.GB.ChinaMobileMS.services.interfaces.BranchService;
+import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
@@ -36,17 +42,41 @@ public class RegisterController {
 	private AssetLoanDeviceService aldService;
 	@Autowired
 	private UserService userSerice;
+	@Autowired
+	private CompanyService companyService;
+	@Autowired
+	private BranchService branchService;
 
 	@RequestMapping(value = "/register/{id}", method = RequestMethod.GET)
-	public ModelAndView AssetUser(User user, @PathVariable("id") String id, HttpSession session) {
+	public ModelAndView AssetUser(User user, @PathVariable("id") String id,
+			HttpSession session) {
+
+		List<CompanyEntity> listCompany = companyService.queryCompany();
+		List<BranchEntity> listBranch = branchService.queryBranch();
+		List<User> listUser = userSerice.listUser();
+		List<AssetHouse> listRoom = roomService.queryAssetHouse();
+		List<AssetHousing> listash = ashService.queryAssetHousing();
+
+		Map map = new HashMap();
+		
+
+		map.put("listCompany", listCompany);
+		map.put("listBranch", listBranch);
+		map.put("listash", listash);
+		map.put("listRoom", listRoom);
+		map.put("listUser",listUser);
+
 		if (id.equals("houses-add"))
-			return new ModelAndView("/function/company-register-houses-add");
+			return new ModelAndView("/function/company-register-houses-add",
+					map);
 		else if (id.equals("rooms-add"))
-			return new ModelAndView("/function/company-register-rooms-add");
+			return new ModelAndView("/function/company-register-rooms-add",
+					map);
 		else if (id.equals("furniture-add"))
-			return new ModelAndView("/function/company-register-furniture-add");
+			return new ModelAndView("/function/company-register-furniture-add",
+					map);
 		else if (id.equals("lease-add"))
-			return new ModelAndView("/function/company-register-lease-add");
+			return new ModelAndView("/function/company-register-lease-add", map);
 		else
 			return new ModelAndView("forward:/");
 	}
@@ -72,7 +102,8 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "/addFurniture", method = RequestMethod.GET)
-	public ModelAndView addFurniture(AssetFurniture assetfurn, HttpSession session) {
+	public ModelAndView addFurniture(AssetFurniture assetfurn,
+			HttpSession session) {
 		System.out.println("Enter Controller");
 
 		System.out.println("assetfurn:" + assetfurn);
