@@ -1,83 +1,86 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html> 
+<html>
 <head>
 <meta charset="utf-8">
-	<title>上市公司资产信息管理 - 信息登记</title>
-	<link rel="stylesheet" href="/四川移动后勤服务中心管理信息系统/css/bootstrap.css">
-	<link rel="stylesheet" href="/四川移动后勤服务中心管理信息系统/css/system.css">
-	<script src="/四川移动后勤服务中心管理信息系统/js/jquery-1.9.1.js"></script>
-	<script src="/四川移动后勤服务中心管理信息系统/js/bootstrap.js"></script>
-	<style>
-		ol>li{
-			font-size:18px;
-		}
-	</style>
+<title>上市公司资产信息管理 - 信息登记</title>
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/system.css">
+<script src="/assets/js/jquery-1.9.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<style>
+ol>li {
+	font-size: 18px;
+}
+</style>
 </head>
 <body>
-	
-	<div class="container" style="margin-left:20px;">
-		
+
+	<div class="container" style="margin-left: 20px;">
+
 		<div class="row">
-		
+
 			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
-						  <li><a href="#">信息管理</a></li>
-						  <li><a href="#">上市公司资产信息</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息登记 <span class="caret"></span></a>
+							<li><a href="#">信息管理</a></li>
+							<li><a href="#">上市公司资产信息</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">信息登记 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="company-register-houses.html">信息查询</a></li>
 									<li><a href="company-count.html">信息统计</a></li>
-								</ul>
-							</li>
-						  <li class="dropdown active">
-						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房间信息登记 <span class="caret"></span></a>
-					          <ul class="dropdown-menu">
-					            <li><a href="company-register-houses-add.html">房屋资产信息登记</a></li>
-					            <li><a href="company-register-furniture-add.html">办公家具信息登记</a></li>
-					            <li><a href="company-register-lease-add.html">租赁设备信息登记</a></li>
-					          </ul>
-						  </li>
+								</ul></li>
+							<li class="dropdown active"><a href="#"
+								class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-haspopup="true" aria-expanded="false">房间信息登记 <span
+									class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="company-register-houses-add.html">房屋资产信息登记</a></li>
+									<li><a href="company-register-furniture-add.html">办公家具信息登记</a></li>
+									<li><a href="company-register-lease-add.html">租赁设备信息登记</a></li>
+								</ul></li>
 						</ol>
 					</div>
 				</div>
 
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="/addRoom" method="get">
 					<h3 style="text-align: center;">房间信息登记</h3>
 
 					<div class="form-group">
-						<label  class="col-sm-3 control-label">所属单位</label>
+						<label class="col-sm-3 control-label">所属单位</label>
 						<div class="col-sm-5">
-							<select class="form-control">
-								<option>四川移动分公司</option>
-								<option>四川华迪分公司</option>
+							<select class="form-control" name="belonngBranchId">
+								<option value= "1">物业服务部</option>
+								<option value= "2">公关部</option>
+								<option value= "3">郫县分公司物业部</option>
 							</select>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label  class="col-sm-3 control-label">所属建筑</label>
+						<label class="col-sm-3 control-label">所属建筑</label>
 						<div class="col-sm-5">
-							<select class="form-control">
-								<option>创业大厦</option>
-								<option>梦想大厦</option>
+							<select class="form-control" name="building">
+								<option value="创业大厦">创业大厦</option>
+								<option value="梦想大厦">梦想大厦</option>
+								<option value="白色天马">白色天马</option>
 							</select>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label  class="col-sm-3 control-label">所属楼层</label>
+						<label class="col-sm-3 control-label">所属楼层</label>
 						<div class="col-sm-5">
-							<select class="form-control">
-								<option>一</option>
-								<option>二</option>
-								<option>三</option>
-								<option>四</option>
+							<select class="form-control" name="floor">
+								<option value="1">一</option>
+								<option value="2">二</option>
+								<option value="3">三</option>
+								<option value="4">四</option>
 							</select>
 						</div>
 					</div>
@@ -85,14 +88,14 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间编号</label>
 						<div class="col-sm-5">
-							<input type="password" class="form-control" placeholder="请输入房间编号">
-						</div>
+							<input type="text" class="form-control" placeholder="请输入房间编号" name="houseId">
+						</div> 
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间面积</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" placeholder="请输入房间面积">
+							<input type="text" class="form-control" placeholder="请输入房间面积" name="area">
 						</div>
 					</div>
 

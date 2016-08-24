@@ -6,10 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <title>上市公司资产信息管理 - 信息登记</title>
-    <link rel="stylesheet" href="/四川移动后勤服务中心管理信息系统/css/bootstrap.css">
-    <link rel="stylesheet" href="/四川移动后勤服务中心管理信息系统/css/system.css">
-    <script src="/四川移动后勤服务中心管理信息系统/js/jquery-1.9.1.js"></script>
-    <script src="/四川移动后勤服务中心管理信息系统/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
     <style>
         ol>li{
             font-size:18px;
@@ -47,83 +47,83 @@
                 </div>
             </div>
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/addAH" method="get">
                 <h3 style="text-align: center">房屋资产信息登记</h3>
 
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">房屋编号</label>
                     <div class="col-sm-3">
-                        <input  type="text" class="form-control" name=" "/>
+                        <input  type="text" class="form-control" name="assetInfoId"/>
                     </div>
                     <label  class="col-sm-2 control-label">建筑面积</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control"  name=" "/>
+                        <input type="text" class="form-control"  name="buildingArea"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">坐落地点</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="location" type="text" class="form-control"/>
                     </div>
                     <label  class="col-sm-2 control-label">房屋间数</label>
                     <div class="col-sm-3">
-                        <input name=" "  type="text" class="form-control"/>
+                        <input name="roomCount"  type="text" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label  class="col-sm-2 control-label">使用单位名称</label>
+                    <label  class="col-sm-2 control-label">使用单位编号</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="usedBranchId" type="text" class="form-control"/>
                     </div>
                     <label  class="col-sm-2 control-label">结构类型</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="structureType" type="text" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">建筑名称</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="buildingName" type="text" class="form-control"/>
                     </div>
                     <label  class="col-sm-2 control-label">房屋用途</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="roomUsage" type="text" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">备注说明</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="remark" type="text" class="form-control"/>
                     </div>
                     <label  class="col-sm-2 control-label">建成年份</label>
                     <div class="col-sm-3">
-                        <input name=" " type="date" class="form-control"/>
+                        <input name="addition" type="date" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">是否租贷</label>
                     <div class="col-sm-3">
-                        <input name=" " type="radio" value="y"/>是
-                        <input name=" " type="radio" value="n"/>否
+                        <input name="isLoan" type="radio" value="1"/>是
+                        <input name="isLoan" type="radio" value="0"/>否
                     </div>
                     <label  class="col-sm-2 control-label">租贷来源</label>
                     <div class="col-sm-3">
-                        <input name=" " type="text" class="form-control"/>
+                        <input name="loanSource" type="text" class="form-control" value="null"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">租贷时间段</label>
                     <div class="col-sm-3">
-                        <input name=" " type="date" class="form-control"/>
+                        <input name="loanTimeStart" type="date" class="form-control" value="null"/>
                     </div>
                     <label  class="col-sm-2 control-label">至</label>
                     <div class="col-sm-3">
-                        <input name=" " type="date" class="form-control"/>
+                        <input name="loanTimeEnd" type="date" class="form-control" value="null"/>
                     </div>
                 </div>
 

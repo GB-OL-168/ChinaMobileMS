@@ -6,10 +6,10 @@
 <head>
 <meta charset="utf-8">
 	<title>上市公司资产信息管理 - 信息登记</title>
-	<link rel="stylesheet" href="/四川移动后勤服务中心管理信息系统/css/bootstrap.css">
-	<link rel="stylesheet" href="/四川移动后勤服务中心管理信息系统/css/system.css">
-	<script src="/四川移动后勤服务中心管理信息系统/js/jquery-1.9.1.js"></script>
-	<script src="/四川移动后勤服务中心管理信息系统/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
 	<style>
 		ol>li{
 			font-size:18px;
@@ -46,87 +46,87 @@
 					</div>
 				</div>
   
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="/addFurniture" method="get">
 					<h3 style="text-align:center">办公家具信息登记</h3>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" >所属单位</label>
-						<div class="col-sm-10">
-							<select class="form-control">
-								<option>四川移动分公司</option>
-								<option>四川华迪分公司</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">所属建筑</label>
-						<div class="col-sm-10">
-							<select class="form-control">
-								<option>创业大厦</option>
-								<option>梦想大厦</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label  class="col-sm-2 control-label">所属楼层</label>
-						<div class="col-sm-10">
-							<select class="form-control">
-								<option>一</option>
-								<option>二</option>
-								<option>三</option>
-							</select>
-						</div>
-					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="col-sm-2 control-label" >所属单位</label> -->
+<!-- 						<div class="col-sm-10"> -->
+<!-- 							<select class="form-control"> -->
+<!-- 								<option>四川移动分公司</option> -->
+<!-- 								<option>四川华迪分公司</option> -->
+<!-- 							</select> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="col-sm-2 control-label">所属建筑</label> -->
+<!-- 						<div class="col-sm-10"> -->
+<!-- 							<select class="form-control"> -->
+<!-- 								<option>创业大厦</option> -->
+<!-- 								<option>梦想大厦</option> -->
+<!-- 							</select> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label  class="col-sm-2 control-label">所属楼层</label> -->
+<!-- 						<div class="col-sm-10"> -->
+<!-- 							<select class="form-control"> -->
+<!-- 								<option>一</option> -->
+<!-- 								<option>二</option> -->
+<!-- 								<option>三</option> -->
+<!-- 							</select> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<div class="form-group">
 						<label  class="col-sm-2 control-label">房间编号</label>
 						<div class="col-sm-10">
-							<select class="form-control">
-								<option>112</option>
-								<option>113</option>
-								<option>124</option>
-								<option>112</option>
-								<option>321</option>
-								<option>213</option>
+							<select class="form-control" name=houseId>
+								<option value="1">1</option>
+								<option value="2">2</option>
+<!-- 								<option value="124">124</option> -->
+<!-- 								<option value="112">112</option> -->
+<!-- 								<option value="321">321</option> -->
+<!-- 								<option value="213">213</option> -->
 							</select>
 						</div>
 					</div>
 				  <div class="form-group">
 				    <label  class="col-sm-2 control-label">家具类型</label>
 				    <div class="col-sm-10">
-				      <select class="form-control">
-						  <option>01</option>
-						  <option>02</option>
+				      <select class="form-control" name="furnitureType">
+						  <option value="01">01</option>
+						  <option value="02">02</option>
 						</select>
 				    </div>
 				  </div>
 				  <div class="form-group">         
 				    <label  class="col-sm-2 control-label">品牌/型号</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" placeholder="品牌/型号">
+				      <input type="text" class="form-control" placeholder="品牌/型号" name="brand">
 				    </div>
 				  </div>
 				  <div class="form-group">  
 				    <label class="col-sm-2 control-label">规格</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" placeholder="规格">
+				      <input type="text" class="form-control" placeholder="规格" name="specification">
 				    </div>
 				  </div>
 				  <div class="form-group">  
 				    <label  class="col-sm-2 control-label">使用部门</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" placeholder="使用部门">
+				      <input type="text" class="form-control" placeholder="使用部门" name="usedBranchId">
 				    </div>
 				  </div>
 				  <div class="form-group">  
 				    <label  class="col-sm-2 control-label">数量</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" placeholder="数量">
+				      <input type="text" class="form-control" placeholder="数量" name="count">
 				    </div>
 				  </div>
 					<div class="form-group">
 						<label  class="col-sm-2 control-label">使用情况</label>
 						<div class="col-sm-offset-2 col-sm-8">
-							<input type="radio" name="using"value="y"/>在用
-							<input type="radio"name="using"value="n"/>闲置
+							<input type="radio" name="usedSituation"value="1"/>在用
+							<input type="radio"name="usedSituation"value="0"/>闲置
 						</div>
 					</div>
 				  <div class="form-group">
