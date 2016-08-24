@@ -22,7 +22,7 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 	@Override
 	public List<InvestigationItemsEntity> getInvestigationItems(int investigationTableId) {
 		// TODO Auto-generated method stub
-		return investigationItemsMapper.findInvestigationItems(investigationTableId);
+		return investigationItemsMapper.findInvestigationItemsByInvestigationTableId(investigationTableId);
 	}
 
 }

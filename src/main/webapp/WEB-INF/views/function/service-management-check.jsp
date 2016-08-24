@@ -54,7 +54,7 @@
 									<a href="/showInvestigationItem/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>查看</button></a>
 										&nbsp&nbsp<a href="/sendServiceManagement1/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>发放</button></a>
 										&nbsp&nbsp<a href=""><button class='btn btn-info'>回收</button></a>
-										&nbsp&nbsp<a href="/service/date-statistics"><button class='btn btn-info'>统计</button></a></td>
+										&nbsp&nbsp<a href="/statistics/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>统计</button></a></td>
 								</tr>
 								</c:forEach>
 							</table>
