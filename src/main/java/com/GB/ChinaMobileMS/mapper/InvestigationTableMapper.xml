@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.GB.ChinaMobileMS.dao.InvestigationTableMapper">
+	<insert id="insertTableMessage" parameterType="com.GB.ChinaMobileMS.entity.InvestigationTableEntity" useGeneratedKeys="true" 
+	keyProperty="investigationId" >
+	insert into investigation_table(investigation_name,create_staff)
+	values(#{investigationName},#{createStaff})
+	</insert>
+	<select id="findByUserName" parameterType="string" resultType="com.GB.ChinaMobileMS.entity.InvestigationTableEntity">
+	select *
+	from investigation_table
+	where create_staff=#{userName}
+	</select>
+	
+	<update id="updateIsFill" parameterType="int">
+	update investigation_table
+	set	status=1
+	where investigation_id=#{investigationId}
+	
+	</update>
+	
+	<select id="findByInvestigationId" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.InvestigationTableEntity" >
+	select *
+	from investigation_table
+	where investigation_id=#{investigationId}
+	</select>
+</mapper>

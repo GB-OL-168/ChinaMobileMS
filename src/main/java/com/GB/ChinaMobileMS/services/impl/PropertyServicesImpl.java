@@ -36,4 +36,8 @@ public class PropertyServicesImpl implements PropertyServices {
 	public List<PropertyServiceEntity> getPropertyTableByVertifyUser(String vertifyUser) {
 		return reviewMapper.queryPropertyTableByVertifyUser(vertifyUser);
 	}
+	@Override
+	public boolean setTemporaryDemand(String temporaryDemand, int id) {
+		return propertyMapper.updateTemporaryDemand(id, temporaryDemand);
+	}
 }

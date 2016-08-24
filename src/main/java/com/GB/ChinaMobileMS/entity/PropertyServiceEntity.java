@@ -262,13 +262,26 @@ public class PropertyServiceEntity {
 	}
 	@Override
 	public String toString() {
-		return "PropertyService [propertyTableId=" + propertyTableId + ", applyUserName=" + applyUserName
+		return "PropertyServiceEntity [propertyTableId=" + propertyTableId + ", applyUserName=" + applyUserName
 				+ ", companyId=" + companyId + ", branchId=" + branchId + ", diningService=" + diningService
 				+ ", receptionService=" + receptionService + ", enviromentMaintain=" + enviromentMaintain
 				+ ", engineeringManage=" + engineeringManage + ", firefightingManage=" + firefightingManage
 				+ ", olderMantain=" + olderMantain + ", serviceId=" + serviceId + ", contactInfo=" + contactInfo
 				+ ", serviceDate=" + serviceDate + ", serviceLocation=" + serviceLocation + ", serviceCommand="
-				+ serviceCommand + ", addition=" + addition + ", gotId=" + gotId + "]";
+				+ serviceCommand + ", addition=" + addition + ", gotId=" + gotId + ", applyTime=" + applyTime
+				+ ", concreteTime=" + concreteTime + ", status=" + status + ", temporaryDemand=" + temporaryDemand
+				+ ", getPropertyTableId()=" + getPropertyTableId() + ", getApplyUserName()=" + getApplyUserName()
+				+ ", getCompanyId()=" + getCompanyId() + ", getBranchId()=" + getBranchId() + ", getDiningService()="
+				+ getDiningService() + ", getReceptionService()=" + getReceptionService() + ", getEnviromentMaintain()="
+				+ getEnviromentMaintain() + ", getEngineeringManage()=" + getEngineeringManage()
+				+ ", getFirefightingManage()=" + getFirefightingManage() + ", getOlderMantain()=" + getOlderMantain()
+				+ ", getServiceId()=" + getServiceId() + ", getContactInfo()=" + getContactInfo()
+				+ ", getServiceDate()=" + getServiceDate() + ", getServiceLocation()=" + getServiceLocation()
+				+ ", getServiceCommand()=" + getServiceCommand() + ", getAddition()=" + getAddition() + ", getGotId()="
+				+ getGotId() + ", getApplyTime()=" + getApplyTime() + ", getConcreteTime()=" + getConcreteTime()
+				+ ", getStatus()=" + getStatus() + ", getTemporaryDemand()=" + getTemporaryDemand() + ", hashCode()="
+				+ hashCode() + ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 }

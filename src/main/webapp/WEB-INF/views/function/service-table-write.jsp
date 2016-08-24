@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -13,7 +15,8 @@
 </head>
 <body>
 <div class="container">
-    <h2 style="margin:0 auto";>物业考评表</h2><br>
+   <!-- <h2 style="margin:0 auto";>物业考评表</h2><br> --> 
+   <form action="/writeInvestigationItemsScore" method="post">
     <table id="form_make" class='table table-bordered table-hover center'>
         <div class='col-md-12 '>
             <tr>
@@ -21,49 +24,62 @@
                 <th>考评标准</th>
                 <th>选项</th>
             </tr>
+             <c:forEach items="${investigationItemsEntityList}" var="investigationItemsEntityList" varStatus="status">
             <tr>
-                <td>礼仪接待</td>
-                <td><p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
+            	<td style="display:none">${status.index +1}</td>
+                <td>${investigationItemsEntityList.investigationItemValue }</td>
+                <td>
+                ${investigationItemsEntityList.investigationStanddard}
                 </td>
                 <td>
-                    <input type="radio" name="score" value="excellent">十分满意
-                    <input type="radio" name="score" value="good">一般满意
-                    <input type="radio" name="score" value="bad">不满意
+                    <input type="radio" name="InvestigationScoreEntityList[${status.index}].grade" value="excellent">十分满意
+                    <input type="radio" name="InvestigationScoreEntityList[${status.index}].grade" value="good">一般满意
+                    <input type="radio" name="InvestigationScoreEntityList[${status.index}].grade" value="bad">不满意
+              		<input type="hidden" name="investigationId" value="${investigationItemsEntityList.investigationId }">
                 </td>
+                 
             </tr>
-            <tr>
-                <td>礼仪接待</td>
-                <td><p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                </td>
-                <td>
-                    <input type="radio" name="score" value="excellent">十分满意
-                    <input type="radio" name="score" value="good">一般满意
-                    <input type="radio" name="score" value="bad">不满意
-                </td>
-            </tr>
-            <tr>
-                <td>礼仪接待</td>
-                <td><p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                    <p>遵守来访制度，严格询问、查验并登记来访人员证件，正确运用礼貌用语，服务态度细致热情，质量检查不合格扣1分</p>
-                </td>
-                <td>
-                    <input type="radio" name="score" value="excellent">十分满意
-                    <input type="radio" name="score" value="good">一般满意
-                    <input type="radio" name="score" value="bad">不满意
-                </td>
-            </tr>
+            </c:forEach>
         </div>
     </table>
-    <a href=""><button class="btn btn-info" style="margin: 0 auto">确认考评完毕</button></a>
-    <a href="/service/management-check"><button class="btn btn-info" style="margin: 0 auto">返回</button></a>
+    <button class="btn btn-info" style="margin: 0 auto" type="submit">确认考评完毕</button>
+    <!-- <a href="/service/management-check"><button class="btn btn-info" style="margin: 0 auto">返回</button></a> -->
+    </form>
+    
 </div>
+<!--  <script type="text/javascript">
+function submitKaoPin(){
+	var tt = $('.class1');
+	var data='';
+	for(var i=0; i<tt.length; i++){
+		var td = $(tt[i]).children();
+		data = data+$(tt[i]).attr('id')+":";
+		var inputR = $(td[2]).children();
+		for(var j=0; j<3;j++){
+			console.log("input:"+inputR[j]);
+			console.log("checked:"+$(inputR[j]).attr("checked"));
+			console.log("val:"+$(inputR[j]).val());
+			if($(inputR[j]).attr("checked")){
+				data += ""+j+";";
+				console.log(12312333333);
+			}
+		}
+	}
+	console.log("data2"+data);
+	var submitData={
+			fenshu:data
+	}
+	$.post(submitData,'/getScoreInvestigationItem',function(data,status){
+		if(data=='1'){
+			//shang chuan chenggong
+			//tiaozhuan
+		}else{
+			//fail
+		}
+	})
+}
+	
+</script>
+-->
 </body>
 </html>

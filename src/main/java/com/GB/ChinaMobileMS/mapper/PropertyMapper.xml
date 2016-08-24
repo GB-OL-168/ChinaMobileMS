@@ -21,6 +21,13 @@
 		where property_table_id = #{propertyTableID}
 	</select>
 	
+	<update id="updateTemporaryDemand">
+		update property_table 
+		set
+		temporary_demand=#{temporaryDemand, jdbcType=VARCHAR}
+		where property_table_id=#{id, jdbcType=INTEGER}
+	</update>
+	
 	<!-- SQL语句 namespace命名空间  id UserMapper里面的方法名  
 	parameterType参数列表 resultType 返回的类型 -->
 </mapper>

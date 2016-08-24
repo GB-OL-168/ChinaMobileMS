@@ -1,5 +1,7 @@
 package com.GB.ChinaMobileMS.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,12 @@ public class CompanyServiceImpl implements CompanyService {
 	public CompanyEntity getCompanyManager(int companyID) {
 		CompanyEntity entity = companyMapper.queryCompanyByID(companyID);
 		return entity;
+	}
+
+	@Override
+	public List<CompanyEntity> queryCompany() {
+		// TODO Auto-generated method stub
+		return companyMapper.queryCompany();
 	}
 
 }

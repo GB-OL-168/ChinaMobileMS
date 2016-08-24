@@ -12,7 +12,7 @@ public class Information implements Serializable {
 	private String topic;
 	private Timestamp time;
 	private String content;
-	private int recomandRoleId;
+	private int recomandRoleId=5;
 	
 	public String getTopic() {
 		return topic;

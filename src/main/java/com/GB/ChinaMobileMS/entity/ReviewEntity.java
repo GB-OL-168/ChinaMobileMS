@@ -7,9 +7,9 @@ public class ReviewEntity {
 	private int status;
 	private String excutionId;
 	private String stage;
-	private String vertifyUser;
+	private String branchVertifyUser;
+	private String companyVertifyUser;
 	private String flowInfo;
-	
 	public int getReviewId() {
 		return reviewId;
 	}
@@ -40,11 +40,17 @@ public class ReviewEntity {
 	public void setStage(String stage) {
 		this.stage = stage;
 	}
-	public String getVertifyUser() {
-		return vertifyUser;
+	public String getBranchVertifyUser() {
+		return branchVertifyUser;
 	}
-	public void setVertifyUser(String vertifyUser) {
-		this.vertifyUser = vertifyUser;
+	public void setBranchVertifyUser(String branchVertifyUser) {
+		this.branchVertifyUser = branchVertifyUser;
+	}
+	public String getCompanyVertifyUser() {
+		return companyVertifyUser;
+	}
+	public void setCompanyVertifyUser(String companyVertifyUser) {
+		this.companyVertifyUser = companyVertifyUser;
 	}
 	public String getFlowInfo() {
 		return flowInfo;
@@ -56,13 +62,14 @@ public class ReviewEntity {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((branchVertifyUser == null) ? 0 : branchVertifyUser.hashCode());
+		result = prime * result + ((companyVertifyUser == null) ? 0 : companyVertifyUser.hashCode());
 		result = prime * result + ((excutionId == null) ? 0 : excutionId.hashCode());
 		result = prime * result + ((flowInfo == null) ? 0 : flowInfo.hashCode());
 		result = prime * result + propertyTableId;
 		result = prime * result + reviewId;
 		result = prime * result + ((stage == null) ? 0 : stage.hashCode());
 		result = prime * result + status;
-		result = prime * result + ((vertifyUser == null) ? 0 : vertifyUser.hashCode());
 		return result;
 	}
 	@Override
@@ -74,6 +81,16 @@ public class ReviewEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		ReviewEntity other = (ReviewEntity) obj;
+		if (branchVertifyUser == null) {
+			if (other.branchVertifyUser != null)
+				return false;
+		} else if (!branchVertifyUser.equals(other.branchVertifyUser))
+			return false;
+		if (companyVertifyUser == null) {
+			if (other.companyVertifyUser != null)
+				return false;
+		} else if (!companyVertifyUser.equals(other.companyVertifyUser))
+			return false;
 		if (excutionId == null) {
 			if (other.excutionId != null)
 				return false;
@@ -95,18 +112,13 @@ public class ReviewEntity {
 			return false;
 		if (status != other.status)
 			return false;
-		if (vertifyUser == null) {
-			if (other.vertifyUser != null)
-				return false;
-		} else if (!vertifyUser.equals(other.vertifyUser))
-			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "ReviewEntity [reviewId=" + reviewId + ", propertyTableId=" + propertyTableId + ", status=" + status
-				+ ", excutionId=" + excutionId + ", stage=" + stage + ", vertifyUser=" + vertifyUser + ", flowInfo="
-				+ flowInfo + "]";
+				+ ", excutionId=" + excutionId + ", stage=" + stage + ", branchVertifyUser=" + branchVertifyUser
+				+ ", companyVertifyUser=" + companyVertifyUser + ", flowInfo=" + flowInfo + "]";
 	}
 	
 }

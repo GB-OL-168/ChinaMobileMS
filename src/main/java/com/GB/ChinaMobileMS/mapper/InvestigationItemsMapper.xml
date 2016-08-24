@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.GB.ChinaMobileMS.dao.InvestigationItemsMapper">
+	<select id="findInvestigationItems" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.InvestigationItemsEntity">
+	select * 
+	from investigation_items
+	where investigation_id=#{investigationTableId}
+	</select>
+	
+	<insert id="insertInvestigationItems" useGeneratedKeys="true" parameterType="java.util.List">  
+    <selectKey resultType="int" keyProperty="id" order="AFTER">  
+        SELECT  
+        LAST_INSERT_ID()  
+    </selectKey>  
+    insert into investigation_items (investigation_id,investigation_item_name,investigation_item_value,investigation_standdard)   
+    values  
+    <foreach collection="list" item="item" index="index" separator="," >  
+        (#{item.investigationId},#{item.investigationItmeName},#{item.investigationItemValue},#{item.investigationStanddard})  
+    </foreach>  
+	</insert>  
+ 	
+
+</mapper>

@@ -56,58 +56,77 @@
 				  	<th>说明</th>
 				  	<th>操作</th>
 				  </tr>
-				    <c:forEach items="${propertyServiceList}" var="a">
+				    <c:forEach items="${propertyServiceList}" var="a"  varStatus="status">
 				  <tr class="a">
-				  	<th>${a.propertyTableId}</th>
-				  	<th>${a.applyTime}</th>
-				  	<th>${a.serviceDate}</th>
-				  	<th>${a.concreteTime}</th>
-				  	<th>${a.serviceLocation}</th>
-				  	<th>${a.applyUserName}</th>
-				  	<th>${a.contactInfo}</th>
-				  	<th>${a.temporaryDemand}</th>
+				  	<td>${ status.index + 1}</td>
+				  	<td>${a.applyTime}</td>
+				  	<td>${a.serviceDate}</td>
+				  	<td>${a.concreteTime}</td>
+				  	<td>${a.serviceLocation}</td>
+				  	<td>${a.applyUserName}</td>
+				  	<td>${a.contactInfo}</td>
+				  	<td>${a.temporaryDemand}</td>
 
-				  	<th>
+				  	<td>
 				  		<c:choose>
 				  			<c:when test = "${a.status == 0}">
 				  					未开始
 				  			</c:when>
 				  			<c:when test = "${a.status == 1}">
-				  					审核中
+				  					拒绝受理
 				  			</c:when>
 				  			<c:when test = "${a.status == 2}">
-				  					拒绝
+				  					一审阶段
 				  			</c:when>
-				  			<c:when test = "${a.status == 3}">
-				  					通过
+				  			<%-- <c:when test = "${a.status == 3}">
+				  					一审通过
+				  			</c:when> --%>
+				  			<c:when test = "${a.status == 4}">
+				  					一审拒绝
+				  			</c:when>
+				  			<c:when test = "${a.status == 5}">
+				  					二审阶段
+				  			</c:when>
+				  			<c:when test = "${a.status == 6}">
+				  					二审通过
+				  			</c:when>
+				  			<c:when test = "${a.status == 7}">
+				  					二审拒绝
 				  			</c:when>
 				  		</c:choose>
 				  	</th>
 				  	
-				  	<th>详情</th>
+				  	<!-- <th>详情</th> -->
 				  	
-				  	<th>${a.status}</th>
-				  	<th style="display:none" class="receptionService">${a.receptionService}</th>
-				  	<th style="display:none" class="olderMantain">${a.olderMantain }</th>
-				  	<th style="display:none" class="diningService">${a.diningService }</th>
-				  	<th style="display:none" class="enviromentMaintain">${a.enviromentMaintain }</th>
-				  	<th style="display:none" class="engineeringManage">${a.engineeringManage }</th>
-				  	<th style="display:none" class="firefightingManage">${a.firefightingManage }</th>
-				  	<th style="display:none" class="addition">${a.addition }</th>
-				  	<th><a href="javascript:void(0)">查看</a></th>
-				  	<th>
+				  	<%-- <th>${a.status}</th> --%>
+				  	<td style="display:none" class="receptionService">${a.receptionService}</td>
+				  	<td style="display:none" class="olderMantain">${a.olderMantain }</td>
+				  	<td style="display:none" class="diningService">${a.diningService }</td>
+				  	<td style="display:none" class="enviromentMaintain">${a.enviromentMaintain }</td>
+				  	<td style="display:none" class="engineeringManage">${a.engineeringManage }</td>
+				  	<td style="display:none" class="firefightingManage">${a.firefightingManage }</td>
+				  	<td style="display:none" class="addition">${a.addition }</td>
+				  	
+				  	<td><a class="view" href="javascript:void(0)">查看</a></td>
+				  	<td>
 				  	<c:choose>
-				  		<c:when test="${a.status == 2 or a.status == 3}">
-				  			已办理
+				  		<c:when test="${a.status == 0 && a.currentUser == a.branchVertifyUser}">
+				  			<a href="/property/propertyService/${a.propertyTableId}/${2}">开始审核</a> | <a href="/property/propertyService/${a.propertyTableId}/${1} " >拒绝受理</a>
 				  		</c:when>
+				  		
+				  		<c:when test="${a.status == 2 && a.currentUser == a.branchVertifyUser}">
+				  			<a href="/property/propertyService/${a.propertyTableId}/${5}">通过</a> | <a href="/property/propertyService/${a.propertyTableId}/${4} " >拒绝</a>
+				  		</c:when>
+				  		
+				  		<c:when test="${a.status == 5 && a.currentUser == a.companyVertifyUser}">
+				  			<a href="/property/propertyService/${a.propertyTableId}/${6}">通过</a> | <a href="/property/propertyService/${a.propertyTableId}/${7} " >拒绝</a>
+				  		</c:when>
+				  		
 				  		<c:otherwise>
-				  			<a href="/property/propertyService/${a.propertyTableId}/${3}">通过</a> | <a href="/property/propertyService/${a.propertyTableId}/${2} " >拒绝</a>
-
+				  			无操作
 				  		</c:otherwise>
 				  	</c:choose>
-				 
-				  	</th>
-				  	
+				  	</td>
 				  </tr>
 				  </c:forEach>
 				</table>
@@ -161,7 +180,7 @@
 	<script>
 		$(function() {
 
-			$('.a>th>a').click(function() {
+			$('.a>td>.view').click(function() {
 				var receptionService=$(this).parent().siblings(".receptionService").text();
 				var olderMantain=$(this).parent().siblings(".olderMantain").text();
 				var diningService=$(this).parent().siblings(".diningService").text();

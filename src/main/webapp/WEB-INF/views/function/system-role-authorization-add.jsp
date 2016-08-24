@@ -32,95 +32,97 @@
 					</div>
 
 					
-					<div class="col-md-4">
-						<div class="input-group">
-					      <input type="text" class="form-control input-sm" placeholder="Search for User">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default btn-sm" type="button">Go!</button>
-					      </span>
-					    </div>
-					</div>
+					
 				</div>
 				
 
-				<form class="form-horizontal">
-				  <h4 style="text-align: center;">设置系统角色</h4>
+				<form class="form-horizontal" action="/addRole" method="get">
+				  <h4 style="text-align: center;">新增系统角色</h4>
 				  <div class="form-group">
 				    <label for="roleName" class="col-sm-3 control-label">角色名称</label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="roleName" placeholder="请输入系统角色">
+				      <input type="text" class="form-control" id="roleName" placeholder="请输入系统角色" name="roleName">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label  class="col-sm-3 control-label">权限</label>
 				    <div class="col-sm-8">
 				      <label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 账号管理
+						  <input type="checkbox" id="inlineCheckbox1" value="1" name="sysAccountManage"> 账号管理
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 权限设置
+						  <input type="checkbox" id="inlineCheckbox2" value="1" name="sysPrivilegeSetting"> 权限设置
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">参数配置
+						  <input type="checkbox" id="inlineCheckbox3" value="1" name="sysParameterSetting">参数配置
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">数据备份
+						  <input type="checkbox" id="inlineCheckbox3" value="1" name="sysDataRestore">数据备份
 						</label>
 						<br>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 上市公司资产
+						  <input type="checkbox" id="inlineCheckbox1" value="1" name="proServerApplication"> 服务器应用
 						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 车辆信息
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">维修维护信息
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 公务电话
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 服务公司资产
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">交通
-						</label>
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox1" value="option1" > 上市公司资产 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 车辆信息 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox3" value="option3">维修维护信息 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 公务电话 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 服务公司资产 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox3" value="option3">交通 -->
+<!-- 						</label> -->
 						
 						<br>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 物业服务需求申请
+						  <input type="checkbox" id="inlineCheckbox3" value="1" name="proAuditingApplication">审核应用
 						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 物业服务需求审核
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">物业服务需求管理
-						</label>
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 物业服务需求申请 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 物业服务需求审核 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox3" value="option3">物业服务需求管理 -->
+<!-- 						</label> -->
 						
 						
 						<br>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 后勤服务考评
+						  <input type="checkbox" id="inlineCheckbox1" value="1" name="proManagementApplication"> 管理应用
 						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 用餐服务考评
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3">物业服务需求管理
-						</label>
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 后勤服务考评 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 用餐服务考评 -->
+<!-- 						</label> -->
+<!-- 						<label class="checkbox-inline"> -->
+<!-- 						  <input type="checkbox" id="inlineCheckbox3" value="option3">物业服务需求管理 -->
+<!-- 						</label> -->
 						
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="roleIntro" class="col-sm-3 control-label">权限描述</label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="roleName" placeholder="请输入权限描述">
+				      <input type="text" class="form-control" id="roleName" placeholder="请输入权限描述" name="description">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-4 col-sm-8">
 				      <button type="submit" class="btn btn-default">设置</button>
-				      <a href="system-role-authorization.html" class="btn btn-default">取消</a>
+				      <button type="submit" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
 				    </div>
 				  </div>
 				</form>

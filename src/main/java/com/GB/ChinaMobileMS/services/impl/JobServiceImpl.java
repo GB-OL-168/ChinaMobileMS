@@ -1,5 +1,7 @@
 package com.GB.ChinaMobileMS.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,11 @@ public class JobServiceImpl implements JobService {
 		System.out.println(jobMapper == null);
 		System.out.println("=====================\n\n");
 		return jobMapper.queryJobByJobID(jobID);
+	}
+
+	@Override
+	public List<JobEntity> queryJob() {
+		// TODO Auto-generated method stub
+		return jobMapper.queryJob();
 	}
 }

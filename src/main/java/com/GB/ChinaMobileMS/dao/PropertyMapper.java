@@ -10,4 +10,5 @@ public interface PropertyMapper {
 	public List<PropertyServiceEntity> findPropertyInfo();
 	public boolean updateStatus(@Param("id")int id,@Param("status")int status);
 	public List<PropertyServiceEntity> queryPopertyTableByID(int propertyTableID);
+	public boolean updateTemporaryDemand(@Param("id")int id, @Param("temporaryDemand")String temporaryDemand);
 }

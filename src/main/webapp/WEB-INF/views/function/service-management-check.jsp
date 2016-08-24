@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -24,11 +26,6 @@
 	  <div class="row">
 			<div class="col-md-12 left">
 				<h2>服务考评</h2>
-				<!--<ul class="nav nav-tabs ">-->
-					<!--<li  class='active'><a href="/service-management-check.html">查看考评表情况</a></li>-->
-					<!--<li role="presentation"><a href="/service-management-send.html">发放考评表</a></li>-->
-					<!--<li ><a href="/service-management-recycle.html" >回收考评表</a></li>-->
-				<!--</ul>-->
 					<div class="container">
 						<h3 style="text-align: center">考评表列表</h3>
 						<div class='col-md-12 '>
@@ -43,33 +40,23 @@
 							</div>
 							<table class='table table-bordered table-hover center'>
 								<tr>
-									<th>编号</th><th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
+									<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
 								</tr>
+								<c:forEach items="${investigationTableEntityList}" var="investigationTableEntityList">
 								<tr>
-									<td>2</td><td><a href="/service/table-info">物业考评表</a></td><td>已发放</td><td>叶绪创</td><td>2016-8-30</td>
-									<td><a href="/service/table-info"><button class='btn btn-info'>查看</button></a>
+									<td>${investigationTableEntityList.investigationName}</td>
+									<td>${investigationTableEntityList. status}</td>
+									<td>${investigationTableEntityList.createStaff}</td>
+									<td>${investigationTableEntityList.recoveryTime}</td>
+									<td>
+									<a href="/showWiriteInvestigationItems/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>填写</button></a>
+										&nbsp;&nbsp;
+									<a href="/showInvestigationItem/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>查看</button></a>
 										&nbsp&nbsp<a href="/service/management-send"><button class='btn btn-info'>发放</button></a>
 										&nbsp&nbsp<a href=""><button class='btn btn-info'>回收</button></a>
 										&nbsp&nbsp<a href="/service/date-statistics"><button class='btn btn-info'>统计</button></a></td>
 								</tr>
-								<tr>
-									<td>3</td><td><a href="">物业考评表</a></td><td>未发放</td><td>叶绪创</td><td>无</td>
-									<td><button class='btn btn-info'>查看</button>&nbsp&nbsp<button class='btn btn-info'>发放</button>
-										&nbsp&nbsp<button class='btn btn-info'>回收</button>
-									&nbsp&nbsp<button class='btn btn-info'>统计</button></td>
-								</tr>
-								<tr>
-									<td>6</td><td><a href="">物业考评表</a></td><td>已回收</td><td>叶绪创</td><td>2016-8-30</td>
-									<td><button class='btn btn-info'>查看</button>&nbsp&nbsp<button class='btn btn-info'>发放</button>
-										&nbsp&nbsp<button class='btn btn-info'>回收</button>
-										&nbsp&nbsp<button class='btn btn-info'>统计</button></td>
-								</tr>
-								<tr>
-									<td>10</td><td><a href="">物业考评表</a></td><td>已回收</td><td>叶绪创</td><td>2016-8-30</td>
-									<td><button class='btn btn-info'>查看</button>&nbsp&nbsp<button class='btn btn-info'>发放</button>
-										&nbsp&nbsp<button class='btn btn-info'>回收</button>
-										&nbsp&nbsp<button class='btn btn-info'>统计</button></td>
-								</tr>
+								</c:forEach>
 							</table>
 						</div>
 					</div>

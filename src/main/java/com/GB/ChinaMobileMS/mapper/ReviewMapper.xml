@@ -7,8 +7,8 @@
 
 	<insert id="insertReview" parameterType="com.GB.ChinaMobileMS.entity.ReviewEntity">
 		INSERT INTO
-		review(property_table_id, status, excution_id, stage, vertify_user, flow_info)
-		VALUES (#{propertyTableId},#{status},#{excutionId},#{stage},#{vertifyUser},#{flowInfo})
+		review(property_table_id, status, excution_id, stage, branch_vertify_user, company_vertify_user, flow_info)
+		VALUES (#{propertyTableId},#{status},#{excutionId},#{stage},#{branchVertifyUser},#{companyVertifyUser},#{flowInfo})
 	</insert>
 	
 	<select id="queryReview" parameterType="string" resultType="com.GB.ChinaMobileMS.entity.ReviewEntity">
@@ -20,7 +20,27 @@
 	<select id = "queryPropertyTableByVertifyUser" parameterType="string" resultType="com.GB.ChinaMobileMS.entity.PropertyServiceEntity">
 		SELECT property_table_id, apply_user_name, company_id, branch_id, got_id, dining_service, reception_service, enviroment_maintain, engineering_manage, firefighting_manage, order_maintain, service_id, contact_info, service_date, service_location, service_command, addition, apply_time, concrete_time, status, temporary_demand
 		from property_table NATURAL JOIN review
-		where vertify_user = #{vertifyUser}
+		where branch_vertify_user = #{vertifyUser} or company_vertify_user = #{vertifyUser}
 	</select>
+	
+	<select id = "queryReviewEntityByPropertyID" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.ReviewEntity">
+		select *
+		from review
+		where property_table_id = #{propertyID}
+	</select>
+	
+	<update id="updateReviewStatus">
+		update review 
+		set
+		status=#{status, jdbcType=INTEGER}, stage = #{stage, jdbcType=VARCHAR}, flow_info = #{flowInfo, jdbcType=VARCHAR} 
+		where review_id=#{id, jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateReviewCompanyVertifyUser">
+		update review 
+		set
+		company_vertify_user = #{vertifyUser, jdbcType=VARCHAR}
+		where review_id=#{id, jdbcType=INTEGER}
+	</update>
 
 </mapper>

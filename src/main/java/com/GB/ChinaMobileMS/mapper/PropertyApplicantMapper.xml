@@ -15,6 +15,24 @@
 		from property_table
 	</select>
 	
+	<select id="queryPropertyApplicantByUserName" parameterType="string" resultType="com.GB.ChinaMobileMS.entity.PropertyServiceEntity">
+		select *
+		from property_table
+		where apply_user_name = #{userName}
+	</select>
+	
+	<select id="queryPropertyApplicantByAllCols" parameterType="PropertyServiceEntity" resultType="com.GB.ChinaMobileMS.entity.PropertyServiceEntity">
+		select *
+		from property_table
+		where apply_user_name = #{applyUserName} and apply_time = #{applyTime}
+	</select>
+	
+	<update id="updateTempDemand">
+		update property_table 
+		set
+		temporary_demand = #{tempDemand, jdbcType=VARCHAR}
+		where property_table_id=#{propertyID, jdbcType=INTEGER}
+	</update>
 	<!-- SQL语句 namespace命名空间  id PropertyApplicantMapper里面的方法名  
 	parameterType参数列表 resultType 返回的类型 -->
 
