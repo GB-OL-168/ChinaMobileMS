@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.GB.ChinaMobileMS.dao.AssetLoanDeviceMapper">
+	<insert id="addLoanDevice" parameterType="AssetLoanDevice">
+		INSERT INTO
+		loan_device_info(loan_info_id,
+		loan_user_name,belong_branch_id,batch,type,
+		brand,specification,arrival_date,count,allow_use_years,
+		unit_value,all_value,order_number,get_date,expired_date)
+		VALUES
+		(#{loanInfoId},#{loanUserName},#{belongBranchId},#{batch},#{type},
+		#{brand},#{specification},#{arrivalDate},#{count},#{allowUseYears},#{unitValue},#{allValue}
+		,#{orderNumber},#{getDate},#{expiredDate})
+	</insert>
+</mapper>
