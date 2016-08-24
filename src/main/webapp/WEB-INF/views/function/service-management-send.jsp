@@ -21,7 +21,7 @@
 	  <div class="row">
 		<div class="col-md-12 left">
 			<h2>服务考评</h2><b>物业服务考评</b>
-			<form class="form-horizontal" action = "/sendServiceManagement2" method="post">
+			<form class="form-horizontal" action = "/sendServiceManagement2/" method="post">
 				<div class="container">
 				<div class='col-md-12 '>
 				<h3 style="text-align: center">考评表发放情况</h3>

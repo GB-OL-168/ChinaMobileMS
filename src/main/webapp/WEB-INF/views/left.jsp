@@ -29,7 +29,7 @@
 							<li><a href="javascript:void(0)" target="/u/main">上市公司资产信息</a>
 								<ul>
 									<li><a href="/register/houses-add" target="/u/main">信息登记</a></li>
-									<li><a href="/company/query" target="/u/main">信息查询</a></li>
+									<li><a href="/companyquery/houses" target="/u/main">信息查询</a></li>
 									<li><a href="/company/info" target="/u/main">使用信息</a></li>
 									<li><a href="/company/count" target="/u/main">信息统计</a></li>
 								</ul></li>

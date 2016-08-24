@@ -38,9 +38,9 @@
 						  <li class="dropdown active">
 						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房间信息查询 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="company-register-houses-find.html">房屋资产信息查询</a></li>
-					            <li><a href="company-register-furniture.html">办公家具信息查询</a></li>
-					            <li><a href="company-register-lease.html">租赁设备信息查询</a></li>
+					            <li><a href="/companyquery/houses">房屋资产信息查询</a></li>
+					            <li><a href="/companyquery/furniture">办公家具信息查询</a></li>
+					            <li><a href="/companyquery/lease">租赁设备信息查询</a></li>
 					          </ul>
 						  </li>
 						</ol>
