@@ -12,14 +12,26 @@
 		where user_name=#{userName}
 	</select>
 
+	<select id="findByUserNamefromBranch" parameterType="string"
+		resultType="com.GB.ChinaMobileMS.entity.BranchEntity">
+		select *
+		from branch
+		where branch_manager=#{userName}
+	</select>
 
+	<select id="findByUserNamefromCompany" parameterType="string"
+		resultType="com.GB.ChinaMobileMS.entity.CompanyEntity">
+		select *
+		from company
+		where company_manager=#{userName}
+	</select>
 
 	<insert id="insertUser" parameterType="User">
 		INSERT INTO
-		user(user_name,
-		account_name,remark,phone,email,birthday,department,identification,sex,password)
+		user(
+		user_name,job_id,account_name,remark,phone,email,birthday,department,identification,sex,password)
 		VALUES
-		(#{userName},#{accountName},#{remark},#{phone},#{email},#{birthday},#{department},#{identification},#{sex},#{password})
+		(#{userName},#{jobId},#{accountName},#{remark},#{phone},#{email},#{birthday},#{department},#{identification},#{sex},#{password})
 	</insert>
 
 	<select id="listUser" resultType="User">
@@ -37,6 +49,25 @@
 		where user_name = #{userName}
 	</update>
 
+	<update id="updateUserInfo" >
+		update user 
+		set 
+		account_name = #{accountName},
+		password = #{password},
+		identification = #{identification},
+		birthday = #{birthday},
+		email = #{email},
+		phone = #{phone},
+		remark = #{remark}
+		
+		where user_name = #{userName}
+		
+	</update>
+
+	<delete id="deleteUser">
+	delete from User 
+	where user_name = #{userName}
+	</delete>
 
 	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
 		返回的类型 -->

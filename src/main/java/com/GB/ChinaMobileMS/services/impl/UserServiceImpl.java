@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.GB.ChinaMobileMS.dao.UserMapper;
+import com.GB.ChinaMobileMS.entity.BranchEntity;
+import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
@@ -19,17 +21,11 @@ public class UserServiceImpl implements UserService {
 	public User login(String userName, String password) {
 		
 		User user = userMapper.findByUserName(userName);
-		//username是一个主键 可以获取user整个对象
-//		if(user == null){
-//			System.out.println("用户名错误或不存在");
-//		}else if(!password.equals(user.getPassword())){
-//			System.out.println("用户名或密码错误");
-//		}
+
 		return user;
 	}
 
 	public String addUser(User user) {
-		System.out.println("进入了 addUser 方法");
 		// TODO Auto-generated method stub
 		int insertResult = userMapper.insertUser(user);
 		System.out.println("insertResult = "  + insertResult);
@@ -38,10 +34,8 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	public List<User> listUser() {
-		System.out.println("进入了 listUser 方法");
 		// TODO Auto-generated method stub
 		List<User> listUser = userMapper.listUser();
-		System.out.println("listUser = "  + listUser);
 		
 		return listUser;
 	}
@@ -51,6 +45,41 @@ public class UserServiceImpl implements UserService {
 		int updateUserRole= userMapper.updateUserRole(user);
 		
 		return null;
+	}
+
+	@Override
+	public boolean deleteUser(String userName) {
+		/**
+		 * @Arron
+		 *
+		 */
+		
+		
+		System.out.println(userMapper.deleteUser(userName));
+		
+		return false;
+	}
+
+	@Override
+	public BranchEntity findByUserNamefromBranch(String userName) {
+		// TODO Auto-generated method stub
+		
+		//User user = userMapper.findByUserName(userName);
+		
+		return userMapper.findByUserNamefromBranch(userName);
+	}
+
+	@Override
+	public CompanyEntity findByUserNamefromCompany(String userName) {
+		// TODO Auto-generated method stub
+		return userMapper.findByUserNamefromCompany(userName);
+	}
+
+	@Override
+	public int updateUserInfo(User user) {
+		// TODO Auto-generated method stub
+		
+		return userMapper.updateUserInfo(user);
 	}
 	
 }
