@@ -64,18 +64,18 @@
 <!-- 				      <input type="file" class="" id="file" placeholder="File"> -->
 <!-- 				    </div> -->
 <!-- 				  </div> -->
-				  <div class="form-group">
-				    <label  class="col-sm-2 control-label">提醒对象</label>
-				    <div class="col-sm-10">
-				      <select class="form-control" name = "recomandRoleId">
-						  <option value="5">All</option>
-						  <option value="1">Role 1</option>
-						  <option value="2">Role 2</option>
-						  <option value="3">Role 3</option>
-						  <option value="4">Role 4</option>
-						</select>
-				    </div>
-				  </div>
+<!-- 				  <div class="form-group"> -->
+<!-- 				    <label  class="col-sm-2 control-label">提醒对象</label> -->
+<!-- 				    <div class="col-sm-10"> -->
+<!-- 				      <select class="form-control" name = "recomandRoleId"> -->
+<!-- 						  <option value="5">All</option> -->
+<!-- 						  <option value="1">Role 1</option> -->
+<!-- 						  <option value="2">Role 2</option> -->
+<!-- 						  <option value="3">Role 3</option> -->
+<!-- 						  <option value="4">Role 4</option> -->
+<!-- 						</select> -->
+<!-- 				    </div> -->
+<!-- 				  </div> -->
 				  <div class="form-group">
 				    <div class="col-sm-offset-4 col-sm-8">
 				      <button type="submit" class="btn btn-default">设置</button>

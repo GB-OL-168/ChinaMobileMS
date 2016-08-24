@@ -9,4 +9,11 @@
 		from company
 		where company_id = #{companyID}
 	</select>
+	
+	<select id="queryCompany" resultType="com.GB.ChinaMobileMS.entity.CompanyEntity">
+		select *
+		from company
+	</select>
+	
+	
 </mapper>

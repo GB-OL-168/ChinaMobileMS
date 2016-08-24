@@ -9,4 +9,9 @@
 		from branch
 		where branch_id = #{branchID}
 	</select>
+	<select id="queryBranch"  resultType="com.GB.ChinaMobileMS.entity.BranchEntity">
+		select *
+		from branch
+	</select>
+	
 </mapper>

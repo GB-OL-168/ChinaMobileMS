@@ -65,12 +65,12 @@
 <!-- 				      <label class="control-label-content">A file.</label> -->
 <!-- 				    </div> -->
 <!-- 				  </div> -->
-				  <div class="form-group">
-				    <label  class="col-sm-2 control-label">提醒对象</label>
-				    <div class="col-sm-10">
-				      <label class="control-label-content">Role <%=request.getAttribute("recomandRoleId") %> </label>
-				    </div>
-				  </div>
+<!-- 				  <div class="form-group"> -->
+<!-- 				    <label  class="col-sm-2 control-label">提醒对象</label> -->
+<!-- 				    <div class="col-sm-10"> -->
+<%-- 				      <label class="control-label-content">Role <%=request.getAttribute("recomandRoleId") %> </label> --%>
+<!-- 				    </div> -->
+<!-- 				  </div> -->
 				</form>
 			</div>
 		</div>

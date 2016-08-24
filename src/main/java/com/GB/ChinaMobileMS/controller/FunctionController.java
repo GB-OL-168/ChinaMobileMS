@@ -2,7 +2,9 @@ package com.GB.ChinaMobileMS.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -21,6 +23,7 @@ import com.GB.ChinaMobileMS.entity.Information;
 import com.GB.ChinaMobileMS.entity.JobEntity;
 import com.GB.ChinaMobileMS.entity.ManagementPropertyEntity;
 import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
+import com.GB.ChinaMobileMS.entity.Role;
 import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.BranchService;
 import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
@@ -28,9 +31,8 @@ import com.GB.ChinaMobileMS.services.interfaces.InfoService;
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyApplicantService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
+import com.GB.ChinaMobileMS.services.interfaces.RoleService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
-
-
 
 @Controller
 public class FunctionController {
@@ -51,24 +53,26 @@ public class FunctionController {
 	private BranchService branchService;
 	@Autowired
 	private JobService jobService;
+	@Autowired
+	private RoleService roleService;
 
 	// 系统设置 跳转页面
 	@RequestMapping(value = "/system/{id}", method = RequestMethod.GET)
-	public ModelAndView systemUser(User user, @PathVariable("id") String id, HttpSession session) {
+	public ModelAndView systemUser(User user, @PathVariable("id") String id,
+			HttpSession session) {
 		// requestParam获取参数id
 		System.out.println("id=" + id);
 		if (id.equals("user")) {
 			return GetUserList();
 		} else if (id.equals("parameter")) {
 			return GetInfo();
-		} else if (id.equals("user-add"))
-			return new ModelAndView("/function/system-user-add");
+		} 
 		else if (id.equals("role-assignment"))
-			return new ModelAndView("/function/system-role-assignment");
+			return GetUserList2();
 		else if (id.equals("role-assignment-add"))
 			return new ModelAndView("/function/system-role-assignment-add");
 		else if (id.equals("role-authorization"))
-			return new ModelAndView("/function/system-role-authorization");
+			return GetRoleList();
 		else if (id.equals("role-authorization-add"))
 			return new ModelAndView("/function/system-role-authorization-add");
 		else if (id.equals("parameter-update")) {
@@ -79,16 +83,26 @@ public class FunctionController {
 			return new ModelAndView("forward:/");
 	}
 
+	// 角色分配跳转页面
+	@RequestMapping(value = "/authorization/{id}/{roleName}", method = RequestMethod.GET)
+	public ModelAndView authorizationUser(User user,@PathVariable("id") String id,
+			@PathVariable("roleName") String roleName, HttpSession session) {
+		if(id.equals("details"))
+		return GetRoledetails(roleName);
+		else 
+			return null;
+	}
+
 	// 物业服务 跳转页面
 	@RequestMapping(value = "/property/{id}", method = RequestMethod.GET)
-	public ModelAndView propertyUser(User user, @PathVariable("id") String id, HttpSession session) {
+	public ModelAndView propertyUser(User user, @PathVariable("id") String id,
+			HttpSession session) {
 		if (id.equals("server")) {
 			List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.getPropertyApplicantByApplyUserName(((User)session.getAttribute("user")).getUserName());
 			Map<String, List<PropertyServiceEntity>> map = new HashMap<String, List<PropertyServiceEntity>>();
 			map.put("listPropertyApplicant", listPropertyApplicant);
-			return new ModelAndView("/function/property-server",map);
+			return new ModelAndView("/function/property-server", map);
 		} else if (id.equals("auditing")) {
-			
 			List<PropertyServiceEntity> propertyList = propertyService.getPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
 			Map<String, List<AuditingPrpoertyEntity>> map = new HashMap<>();
 			map.put("propertyServiceList", dealPropertyData(propertyList, ((User)session.getAttribute("user"))));
@@ -100,19 +114,23 @@ public class FunctionController {
 			return new ModelAndView("/function/property-management-data");
 		else if (id.equals("management-system"))
 			return new ModelAndView("/function/property-management-system");
-		else if(id.equals("management-system-add"))
-			return new ModelAndView("/function/property-management-system-add");		
-		else if(id.equals("applicant")) {
-			user = (User)session.getAttribute("user");
-			
-    		String branchName, companyName;
-    		JobEntity job = jobService.getJobByJobID(user.getJobId());
-    		System.out.println("job = " + job);
-    		BranchEntity branchEntity = branchService.getBranchManager(job.getBranchId());
-    		branchName = branchEntity.getBranchName();
-    		companyName = companyService.getCompanyManager(branchEntity.getCompanyId()).getCompanyName();
-    		
-			return new ModelAndView("/function/property-applicant").addObject("branchName", branchName).addObject("companyName", companyName);
+		else if (id.equals("management-system-add"))
+			return new ModelAndView("/function/property-management-system-add");
+		else if (id.equals("applicant")) {
+			user = (User) session.getAttribute("user");
+
+			String branchName, companyName;
+			JobEntity job = jobService.getJobByJobID(user.getJobId());
+			System.out.println("job = " + job);
+			BranchEntity branchEntity = branchService.getBranchManager(job
+					.getBranchId());
+			branchName = branchEntity.getBranchName();
+			companyName = companyService.getCompanyManager(
+					branchEntity.getCompanyId()).getCompanyName();
+
+			return new ModelAndView("/function/property-applicant").addObject(
+					"branchName", branchName).addObject("companyName",
+					companyName);
 		}
 
 		else
@@ -120,7 +138,8 @@ public class FunctionController {
 	}
 
 	@RequestMapping(value = "/service/{id}", method = RequestMethod.GET)
-	public ModelAndView ServiceUser(User user, @PathVariable("id") String id, HttpSession session) {
+	public ModelAndView ServiceUser(User user, @PathVariable("id") String id,
+			HttpSession session) {
 		if (id.equals("management-check"))
 			return new ModelAndView("/function/service-management-check");
 		else if (id.equals("management-table-make"))
@@ -136,7 +155,10 @@ public class FunctionController {
 		else
 			return new ModelAndView("forward:/");
 	}
-
+	
+	/*
+	 * 参数设置-获取提醒信息
+	 */
 	public ModelAndView GetInfo() {
 
 		Information info = infoService.findbyInfoID();
@@ -150,6 +172,9 @@ public class FunctionController {
 		return mac;
 	}
 
+	/*
+	 * 帐号管理-获取用户信息
+	 */
 	public ModelAndView GetUserList() {
 		List<User> listUser = userService.listUser();
 		Map map = new HashMap();
@@ -219,5 +244,64 @@ public class FunctionController {
 			resultList.add(audiEntity);
 		}
 		return resultList;
+	}
+
+	/*
+	 * 权限设置-设置系统角色-获取用户信息以及权限信息
+	 */
+	public ModelAndView GetUserList2() {
+		List<User> listUser = userService.listUser();
+		List<Role> listRole = roleService.ListRole();
+		Iterator<User> it1 = listUser.iterator();
+		while (it1.hasNext()) {
+			Iterator<Role> it2 = listRole.iterator();
+			User tmpUser = it1.next();
+
+			while (tmpUser.getRoleName() == null && it2.hasNext()) {
+				Role tmpRole = it2.next();
+
+				if (tmpUser.getRoleId() == tmpRole.getRoleId()) {
+					tmpUser.setRoleName(tmpRole.getRoleName());
+					break;
+				}
+
+			}
+
+		}
+
+		Map map = new HashMap();
+		map.put("listUser", listUser);// userlist是个Arraylist之类的
+		map.put("listRole", listRole);
+		return new ModelAndView("/function/system-role-assignment", map);
+	}
+	/*
+	 * 权限设置-角色授权-获取角色权限信息
+	 */
+	public ModelAndView GetRoleList() {
+		List<Role> listRole = roleService.ListRole();
+		Map map = new HashMap();
+		map.put("listRole", listRole);
+		return new ModelAndView("/function/system-role-authorization", map);
+	}
+
+	/*
+	 * 权限设置-角色授权-获取角色权限详细信息
+	 */
+	public ModelAndView GetRoledetails(String roleName) {
+		Role role = roleService.findRoleByName(roleName);
+		ModelAndView mac = new ModelAndView("/function/system-role-authorization-details");
+//		mac.addObject("roleName", role.getRoleName());
+//		mac.addObject("sysAccountManage", role.getSysAccountManage());
+//		mac.addObject("sysPrivilegeSetting", role.getSysPrivilegeSetting());
+//		mac.addObject("sysParameterSetting", role.getSysParameterSetting());
+//		mac.addObject("sysDataRestore", role.getSysDataRestore());
+//		mac.addObject("proServerApplication", role.getProServerApplication());
+//		mac.addObject("proAuditingApplication",
+//				role.getProAuditingApplication());
+//		mac.addObject("proManagementApplication",
+//				role.getProManagementApplication());
+//		mac.addObject("description", role.getDescription());
+		mac.addObject("Role",role);
+		return mac;
 	}
 }
