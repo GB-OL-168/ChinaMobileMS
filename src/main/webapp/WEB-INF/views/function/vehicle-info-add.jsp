@@ -37,7 +37,7 @@
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息登记 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="vehicle-person-add.html">驾驶员信息登记</a></li>
+                                    <li><a href="/vehicle/person-add">驾驶员信息登记</a></li>
                                 </ul>
                             </li>
                         </ol>

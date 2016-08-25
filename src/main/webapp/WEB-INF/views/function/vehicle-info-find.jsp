@@ -36,7 +36,7 @@
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息查询 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="vehicle-person-find.html">驾驶员信息查询</a></li>
+                                    <li><a href="/vehicle/person-find">驾驶员信息查询</a></li>
                                 </ul>
                             </li>
                         </ol>
