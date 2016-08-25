@@ -17,7 +17,7 @@
     insert into investigation_items (investigation_id,investigation_item_name,investigation_item_value,investigation_standdard)   
     values  
     <foreach collection="list" item="item" index="index" separator="," >  
-        (#{item.investigationId},#{item.investigationItmeName},#{item.investigationItemValue},#{item.investigationStanddard})  
+        (#{item.investigationId},#{item.investigationItemName},#{item.investigationItemValue},#{item.investigationStanddard})  
     </foreach>  
 	</insert>  
  	

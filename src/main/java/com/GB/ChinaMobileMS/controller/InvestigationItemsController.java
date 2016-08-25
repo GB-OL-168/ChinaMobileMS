@@ -109,7 +109,6 @@ public class InvestigationItemsController {
 		for(int i=0;i<entityList.size();i++){
 			investigationScoreService.insertScore(entityList.get(i).getGrade(), sessionUser.getUserName(), entityList.get(i).getInvestigationItemId());
 		}
-		//investigationTableService.uptdateIsFill(investigationId);
 		List<InvestigationTableEntity> investigationTableEntityList = investigationTableService
 				.getInvestigationTableEntityByUserName(sessionUser.getUserName());
 		Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
@@ -126,28 +125,33 @@ public class InvestigationItemsController {
 		List<InvestigationItemsEntity> investigationItemsEntityList= investigationitemsService.getInvestigationItems(id);
 		String investigationItemsName=investigationItemsEntityList.get(0).getInvestigationItemName()+"分析";
 		for(int i=0;i<investigationItemsEntityList.size();i++){
-			List<InvestigationScoreEntity> InvestigationScoreEntityList=investigationScoreService.findByInvestigationItemId(investigationItemsEntityList.get(i).getInvestigationItemId());
+			List<InvestigationScoreEntity> investigationScoreEntityList=investigationScoreService.findByInvestigationItemId(investigationItemsEntityList.get(i).getInvestigationItemId());
 			investigationScoreEntitySet=new InvestigationScoreEntitySet();
 			investigationScoreEntitySet.setInvestigationItemValue(investigationItemsEntityList.get(i).getInvestigationItemValue());
 			investigationScoreEntitySet.setInvestigationStanddard(investigationItemsEntityList.get(i).getInvestigationStanddard());
-			investigationScoreEntitySet.setScoreId(InvestigationScoreEntityList.get(i).getScoreId());
-			investigationScoreEntitySet.setInvestigationItemId(InvestigationScoreEntityList.get(i).getInvestigationItemId());
-			investigationScoreEntitySet.setInvestigationUserName(InvestigationScoreEntityList.get(i).getInvestigationUserName());
-			investigationScoreEntitySet.setGrade(InvestigationScoreEntityList.get(i).getGrade());
-			for(int j=0;j<InvestigationScoreEntityList.size();j++){
-				if(InvestigationScoreEntityList.get(j).getGrade().equals("excellent"))
-					++excellent;
-				else if(InvestigationScoreEntityList.get(j).getGrade().equals("good"))
-					++good;
-				else  
-					++bad;
+			if(investigationScoreEntityList==null||investigationScoreEntityList.isEmpty()){
+				System.out.println("LALALALALAL"+investigationScoreEntityList.size());
+			}
+			else{
+				investigationScoreEntitySet.setScoreId(investigationScoreEntityList.get(i).getScoreId());
+				investigationScoreEntitySet.setInvestigationItemId(investigationScoreEntityList.get(i).getInvestigationItemId());
+				investigationScoreEntitySet.setInvestigationUserName(investigationScoreEntityList.get(i).getInvestigationUserName());
+				investigationScoreEntitySet.setGrade(investigationScoreEntityList.get(i).getGrade());
+				for(int j=0;j<investigationScoreEntityList.size();j++){
+					if(investigationScoreEntityList.get(j).getGrade().equals("excellent"))
+						++excellent;
+					else if(investigationScoreEntityList.get(j).getGrade().equals("good"))
+						++good;
+					else  
+						++bad;
+				}
 			}
 			investigationScoreEntitySet.setExcellent(excellent);
 			investigationScoreEntitySet.setGood(good);
 			investigationScoreEntitySet.setBad(bad);
 			investigationScoreEntitySetList.add(investigationScoreEntitySet);//加进去实体
 			excellent=0;good=0;bad=0;//reset
-			InvestigationScoreEntityList.clear();
+			investigationScoreEntityList.clear();
 		}
 		for(int i=0;i<investigationScoreEntitySetList.size();i++){
 			int total=investigationScoreEntitySetList.get(i).getExcellent()+investigationScoreEntitySetList.get(i).getGood()+investigationScoreEntitySetList.get(i).getBad();
