@@ -4,8 +4,12 @@ import com.GB.ChinaMobileMS.entity.InvestigationTableEntity;
 
 public interface ServiceManagementSendMapper {
 	
-	public InvestigationTableEntity querySendByID(int investigationId);
+	public InvestigationTableEntity queryInvestigationTableByID(int investigationId);
 	
-	int updateSendService(InvestigationTableEntity sendService);
+	int updateInvestigationTable(InvestigationTableEntity investigationTableEntity);
+	
+	int insertWaitForInvestigatUser(int branchId,int investigationId,int flag);
+	
+	int updateWaitForInvestigatUser(InvestigationTableEntity investigationTableEntity);
 
 }
