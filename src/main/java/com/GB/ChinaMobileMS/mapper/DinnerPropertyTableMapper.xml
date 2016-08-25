@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.GB.ChinaMobileMS.dao.DinnerPropertyTableMapper">
+	<insert id="insertDinnerProperty" parameterType="DinnerPropertyTableEntity">
+		INSERT INTO dinner_property_table(apply_or_charge_user_name, branch_id, company_id, start_date, finish_date, contact_info, arrange_person_count, dinner_type, addition, apply_time)
+		VALUES (#{applyOrChargeUserName},#{branchId},#{companyId},#{startDate},#{finishDate},#{contactInfo},#{arrangePersonCount},#{dinnerType},#{addition},#{applyTime})
+	</insert>
+	
+	<select id="queryDinnerPropertyTableByApplyTime" parameterType="DinnerPropertyTableEntity" resultType="com.GB.ChinaMobileMS.entity.DinnerPropertyTableEntity">
+		select *
+		from dinner_property_table
+		where apply_or_charge_user_name = #{applyOrChargeUserName} and apply_time = #{applyTime}
+	</select>
+	
+	<select id="queryAllDinnerPropertyTableByUserName" parameterType="string" resultType="com.GB.ChinaMobileMS.entity.DinnerPropertyTableEntity">
+		select *
+		from dinner_property_table
+		where apply_or_charge_user_name = #{userName} 
+	</select>
+	
+	<select id="queryDinnerPropertyTableByID" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.DinnerPropertyTableEntity">
+		select *
+		from dinner_property_table
+		where dinner_property_table_id = #{tableID}
+	</select>
+	
+	<update id="updateDinnerTableStatus">
+		update dinner_property_table 
+		set
+		status=#{status, jdbcType=INTEGER}
+		where dinner_property_table_id=#{id, jdbcType=INTEGER}
+	</update>
+	
+	<select id="queryAllDinnerPropertyTable" resultType="com.GB.ChinaMobileMS.entity.DinnerPropertyTableEntity">
+		select *
+		from dinner_property_table
+	</select>
+</mapper>

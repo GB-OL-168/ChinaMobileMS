@@ -28,7 +28,7 @@ public class TestActiviti {
 	@Test
 	public void deploymentTest(){
 		
-		repositoryService.createDeployment().addClasspathResource("act/MyProcess.bpmn").deploy();
+		repositoryService.createDeployment().addClasspathResource("act/DinnerProcess.bpmn").deploy();
 		
 	}
 	

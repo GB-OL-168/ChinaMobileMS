@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.GB.ChinaMobileMS.services.interfaces.DinnerReviewService;
 import com.GB.ChinaMobileMS.services.interfaces.ReviewService;
 
 @Component
@@ -27,6 +28,9 @@ public class ActivitiUtil {
 
 	@Autowired
 	private ReviewService reviewService;
+	
+	@Autowired
+	private DinnerReviewService dinnerReviewService;
 
 	/**
 	 * 部署流程图到服务器数据库，一个流程图只需部署一次
@@ -81,5 +85,27 @@ public class ActivitiUtil {
 	private boolean startReviewInDB(int propertyTableId, String excutionID, String branchVertifyUserID, String companyVertifyUserID) {
 		return reviewService.startReview(propertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID);
 	}
-
+	
+//===============================用餐部分
+	
+	public boolean startDinnerProcess(int dinnerPropertyTableId, String branchVertifyUserID, String companyVertifyUserID) {
+		String excutionID = runtimeService.startProcessInstanceByKey("dinnerProcess").getId();
+		if (!startDinnerReviewInDB(dinnerPropertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID)) {
+			System.out.println("开启用餐审核失败");
+			return false;
+		}
+		return true;
+	}
+	
+	public void excuteDinnerProcess(String excutionID, boolean isPass) {
+		List<Task> tasks = taskService.createTaskQuery().executionId(excutionID).list();
+		for (Task task : tasks) {
+			taskService.setVariable(task.getId(), "flag", isPass);
+			taskService.complete(task.getId());
+		}
+	}
+	
+	private boolean startDinnerReviewInDB(int propertyTableId, String excutionID, String branchVertifyUserID, String companyVertifyUserID) {
+		return dinnerReviewService.startDinnerReview(propertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID);
+	}
 }

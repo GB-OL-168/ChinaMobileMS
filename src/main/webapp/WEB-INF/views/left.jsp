@@ -46,7 +46,12 @@
 							<li><a href="/function/" target="/u/main">办公设备租贷</a></li>
 							<li><a href="/function/" target="/u/main">维修维护服务申请</a></li>
 							<li><a href="/function/" target="/u/main">配餐维护服务申请</a></li>
-							<li><a href="/function/" target="/u/main">配餐中心用餐申请</a></li>
+							<li><a>配餐中心用餐申请</a>
+								<ul>
+									<li><a href="/property/dinnerApplicationView" target="/u/main">申请方应用</a></li>
+									<li><a href="/property/dinnerAuditing" target="/u/main">审核方应用</a></li>
+									<li><a href="/property/dinnerManagement" target="/u/main">管理方应用</a></li>
+								</ul></li>
 							<li><a href="/function/" target="/u/main">省公司公务通信服务</a></li>
 							<li><a href="/function/" target="/u/main">办公家具请购</a></li>
 							<li><a>物业服务需求申请</a>
