@@ -11,6 +11,24 @@
 		VALUES
 		(#{houseId},#{furnitureType},#{brand},#{specification},#{usedBranchId},#{count},#{usedSituation})
 	</insert>
- 
+ <select id="queryAssetFurniture" resultType="AssetFurniture">
+		SELECT
+		o.used_branch_id,
+		b.branch_name,	
+		o.house_id,
+		o.furniture_type,
+		o.brand,
+		o.specification,
+		o.count,
+		o.office_furniture_info_id,
+		h.floor
+		FROM branch b,
+		house_info h,
+		office_furniture_info o
+		WHERE b.branch_id =
+		o.used_branch_id
+		And h.house_id = 
+		o.house_id
+	</select>
  </mapper>
  

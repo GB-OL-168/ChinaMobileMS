@@ -6,6 +6,9 @@ public class AssetHouse {
 	private int belonngBranchId;
 	private int floor;
 	private int area;
+	
+	private int companyId;
+	private String companyName;
 	public String getBuilding() {
 		return building;
 	}
@@ -36,6 +39,21 @@ public class AssetHouse {
 	public void setArea(int area) {
 		this.area = area;
 	}
+	public int getCompanyId() {
+		return companyId;
+	}
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
+	}
+	public String getCompanyame() {
+		return companyName;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -44,6 +62,9 @@ public class AssetHouse {
 		result = prime * result + belonngBranchId;
 		result = prime * result
 				+ ((building == null) ? 0 : building.hashCode());
+		result = prime * result + companyId;
+		result = prime * result
+				+ ((companyName == null) ? 0 : companyName.hashCode());
 		result = prime * result + floor;
 		result = prime * result + houseId;
 		return result;
@@ -66,6 +87,13 @@ public class AssetHouse {
 				return false;
 		} else if (!building.equals(other.building))
 			return false;
+		if (companyId != other.companyId)
+			return false;
+		if (companyName == null) {
+			if (other.companyName != null)
+				return false;
+		} else if (!companyName.equals(other.companyName))
+			return false;
 		if (floor != other.floor)
 			return false;
 		if (houseId != other.houseId)
@@ -76,8 +104,11 @@ public class AssetHouse {
 	public String toString() {
 		return "AssetHouse [building=" + building + ", houseId=" + houseId
 				+ ", belonngBranchId=" + belonngBranchId + ", floor=" + floor
-				+ ", area=" + area + "]";
+				+ ", area=" + area + ", companyId=" + companyId
+				+ ", companyName=" + companyName + "]";
 	}
+
+
 	
 	
 }

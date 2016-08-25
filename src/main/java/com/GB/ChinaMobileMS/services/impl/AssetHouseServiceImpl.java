@@ -8,25 +8,34 @@ import org.springframework.stereotype.Service;
 import com.GB.ChinaMobileMS.dao.AssetHouseMapper;
 import com.GB.ChinaMobileMS.entity.AssetHouse;
 import com.GB.ChinaMobileMS.services.interfaces.AssetHouseService;
+
 @Service
 public class AssetHouseServiceImpl implements AssetHouseService {
-	
+
 	@Autowired
-	private AssetHouseMapper roomMapper ;
+	private AssetHouseMapper roomMapper;
+
 	@Override
 	public String addAssetHouse(AssetHouse room) {
 		System.out.println("Enter addAssetHouse");
-		
-		int i  = roomMapper.addAssetHouse(room);
+
+		int i = roomMapper.addAssetHouse(room);
 		return "done";
 	}
-	
-	public List<AssetHouse> queryAssetHouse()
-	{
+
+	public List<AssetHouse> queryAssetHouse() {
 		System.out.println("Enter queryAssetHouse");
-		
+
 		List<AssetHouse> listroom = roomMapper.queryAssetHouse();
-		
+
+		return listroom;
+	}
+
+	public List<AssetHouse> queryAssetHouse2() {
+		System.out.println("Enter queryAssetHouse2");
+
+		List<AssetHouse> listroom = roomMapper.queryAssetHouse2();
+
 		return listroom;
 	}
 }

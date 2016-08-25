@@ -17,6 +17,9 @@ public class AssetHousing {
 	private String loanSource;//租贷来源
 	private Date loanTimeStart = null;//租贷时间段
 	private Date loanTimeEnd = null;
+	
+	private String companyName= null;
+	private int companyId ;
 	public int getAssetInfoId() {
 		return assetInfoId;
 	}
@@ -101,16 +104,23 @@ public class AssetHousing {
 	public void setLoanTimeEnd(Date loanTimeEnd) {
 		this.loanTimeEnd = loanTimeEnd;
 	}
-	@Override
-	public String toString() {
-		return "AssetHousing [assetInfoId=" + assetInfoId + ", usedBranchId="
-				+ usedBranchId + ", buildingArea=" + buildingArea
-				+ ", location=" + location + ", roomCount=" + roomCount
-				+ ", structureType=" + structureType + ", buildingName="
-				+ buildingName + ", roomUsage=" + roomUsage + ", addition="
-				+ addition + ", remark=" + remark + ", isLoan=" + isLoan
-				+ ", loanSource=" + loanSource + ", loanTimeStart="
-				+ loanTimeStart + ", loanTimeEnd=" + loanTimeEnd + "]";
+	public String getUsedCompanyName() {
+		return companyName;
+	}
+	public void setUsedCompanyName(String usedCompanyName) {
+		this.companyName = usedCompanyName;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public int getCompanyId() {
+		return companyId;
+	}
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 	@Override
 	public int hashCode() {
@@ -122,6 +132,9 @@ public class AssetHousing {
 		result = prime * result + buildingArea;
 		result = prime * result
 				+ ((buildingName == null) ? 0 : buildingName.hashCode());
+		result = prime * result + companyId;
+		result = prime * result
+				+ ((companyName == null) ? 0 : companyName.hashCode());
 		result = prime * result + isLoan;
 		result = prime * result
 				+ ((loanSource == null) ? 0 : loanSource.hashCode());
@@ -162,6 +175,13 @@ public class AssetHousing {
 			if (other.buildingName != null)
 				return false;
 		} else if (!buildingName.equals(other.buildingName))
+			return false;
+		if (companyId != other.companyId)
+			return false;
+		if (companyName == null) {
+			if (other.companyName != null)
+				return false;
+		} else if (!companyName.equals(other.companyName))
 			return false;
 		if (isLoan != other.isLoan)
 			return false;
@@ -206,6 +226,23 @@ public class AssetHousing {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "AssetHousing [assetInfoId=" + assetInfoId + ", usedBranchId="
+				+ usedBranchId + ", buildingArea=" + buildingArea
+				+ ", location=" + location + ", roomCount=" + roomCount
+				+ ", structureType=" + structureType + ", buildingName="
+				+ buildingName + ", roomUsage=" + roomUsage + ", addition="
+				+ addition + ", remark=" + remark + ", isLoan=" + isLoan
+				+ ", loanSource=" + loanSource + ", loanTimeStart="
+				+ loanTimeStart + ", loanTimeEnd=" + loanTimeEnd
+				+ ", companyName=" + companyName + ", companyId=" + companyId
+				+ "]";
+	}
+	
+	
+	
+	
 	
 	
 	

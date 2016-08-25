@@ -152,7 +152,7 @@
 							<button type="submit" class="btn btn-default">新建</button>
 							<button type="submit" class="btn btn-default"
 								onclick="javascript:history.back(-1);">
-								返回</a>
+								返回</button>
 						</div>
 					</div>
 

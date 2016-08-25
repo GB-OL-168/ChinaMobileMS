@@ -7,7 +7,7 @@ public class AssetLoanDevice {
 	private String loanUserName;//使用人
 	private int belongBranchId;//所在部门
 	private int batch;//批次
-	private int type;//类型
+	private String type;//类型
 	private String brand;//品牌/型号
 	private String specification;//规格
 	private Date arrivalDate;//到货日期
@@ -18,6 +18,10 @@ public class AssetLoanDevice {
 	private int orderNumber;//序号
 	private Date getDate;//领用日期
 	private Date expiredDate;//到期时间
+	
+	
+	private int jobId;
+	private String branchName;
 	public int getLoanInfoId() {
 		return loanInfoId;
 	}
@@ -42,10 +46,10 @@ public class AssetLoanDevice {
 	public void setBatch(int batch) {
 		this.batch = batch;
 	}
-	public int getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	public String getBrand() {
@@ -108,6 +112,18 @@ public class AssetLoanDevice {
 	public void setExpiredDate(Date expiredDate) {
 		this.expiredDate = expiredDate;
 	}
+	public int getJobId() {
+		return jobId;
+	}
+	public void setJobId(int jobId) {
+		this.jobId = jobId;
+	}
+	public String getBranchName() {
+		return branchName;
+	}
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -118,18 +134,21 @@ public class AssetLoanDevice {
 				+ ((arrivalDate == null) ? 0 : arrivalDate.hashCode());
 		result = prime * result + batch;
 		result = prime * result + belongBranchId;
+		result = prime * result
+				+ ((branchName == null) ? 0 : branchName.hashCode());
 		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + count;
 		result = prime * result
 				+ ((expiredDate == null) ? 0 : expiredDate.hashCode());
 		result = prime * result + ((getDate == null) ? 0 : getDate.hashCode());
+		result = prime * result + jobId;
 		result = prime * result + loanInfoId;
 		result = prime * result
 				+ ((loanUserName == null) ? 0 : loanUserName.hashCode());
 		result = prime * result + orderNumber;
 		result = prime * result
 				+ ((specification == null) ? 0 : specification.hashCode());
-		result = prime * result + type;
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + unitValue;
 		return result;
 	}
@@ -155,6 +174,11 @@ public class AssetLoanDevice {
 			return false;
 		if (belongBranchId != other.belongBranchId)
 			return false;
+		if (branchName == null) {
+			if (other.branchName != null)
+				return false;
+		} else if (!branchName.equals(other.branchName))
+			return false;
 		if (brand == null) {
 			if (other.brand != null)
 				return false;
@@ -172,6 +196,8 @@ public class AssetLoanDevice {
 				return false;
 		} else if (!getDate.equals(other.getDate))
 			return false;
+		if (jobId != other.jobId)
+			return false;
 		if (loanInfoId != other.loanInfoId)
 			return false;
 		if (loanUserName == null) {
@@ -186,7 +212,10 @@ public class AssetLoanDevice {
 				return false;
 		} else if (!specification.equals(other.specification))
 			return false;
-		if (type != other.type)
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
 			return false;
 		if (unitValue != other.unitValue)
 			return false;
@@ -201,8 +230,12 @@ public class AssetLoanDevice {
 				+ arrivalDate + ", count=" + count + ", allowUseYears="
 				+ allowUseYears + ", unitValue=" + unitValue + ", allValue="
 				+ allValue + ", orderNumber=" + orderNumber + ", getDate="
-				+ getDate + ", expiredDate=" + expiredDate + "]";
+				+ getDate + ", expiredDate=" + expiredDate + ", jobId=" + jobId
+				+ ", branchName=" + branchName + "]";
 	}
+	
+	
+
 	
 	
 	

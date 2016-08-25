@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE mapper 
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.GB.ChinaMobileMS.dao.AssetHousingMapper">
-
 	<insert id="addAssetHousing" parameterType="AssetHousing">
 		INSERT INTO
 		housing_asset_info(asset_info_id,
@@ -17,7 +14,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="queryAssetHousing" resultType="AssetHousing">
-		select * from housing_asset_info
+		select * from
+		housing_asset_info
 	</select>
 
+	<select id="queryAssetHousing2" resultType="AssetHousing">
+		SELECT
+		h.used_branch_id,
+		b.company_id,
+		c.company_name,
+		h.location,
+		h.building_area,
+		h.asset_info_id,
+		h.building_name
+		FROM branch
+		b,housing_asset_info h,company c
+		WHERE b.branch_id =
+		h.used_branch_id
+		AND c.company_id = b.company_id
+	</select>
+
+	<select id="detailed" parameterType="int" resultType="AssetHousing">
+		select
+		h.used_branch_id,
+		b.company_id,
+		c.company_name,
+		h.location,
+		h.building_area,
+		h.asset_info_id,
+		h.building_name,
+		h.room_count,
+		h.structure_type,
+		h.room_usage,
+		h.addition,
+		h.remark,
+		h.is_loan,
+		h.loan_source,
+		h.loan_time_start,
+		h.loan_time_end
+		FROM branch
+		b,housing_asset_info h,company c
+		WHERE b.branch_id =
+		h.used_branch_id
+		AND c.company_id = b.company_id
+		AND h.asset_info_id =
+		#{assetInfoId}
+	</select>
 </mapper>

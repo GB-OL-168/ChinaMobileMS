@@ -108,10 +108,8 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">家具类型</label>
 						<div class="col-sm-10">
-							<select class="form-control" name="furnitureType">
-								<option value="01">01</option>
-								<option value="02">02</option>
-							</select>
+							<input type="text" class="form-control" placeholder="家具类型"
+							name="furnitureType">
 						</div>
 					</div>
 					<div class="form-group">
@@ -130,7 +128,7 @@ ol>li {
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">使用公司</label>
-						<div class="col-sm-5">
+						<div class="col-sm-10">
 							<select name="company" class="company1 form-control">
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
@@ -141,7 +139,7 @@ ol>li {
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">使用部门</label>
-						<div class="col-sm-5">
+						<div class="col-sm-10">
 							<select class="branch1 form-control" name="usedBranchId">
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">

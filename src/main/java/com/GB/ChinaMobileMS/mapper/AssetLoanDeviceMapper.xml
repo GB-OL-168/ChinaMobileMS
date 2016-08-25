@@ -16,4 +16,31 @@
 		#{brand},#{specification},#{arrivalDate},#{count},#{allowUseYears},#{unitValue},#{allValue}
 		,#{orderNumber},#{getDate},#{expiredDate})
 	</insert>
+	<select id="queryLoanDevice" resultType="AssetLoanDevice">
+		SELECT
+		*
+		FROM
+		loan_device_info
+	</select>
+	<select id="queryLoanDevice2" resultType="AssetLoanDevice">
+		SELECT
+		l.belong_branch_id,
+		b.branch_name,
+		l.loan_user_name,
+		u.job_id,
+		l.get_date,
+		l.expired_date,
+		l.order_number
+		FROM
+		loan_device_info l,
+		branch b,
+		user u
+		WHERE  b.branch_id =
+		l.belong_branch_id 
+		AND
+		l.loan_user_name =
+		u.user_name
+		
+		
+	</select>
 </mapper>

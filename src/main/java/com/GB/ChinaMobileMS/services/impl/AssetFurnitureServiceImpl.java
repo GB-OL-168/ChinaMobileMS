@@ -1,5 +1,7 @@
 package com.GB.ChinaMobileMS.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,13 @@ public class AssetFurnitureServiceImpl implements AssetFurnitureService{
 		
 		int i = assetfurnMapper.addFurniture(assetfurn);
 		return "done";
+	}
+	public List<AssetFurniture> queryAssetFurniture(){
+		System.out.println("Enter queryAssetFurniture");
+		
+		List<AssetFurniture> listasf = assetfurnMapper.queryAssetFurniture();
+		
+		return listasf;
 	}
 
 }

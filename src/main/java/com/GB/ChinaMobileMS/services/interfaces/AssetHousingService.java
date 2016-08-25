@@ -9,4 +9,8 @@ public interface AssetHousingService {
 	String addAssetHousing(AssetHousing ash);
 	
 	List<AssetHousing> queryAssetHousing();
+	
+	List<AssetHousing> queryAssetHousing2();
+	
+	AssetHousing detailed(int assetInfoId);
 }

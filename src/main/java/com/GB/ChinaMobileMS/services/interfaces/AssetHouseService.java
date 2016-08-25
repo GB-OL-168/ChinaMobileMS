@@ -8,4 +8,6 @@ public interface AssetHouseService {
 	String addAssetHouse(AssetHouse room);
 	
 	List<AssetHouse> queryAssetHouse();
+	
+	List<AssetHouse> queryAssetHouse2();
 }

@@ -8,4 +8,6 @@ public interface AssetHouseMapper {
 	int addAssetHouse(AssetHouse room);
 	
 	List<AssetHouse> queryAssetHouse();
+	
+	List<AssetHouse> queryAssetHouse2();
 }

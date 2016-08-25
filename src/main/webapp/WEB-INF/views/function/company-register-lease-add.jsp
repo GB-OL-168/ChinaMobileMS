@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/assets/css/system.css">
 <script src="/assets/js/jquery-1.9.1.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
->
+
 <style>
 ol>li {
 	font-size: 18px;
@@ -55,10 +55,8 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-4 control-label">类型</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="type">
-								<option value="01">01</option>
-								<option value="2">02</option>
-							</select>
+							<input type="text" class="form-control" placeholder="类型"
+								name="type">
 						</div>
 					</div>
 					<div class="form-group">

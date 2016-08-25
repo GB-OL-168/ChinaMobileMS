@@ -29,4 +29,16 @@ public class AssetHousingServiceImpl implements AssetHousingService{
 		
 		return listash;
 	}
+	public List<AssetHousing> queryAssetHousing2(){
+		System.out.println("Enter queryAssetHousing2");
+		List<AssetHousing> listash = ashMapper.queryAssetHousing2();
+		
+		return listash;
+	}
+	public AssetHousing detailed(int assetInfoId){
+		System.out.println("Enter detailed");
+		AssetHousing ash =ashMapper.detailed(assetInfoId);
+		
+		return ash;
+	}
 }
