@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -28,13 +30,7 @@ ol>li {
 						<ol class="breadcrumb">
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">信息登记 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="company-register-houses.html">信息查询</a></li>
-									<li><a href="company-count.html">信息统计</a></li>
-								</ul></li>
+							<li><a href="#">信息登记 </a></li>
 							<li class="dropdown active"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">房间信息登记 <span
@@ -50,14 +46,26 @@ ol>li {
 
 				<form class="form-horizontal" action="/addRoom" method="get">
 					<h3 style="text-align: center;">房间信息登记</h3>
-
 					<div class="form-group">
-						<label class="col-sm-3 control-label">所属单位</label>
+						<label class="col-sm-3 control-label">所属公司</label>
 						<div class="col-sm-5">
-							<select class="form-control" name="belonngBranchId">
-								<option value="1">物业服务部</option>
-								<option value="2">公关部</option>
-								<option value="3">郫县分公司物业部</option>
+							<select name="company" class="company form-control">
+								<option value="">--请选择公司--</option>
+								<c:forEach items="${listCompany}" var="c">
+									<option value="${c.companyId }">${c.companyName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">所属部门</label>
+						<div class="col-sm-5">
+							<select class="Branch form-control" name="belonngBranchId">
+								<option value="">--请选择部门--</option>
+								<c:forEach items="${listBranch}" var="b">
+									<option style="display: none;" class="${b.companyId}"
+										value="${b.branchId}">${b.branchName}</option>
+								</c:forEach>
 							</select>
 						</div>
 					</div>
@@ -65,10 +73,11 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属建筑</label>
 						<div class="col-sm-5">
-							<select class="form-control" name="building">
-								<option value="创业大厦">创业大厦</option>
-								<option value="梦想大厦">梦想大厦</option>
-								<option value="白色天马">白色天马</option>
+							<select class="building form-control" name="building">
+								<option value="">请选择建筑</option>
+								<c:forEach items="${listash}" var="a">
+									<option value="${a.assetInfoId}" class="${a.usedBranchId}">${a.buildingName}</option>
+								</c:forEach>
 							</select>
 						</div>
 					</div>
@@ -76,12 +85,8 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属楼层</label>
 						<div class="col-sm-5">
-							<select class="form-control" name="floor">
-								<option value="1">一</option>
-								<option value="2">二</option>
-								<option value="3">三</option>
-								<option value="4">四</option>
-							</select>
+							<input type="number" class="form-control" name="floor">
+
 						</div>
 					</div>
 
@@ -112,5 +117,32 @@ ol>li {
 		</div>
 	</div>
 
+
+	<script>
+		var all = 1;
+		$(function() {
+			$(".branch").change(function() {
+				$(".building").val("");
+				$("option." + all).css("display", "none");
+				var b = $(".branch").val();
+				all = b;
+				$("option." + b).css("display", "block");
+
+			});
+		});
+	</script>
+	<script>
+		var all = 1;
+		$(function() {
+			$(".company").change(function() {
+				$(".branch").val("");
+				$("option." + all).css("display", "none");
+				var b = $(".company").val();
+				all = b;
+				$("option." + b).css("display", "block");
+
+			});
+		});
+	</script>
 </body>
 </html>

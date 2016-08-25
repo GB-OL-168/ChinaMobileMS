@@ -8,4 +8,10 @@
 	values
 	(#{investigationItemId},#{investigationUserName},#{grade})
 	</insert>
+	
+	<select id="findByInvestigationItemId" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.InvestigationScoreEntity">
+	select *
+	from investigation_score
+	where investigation_item_id=#{investigationItemId}
+	</select>
 </mapper>

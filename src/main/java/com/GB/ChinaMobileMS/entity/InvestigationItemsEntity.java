@@ -2,11 +2,11 @@ package com.GB.ChinaMobileMS.entity;
 
 public class InvestigationItemsEntity {
 	/**
-	 * 物业服务调查表格实体
+	 * 物业服务调查表格考评项目实体
 	 */
 	private int investigationItemId;//调查项目的id
 	private int investigationId;//表格的id
-	private String investigationItmeName;//调查项目的名称
+	private String investigationItemName;//调查项目的名称
 	private String investigationItemValue;//考评项目名称
 	private String investigationStanddard;//考评标准
 	private int status;
@@ -23,11 +23,12 @@ public class InvestigationItemsEntity {
 	public void setInvestigationId(int investigationId) {
 		this.investigationId = investigationId;
 	}
-	public String getInvestigationItmeName() {
-		return investigationItmeName;
+
+	public String getInvestigationItemName() {
+		return investigationItemName;
 	}
-	public void setInvestigationItmeName(String investigationItmeName) {
-		this.investigationItmeName = investigationItmeName;
+	public void setInvestigationItemName(String investigationItemName) {
+		this.investigationItemName = investigationItemName;
 	}
 	public String getInvestigationItemValue() {
 		return investigationItemValue;
@@ -61,9 +62,10 @@ public class InvestigationItemsEntity {
 		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
 		result = prime * result + investigationId;
 		result = prime * result + investigationItemId;
+		result = prime * result + ((investigationItemName == null) ? 0 : investigationItemName.hashCode());
 		result = prime * result + ((investigationItemValue == null) ? 0 : investigationItemValue.hashCode());
-		result = prime * result + ((investigationItmeName == null) ? 0 : investigationItmeName.hashCode());
 		result = prime * result + ((investigationStanddard == null) ? 0 : investigationStanddard.hashCode());
+		result = prime * result + status;
 		return result;
 	}
 	@Override
@@ -84,29 +86,31 @@ public class InvestigationItemsEntity {
 			return false;
 		if (investigationItemId != other.investigationItemId)
 			return false;
+		if (investigationItemName == null) {
+			if (other.investigationItemName != null)
+				return false;
+		} else if (!investigationItemName.equals(other.investigationItemName))
+			return false;
 		if (investigationItemValue == null) {
 			if (other.investigationItemValue != null)
 				return false;
 		} else if (!investigationItemValue.equals(other.investigationItemValue))
-			return false;
-		if (investigationItmeName == null) {
-			if (other.investigationItmeName != null)
-				return false;
-		} else if (!investigationItmeName.equals(other.investigationItmeName))
 			return false;
 		if (investigationStanddard == null) {
 			if (other.investigationStanddard != null)
 				return false;
 		} else if (!investigationStanddard.equals(other.investigationStanddard))
 			return false;
+		if (status != other.status)
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "InvestigationItemsEntity [investigationItemId=" + investigationItemId + ", investigationId="
-				+ investigationId + ", investigationItmeName=" + investigationItmeName + ", investigationItemValue="
-				+ investigationItemValue + ", investigationStanddard=" + investigationStanddard + ", grade=" + grade
-				+ "]";
+				+ investigationId + ", investigationItemName=" + investigationItemName + ", investigationItemValue="
+				+ investigationItemValue + ", investigationStanddard=" + investigationStanddard + ", status=" + status
+				+ ", grade=" + grade + "]";
 	}
 	
 
