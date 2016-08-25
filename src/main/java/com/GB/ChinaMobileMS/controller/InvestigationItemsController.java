@@ -45,6 +45,10 @@ public class InvestigationItemsController {
 	private InvestigationItemsService investigationitemsService;
 	@Autowired
 	private InvestigationScoreService investigationScoreService;
+	
+	
+	
+	
 	@RequestMapping(value = "/showInvestigationItem/{id}", method = RequestMethod.GET)
 	public ModelAndView showInvestigationItem(@PathVariable("id") int id, HttpSession session) {
 		List<InvestigationItemsEntity> investigationItemsEntityList = investigationitemsService.getInvestigationItems(id);
