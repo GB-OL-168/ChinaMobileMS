@@ -2,20 +2,43 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.GB.ChinaMobileMS.dao.ServiceManagementSendMapper">
 
-	<select id="querySendByID" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.InvestigationTableEntity">
+	<select id="queryInvestigationTableByID" parameterType="int"
+		resultType="com.GB.ChinaMobileMS.entity.InvestigationTableEntity">
 		select *
 		from investigation_table
-		where investigation_id = #{investigationId}
+		where investigation_id =
+		#{investigationId}
 	</select>
-	
- 	<update id="updateSendService" parameterType="InvestigationTableEntity">
-		update investigation_table 
+
+	<update id="updateInvestigationTable" parameterType="InvestigationTableEntity">
+		update
+		investigation_table
 		set
 		status = #{status}, recovery_time = #{recoveryTime}
-		where investigation_id = 2
+		where
+		investigation_id = #{investigationId}
+	</update>
+
+	<insert id="insertWaitForInvestigatUser" parameterType="int">
+		insert into wait_for_investigate_user
+		(investigation_id, wait_user_name, flag)
+		(select #{1}, user_name, #{2} from user
+		where job_id in
+		(select job_id
+		from job
+		where branch_id = #{0}))
+	</insert>
+	
+	<update id="updateWaitForInvestigatUser" parameterType="InvestigationTableEntity">
+		update
+		wait_for_investigate_user
+		set
+		flag = #{flag}
+		where
+		investigation_id = #{investigationId}
 	</update>
 
 </mapper>

@@ -10,10 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class Company {
 
 	@RequestMapping(value = "/company/{id}", method = RequestMethod.GET)
-	public ModelAndView CompanyQuery(@PathVariable("id") String id) {
-		if (id.equals("query"))
-			return new ModelAndView("/function/company-query-houses");
-		else if (id.equals("info"))
+	public ModelAndView Company(@PathVariable("id") String id) {
+		if (id.equals("info"))
 			return new ModelAndView("/function/company-info-using");
 		else if (id.equals("count"))
 			return new ModelAndView("/function/company-count");

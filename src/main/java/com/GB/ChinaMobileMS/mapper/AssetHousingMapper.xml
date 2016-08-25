@@ -16,5 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{buildingName},#{roomUsage},#{addition},#{remark},#{isLoan},#{loanSource},#{loanTimeStart},#{loanTimeEnd})
 	</insert>
 
+	<select id="queryAssetHousing" resultType="AssetHousing">
+		select * from housing_asset_info
+	</select>
 
 </mapper>

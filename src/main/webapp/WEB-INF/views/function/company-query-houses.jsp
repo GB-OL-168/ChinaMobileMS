@@ -36,9 +36,9 @@
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房屋资产查询 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="company-register-rooms.html">房间信息查询</a></li>
-                                <li><a href="company-register-furniture.html">办公家具查询</a></li>
-                                <li><a href="company-register-lease.html">房屋资产查询</a></li>
+                                <li><a href="/companyquery/rooms">房间信息查询</a></li>
+                                <li><a href="/companyquery/furniture">办公家具信息查询</a></li>
+                                <li><a href="/companyquery/lease">租赁设备信息查询</a></li>
                             </ul>
                         </li>
                     </ol>
@@ -87,7 +87,7 @@
                     <td>四川华迪有限公司</td>
                     <td>四川成都</td>
                     <td>1430</td>
-                    <td><a href="#">查看</a></td>
+                    <td><a href="/companyquery/detailed_information">查看</a></td>
                 </tr>
             </table>
         </div>

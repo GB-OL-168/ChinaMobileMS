@@ -29,12 +29,18 @@
 							<li><a href="javascript:void(0)" target="/u/main">上市公司资产信息</a>
 								<ul>
 									<li><a href="/register/houses-add" target="/u/main">信息登记</a></li>
-									<li><a href="/company/query" target="/u/main">信息查询</a></li>
+									<li><a href="/companyquery/houses" target="/u/main">信息查询</a></li>
 									<li><a href="/company/info" target="/u/main">使用信息</a></li>
 									<li><a href="/company/count" target="/u/main">信息统计</a></li>
 								</ul></li>
-							<li><a href="/function/" target="/u/main">全省车辆信息</a></li>
-						
+
+							<li><a href="javascript:void(0)" target="/u/main">全省车辆信息</a>
+
+								<ul>
+									<li><a href="/vehicle/info-add" target="/u/main"> 车辆登记</a></li>
+									<li><a href="/vehicle/info-find" target="/u/main">车辆查询</a></li>
+								</ul></li>
+
 							<li><a href="/function/" target="/u/main">省公司维修维护信息</a></li>
 							<li><a href="/function/" target="/u/main">省公司公务电话信息</a></li>
 							<li><a href="/function/" target="/u/main">服务公司资产信息</a></li>
@@ -66,7 +72,8 @@
 						</ul></li>
 					<li><a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong></a>
 						<ul>
-							<li><a href="/service/management-check" target="/u/main">物业服务考评</a></li>
+							<li><a href="/service/management-write" target="/u/main">物业服务考评填写</a></li>
+							<li><a href="/service/management-check" target="/u/main">物业服务考评管理</a></li>
 							<li><a href="/function/" target="/u/main">用餐张贴满意度调查</a></li>
 						</ul></li>
 				</ul>

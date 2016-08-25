@@ -49,10 +49,8 @@
 									<td>${investigationTableEntityList.createStaff}</td>
 									<td>${investigationTableEntityList.recoveryTime}</td>
 									<td>
-									<a href="/showInvestigationItem/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>查看</button></a>
-										&nbsp&nbsp<a href="/sendServiceManagement1/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>发放</button></a>
-										&nbsp&nbsp<a href="/recycleServiceManagement/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>回收</button></a>
-										&nbsp&nbsp<a href="/statistics/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>统计</button></a></td>
+									<a href="/showWiriteInvestigationItems/${investigationTableEntityList.investigationId}"><
+									</td>
 								</tr>
 								</c:forEach>
 							</table>

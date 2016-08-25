@@ -60,8 +60,6 @@ public class FunctionController {
 	@Autowired
 	private InvestigationTableService investigationTableService;
 	@Autowired
-	private WaitForInvestigationService waitForInvestigationService;
-	@Autowired
 	private RoleService roleService;
 
 	// 系统设置 跳转页面
@@ -145,42 +143,7 @@ public class FunctionController {
 			return new ModelAndView("forward:/");
 	}
 
-	@RequestMapping(value = "/service/{id}", method = RequestMethod.GET)
-	public ModelAndView ServiceUser(User user, @PathVariable("id") String id, HttpSession session) {
-		if (id.equals("management-check")){
-			/**
-			 * 物业服务考评表格
-			 */
-			User sessionUser = (User)session.getAttribute("user");
-			List<InvestigationTableEntity> investigationTableEntityList =investigationTableService.getInvestigationTableEntityByUserName(sessionUser.getUserName());
-			if(!investigationTableEntityList.isEmpty()&&investigationTableEntityList!=null){
-			Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
-			map.put("investigationTableEntityList",investigationTableEntityList);
-			return new ModelAndView("/function/service-management-check",map);
-			}
-			else{
-			List<WaitForInvestigationUserEntity> waitForInvestigationUserEntityList=waitForInvestigationService.findWaitByUserName(sessionUser.getUserName());
-			for(int i=0;i<waitForInvestigationUserEntityList.size();i++){
-				investigationTableEntityList.add(investigationTableService.getInvestigationTableEntityByid(waitForInvestigationUserEntityList.get(i).getInvestigationId()));
-			}
-			Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
-			map.put("investigationTableEntityList",investigationTableEntityList);
-			return new ModelAndView("/function/service-management-check",map);
-			}
-			
-		}
-		else if (id.equals("management-table-make"))
-			return new ModelAndView("/function/service-management-table-make");
-		else if (id.equals("table-info"))
-			return new ModelAndView("/function/service-table-info");
 
-		else if (id.equals("date-statistics"))
-			return new ModelAndView("/function/service-date-statistics");
-		else if (id.equals("table-write"))
-			return new ModelAndView("/function/service-table-write");
-		else
-			return new ModelAndView("forward:/");
-	}
 	
 	/*
 	 * 参数设置-获取提醒信息

@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- <h2 style="margin:0 auto";>物业考评表</h2><br> -->
+         <h2 style="margin:0 auto">${investigationName}</h2><br> 
         <table id="form_make" class='table table-bordered table-hover center'>
             <div class='col-md-12 '>
                 <tr>
