@@ -8,9 +8,17 @@ public class Role {
 	private int  sysPrivilegeSetting=0;
 	private int  sysParameterSetting=0;
 	private int  sysDataRestore=0;
-	private int  proServerApplication=0;//服务器应用程序
-	private int  proAuditingApplication=0;//审核应用
-	private int  proManagementApplication=0;//管理应用程序
+	private int  serverApplicationDinner=0;
+	private int  serverApplicationProperty=0;
+	private int  auditingApplicationDinner=0;
+	private int  auditingApplicationProperty=0;
+	private int  managementApplicationDinner=0;
+	private int  managementApplicationProperty=0;
+	private int  queryVehicle=0;
+	private int  queryAsset=0;
+	private int  registerVehicle=0;
+	private int  registerAsset=0;
+	private int  mangaementAsset=0;
 	private String description;
 	public int getRoleId() {
 		return roleId;
@@ -48,23 +56,71 @@ public class Role {
 	public void setSysDataRestore(int sysDataRestore) {
 		this.sysDataRestore = sysDataRestore;
 	}
-	public int getProServerApplication() {
-		return proServerApplication;
+	public int getServerApplicationDinner() {
+		return serverApplicationDinner;
 	}
-	public void setProServerApplication(int proAerverApplication) {
-		this.proServerApplication = proAerverApplication;
+	public void setServerApplicationDinner(int serverApplicationDinner) {
+		this.serverApplicationDinner = serverApplicationDinner;
 	}
-	public int getProAuditingApplication() {
-		return proAuditingApplication;
+	public int getServerApplicationProperty() {
+		return serverApplicationProperty;
 	}
-	public void setProAuditingApplication(int proAuditingApplication) {
-		this.proAuditingApplication = proAuditingApplication;
+	public void setServerApplicationProperty(int serverApplicationProperty) {
+		this.serverApplicationProperty = serverApplicationProperty;
 	}
-	public int getProManagementApplication() {
-		return proManagementApplication;
+	public int getAuditingApplicationDinner() {
+		return auditingApplicationDinner;
 	}
-	public void setProManagementApplication(int proManagementApplication) {
-		this.proManagementApplication = proManagementApplication;
+	public void setAuditingApplicationDinner(int auditingApplicationDinner) {
+		this.auditingApplicationDinner = auditingApplicationDinner;
+	}
+	public int getAuditingApplicationProperty() {
+		return auditingApplicationProperty;
+	}
+	public void setAuditingApplicationProperty(int auditingApplicationProperty) {
+		this.auditingApplicationProperty = auditingApplicationProperty;
+	}
+	public int getManagementApplicationDinner() {
+		return managementApplicationDinner;
+	}
+	public void setManagementApplicationDinner(int managementApplicationDinner) {
+		this.managementApplicationDinner = managementApplicationDinner;
+	}
+	public int getManagementApplicationProperty() {
+		return managementApplicationProperty;
+	}
+	public void setManagementApplicationProperty(int managementApplicationProperty) {
+		this.managementApplicationProperty = managementApplicationProperty;
+	}
+	public int getQueryVehicle() {
+		return queryVehicle;
+	}
+	public void setQueryVehicle(int queryVehicle) {
+		this.queryVehicle = queryVehicle;
+	}
+	public int getQueryAsset() {
+		return queryAsset;
+	}
+	public void setQueryAsset(int queryAsset) {
+		this.queryAsset = queryAsset;
+	}
+	public int getRegisterVehicle() {
+		return registerVehicle;
+	}
+	public void setRegisterVehicle(int registerVehicle) {
+		this.registerVehicle = registerVehicle;
+	}
+	public int getRegisterAsset() {
+		return registerAsset;
+	}
+	public void setRegisterAsset(int registerAsset) {
+		this.registerAsset = registerAsset;
+	}
+	public int getMangaementAsset() {
+		return mangaementAsset;
+	}
+	public void setMangaementAsset(int mangaementAsset) {
+		this.mangaementAsset = mangaementAsset;
 	}
 	public String getDescription() {
 		return description;
@@ -76,14 +132,22 @@ public class Role {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + auditingApplicationDinner;
+		result = prime * result + auditingApplicationProperty;
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result + proServerApplication;
-		result = prime * result + proAuditingApplication;
-		result = prime * result + proManagementApplication;
+		result = prime * result + managementApplicationDinner;
+		result = prime * result + managementApplicationProperty;
+		result = prime * result + mangaementAsset;
+		result = prime * result + queryAsset;
+		result = prime * result + queryVehicle;
+		result = prime * result + registerAsset;
+		result = prime * result + registerVehicle;
 		result = prime * result + roleId;
 		result = prime * result
 				+ ((roleName == null) ? 0 : roleName.hashCode());
+		result = prime * result + serverApplicationDinner;
+		result = prime * result + serverApplicationProperty;
 		result = prime * result + sysAccountManage;
 		result = prime * result + sysDataRestore;
 		result = prime * result + sysParameterSetting;
@@ -99,16 +163,28 @@ public class Role {
 		if (getClass() != obj.getClass())
 			return false;
 		Role other = (Role) obj;
+		if (auditingApplicationDinner != other.auditingApplicationDinner)
+			return false;
+		if (auditingApplicationProperty != other.auditingApplicationProperty)
+			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (proServerApplication != other.proServerApplication)
+		if (managementApplicationDinner != other.managementApplicationDinner)
 			return false;
-		if (proAuditingApplication != other.proAuditingApplication)
+		if (managementApplicationProperty != other.managementApplicationProperty)
 			return false;
-		if (proManagementApplication != other.proManagementApplication)
+		if (mangaementAsset != other.mangaementAsset)
+			return false;
+		if (queryAsset != other.queryAsset)
+			return false;
+		if (queryVehicle != other.queryVehicle)
+			return false;
+		if (registerAsset != other.registerAsset)
+			return false;
+		if (registerVehicle != other.registerVehicle)
 			return false;
 		if (roleId != other.roleId)
 			return false;
@@ -116,6 +192,10 @@ public class Role {
 			if (other.roleName != null)
 				return false;
 		} else if (!roleName.equals(other.roleName))
+			return false;
+		if (serverApplicationDinner != other.serverApplicationDinner)
+			return false;
+		if (serverApplicationProperty != other.serverApplicationProperty)
 			return false;
 		if (sysAccountManage != other.sysAccountManage)
 			return false;
@@ -133,13 +213,19 @@ public class Role {
 				+ ", sysAccountManage=" + sysAccountManage
 				+ ", sysPrivilegeSetting=" + sysPrivilegeSetting
 				+ ", sysParameterSetting=" + sysParameterSetting
-				+ ", sysDataRestore=" + sysDataRestore
-				+ ", proServerApplication=" + proServerApplication
-				+ ", proAuditingApplication=" + proAuditingApplication
-				+ ", proManagementApplication=" + proManagementApplication
+				+ ", sysDataRestore=" + sysDataRestore + ", serverApplication="
+				+ serverApplicationDinner + ", serverApplicationProperty="
+				+ serverApplicationProperty + ", auditingApplicationDinner="
+				+ auditingApplicationDinner + ", auditingApplicationProperty="
+				+ auditingApplicationProperty
+				+ ", managementApplicationDinner="
+				+ managementApplicationDinner
+				+ ", managementApplicationProperty="
+				+ managementApplicationProperty + ", queryVehicle="
+				+ queryVehicle + ", queryAsset=" + queryAsset
+				+ ", registerVehicle=" + registerVehicle + ", registerAsset="
+				+ registerAsset + ", mangaementAsset=" + mangaementAsset
 				+ ", description=" + description + "]";
 	}
 	
-	
-
 }

@@ -16,9 +16,14 @@
 	<insert id="addRole" parameterType="Role">
 		INSERT INTO
 		role(role_name,
-		sys_account_manage,sys_privilege_setting,sys_parameter_setting,sys_data_restore,pro_server_application,pro_auditing_application,pro_management_application,description)
+		sys_account_manage,sys_privilege_setting,sys_parameter_setting,sys_data_restore,server_application_dinner,server_application_property,auditing_application_dinner,
+		auditing_application_property,management_application_dinner,management_application_property,query_vehicle,query_asset,register_vehicle,register_asset,mangaement_asset,description)
 		VALUES
-		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore},#{proServerApplication},#{proAuditingApplication},#{proManagementApplication},#{description})
+		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore}
+		,#{serverApplicationDinner},#{serverApplicationProperty},#{auditingApplicationDinner}
+		,#{auditingApplicationProperty},#{managementApplicationDinner},#{managementApplicationProperty},#{queryVehicle}
+		,#{queryAsset},#{registerVehicle},#{registerAsset},#{mangaementAsset}
+		,#{description})
 	</insert>
 
 	<select id="findRoleByName" parameterType="String"
@@ -36,19 +41,25 @@
 		#{sysPrivilegeSetting},
 		sys_parameter_setting = #{sysParameterSetting},
 		sys_data_restore = #{sysDataRestore},
-		pro_server_application =
-		#{proServerApplication},
-		pro_auditing_application =
-		#{proAuditingApplication},
-		pro_management_application = 
-		#{proManagementApplication},
-		description = #{description}
-		where role_name
+		server_application_dinner = #{serverApplicationDinner},
+		server_application_property=#{serverApplicationProperty},
+		auditing_application_dinner=#{auditingApplicationDinner},
+		auditing_application_property=#{auditingApplicationProperty},
+		management_application_dinner=#{managementApplicationDinner},
+		management_application_property=#{managementApplicationProperty},
+		query_vehicle=#{queryVehicle},query_asset=#{queryAsset},
+		register_vehicle=#{registerVehicle},
+		register_asset=#{registerAsset},
+		mangaement_asset=#{mangaementAsset},
+		description =#{description}
+		where
+		role_name
 		= #{roleName}
 	</update>
 
 	<delete id="deleteRoleByName" parameterType="int">
-		delete from role where role_id = #{roleId}
+		delete from role
+		where role_id = #{roleId}
 	</delete>
 
 	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
