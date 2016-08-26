@@ -57,11 +57,11 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">坐落地点</label>
 						<div class="col-sm-3">
-							<input name="location" type="text" class="form-control" />
+							<input name="location" type="text" class="form-control" required />
 						</div>
 						<label class="col-sm-2 control-label">房屋间数</label>
 						<div class="col-sm-3">
-							<input name="roomCount" type="text" class="form-control" />
+							<input name="roomCount" type="number" class="form-control" required />
 						</div>
 					</div>
 
@@ -69,7 +69,7 @@ ol>li {
 						<label class="col-sm-2 control-label">使用公司名称</label>
 
 						<div class="col-sm-3">
-							<select name="company" class="company form-control">
+							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
 									<option value="${c.companyId }">${c.companyName}</option>
@@ -79,7 +79,7 @@ ol>li {
 
 						<label class="col-sm-2 control-label">使用部门名称</label>
 						<div class="col-sm-3">
-							<select name="usedBranchId" class="company form-control">
+							<select name="usedBranchId" class="company form-control" required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -91,11 +91,11 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">结构类型</label>
 						<div class="col-sm-3">
-							<input name="structureType" type="text" class="form-control" />
+							<input name="structureType" type="text" class="form-control"  required/>
 						</div>
 						<label class="col-sm-2 control-label">建筑面积</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" name="buildingArea" />
+							<input type="number" class="form-control" name="buildingArea" required />
 						</div>
 					</div>
 
@@ -103,18 +103,18 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">建筑名称</label>
 						<div class="col-sm-3">
-							<input name="buildingName" type="text" class="form-control" />
+							<input name="buildingName" type="text" class="form-control" required/>
 						</div>
 						<label class="col-sm-2 control-label">房屋用途</label>
 						<div class="col-sm-3">
-							<input name="roomUsage" type="text" class="form-control" />
+							<input name="roomUsage" type="text" class="form-control" required/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">备注说明</label>
 						<div class="col-sm-3">
-							<input name="remark" type="text" class="form-control" />
+							<input name="remark" type="text" class="form-control" required/>
 						</div>
 						<label class="col-sm-2 control-label">建成年份</label>
 						<div class="col-sm-3">
@@ -125,16 +125,16 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">是否租贷</label>
 						<div class="col-sm-3">
-							<input name="isLoan" type="radio" value="1" />是 <input
-								name="isLoan" type="radio" value="0" />否
+							<input name="isLoan" type="radio" value="1" required/>是 <input
+								name="isLoan" type="radio" value="0" required/>否
 						</div>
-						<label class="col-sm-2 control-label">租贷来源</label>
-						<div class="col-sm-3">
+						<label class="col-sm-2 control-label is-loan "  style="display:none">租贷来源</label>
+						<div class="col-sm-3 is-loan" style="display:none">
 							<input name="loanSource" type="text" class="form-control"
 								value="null" />
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group is-loan " style="display:none">
 						<label class="col-sm-2 control-label">租贷时间段</label>
 						<div class="col-sm-3">
 							<input name="loanTimeStart" type="date" class="form-control"
@@ -150,7 +150,7 @@ ol>li {
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-8">
 							<button type="submit" class="btn btn-default col-sm-offset-4">登记</button>
-							<a href="company-register-lease.html" class="btn btn-default">返回</a>
+							<button type="reset" class="btn btn-default">重置</button>
 						</div>
 					</div>
 				</form>
@@ -160,6 +160,9 @@ ol>li {
 	<script>
 		var all = 1;
 		$(function() {
+			
+// 			$('.is-loan').hide();
+			
 			$(".company").change(function() {
 				$(".branch").val("");
 				$("option." + all).css("display", "none");
@@ -168,13 +171,14 @@ ol>li {
 				$("option." + b).css("display", "block");
 
 			});
-			$("input[name='isLoan']").onload(function() {
-				if ($("input[name='isLoan']").value() == 0) {
-					$("input[name='loanTimeStart']").hide();
-					$("input[name='loanTimeEnd']").hide();
-					$("input[name='loanSource']").hide();
-					$("#loan").hide();
+			$("input[name='isLoan']").click(function(e) {
+				var val = $( this ).val();
+				if( val == '1' ) {
+					$('.is-loan').show();
+				} else {
+					$('.is-loan').hide();
 				}
+				
 			})
 		});
 	</script>

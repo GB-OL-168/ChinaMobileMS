@@ -48,7 +48,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">所属公司</label>
 						<div class="col-sm-10">
-							<select name="company" class="company form-control">
+							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
 									<option value="${c.companyId }">${c.companyName}</option>
@@ -59,7 +59,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">所属部门</label>
 						<div class="col-sm-10">
-							<select class="branch form-control" name="usedBranchId">
+							<select class="branch form-control" name="usedBranchId" required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -72,7 +72,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">所属建筑</label>
 						<div class="col-sm-10">
-							<select class="building form-control">
+							<select class="building form-control" required>
 								<option value="">请选择建筑</option>
 								<c:forEach items="${listash}" var="a">
 									<option value="${a.assetInfoId}" class="${a.usedBranchId}">${a.buildingName}</option>
@@ -83,7 +83,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">房间编号</label>
 						<div class="col-sm-10">
-							<select class="room form-control" name="houseId">
+							<select class="room form-control" name="houseId" required>
 								<option value="">请选择房间编号</option>
 								<c:forEach items="${listRoom}" var="r">
 									<option style="display: none;" class="${r.building}"
@@ -95,7 +95,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">所属楼层</label>
 						<div class="col-sm-10">
-							<select class="floor form-control">
+							<select class="floor form-control" required>
 								<option value="">请选择楼层</option>
 								<c:forEach items="${listRoom}" var="r">
 									<option style="display: none;" class="${r.houseId}"
@@ -109,21 +109,21 @@ ol>li {
 						<label class="col-sm-2 control-label">家具类型</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="家具类型"
-								name="furnitureType">
+								name="furnitureType" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">品牌/型号</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="品牌/型号"
-								name="brand">
+								name="brand" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">规格</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="规格"
-								name="specification">
+								name="specification" required>
 						</div>
 					</div>
 					<!-- 					<div class="form-group"> -->
@@ -152,21 +152,21 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">数量</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" placeholder="数量"
-								name="count">
+							<input type="number" class="form-control" placeholder="数量"
+								name="count" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">使用情况</label>
 						<div class="col-sm-offset-2 col-sm-8">
-							<input type="radio" name="usedSituation" value="1" />在用 <input
-								type="radio" name="usedSituation" value="0" />闲置
+							<input type="radio" name="usedSituation" value="1" required/>在用 <input
+								type="radio" name="usedSituation" value="0" required/>闲置
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<button type="submit" class="btn btn-default col-sm-offset-4">登记</button>
-							<a href="company-register-furniture.html" class="btn btn-default">返回</a>
+							<button type="reset" class="btn btn-default">重置</button>
 						</div>
 					</div>
 				</form>

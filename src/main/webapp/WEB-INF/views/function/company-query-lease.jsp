@@ -29,13 +29,7 @@ ol>li {
 						<ol class="breadcrumb">
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">信息查询 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="company-register-houses-add.html">信息登记</a></li>
-									<li><a href="company-count.html">信息统计</a></li>
-								</ul></li>
+							<li ><a href="#">信息查询</a> </li>
 							<li class="dropdown active"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">租赁设备查询 <span
@@ -69,7 +63,7 @@ ol>li {
 				<hr>
 
 				<table class="table table-responsive table-bordered col-md-8">
-					<h3 style="text-align: center;">查询结果</h3>
+					<h3 style="text-align: center;">租赁设备查询</h3>
 					<tr>
 						<th>批次</th>
 						<th>类型</th>

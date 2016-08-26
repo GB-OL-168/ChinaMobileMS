@@ -42,9 +42,9 @@ ol>li {
 								aria-haspopup="true" aria-expanded="false">房屋资产信息查询 <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="company-register-rooms.html">房间信息查询</a></li>
-									<li><a href="company-register-furniture.html">办公家具信息查询</a></li>
-									<li><a href="company-register-lease.html">租赁设备信息查询</a></li>
+									<li><a href="/companyquery/rooms">房间信息查询</a></li>
+									<li><a href="/companyquery/furniture">办公家具信息查询</a></li>
+									<li><a href="/companyquery/lease">租赁设备信息查询</a></li>
 								</ul></li>
 						</ol>
 					</div>
@@ -94,7 +94,10 @@ ol>li {
 					</tr>
 					<tr>
 						<td>${ash.addition}</td>
-						<td>${ash.isLoan}</td>
+						<td><c:choose>
+								<c:when test="${ash.isLoan==1}">是</c:when>
+								<c:when test="${ash.isLoan==0}">否</c:when>
+							</c:choose></td>
 						<td>${ash.loanSource}</td>
 						<td>${ash.loanTimeStart}至${ash.loanTimeEnd}</td>
 					</tr>

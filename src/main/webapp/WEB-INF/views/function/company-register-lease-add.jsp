@@ -48,84 +48,84 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-4 control-label">批次</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="批次"
-								name="batch">
+							<input type="number" class="form-control" placeholder="批次"
+								name="batch" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">类型</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" placeholder="类型"
-								name="type">
+								name="type" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">品牌/型号</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" placeholder="品牌/型号"
-								name="brand">
+								name="brand" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">规格</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" placeholder="规格"
-								name="specification">
+								name="specification" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">到货日期</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" placeholder="到货日期"
-								name="arrivalDate">
+								name="arrivalDate" required >
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">数量</label>
 						<div class="col-sm-8">
 							<input type="number" class="form-control" placeholder="数量"
-								name="count">
+								name="count" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">使用年限</label>
 						<div class="col-sm-8">
 							<input type="number" class="form-control" placeholder="使用年限"
-								name="allowUseYears">
+								name="allowUseYears" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">单位价值</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="单位价值"
-								name="unitValue">
+							<input type="number" class="form-control" placeholder="单位价值"
+								name="unitValue" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">总价值</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="总价值"
-								name="allValue">
+							<input type="number" class="form-control" placeholder="总价值"
+								name="allValue" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">序号</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="序号"
-								name="orderNumber">
+							<input type="number" class="form-control" placeholder="序号"
+								name="orderNumber" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">设备编号</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="设备编号"
-								name="loanInfoId">
+							<input type="number" class="form-control" placeholder="设备编号"
+								name="loanInfoId" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">公司</label>
 						<div class="col-sm-8">
-							<select name="company" class="company form-control">
+							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
 									<option value="${c.companyId }">${c.companyName}</option>
@@ -136,7 +136,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-4 control-label">部门</label>
 						<div class="col-sm-8">
-							<select name="belongBranchId" class="branch form-control">
+							<select name="belongBranchId" class="branch form-control" required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -148,7 +148,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-4 control-label">使用人</label>
 						<div class="col-sm-8">
-							<select name="loanUserName" class="loanUserName form-control">
+							<select name="loanUserName" class="loanUserName form-control" required>
 								<option value="">--请选择使用人--</option>
 								<c:forEach items="${listUser}" var="u">
 									<option style="display: none;" class="${u.jobId}"
@@ -180,7 +180,7 @@ ol>li {
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-8">
 							<button type="submit" class="btn btn-default col-sm-offset-4">登记</button>
-							<a href="company-register-lease.html" class="btn btn-default">返回</a>
+							<button type="reset" class="btn btn-default">重置</button>
 						</div>
 					</div>
 				</form>

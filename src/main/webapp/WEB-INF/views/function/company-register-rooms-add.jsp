@@ -49,7 +49,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属公司</label>
 						<div class="col-sm-5">
-							<select name="company" class="company form-control">
+							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
 									<option value="${c.companyId }">${c.companyName}</option>
@@ -60,7 +60,8 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属部门</label>
 						<div class="col-sm-5">
-							<select class="Branch form-control" name="belonngBranchId">
+							<select class="Branch form-control" name="belonngBranchId"
+								required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -73,7 +74,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属建筑</label>
 						<div class="col-sm-5">
-							<select class="building form-control" name="building">
+							<select class="building form-control" name="building" required>
 								<option value="">请选择建筑</option>
 								<c:forEach items="${listash}" var="a">
 									<option value="${a.assetInfoId}" class="${a.usedBranchId}">${a.buildingName}</option>
@@ -85,7 +86,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属楼层</label>
 						<div class="col-sm-5">
-							<input type="number" class="form-control" name="floor">
+							<input type="number" class="form-control" name="floor" required>
 
 						</div>
 					</div>
@@ -93,23 +94,23 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间编号</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" placeholder="请输入房间编号"
-								name="houseId">
+							<input type="number" class="form-control" placeholder="请输入房间编号"
+								name="houseId" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间面积</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" placeholder="请输入房间面积"
-								name="area">
+							<input type="number" class="form-control" placeholder="请输入房间面积"
+								name="area" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-sm-offset-4 col-sm-5">
 							<button type="submit" class="btn btn-default">登记</button>
-
+							<button type="reset" class="btn btn-default">重置</button>
 						</div>
 					</div>
 				</form>
