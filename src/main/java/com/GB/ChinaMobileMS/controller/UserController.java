@@ -3,14 +3,12 @@ package com.GB.ChinaMobileMS.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,10 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
+import com.GB.ChinaMobileMS.entity.Information;
 import com.GB.ChinaMobileMS.entity.JobEntity;
 import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.BranchService;
 import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
+import com.GB.ChinaMobileMS.services.interfaces.InfoService;
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
@@ -36,6 +36,8 @@ public class UserController {
 	private BranchService branchService;
 	@Autowired
 	private JobService JobService;
+	@Autowired
+	private InfoService infoService;
 	
 	//在Spring中生成set get方法 自动获取userService对象
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -52,8 +54,11 @@ public class UserController {
 		} else if (!password.equals(user.getPassword())) {
 			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
 		}
+		
+		Information info = infoService.findbyInfoID();
 
 		session.setAttribute("user", user);
+		session.setAttribute("info", info.getContent());
 		return new ModelAndView("redirect:/u/main");
 	}
 	

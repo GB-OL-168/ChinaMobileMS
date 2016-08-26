@@ -120,12 +120,12 @@
 						  <li class="dropdown active">
 						  	<a href="/property/server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务状态 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property/applicant">申请表格
+					            <li><a href="/property/applicant">申请表格</a>
 					          </ul>
 						  </li>
 						</ol>
 					</div>
-					<div class="col-md-3">
+					<!-- <div class="col-md-3">
 						<div class="dropdown active">
 						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">2016 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
@@ -142,13 +142,13 @@
 					        <button class="btn btn-default btn-sm" type="button">Go!</button>
 					      </span>
 					    </div>
-					</div>
+					</div> -->
 				</div>
 				
-
+<!-- 
 				<a class="btn btn-default btn-xs" href="system-user-add.html">01</a>
 				<a class="btn btn-default btn-xs" href="system-user-add.html">02</a>
-				<a class="btn btn-default btn-xs" href="system-user-add.html">03</a>
+				<a class="btn btn-default btn-xs" href="system-user-add.html">03</a> -->
 
 				              
 				<table class="table table-bordered">

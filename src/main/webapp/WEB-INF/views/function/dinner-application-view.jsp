@@ -123,8 +123,7 @@
                 </div>
             </div>
 
-            <hr>
-            <h3 style="text-align: center">用餐申请状态</h3>
+            <!-- <h3 style="text-align: center">用餐申请状态</h3> -->
             <table class="table table-bordered">
                 <tr>
                     <th>编号</th>

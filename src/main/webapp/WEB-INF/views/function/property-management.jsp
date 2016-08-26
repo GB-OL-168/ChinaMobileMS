@@ -121,14 +121,14 @@
 						
 					</div>
 					
-					<div class="col-md-4">
+					<!-- <div class="col-md-4">
 						<div class="input-group">
 					      <input type="text" class="form-control input-sm" placeholder="Search for User">
 					      <span class="input-group-btn">
 					        <button class="btn btn-default btn-sm" type="button">Go!</button>
 					      </span>
 					    </div>
-					</div>
+					</div> -->
 				</div>
 				
 				              

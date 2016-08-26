@@ -15,7 +15,7 @@
 	<script src="/assets/js/bootstrap.js"></script>
     <style>
         ol>li{
-            font-size:18px;
+            font-size:15px;
         }
     </style>
 </head>
@@ -29,12 +29,12 @@
             <div class="row">
                 <div class="col-md-7">
                     <ol class="breadcrumb">
-                        <li><a href="dinner-application.html">用餐服务表格申请</a></li>
+                        <li>用餐服务表格申请</li>
                         <!-- <li><a href="dinner-application-view.html">服务状态查询</a></li> -->
                         <li class="dropdown active">
 						  	<a href="/property/server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务状态 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property/dinnerApplicationView">服务状态</a>
+					            <li><a href="/property/dinnerApplicationView">用餐表格申请</a>
 					          </ul>
 						  </li>
                     </ol>
@@ -46,7 +46,7 @@
 			<%branchName = (String)request.getAttribute("branchName");
 				companyName = (String)request.getAttribute("companyName");%>
             <form class="form-horizontal" action = "/addDinnerProperty" method="post">
-                <h3 style="text-align: center">用餐申请表格填写</h3>
+                <!-- <h3 style="text-align: center">用餐申请表格填写</h3> -->
                 <div class="form-group">
                     <label  class="col-sm-offset-2 col-sm-2 control-label">所属公司</label>
                     <div class="col-sm-4">

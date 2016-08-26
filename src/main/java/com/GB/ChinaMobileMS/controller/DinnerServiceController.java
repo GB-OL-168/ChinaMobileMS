@@ -216,7 +216,9 @@ public class DinnerServiceController {
 		return activitiUtil.startDinnerProcess(dinnerPropertyTableId, branchVertifyUser, companyVertifyUser);
 	}
 	
-	//时间格式化
+	/*
+	 * 时间格式化
+	 */
 	private Timestamp formatTime(){
 		Date dt = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -224,6 +226,9 @@ public class DinnerServiceController {
 		return Timestamp.valueOf(nowTime); 
 	}
 	
+	/*
+	 * 数据取值赋值
+	 */
 	private void initData(int propertyID, int status){
 		STATUS = status;
 		dinnerPropertyID = propertyID;
@@ -232,6 +237,9 @@ public class DinnerServiceController {
 		excutionID = reviewEntity.getExcutionId();
 	}
 	
+	/*
+	 * 数据实体转移
+	 */
 	private List<AuditingDinnerPropertyEntity> dealPropertyData(List<DinnerPropertyTableEntity> dinnerPropertys, User currentUser, String branchManager, String companyManager){
 		List<AuditingDinnerPropertyEntity> resultList = new ArrayList<>();
 		for(DinnerPropertyTableEntity entity : dinnerPropertys){
@@ -260,6 +268,9 @@ public class DinnerServiceController {
 		return resultList;
 	}
 	
+	/*
+	 * 数据实体转移
+	 */
 	private List<AuditingDinnerPropertyEntity> dealPropertyData(List<DinnerPropertyTableEntity> dinnerPropertys, User currentUser){
 		List<AuditingDinnerPropertyEntity> resultList = new ArrayList<>();
 		for(DinnerPropertyTableEntity entity : dinnerPropertys){
@@ -288,6 +299,9 @@ public class DinnerServiceController {
 		return resultList;
 	}
 	
+	/*
+	 * Hashmap取值定义
+	 */
 	public Map<String, List<ManagementDinnerPropertyEntity>> controlManagementData(){
 		List<DinnerPropertyTableEntity> dinnerTableEntityList = dinnerPropertyService.getAllDinnerPropertyTable();
 		List<ManagementDinnerPropertyEntity> managementPropertyList = new ArrayList<>();
