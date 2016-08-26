@@ -41,16 +41,15 @@
 					<div class="col-md-3">
 					</div>
 					
-					<div class="col-md-4">
+					<!-- <div class="col-md-4">
 						<div class="input-group">
 					      <input type="text" class="form-control input-sm" placeholder="Search for User">
 					      <span class="input-group-btn">
 					        <button class="btn btn-default btn-sm" type="button">Go!</button>
 					      </span>
 					    </div>
-					</div>
+					</div> -->
 				</div>
-				
 				
 				<form class="form-horizontal" action = "/addPropertyApplicant" method="post">
 				<div class="form-group">     
@@ -77,7 +76,7 @@
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">服务日期</label>
 				    <div class="col-sm-10">
-				      <input name ="serviceDate" type="date" class="form-control" id="inputPassword3" placeholder="服务日期">
+				      <input name ="serviceDate" type="date" class="form-control" id="serviceDate" placeholder="服务日期">
 				    </div>
 				  </div>
 				  <div class="form-group">   
@@ -89,13 +88,13 @@
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">具体时间</label>
 				    <div class="col-sm-10">
-				      <input name ="concreteTime" type="time" class="form-control" id="inputPassword3" placeholder="具体时间">
+				      <input name ="concreteTime" type="time" class="form-control" id="inputPassword3" required placeholder="具体时间">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-2 control-label">服务地点</label>
 				    <div class="col-sm-10">
-				      <input name ="serviceLocation" type="text" class="form-control" id="inputPassword3" placeholder="服务地点">
+				      <input name ="serviceLocation" type="text" class="form-control" id="inputPassword3" required placeholder="服务地点">
 				    </div>
 				  </div>
 				  <div class="form-group">
@@ -142,7 +141,7 @@
 				  </div>
 				  <div class="form-group">        
 				    <div class="col-sm-offset-2 col-sm-10">
-				     <button type="submit"  class="btn btn-default"  >提交</button>
+				     <button type="submit" id="submit"  class="btn btn-default"  >提交</button>
 				      <input type="button" class="btn btn-default" name="back" value="返回" onclick="javascript:history.back(-1);"/>
 				    </div>
 				  </div>
@@ -152,5 +151,30 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+	$(function(){
+		$("#submit").click(function(){
+			return validateInfo();
+		})
+	});
+	
+	function validateInfo() {
+		var today=new Date();
+		var day = today.getMonth()+1;
+		var dayStr;
+		if(day < 10){
+			dayStr = "0" + day;
+		}else
+			daystr = day + "";
+		var todayStr = today.getFullYear() + "-" + dayStr + "-" + today.getDate();
+		
+		var serviceDate = $("#serviceDate").val();
+		if(serviceDate < todayStr){
+			alert("服务日期必须在当前日期之后");
+			return false;
+		}
+		return true;
+	}
+	</script>
 </body>
 </html>
