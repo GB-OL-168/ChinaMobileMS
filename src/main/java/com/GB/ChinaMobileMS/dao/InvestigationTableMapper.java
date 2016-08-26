@@ -9,4 +9,5 @@ public interface InvestigationTableMapper {
 	public List<InvestigationTableEntity> findByUserName (String userName);
 	public boolean updateIsFill(int investigationId);
 	public InvestigationTableEntity findByInvestigationId (int investigationId);
+	public boolean deleteInvestiationTableById(int investigationId);
 }

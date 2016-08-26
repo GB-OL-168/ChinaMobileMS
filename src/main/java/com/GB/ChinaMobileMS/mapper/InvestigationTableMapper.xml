@@ -26,4 +26,8 @@
 	from investigation_table
 	where investigation_id=#{investigationId}
 	</select>
+	
+	<delete id="deleteInvestiationTableById" parameterType="int">
+	delete from investigation_table where investigation_id = #{investigationId}
+	</delete>
 </mapper>

@@ -16,7 +16,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-6">
 						<ol class="breadcrumb">
@@ -31,12 +31,7 @@
 								</ul></li>
 						</ol>
 					</div>
-
-
-
 				</div>
-
-
 				<form class="form-horizontal" action="/addRole" method="get">
 					<h4 style="text-align: center;">新增系统角色</h4>
 					<div class="form-group">
@@ -59,50 +54,38 @@
 								id="inlineCheckbox3" value="1" name="sysParameterSetting">参数配置
 							</label> <label class="checkbox-inline"> <input type="checkbox"
 								id="inlineCheckbox3" value="1" name="sysDataRestore">数据备份
-							</label>
-							 <br> 
-							 <label class="checkbox-inline"> <input
+							</label> <br> <label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="registerAsset">上市公司资产登记
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
-								name="queryAsset">上市公司资产查询
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
-								name="mangaementAsset">上市公司资产管理
-							</label>
-							<br>
-							 <label class="checkbox-inline"> <input
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1" name="queryAsset">上市公司资产查询
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1" name="mangaementAsset">上市公司资产管理
+							</label> <br> <label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="registerVehicle">车辆登记
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
-								name="queryVehicle">车辆查询
-							</label>
-							<br>
-							<label class="checkbox-inline"> <input
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1" name="queryVehicle">车辆查询
+							</label> <br> <label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="serverApplicationDinner">配餐中心申请方应用
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
-								name="auditingApplicationDinner">配餐中心审核方应用
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1" name="auditingApplicationDinner">配餐中心审核方应用
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1"
 								name="managementApplicationDinner">配餐中心管理方应用
-							</label>
-							<br>
-							<label class="checkbox-inline"> <input
+							</label> <br> <label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="serverApplicationProperty">物业服务申请方应用
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1"
 								name="auditingApplicationProperty">物业服务审核方应用
-							</label><label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1"
 								name="managementApplicationProperty">物业服务管理方应用
 							</label>
-							
-							
+
+
 
 
 						</div>

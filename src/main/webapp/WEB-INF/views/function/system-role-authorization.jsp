@@ -17,7 +17,7 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-10 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-5">
 						<ol class="breadcrumb">
@@ -38,7 +38,7 @@
 							class="btn btn-default btn-xs">新增系统角色</a>
 					</div>
 
-					<div class="col-md-4">
+					<!-- <div class="col-md-4">
 						<div class="input-group">
 							<input type="text" class="form-control input-sm"
 								placeholder="Search for User"> <span
@@ -46,7 +46,7 @@
 								<button class="btn btn-default btn-sm" type="button">Go!</button>
 							</span>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 

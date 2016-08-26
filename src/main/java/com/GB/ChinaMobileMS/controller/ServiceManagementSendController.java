@@ -49,7 +49,6 @@ public class ServiceManagementSendController {
 		investigationName = investigationTableEntity.getInvestigationName();
 		status = investigationTableEntity.getStatus(); //获得当前状态,0未发放  1已发放  2已回收
 		investigationId = investigationTableEntity.getInvestigationId();
-
 		//未发放时才可发送
 		if(status==0){
 			List<CompanyEntity> listCompany = companyService.queryCompany();
@@ -77,7 +76,7 @@ public class ServiceManagementSendController {
 	@RequestMapping(value = "/sendServiceManagement2/{id}", method = RequestMethod.POST)
 	public ModelAndView sendServiceManagement2(@PathVariable("id") int id,
 			InvestigationTableEntity investigationTableEntity, HttpSession session) {
-
+		
 		int newStatus = 1,flag = 0; //flag=0可填
 		investigationTableEntity.setStatus(newStatus);  // 考评表状态改变
 		investigationTableEntity.setInvestigationId(id);
@@ -86,7 +85,6 @@ public class ServiceManagementSendController {
 		//更新状态、设置回收时间
 		String updateResult = serviceManagementSendService.updateServiceManagementSend(investigationTableEntity);
 		System.out.println("branchId" +investigationTableEntity.getBranchId());
-		
 		//插入WaitForInvestigatUser表
 		int insertResult = serviceManagementSendService.insertServiceManagementSend(investigationTableEntity.getBranchId(),investigationTableEntity.getInvestigationId(),investigationTableEntity.getFlag());
 		
@@ -108,15 +106,18 @@ public class ServiceManagementSendController {
 	public ModelAndView recycleServiceManagement(@PathVariable("id") int id, HttpSession session) {
 		
 		InvestigationTableEntity investigationTableEntity = serviceManagementSendService.getInvestigationTableByID(id);
-
-		int newStatus = 2,flag = 1; //flag=1不可填
-		investigationTableEntity.setStatus(newStatus);  // 考评表状态改变
-		investigationTableEntity.setRecoveryTime(formatTime());	
-		investigationTableEntity.setFlag(flag);
-		
-		int investigationId = investigationTableEntity.getInvestigationId();
-		//更新状态和回收时间
-		String updateResult = serviceManagementSendService.updateServiceManagementSend(investigationTableEntity);
+		if(investigationTableEntity.getStatus()==1){
+			
+			int newStatus = 2,flag = 1; //flag=1不可填
+			investigationTableEntity.setStatus(newStatus);  // 考评表状态改变
+			investigationTableEntity.setRecoveryTime(formatTime());	
+			investigationTableEntity.setFlag(flag);
+			
+			int investigationId = investigationTableEntity.getInvestigationId();
+			//更新状态和回收时间
+			
+			String updateResult = serviceManagementSendService.updateServiceManagementSend(investigationTableEntity);
+		}
 		
 		User sessionUser = (User)session.getAttribute("user");
 		List<InvestigationTableEntity> investigationTableEntityList =investigationTableService.getInvestigationTableEntityByUserName(sessionUser.getUserName());

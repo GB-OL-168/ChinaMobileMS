@@ -7,4 +7,5 @@ import com.GB.ChinaMobileMS.entity.InvestigationItemsEntity;
 public interface InvestigationItemsService {
 	public int inserItems(List<InvestigationItemsEntity> entityList);
 	public List<InvestigationItemsEntity> getInvestigationItems(int investigationTableId);
+	public boolean deleteInvestigationItemsByInvestigationId(int investigationId);
 }

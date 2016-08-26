@@ -25,4 +25,10 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 		return investigationItemsMapper.findInvestigationItemsByInvestigationTableId(investigationTableId);
 	}
 
+	@Override
+	public boolean deleteInvestigationItemsByInvestigationId(int investigationId) {
+		// TODO Auto-generated method stub
+		return investigationItemsMapper.deleteInvestigationItemsByInvestigationId(investigationId);
+	}
+
 }

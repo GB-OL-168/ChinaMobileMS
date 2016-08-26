@@ -47,5 +47,17 @@ public class AssetFurnitureServiceImpl implements AssetFurnitureService{
 			return listasf;
 		}
 	} 
-
+	@Override
+	public String updateFurnitureInfo(AssetFurniture assetfurn){
+		System.out.println(assetfurnMapper.updateFurnitureInfo(assetfurn));
+		return "";
+	}
+	
+	@Override
+	public boolean deleteFurnitureInfo(int officeFurnitureInfoId) {
+		
+		System.out.println(assetfurnMapper.deleteFurnitureInfo(officeFurnitureInfoId));
+		
+		return false;
+	}
 }

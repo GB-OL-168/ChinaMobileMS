@@ -23,5 +23,10 @@ public class InvestigationScoreServiceImpl implements InvestigationScoreService{
 		// TODO Auto-generated method stub
 		return investigationScoreMapper.findByInvestigationItemId(investigationItemId);
 	}
+	@Override
+	public boolean deleteScoreByInvestigationItemId(int investigationItemId) {
+		// TODO Auto-generated method stub
+		return investigationScoreMapper.deleteInvestigationScoreByInvestigationItemId(investigationItemId);
+	}
 
 }

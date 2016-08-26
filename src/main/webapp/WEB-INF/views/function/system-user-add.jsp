@@ -1,23 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<title>后勤服务中心管理信息系统 - 账号管理</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
+	<meta charset="utf-8">
+	<title>后勤服务中心管理信息系统 - 账号管理</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-
 	<div class="container">
-
 		<div class="row">
-			<div class="col-md-8 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-7">
 						<ol class="breadcrumb">
@@ -27,11 +24,9 @@
 						</ol>
 					</div>
 				</div>
-
-
 				<form class="form-horizontal" action="/addUser" method="post">
 					<h3 style="text-align: center;">添加用户</h3>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">账号</label>
 						<div class="col-sm-5">
@@ -39,7 +34,7 @@
 								placeholder="请输入用账号">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">密码</label>
 						<div class="col-sm-5">
@@ -47,7 +42,7 @@
 								placeholder="请输入密码">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">姓名</label>
 						<div class="col-sm-5">
@@ -55,7 +50,7 @@
 								placeholder="请输入姓名">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">性别</label>
 						<div class="col-sm-5">
@@ -65,7 +60,7 @@
 							</select>
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">身份证</label>
 						<div class="col-sm-5">
@@ -73,7 +68,7 @@
 								placeholder="请输入身份证">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">公司</label>
 						<div class="col-sm-5">
@@ -85,7 +80,7 @@
 							</select>
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">部门</label>
 						<div class="col-sm-5">
@@ -98,8 +93,8 @@
 							</select>
 						</div>
 					</div>
-
-
+	
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">岗位</label>
 						<div class="col-sm-5">
@@ -112,8 +107,8 @@
 							</select>
 						</div>
 					</div>
-
-
+	
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">生日</label>
 						<div class="col-sm-5">
@@ -121,8 +116,8 @@
 								placeholder="请输入出生年月日">
 						</div>
 					</div>
-
-
+	
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">邮箱</label>
 						<div class="col-sm-5">
@@ -130,7 +125,7 @@
 								placeholder="请输入邮箱">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">电话</label>
 						<div class="col-sm-5">
@@ -138,7 +133,7 @@
 								placeholder="请输入电话">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">备注</label>
 						<div class="col-sm-5">
@@ -146,7 +141,7 @@
 								placeholder="remark">
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<div class="col-sm-offset-5 col-sm-5">
 							<button type="submit" class="btn btn-default">新建</button>
@@ -155,7 +150,6 @@
 								返回</button>
 						</div>
 					</div>
-
 				</form>
 			</div>
 		</div>

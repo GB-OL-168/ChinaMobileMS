@@ -18,6 +18,9 @@
             font-size:15px;
         }
     </style>
+    <script type="text/javascript" src="assets/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-ui-1.8.18.custom.min.js"></script>
+	<script type="text/javascript" src="assets/js/JScript.js"></script>
 </head>
 <body>
 
@@ -68,13 +71,13 @@
                 <div class="form-group">
                     <label   class="col-sm-offset-2 col-sm-2 control-label">开始日期</label>
                     <div class="col-sm-4">
-                        <input name ="startDate" type="date" class="form-control"   placeholder="开始日期">
+                        <input id="startDate" name ="startDate" type="date" class="form-control" required  placeholder="开始日期">
                     </div>
                 </div>
                 <div class="form-group">
                     <label   class="col-sm-offset-2 col-sm-2 control-label">结束日期</label>
                     <div class="col-sm-4">
-                        <input name ="finishDate" type="date" class="form-control"   placeholder="结束日期">
+                        <input id="finishDate" name ="finishDate" type="date" class="form-control" required  placeholder="结束日期">
                     </div>
                 </div>
                 <div class="form-group">
@@ -87,7 +90,7 @@
                 <div class="form-group">
                     <label   class="col-sm-offset-2 col-sm-2 control-label">安排人数</label>
                     <div class="col-sm-4">
-                        <input name ="arrangePersonCount" type="text" class="form-control"   placeholder="安排人数">
+                        <input id="arrangePersonCount" name ="arrangePersonCount" type="text" class="form-control" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="安排人数">
                     </div>
                 </div>
                 <div class="form-group">
@@ -108,7 +111,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-5 col-sm-4">
-                        <button type="submit"  class="btn btn-default"  >提交</button>
+                        <button type="submit"  id="submit" class="btn btn-default"  >提交</button>
                         <input type="button" class="btn btn-default" name="back" value="返回" onclick="javascript:history.back(-1);"/>
                     </div>
                 </div>
@@ -118,5 +121,36 @@
     </div>
 </div>
 
+	<script type="text/javascript">
+	$(function(){
+		$("#submit").click(function(){
+			return validateInfo();
+		})
+	});
+	
+	function validateInfo() {
+		var today=new Date();
+		var day = today.getMonth()+1;
+		var dayStr;
+		if(day < 10){
+			dayStr = "0" + day;
+		}else
+			daystr = day + "";
+		var todayStr = today.getFullYear() + "-" + dayStr + "-" + today.getDate();
+		
+		var startDate = $("#startDate").val();
+		if(startDate < todayStr){
+			alert("开始时间必须在当前日期之后");
+			return false;
+		}
+			
+		var finishDate = $("#finishDate").val();
+		if(startDate > finishDate){
+			alert("结束时间不得早于开始时间。");
+			return false;
+		}
+		return true;
+	}
+	</script>
 </body>
 </html>

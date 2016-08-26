@@ -14,4 +14,8 @@
 	from investigation_score
 	where investigation_item_id=#{investigationItemId}
 	</select>
+	
+	<delete id="deleteInvestigationScoreByInvestigationItemId" parameterType="int">
+	delete from investigation_score where investigation_item_id=#{investigationItemId}
+	</delete>
 </mapper>

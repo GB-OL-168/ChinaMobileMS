@@ -7,7 +7,14 @@ public class WaitForInvestigationUserEntity {
 	private int waitId;
 	private int investigationId;
 	private String waitUserName;
-	private int flag;//是否已经填写
+	private int flag;//是否已经回收
+	private int isfill;
+	public int getIsfill() {
+		return isfill;
+	}
+	public void setIsfill(int isfill) {
+		this.isfill = isfill;
+	}
 	public int getWaitId() {
 		return waitId;
 	}

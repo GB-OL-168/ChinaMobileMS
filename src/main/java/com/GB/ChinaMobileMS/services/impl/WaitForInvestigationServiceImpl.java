@@ -17,5 +17,16 @@ public class WaitForInvestigationServiceImpl implements WaitForInvestigationServ
 		// TODO Auto-generated method stub
 		return waitForInvestigationMapper.findAllWaitForInvestigationUserEntity(watiUserName);
 	}
+	@Override
+	public boolean updateIsFill(int investigationId,String waitUserName) {
+		// TODO Auto-generated method stub
+		return waitForInvestigationMapper.updateIsFill(investigationId,waitUserName);
+	}
+	@Override
+	public boolean deleteWaitForInvestigationUserByInvestigationId(int investigationId) {
+		// TODO Auto-generated method stub
+		return waitForInvestigationMapper.deleteWaitForInvestigationUserByInvestigationId(investigationId);
+	}
+	
 
 }
