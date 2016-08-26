@@ -16,4 +16,7 @@ public interface AssetFurnitureMapper {
 	List<AssetFurniture> queryAssetFurnitureByBranchName(String search);
 
 	List<AssetFurniture> queryAssetFurnitureByBuilding(String search);
+	
+	int updateFurnitureInfo(AssetFurniture assetfurn);
+	boolean deleteFurnitureInfo(int officeFurnitureInfoId);
 }

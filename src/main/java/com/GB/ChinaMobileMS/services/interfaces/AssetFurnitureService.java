@@ -10,4 +10,7 @@ public interface AssetFurnitureService {
 	List<AssetFurniture> queryAssetFurniture();
 	
 	List<AssetFurniture> search(String asf,String search);
+	
+	String updateFurnitureInfo(AssetFurniture assetfurn);
+	boolean deleteFurnitureInfo(int officeFurnitureInfoId);
 }

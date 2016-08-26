@@ -151,5 +151,22 @@
 		h.building = ha.asset_info_id
 		AND ha.building_name like "%"#{search}"%"
 	</select>
+	
+		<update id="updateFurnitureInfo" parameterType="AssetFurniture">
+		update
+		office_furniture_info
+		set
+		furniture_type = #{furnitureType},
+		brand = #{brand},
+		specification = #{specification},
+		count = #{count},
+		used_situation = #{usedSituation}
+		where office_furniture_info_id = #{officeFurnitureInfoId}
+	</update>
+	
+	<delete id="deleteFurnitureInfo">
+	delete from office_furniture_info 
+	where office_furniture_info_id = #{officeFurnitureInfoId}
+	</delete>
 </mapper>
  

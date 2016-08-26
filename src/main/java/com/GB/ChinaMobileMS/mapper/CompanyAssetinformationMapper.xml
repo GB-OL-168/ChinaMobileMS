@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.GB.ChinaMobileMS.dao.CompanyAssetinformationMapper">
+  
+  	<select id="querylistFuniturewithcon" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.AssetFurniture">
+		select *
+		from office_furniture_info
+		where used_situation = #{used_situation}
+	</select>
+  
+  <select id="querylistFuniture"  resultType="com.GB.ChinaMobileMS.entity.AssetFurniture">
+		select *
+		from office_furniture_info
+	</select>
+  
+  </mapper>
