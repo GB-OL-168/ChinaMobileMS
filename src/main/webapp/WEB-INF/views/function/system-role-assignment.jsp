@@ -1,26 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
-<meta charset="utf-8">
-
-<title>后勤服务中心管理信息系统 - 权限设置</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-
+	<meta charset="utf-8">
+	<title>后勤服务中心管理信息系统 - 权限设置</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
 
 	<div class="container">
-
 		<div class="row">
-			<div class="col-md-10 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-5">
 						<ol class="breadcrumb">
@@ -35,9 +31,7 @@
 								</ul></li>
 						</ol>
 					</div>
-
-
-
+<!-- 
 					<div class="col-md-4">
 						<div class="input-group">
 							<input type="text" class="form-control input-sm"
@@ -45,7 +39,7 @@
 								<button class="btn btn-default btn-sm" type="button">搜索</button>
 							</span>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 				<table class="table table-bordered col-md-8">
@@ -72,39 +66,35 @@
 
 
 
-	<form action="/updateUserRole" Method="post" class="assignment_form"
-		style="display: none;">
-		<input name="userName" class="name" style="display: none" tpye="text"></input>
+	<form action="/updateUserRole" Method="post" class="assignment_form" style="display: none;">
+		<input name="userName" class="name" style="display: none" type="text"></input>
 		<select name="roleName" class="assignment_list" name="assignment_list">
 			<c:forEach items="${listRole}" var="b">
-				<option name="${b.roleName}" value="${b.roleName}">${b.roleName}</td>
+				<option name="${b.roleName}" value="${b.roleName}">${b.roleName}</option>
 			</c:forEach>
-			<lect> <input type="submit" value="确认修改" /> <input
-				type="button" value="取消" /> </lect>
+		</select> 
+		<input type="submit" value="确认修改" /> 
+		<input  class="cancle" type="button" value="取消" /> 
 	</form>
 
 	<script>
 		$(function() {
 			/* 修改用户角色 */
+			var a=$(".assignment_form").clone().css("display", "inline-block");
 			$(".assignment_modify").click(
 					function() {
-
 						/* 写入的位置 */
-						$location = $(this).parents().siblings(".roleId");
-
-						$userName = $(this).parents().siblings(".userName").text();
-						
+						var $location = $(this).parents().siblings(".roleId");
+						var $userName = $(this).parents().siblings(".userName").text();
 						$("input.name").val($userName);
-
-						$location.html($(".assignment_form").clone().css(
-								"display", "inline-block"));
-
-						//	$location.append($modify).append($cancel);
-
+						$location.html(a);
 						$(this).unbind("click");
 					});
-
+			
+			/* 	取消修改用户角色 */
+			
 		});
+		
 	</script>
 </body>
 

@@ -16,7 +16,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-6">
 						<ol class="breadcrumb">
@@ -31,11 +31,8 @@
 						</ol>
 					</div>
 
-					
-					
 				</div>
 				
-
 				<form class="form-horizontal" action="/addRole" method="get">
 				  <h4 style="text-align: center;">新增系统角色</h4>
 				  <div class="form-group">

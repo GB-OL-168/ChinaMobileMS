@@ -5,8 +5,9 @@
 }
 .top{
     width:100%;
-    height:80px;
-    background:url("../img/title_1.png") no-repeat;
+    height:60px;
+    background: url("../img/top.png") no-repeat ;
+    /*border-radius: 10px;*/
 }
 .top>h1{
     margin:0;
@@ -17,51 +18,33 @@
 .top>a{
     color:#000;
     position: relative;
-    left:620px;
+    left:40%;
     font-size: 18px;
-    font-family: "Microsoft YaHei UI";
 }
 .top>a:hover{
     color:#fff;
 }
+/*天气样式*/
+.wea_time{
+    width:90%;
+    margin-left:200px;
+    padding-left:50px;
+    height:25px;
+    background-color:hsla(220,10%,10%,.1);
+}
 
-/*账号信息样式*/
+
+/*登录信息框*/
+
 .top>.account_info{
-    margin-left:35%;
-    width:200px;
+    margin-left:80%;
+    padding-top:20px;
+    width:350px;
     height:20px;
     /*background-color: #fff;*/
 }
 .top>.account_info>a{
     list-style-type: none;
-    color:black;
-}
-
-
-
-/*天气样式*/
-.wea_time{
-    width:100%;
-    height:30px;
-    /*border-bottom:1px solid ;*/
-}
-/*.wea_time>a{*/
-    /*display: block;*/
-    /*margin: 1% 0 0 2%;*/
-/*}*/
-
-.right{
-    width:100%;
-    height:500px;
-    border-radius:5px;
-}
-/*.left,.right{*/
-    /*float:left;*/
-/*}*/
-.footer{
-    clear:both;
-    width:100%;
-}
-.footer a{
-    margin-left:30%;
+    color:#fff;
+    font-size:17px;
 }

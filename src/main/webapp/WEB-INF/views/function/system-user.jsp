@@ -9,11 +9,10 @@
 <meta charset="utf-8">
 <title>后勤服务中心管理信息系统 - 账号管理</title>
 <link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
+<!-- <link rel="stylesheet" href="/assets/css/system.css"> -->
+<link rel="stylesheet" href="/assets/css/system-make.css">
 <script src="/assets/js/jquery-1.9.1.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
-
-<link rel="stylesheet" href="/assets/css/test.css">
 <style>
 .1 {
 	display: none;
@@ -24,16 +23,16 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 main">
+			<div class="col-md-12 main">
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-12">
 						<ol class="breadcrumb">
-							<li><a href="#">系统设置</a></li>
-							<li><a href="#">账号管理</a></li>
-							<li class="active"><a href="#">用户列表</a></li>
+							<li><a href="javascript:void(0)">系统设置</a></li>
+							<li><a href="javascript:void(0)">账号管理</a></li>
+							<li><a href="javascript:void(0)">用户列表</a></li>
 						</ol>
 					</div>
-					<div class="col-md-3">
+				<!-- 	<div class="col-md-3">
 						<a class="btn btn-default btn-xs" href="/user-add">增加用户</a>
 					</div>
 
@@ -44,51 +43,36 @@
 								<button class="btn btn-default btn-sm" type="button">搜索</button>
 							</span>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 
-				<table class="table table-bordered">
-					<h3 style="text-align: center;">用户列表</h3>
+				<table class="table table-bordered user-list">
+				<!-- 	<h3>用户列表</h3> -->
 					<tr>
 						<th>ID</th>
 						<th>用户名</th>
 						<th>操作</th>
 					</tr>
 
-
-					<%-- <%
-						List<Object> all = (List<Object>) request.getAttribute("listUser");
-						System.out.println("jsp LIST:" + all);
-
-						request.setAttribute("all", all);
-						//后面进行循环遍历即可
-					%> --%>
-
-
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
-
-							<th class="userName">${a.userName}</th>
-							<th class="jobId">${a.jobId}</th>
-							<th style="display: none" class="remark">${a.remark}</th>
-							<th style="display: none" class="phone">${a.phone}</th>
-							<th style="display: none" class="email">${a.email}</th>
-							<th style="display: none" class="birthday">${a.birthday}</th>
-							<th style="display: none" class="department">${a.department}</th>
-							<th style="display: none" class="identification">${a.identification}</th>
-							<th style="display: none" class="sex">${a.sex}</th>
-							<th style="display: none" class="accountName">${a.accountName}</th>
-							<th style="display: none" class="password">${a.password}</th>
-
-							<th><a class="modify" href="javascript:void(0)">修改资料</a> | <a
-								href="/deleteUser/${a.userName}">删除用户</a></th>
+							<td class="userName">${a.userName}</td>
+							<td class="accountName">${a.accountName}</td>
+							<td style="display: none" class="remark">${a.remark}</td>
+							<td style="display: none" class="phone">${a.phone}</td>
+							<td style="display: none" class="email">${a.email}</td>
+							<td style="display: none" class="birthday">${a.birthday}</td>
+							<td style="display: none" class="department">${a.department}</td>
+							<td style="display: none" class="identification">${a.identification}</td>
+							<td style="display: none" class="sex">${a.sex}</td>
+							<td style="display: none" class="jobId">${a.jobId}</td>
+							<td style="display: none" class="password">${a.password}</td>
+							<td><a class="modify" href="javascript:void(0)">修改资料</a> | <a
+								href="/deleteUser/${a.userName}">删除用户</a></td>
 						</tr>
 					</c:forEach>
-
-
 				</table>
-
 			</div>
 		</div>
 	</div>
@@ -96,95 +80,63 @@
 	<!-- 	新添加的地方-->
 
 	<div id="code">
-		<div class="close1">
-			<a href="javascript:void(0)" id="closebt"><img
-				src="/assets/img/close.gif"></a>
+		<div class="title">
+		    <span>修改信息</span>
+		    <div class="close">
+				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+			</div>
 		</div>
+		
 		<form action="/updateUserInfo" method="post">
 			<div class="goodtxt">
-
-
-				<table class="table table-bordered table-hover">
-					<h3 style="align-text: center">修改信息</h3>
-
-
-					<tr>
-						
-						<td><input style="display:none" name="userName" class="userName" /></td>
-					</tr>
-
-					<tr>
-						<td>姓名</td>
-						<td><input name="accountName" class="accountName" /></td>
-					</tr>
-
-					<tr>
-						<td>密码</td>
-						<td><input name="password" class="password" /></td>
-					</tr>
-
-					<tr>
-						<td>性别</td>
-						<td><input class="sex" /></td>
-					</tr>
-
-					<tr>
-						<td>身份证</td>
-						<td><input name="identification" class="identification" /></td>
-					</tr>
-
+				<table class="table table-bordered">
+					<tr><td>姓名</td>
+						<td><input name="accountName" class="accountName" /></td></tr>
+					
+					<tr><td>密码</td>
+						<td><input name="password" class="password" /></td></tr>
+					
+					<tr><td>性别</td>
+						<td><input class="sex" /></td></tr>
+					
+					<tr><td>身份证</td>
+						<td><input name="identification" class="identification" /></td></tr>
+					
 					<tr>
 						<td>生日</td>
 						<td><input name="birthday" class="birthday" /></td>
 					</tr>
+					<tr><td>邮箱</td>
+						<td><input name="email" type="email" class="email" /></td></tr>
 
-					<tr>
-						<td>邮箱</td>
-						<td><input name="email" type="email" class="email" /></td>
-					</tr>
+					<tr><td>电话</td>
+						<td><input name="phone" class="phone" /></td></tr>
 
-					<tr>
-						<td>电话</td>
-						<td><input name="phone" class="phone" /></td>
-					</tr>
-
-					<tr>
-						<td>备注</td>
-						<td><input name="remark" class="remark" /></td>
-					</tr>
-
+					<tr><td>备注</td>
+						<td><input name="remark" class="remark" /></td></tr>
 				</table>
 			</div>
-
-			<button type="submit" class="btn btn-info">修改</button>
-			<button class="btn btn-info">返回</button>
+			<button type="submit" class="btn">修改</button>
+			<button class="btn">返回</button>
 		</form>
 	</div>
 
 	<script>
 		$(function() {
-			$('.a>th>.modify').click(
+			$('.a>td>.modify').click(
 					function() {
-						var userName = $(this).parent().siblings(".userName")
-								.text();
+						var userName = $(this).parent().siblings(".userName").text();
 						var jobId = $(this).parent().siblings(".jobId").text();
-						var roleId = $(this).parent().siblings(".roleId")
-								.text();
-						var remark = $(this).parent().siblings(".remark")
-								.text();
+						var roleId = $(this).parent().siblings(".roleId").text();
+						var remark = $(this).parent().siblings(".remark").text();
 						var phone = $(this).parent().siblings(".phone").text();
 						var email = $(this).parent().siblings(".email").text();
-						var birthday = $(this).parent().siblings(".birthday")
-								.text();
-						var department = $(this).parent().siblings(
-								".department").text();
-						var identification = $(this).parent().siblings(
-								".identification").text();
+						var birthday = $(this).parent().siblings(".birthday").text();
+						var department = $(this).parent().siblings(".department").text();
+						var identification = $(this).parent().siblings(".identification").text();
 						var sex = $(this).parent().siblings(".sex").text();
-						var accountName = $(this).parent().siblings(
-								".accountName").text();
-						var password = $(this).parent().siblings(".password")
-								.text();
+						var accountName = $(this).parent().siblings(".accountName").text();
+						var password = $(this).parent().siblings(".password").text();
 
 						$("input.userName").val(userName);
 						$("input.jobId").val(jobId);
