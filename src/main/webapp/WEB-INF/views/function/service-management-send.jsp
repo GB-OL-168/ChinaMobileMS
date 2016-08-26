@@ -44,7 +44,7 @@
 										status = (int) request.getAttribute("status");
 									%>
 									<td><%=investigationName%></td>
-									<td><input name="recoveryTime" type="datetime-local"></td>
+									<td><input name="recoveryTime" required type="date" id="recoveryTime"></td>
 									<td>
 										<div class="form-group">
 											<div class="col-sm-5">
@@ -80,7 +80,7 @@
 											<c:when test="<%=status == 2%>">已回收</c:when>
 										</c:choose>
 									</td>
-									<td><button type="submit" class='btn btn-info'>发放</button></td>
+									<td><button type="submit" class='btn btn-info' id="send">发放</button></td>
 								</tr>
 							</table>
 						</div>
@@ -103,6 +103,36 @@
 
 			});
 		});
+		$(function(){
+		 	$("#send").click(function(e){
+		 		var inputTime=$("#recoveryTime").val();/*input中的时间 */
+		 		if(inputTime==null||inputTime==""){
+		 			alert("时间 为空 ");
+			    	 e.preventDefault();
+					return false;
+		 		}
+				var date = new Date();
+			    var seperator1 = "-";
+			    var seperator2 = ":";
+			    var month = date.getMonth() + 1;
+			    var strDate = date.getDate();
+			    if (month >= 1 && month <= 9) {
+			        month = "0" + month;
+			    }
+			    if (strDate >= 0 && strDate <= 9) {
+			        strDate = "0" + strDate;
+			    }
+			    var currentDate = date.getFullYear() + seperator1 + month + seperator1 + strDate;/* 当前时间 */
+			    var inputTimeDate=new Date(inputTime).getTime();
+			    var currentTimeDate= new Date(currentDate).getTime();
+			    if(inputTimeDate<currentTimeDate){
+			    	alert("设置回收日期格式有误!设置回收日期应大于日期");
+			    	 e.preventDefault();
+						return false;
+			    }
+		 	});
+		});
+			
 	</script>
 	
 </body>

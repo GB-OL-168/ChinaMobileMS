@@ -8,4 +8,13 @@
 	from wait_for_investigate_user
 	where wait_user_name=#{waitUserName}
 	</select>
+	<update id="updateIsFill" >
+	update wait_for_investigate_user
+	set isfill=1
+	where investigation_id=#{investigationId} and wait_user_name=#{waitUserName}
+	</update>
+	
+	<delete id="deleteWaitForInvestigationUserByInvestigationId" parameterType="int">
+	delete from wait_for_investigate_user where investigation_id=#{investigationId}
+	</delete>
 </mapper>

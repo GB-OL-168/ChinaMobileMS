@@ -10,4 +10,5 @@ public interface InvestigationTableService {
 	public List<InvestigationTableEntity> getInvestigationTableEntityByUserName(String userName);
 	public boolean uptdateIsFill(int investigationId);
 	public InvestigationTableEntity getInvestigationTableEntityByid(int investigationId);
+	public boolean deleteInvestiationTableById(int investigationId);
 }

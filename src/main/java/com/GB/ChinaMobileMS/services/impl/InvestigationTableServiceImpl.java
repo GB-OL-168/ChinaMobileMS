@@ -32,4 +32,9 @@ public class InvestigationTableServiceImpl implements InvestigationTableService{
 	public InvestigationTableEntity getInvestigationTableEntityByid(int investigationId){
 		return investigationTableMapper.findByInvestigationId(investigationId);
 	}
+	@Override
+	public boolean deleteInvestiationTableById(int investigationId) {
+		// TODO Auto-generated method stub
+		return investigationTableMapper.deleteInvestiationTableById(investigationId);
+	}
 }
