@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Vehicle {
+	
 	@RequestMapping(value="/vehicle/{id}", method=RequestMethod.GET)
 	public ModelAndView login(@PathVariable("id") String id,HttpSession session){
 		if(id.equals("info-add"))

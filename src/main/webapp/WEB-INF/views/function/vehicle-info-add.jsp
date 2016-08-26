@@ -25,17 +25,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ol class="breadcrumb">
-                            <li><a href="#">信息管理</a></li>
-                            <li><a href="#">全省车辆信息</a></li>
+                            <li>信息管理</li>
+                            <li>全省车辆信息</li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息登记 <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息登记 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="vehicle-info-find.html">信息查询</a></li>
-
+                                    <li><a href="/vehicle/info-find">信息查询</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息登记 <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息登记 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/vehicle/person-add">驾驶员信息登记</a></li>
                                 </ul>
@@ -44,93 +43,95 @@
                     </div>
                 </div>
 
-                <form class="form-horizontal">
+               	<form class="form-horizontal" action = "/addVehicleInfo" method="post">
                     <h3 style="text-align: center">车辆信息登记</h3>
 
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">品牌</label>
                         <div class="col-sm-3">
-                            <input  type="text" class="form-control" name=" "/>
+                            <input  type="text" class="form-control" name="brand"/>
                         </div>
                         <label  class="col-sm-2 control-label">型号</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control"  name=" "/>
+                            <input type="text" class="form-control"  name="model"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">车辆类型</label>
                         <div class="col-sm-3">
-                            <input name=" " type="text" class="form-control"/>
+                            <input name="vehicleType" type="text" class="form-control"/>
                         </div>
                         <label  class="col-sm-2 control-label">车座</label>
                         <div class="col-sm-3">
-                            <input name=" "  type="text" class="form-control"/>
+                            <input name="seat"  type="text" class="form-control"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">国产/进口</label>
                         <div class="col-sm-3">
-                            <input name=" " type="radio" value="y"/>国产
-                            <input name=" " type="radio" value="n"/>进口
+                            <input name="productSource" type="radio" value="1" checked/>国产
+                            <input name="productSource" type="radio" value="2"/>进口
                         </div>
                         <label  class="col-sm-2 control-label">制造厂名称</label>
                         <div class="col-sm-3">
-                            <input name=" " type="text" class="form-control"/>
+                            <input name="manufacturer" type="text" class="form-control"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">车身颜色</label>
                         <div class="col-sm-3">
-                            <input name=" " type="text" class="form-control"/>
+                            <input name="color" type="text" class="form-control"/>
                         </div>
                         <label  class="col-sm-2 control-label">燃油种类</label>
                         <div class="col-sm-3">
-                            <input name=" " type="text" class="form-control"/>
+                            <input name="fuelType" type="text" class="form-control"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">发动机号</label>
                         <div class="col-sm-3">
-                            <input name=" " type="text" class="form-control"/>
+                            <input name="engineType" type="text" class="form-control"/>
                         </div>
                         <label  class="col-sm-2 control-label">VIN/车辆识别代码</label>
                         <div class="col-sm-3">
-                            <input name=" " type="type" class="form-control"/>
+                            <input name="vin" type="text" class="form-control"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">出厂日期</label>
                         <div class="col-sm-3">
-                            <input name=" " type="date" class="form-control"/>
+                            <input name="productDate" type="date" class="form-control"/>
                         </div>
                         <label  class="col-sm-2 control-label">车主</label>
                         <div class="col-sm-3">
-                            <input name=" " type="text" class="form-control"/>
+                            <input name="owner" type="text" class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">车辆价格</label>
                         <div class="col-sm-3">
-                            <input name=" " type="type" class="form-control"/>
+                            <input name="price" type="text" class="form-control"/>
                         </div>
                         <label  class="col-sm-2 control-label">使用单位</label>
                         <div class="col-sm-3">
-                            <input name=" " type="type" class="form-control"/>
+                            <input name="usedUnit" type="text" class="form-control"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-8">
-                            <a href="#"><button type="submit" class="btn btn-default col-sm-offset-4">登记</button></a>
-                            <a href="" class="btn btn-default">返回</a>
+                            <button type="submit" class="btn btn-default col-sm-offset-4">登记</button>
+                            <a href="/vehicle/info-add" class="btn btn-default">返回</a>
                         </div>
                     </div>
+                    
                 </form>
+                
             </div>
         </div>
     </div>

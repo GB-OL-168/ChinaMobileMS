@@ -18,7 +18,14 @@ public class VehicleInfoManageEntity {
 	private String vin;
 	private String productDate;
 	private int price;
+	private String owner;
 	private String usedUnit;
+	public String getOwner() {
+		return owner;
+	}
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
 	public int getVehicleInfoId() {
 		return vehicleInfoId;
 	}
@@ -124,6 +131,7 @@ public class VehicleInfoManageEntity {
 		result = prime * result + ((productDate == null) ? 0 : productDate.hashCode());
 		result = prime * result + productSource;
 		result = prime * result + seat;
+		result = prime * result + ((owner == null) ? 0 : owner.hashCode());
 		result = prime * result + ((usedUnit == null) ? 0 : usedUnit.hashCode());
 		result = prime * result + vehicleInfoId;
 		result = prime * result + ((vehicleType == null) ? 0 : vehicleType.hashCode());
@@ -182,6 +190,11 @@ public class VehicleInfoManageEntity {
 			return false;
 		if (seat != other.seat)
 			return false;
+		if (owner == null) {
+			if (other.owner != null)
+				return false;
+		} else if (!owner.equals(other.owner))
+			return false;
 		if (usedUnit == null) {
 			if (other.usedUnit != null)
 				return false;
@@ -207,7 +220,7 @@ public class VehicleInfoManageEntity {
 				+ ", model=" + model + ", vehicleType=" + vehicleType + ", seat=" + seat + ", productSource="
 				+ productSource + ", manufacturer=" + manufacturer + ", color=" + color + ", fuelType=" + fuelType
 				+ ", engineType=" + engineType + ", vin=" + vin + ", productDate=" + productDate + ", price=" + price
-				+ ", usedUnit=" + usedUnit + "]";
+				+ ", owner=" + owner + ", usedUnit=" + usedUnit + "]";
 	}
 	
 	

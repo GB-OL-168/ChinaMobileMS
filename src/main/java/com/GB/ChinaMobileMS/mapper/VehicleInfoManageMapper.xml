@@ -2,5 +2,52 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.GB.ChinaMobileMS.dao.WaitForInvestigationMapper">
+  
+<!-- 车辆登记及查询  -->
+<mapper namespace="com.GB.ChinaMobileMS.dao.VehicleInfoManageMapper">
+
+	<!-- 日期、车座、价格必填 , 且为数字-->
+	<insert id="insertVehicleInfoManage" parameterType="VehicleInfoManageEntity">
+		INSERT INTO vehicle_info_manage
+			(brand, model, vehicle_type, seat, product_source, manufacturer, color,
+			 fuel_type, engine_type, vin, product_date, price, owner, used_unit)
+		VALUES 
+			(#{brand},#{model},#{vehicleType},#{seat},#{productSource},#{manufacturer},#{color},
+			#{fuelType},#{engineType},#{vin},#{productDate},#{price},#{owner},#{usedUnit})
+	</insert>
+	
+	<select id="queryVehicleInfoByBrand" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.VehicleInfoManageEntity">
+		select *
+		from vehicle_info_manage
+		where brand like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="queryVehicleInfoByModel" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.VehicleInfoManageEntity">
+		select *
+		from vehicle_info_manage
+		where model like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="queryVehicleInfoByVehicleType" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.VehicleInfoManageEntity">
+		select *
+		from vehicle_info_manage
+		where vehicle_type like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="queryVehicleInfoBySeat" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.VehicleInfoManageEntity">
+		select *
+		from vehicle_info_manage
+		where seat like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="queryVehicleInfoByUsedUnit" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.VehicleInfoManageEntity">
+		select *
+		from vehicle_info_manage
+		where used_unit like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="listVehicleInfoManage"  resultType="com.GB.ChinaMobileMS.entity.VehicleInfoManageEntity">
+		select * from vehicle_info_manage
+	</select>
+	
 </mapper>

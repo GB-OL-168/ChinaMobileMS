@@ -25,16 +25,16 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ol class="breadcrumb">
-                                <li><a href="#">信息管理</a></li>
-                                <li><a href="#">全省车辆信息</a></li>
+                                <li>信息管理</li>
+                                <li>全省车辆信息</li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息登记 <span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息登记 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="">信息查询</a></li>
+                                        <li><a href="/vehicle/info-find">信息查询</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown active">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">驾驶员信息登记 <span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">驾驶员信息登记 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/vehicle/info-add">车辆信息登记</a></li>
                                     </ul>
@@ -43,89 +43,90 @@
                         </div>
                     </div>
 
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action = "/addVehiclePerson" method="post">
                         <h3 style="text-align: center">驾驶员信息登记</h3>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">姓名</label>
                             <div class="col-sm-3">
-                                <input  type="text" class="form-control" name=" "/>
+                                <input  type="text" class="form-control" name="name"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">性别</label>
                             <div class="col-sm-3">
-                                <input name=" " type="radio" value="y"/>男
-                                <input name=" " type="radio" value="n"/>女
+                                <input name="sex" type="radio" value="1"checked/>男
+                                <input name="sex" type="radio" value="2"/>女
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">出生日期</label>
                             <div class="col-sm-3">
-                                <input name=" " type="date" class="form-control"/>
+                                <input name="birthday" type="date" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">驾龄</label>
                             <div class="col-sm-3">
-                                <input name=" " type="text" class="form-control"/>
+                                <input name="driveYear" type="text" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">学历</label>
                             <div class="col-sm-3">
-                                <input name=" " type="text" class="form-control"/>
+                                <input name="education" type="text" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">籍贯</label>
                             <div class="col-sm-3">
-                                <input name=" " type="date" class="form-control"/>
+                                <input name="origin" type="text" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">服务单位</label>
                             <div class="col-sm-3">
-                                <input name=" " type="type" class="form-control"/>
+                                <input name="serviceUnit" type="text" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">身份证号</label>
                             <div class="col-sm-3">
-                                <input name=" " type="type" class="form-control"/>
+                                <input name="identification" type="text" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">联系方式</label>
                             <div class="col-sm-3">
-                                <input name=" " type="type" class="form-control"/>
+                                <input name="contactInfo" type="text" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">家庭住址</label>
                             <div class="col-sm-3">
-                                <input name=" " type="type" class="form-control"/>
+                                <input name="homeAddress" type="text" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">备注</label>
                             <div class="col-sm-3">
-                                <input name=" " type="type" class="form-control"/>
+                                <input name="addition" type="text" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-8">
-                                <a href="#"><button type="submit" class="btn btn-default col-sm-offset-4">登记</button></a>
-                                <a href="" class="btn btn-default">返回</a>
+                                <button type="submit" class="btn btn-default col-sm-offset-4">登记</button>
+                                <a href="/vehicle/info-add" class="btn btn-default">返回</a>
                             </div>
                         </div>
-                    </form>
+                        
+                     </form>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -25,42 +26,43 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ol class="breadcrumb">
-                            <li><a href="#">信息管理</a></li>
-                            <li><a href="#">全省车辆信息</a></li>
+                            <li>信息管理</li>
+                            <li>全省车辆信息</li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息查询 <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息查询 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="vehicle-info-add.html">信息登记</a></li>
+                                    <li><a href="/vehicle/info-add">信息登记</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息查询 <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息查询 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/vehicle/person-find">驾驶员信息查询</a></li>
                                 </ul>
                             </li>
-                        </ol>
-                    </div>
-                </div>
+                         </ol>
+                     </div>
+                 </div>
                 <hr>
-                <form action="">
+               	<form action = "/findVehicleInfo" method="post">
                     <div class="col-md-offset-1 col-md-4">
-                        <input type="radio" name="vehicle" value="">品牌
-                        <input type="radio" name="vehicle" value="">型号
-                        <input type="radio" name="vehicle" value="">车辆类型
-                        <input type="radio" name="vehicle" value="">车座
-                        <input type="radio" name="vehicle" value="" style="display: inline-block">使用单位
+                        <input type="radio" name="condition" value="brand" checked>品牌
+                        <input type="radio" name="condition" value="model">型号
+                        <input type="radio" name="condition" value="vehicleType">车辆类型
+                        <input type="radio" name="condition" value="seat">车座
+                        <input type="radio" name="condition" value="usedUnit">使用单位
                     </div>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input type="text" class="form-control input-sm"  placeholder="请输入信息">
+                            <input type="text" name="queryInformation" class="form-control input-sm"  placeholder="请输入信息">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" type="button">搜索</button>
+                                <button type="submit" class="btn btn-default btn-sm">搜索</button>
                               </span>
                         </div>
                     </div>
                 </form>
-                </div>
+                
+            </div>
             <hr>
             </div>
                 <table class="table table-bordered">
@@ -80,55 +82,32 @@
                         <th>车辆价格</th>
                         <th>使用单位</th>
                     </tr>
-                    <tr>
-                        <td>保时捷</td>
-                        <td>991</td>
-                        <td>跑车</td>
-                        <td>2</td>
-                        <td>进口 </td>
-                        <td>红色</td>
-                        <td>金龙油</td>
-                        <td>不知道</td>
-                        <td>110</td>
-                        <td>2016-08-19</td>
-                        <td>叶绪创</td>
-                        <td>200</td>
-                        <td>四川华迪有限公司</td>
-                    </tr>
-                    <tr>
-                        <td>保时捷</td>
-                        <td>991</td>
-                        <td>跑车</td>
-                        <td>2</td>
-                        <td>进口 </td>
-                        <td>红色</td>
-                        <td>金龙油</td>
-                        <td>不知道</td>
-                        <td>110</td>
-                        <td>2016-08-19</td>
-                        <td>叶绪创</td>
-                        <td>200</td>
-                        <td>四川华迪有限公司</td>
-                    </tr>
-                    <tr>
-                        <td>保时捷</td>
-                        <td>991</td>
-                        <td>跑车</td>
-                        <td>2</td>
-                        <td>进口 </td>
-                        <td>红色</td>
-                        <td>金龙油</td>
-                        <td>不知道</td>
-                        <td>110</td>
-                        <td>2016-08-19</td>
-                        <td>叶绪创</td>
-                        <td>200</td>
-                        <td>四川华迪有限公司</td>
-                    </tr>
-                </table>
+                    
+					<c:forEach items="${listVehicleInfoManage}" var="a">
+						<tr class="a">
+						<td>${a.brand}</td>
+						<td>${a.model}</td>
+						<td>${a.vehicleType}</td>
+						<td>${a.seat}</td>
+						<td>
+							<c:choose>
+								<c:when test="${a.productSource==1}">国产</c:when>
+								<c:when test="${a.productSource==2}">进口</c:when>
+							</c:choose>
+						</td>
+						<td>${a.color}</td>
+						<td>${a.fuelType}</td>
+						<td>${a.engineType}</td>
+						<td>${a.vin}</td>
+						<td>${a.productDate}</td>
+						<td>${a.owner}</td>
+						<td>${a.price}</td>
+						<td>${a.usedUnit}</td>
+						</tr>
+					</c:forEach>
+              
+                 </table>
 
-            </div>
-        </div>
-    </div>
+          </div>
 </body>
 </html>

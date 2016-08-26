@@ -3,6 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- 驾驶员信息登记及查询  -->
 <mapper namespace="com.GB.ChinaMobileMS.dao.DriverInfoMapper">
+
+	<!-- 出生日期必填 -->
+	<insert id="insertDriverInfo" parameterType="DriverInfoEntity">
+		INSERT INTO driver_info
+			(name, sex, birthday, drive_year, education, origin, service_unit,
+			 identification, contact_info, home_address, addition)
+		VALUES 
+			(#{name},#{sex},#{birthday},#{driveYear},#{education},#{origin},#{serviceUnit},
+			#{identification},#{contactInfo},#{homeAddress},#{addition})
+	</insert>
+	
+	<select id="queryDriverInfoByName" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.DriverInfoEntity">
+		select *
+		from driver_info
+		where name like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="queryDriverInfoBySex" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.DriverInfoEntity">
+		select *
+		from driver_info
+		where sex like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="queryDriverInfoByServiceUnit" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.DriverInfoEntity">
+		select *
+		from driver_info
+		where service_unit like "%"#{queryInformation}"%"
+	</select>
+	
+	<select id="listDriverInfo"  resultType="com.GB.ChinaMobileMS.entity.DriverInfoEntity">
+		select * from driver_info
+	</select>
 	
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -23,39 +24,40 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ol class="breadcrumb">
-                                <li><a href="#">信息管理</a></li>
-                                <li><a href="#">全省车辆信息</a></li>
+                                <li>信息管理</li>
+                                <li>全省车辆信息</li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息查询 <span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息查询 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="vehicle-info-add.html">信息登记</a></li>
+                                        <li><a href="/vehicle/info-add">信息登记</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown active">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息查询 <span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">驾驶员信息查询 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/vehicle/person-find">驾驶员信息查询</a></li>
+                                        <li><a href="/vehicle/info-find">车辆信息查询</a></li>
                                     </ul>
                                 </li>
                             </ol>
                         </div>
                     </div>
                     <hr>
-                    <form action="">
+                   	<form action = "/findVehiclePerson" method="post">
                         <div class="col-md-offset-3 col-md-3">
-                            <input type="radio" name="vehicle" value="">姓名
-                            <input type="radio" name="vehicle" value="">性别
-                            <input type="radio" name="vehicle" value="" style="display: inline-block">服务单位
+                            <input type="radio" name="condition" value="name" checked>姓名
+                            <input type="radio" name="condition" value="sex">性别
+                            <input type="radio" name="condition" value="serviceUnit">服务单位
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input type="text" class="form-control input-sm"  placeholder="请输入信息">
-                                        <span class="input-group-btn">
-                                        <button class="btn btn-default btn-sm" type="button">搜索</button>
+                                <input type="text" name="queryInformation" class="form-control input-sm"  placeholder="请输入信息">
+                                      <span class="input-group-btn">
+                                      <button type="submit" class="btn btn-default btn-sm">搜索</button>
                                       </span>
                             </div>
                         </div>
-                    </form>
+                     </form>
+                     
                 </div>
                 <hr>
             </div>
@@ -74,35 +76,29 @@
                     <th>家庭住址</th>
                     <th>备注</th>
                 </tr>
-                <tr>
-                    <td>叶绪创</td>
-                    <td>男</td>
-                    <td>19994-01-03</td>
-                    <td>1年</td>
-                    <td>大学本科 </td>
-                    <td>广东省汕头市</td>
-                    <td>四川华迪公司</td>
-                    <td>4247918574235</td>
-                    <td>18814092345</td>
-                    <td>弘吉雅居4栋3单元</td>
-                    <td>无</td>
-                </tr>
-                <tr>
-                    <td>叶绪创</td>
-                    <td>男</td>
-                    <td>19994-01-03</td>
-                    <td>1年</td>
-                    <td>大学本科 </td>
-                    <td>广东省汕头市</td>
-                    <td>四川华迪公司</td>
-                    <td>4247918574235</td>
-                    <td>18814092345</td>
-                    <td>弘吉雅居4栋3单元</td>
-                    <td>无</td>
-                </tr>
+                <c:forEach items="${listDriverInfo}" var="a">
+				    <tr class="a">
+					<td>${a.name}</td>
+					<td>
+						<c:choose>
+							<c:when test="${a.sex==1}">男</c:when>
+							<c:when test="${a.sex==2}">女</c:when>
+						</c:choose>
+					</td>
+					<td>${a.birthday}</td>
+					<td>${a.driveYear}</td>
+					<td>${a.education}</td>
+					<td>${a.origin}</td>
+					<td>${a.serviceUnit}</td>
+					<td>${a.identification}</td>
+					<td>${a.contactInfo}</td>
+					<td>${a.homeAddress}</td>
+					<td>${a.addition}</td>
+					</tr>
+				</c:forEach>
             </table>
+            
         </div>
-        </div>
-    </div>
+
 </body>
 </html>
