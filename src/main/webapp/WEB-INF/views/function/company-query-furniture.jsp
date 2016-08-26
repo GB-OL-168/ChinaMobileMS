@@ -48,19 +48,18 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="">
+					<form action="/searchASF"  method="get">
 						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="houses" value="company">家具类型 <input
-								type="radio" name="houses" value="building">品牌型号 <input
-								type="radio" name="houses" value="location">所在部门 <input
-								type="radio" name="houses" value="area"
-								style="display: inline-block">所在建筑
+							 <input type="radio" name="asf" value="furnitureType">家具类型
+							 <input type="radio" name="asf" value="brand">品牌型号 
+							 <input type="radio" name="asf" value="branchName">所在部门 
+							 <input type="radio" name="asf" value="building"style="display: inline-block">所在建筑
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
 								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息"> <span class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="button">搜索</button>
+									placeholder="请输入信息" name="search"> <span class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="submit">搜索</button>
 								</span>
 							</div>
 						</div>
@@ -83,28 +82,29 @@ ol>li {
 					</tr>
 					<c:forEach items="${listasf}" var="a">
 						<tr>
-						<td>${a.officeFurnitureInfoId}</td>
-						<td>${a.furnitureType}</td>
-						<td>${a.brand}</td>
-						<td>${a.specification}</td>
-						<td>${a.branchName}</td>
-						<td>${a.floor}</td>
-						<td>${a.houseId}</td>
-						<td>${a.count}</td>
+							<td>${a.officeFurnitureInfoId}</td>
+							<td>${a.furnitureType}</td>
+							<td>${a.brand}</td>
+							<td>${a.specification}</td>
+							<td>${a.branchName}</td>
+							<td>${a.buildingName}</td>
+							<td>${a.floor}</td>
+							<td>${a.houseId}</td>
+							<td>${a.count}</td>
 						</tr>
 					</c:forEach>
-<!-- 					<tr> -->
-<!-- 						<td>1</td> -->
-<!-- 						<td>床</td> -->
-<!-- 						<td>席梦思</td> -->
-<!-- 						<td>2米</td> -->
-<!-- 										  	<td>粉红</td> -->
-<!-- 						<td>营业部</td> -->
-<!-- 						<td>梦想大厦</td> -->
-<!-- 						<td>2层</td> -->
-<!-- 						<td>120</td> -->
-<!-- 						<td>1</td> -->
-<!-- 					</tr> -->
+					<!-- 					<tr> -->
+					<!-- 						<td>1</td> -->
+					<!-- 						<td>床</td> -->
+					<!-- 						<td>席梦思</td> -->
+					<!-- 						<td>2米</td> -->
+					<!-- 										  	<td>粉红</td> -->
+					<!-- 						<td>营业部</td> -->
+					<!-- 						<td>梦想大厦</td> -->
+					<!-- 						<td>2层</td> -->
+					<!-- 						<td>120</td> -->
+					<!-- 						<td>1</td> -->
+					<!-- 					</tr> -->
 
 
 

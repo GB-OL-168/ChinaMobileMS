@@ -10,4 +10,10 @@ public interface AssetHouseMapper {
 	List<AssetHouse> queryAssetHouse();
 	
 	List<AssetHouse> queryAssetHouse2();
+	
+	List<AssetHouse> queryAssetHouseByCompanyName(String search);
+	
+	List<AssetHouse> queryAssetHouseByBuilding(String search);
+	
+	List<AssetHouse> queryAssetHouseByArea(String search);
 }

@@ -59,7 +59,7 @@ ol>li {
 					<div class="form-group">
 						<label class="col-sm-2 control-label">所属部门</label>
 						<div class="col-sm-10">
-							<select class="branch form-control" name="belonngBranchId">
+							<select class="branch form-control" name="usedBranchId">
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -68,7 +68,7 @@ ol>li {
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-sm-2 control-label">所属建筑</label>
 						<div class="col-sm-10">
@@ -109,7 +109,7 @@ ol>li {
 						<label class="col-sm-2 control-label">家具类型</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="家具类型"
-							name="furnitureType">
+								name="furnitureType">
 						</div>
 					</div>
 					<div class="form-group">
@@ -126,29 +126,29 @@ ol>li {
 								name="specification">
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">使用公司</label>
-						<div class="col-sm-10">
-							<select name="company" class="company1 form-control">
-								<option value="">--请选择公司--</option>
-								<c:forEach items="${listCompany}" var="c">
-									<option value="${c.companyId }">${c.companyName}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">使用部门</label>
-						<div class="col-sm-10">
-							<select class="branch1 form-control" name="usedBranchId">
-								<option value="">--请选择部门--</option>
-								<c:forEach items="${listBranch}" var="b">
-									<option style="display: none;" class="${b.companyId}"
-										value="${b.branchId }">${b.branchName}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
+					<!-- 					<div class="form-group"> -->
+					<!-- 						<label class="col-sm-2 control-label">使用公司</label> -->
+					<!-- 						<div class="col-sm-10"> -->
+					<!-- 							<select name="company" class="company1 form-control"> -->
+					<!-- 								<option value="">--请选择公司--</option> -->
+					<%-- 								<c:forEach items="${listCompany}" var="c"> --%>
+					<%-- 									<option value="${c.companyId }">${c.companyName}</option> --%>
+					<%-- 								</c:forEach> --%>
+					<!-- 							</select> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+					<!-- 					<div class="form-group"> -->
+					<!-- 						<label class="col-sm-2 control-label">使用部门</label> -->
+					<!-- 						<div class="col-sm-10"> -->
+					<!-- 							<select class="branch1 form-control" name="usedBranchId"> -->
+					<!-- 								<option value="">--请选择部门--</option> -->
+					<%-- 								<c:forEach items="${listBranch}" var="b"> --%>
+					<%-- 									<option style="display: none;" class="${b.companyId}" --%>
+					<%-- 										value="${b.branchId }">${b.branchName}</option> --%>
+					<%-- 								</c:forEach> --%>
+					<!-- 							</select> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
 					<div class="form-group">
 						<label class="col-sm-2 control-label">数量</label>
 						<div class="col-sm-10">
@@ -181,19 +181,6 @@ ol>li {
 				$(".branch").val("");
 				$("option." + all).css("display", "none");
 				var b = $(".company").val();
-				all = b;
-				$("option." + b).css("display", "block");
-
-			});
-		});
-	</script>
-		<script>
-		var all = 1;
-		$(function() {
-			$(".company1").change(function() {
-				$(".branch1").val("");
-				$("option." + all).css("display", "none");
-				var b = $(".company1").val();
 				all = b;
 				$("option." + b).css("display", "block");
 

@@ -11,11 +11,12 @@
 		VALUES
 		(#{houseId},#{belonngBranchId},#{building},#{floor},#{area})
 	</insert>
-	
+
 	<select id="queryAssetHouse" resultType="AssetHouse">
-		select * from house_info
+		select *
+		from house_info
 	</select>
-	
+
 	<select id="queryAssetHouse2" resultType="AssetHouse">
 		SELECT
 		h.belonng_branch_id,
@@ -23,12 +24,92 @@
 		c.company_name,
 		h.area,
 		h.house_id,
-		h.building
+		h.building,
+		ha.building_name
 		FROM branch b,
 		company c,
-		house_info h
-		WHERE b.branch_id =
+		house_info h,
+		housing_asset_info ha
+		WHERE
+		b.branch_id =
 		h.belonng_branch_id
 		AND c.company_id = b.company_id
+		And
+		h.building = ha.asset_info_id
+	</select>
+
+	<select id="queryAssetHouseByCompanyName" parameterType="String"
+		resultType="AssetHouse">
+		SELECT
+		h.belonng_branch_id,
+		b.company_id,
+		c.company_name,
+		h.area,
+		h.house_id,
+		h.building,
+		ha.building_name
+		FROM branch b,
+		company c,
+		house_info h,
+		housing_asset_info ha
+		WHERE
+		b.branch_id =
+		h.belonng_branch_id
+		AND c.company_id = b.company_id
+		And
+		h.building =
+		ha.asset_info_id
+		AND
+		c.company_name like "%"#{search}"%"
+	</select>
+
+	<select id="queryAssetHouseByBuilding" parameterType="String"
+		resultType="AssetHouse">
+		SELECT
+		h.belonng_branch_id,
+		b.company_id,
+		c.company_name,
+		h.area,
+		h.house_id,
+		h.building,
+		ha.building_name
+		FROM branch b,
+		company c,
+		house_info h,
+		housing_asset_info ha
+		WHERE
+		b.branch_id =
+		h.belonng_branch_id
+		AND c.company_id = b.company_id
+		And
+		h.building =
+		ha.asset_info_id
+		AND
+		ha.building_name like "%"#{search}"%"
+	</select>
+
+	<select id="queryAssetHouseByArea" parameterType="String"
+		resultType="AssetHouse">
+		SELECT
+		h.belonng_branch_id,
+		b.company_id,
+		c.company_name,
+		h.area,
+		h.house_id,
+		h.building,
+		ha.building_name
+		FROM branch b,
+		company c,
+		house_info h,
+		housing_asset_info ha
+		WHERE
+		b.branch_id =
+		h.belonng_branch_id
+		AND c.company_id = b.company_id
+		And
+		h.building =
+		ha.asset_info_id
+		AND
+		h.area like "%"#{search}"%"
 	</select>
 </mapper>

@@ -13,4 +13,12 @@ public interface AssetHousingMapper {
 	List<AssetHousing> queryAssetHousing2();
 	
 	AssetHousing detailed(int assetInfoId);
+	
+	List<AssetHousing> queryAssetHousingByCompanyName(String search);
+	
+	List<AssetHousing> queryAssetHousingByBuildingName(String search);
+	
+	List<AssetHousing> queryAssetHousingBylocation(String search);
+	
+	List<AssetHousing> queryAssetHousingByBuildingArea(String search);
 }

@@ -10,4 +10,6 @@ public interface AssetHouseService {
 	List<AssetHouse> queryAssetHouse();
 	
 	List<AssetHouse> queryAssetHouse2();
+	
+	List<AssetHouse> searchAssetHouse(String room ,String search);
 }

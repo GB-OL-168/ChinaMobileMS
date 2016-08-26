@@ -36,4 +36,39 @@ public class AssetLoanDeviceServiceImpl implements AssetLoanDeviceService {
 
 		return listald;
 	}
+
+	@Override
+	public List<AssetLoanDevice> search(String loean, String search) {
+		if (loean.equals("type")) {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByType(search);
+			return listald;
+		} else if (loean.equals("brand")) {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByBrand(search);
+			return listald;
+		} else if (loean.equals("batch")) {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByBatch(search);
+			return listald;
+		} else {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByLoanInfoId(search);
+			return listald;
+		}
+		
+	}
+
+	@Override
+	public List<AssetLoanDevice> search2(String loean, String search) {
+		if (loean.equals("type")) {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByType2(search);
+			return listald;
+		} else if (loean.equals("brand")) {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByBrand2(search);
+			return listald;
+		} else if (loean.equals("batch")) {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByBatch2(search);
+			return listald;
+		} else {
+			List<AssetLoanDevice> listald = aldMapper.queryLoanDeviceByLoanInfoId2(search);
+			return listald;
+		}
+	}
 }

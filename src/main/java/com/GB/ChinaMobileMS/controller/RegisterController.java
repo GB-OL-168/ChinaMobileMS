@@ -46,6 +46,8 @@ public class RegisterController {
 	private CompanyService companyService;
 	@Autowired
 	private BranchService branchService;
+	@Autowired
+	private  CompanyQuery cq;
 
 	@RequestMapping(value = "/register/{id}", method = RequestMethod.GET)
 	public ModelAndView AssetUser(User user, @PathVariable("id") String id,
@@ -86,9 +88,14 @@ public class RegisterController {
 		System.out.println("Enter Controller");
 
 		System.out.println("Ash:" + ash);
+		if(ash.getIsLoan()==0)
+		{
+			ash.setLoanTimeStart(null);
+			ash.setLoanTimeEnd(null);
+		}
 
 		String str = ashService.addAssetHousing(ash);
-		return new ModelAndView("/u/main");
+		return cq.CompanyQueryAfterRegister("houses");
 	}
 
 	@RequestMapping(value = "/addRoom", method = RequestMethod.GET)
@@ -98,7 +105,7 @@ public class RegisterController {
 		System.out.println("ROOM:" + room);
 
 		String str = roomService.addAssetHouse(room);
-		return new ModelAndView("/u/main");
+		return cq.CompanyQueryAfterRegister("rooms");
 	}
 
 	@RequestMapping(value = "/addFurniture", method = RequestMethod.GET)
@@ -109,7 +116,7 @@ public class RegisterController {
 		System.out.println("assetfurn:" + assetfurn);
 
 		String str = asfService.addFurniture(assetfurn);
-		return new ModelAndView("/u/main");
+		return cq.CompanyQueryAfterRegister("furniture");
 	}
 
 	@RequestMapping(value = "/addLoanDevice", method = RequestMethod.GET)
@@ -130,13 +137,13 @@ public class RegisterController {
 				break;
 			}
 		}
-		if (flag == 0) {
+		if (flag == 1) {
 			System.out.println("Match UserName");
 			String str = aldService.addLoanDevice(ald);
 		} else {
 			System.out.println("Don't Match UserName");
 		}
-		return new ModelAndView("/u/main");
+		return cq.CompanyQueryAfterRegister("lease");
 	}
 
 }

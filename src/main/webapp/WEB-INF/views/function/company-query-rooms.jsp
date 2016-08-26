@@ -49,18 +49,18 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="">
+					<form action="/searchRoom" method="get">
 						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="houses" value="company">公司名称 <input
-								type="radio" name="houses" value="building">建筑名称 <input
-								type="radio" name="houses" value="area"
+							<input type="radio" name="room" value="companyName">公司名称 <input
+								type="radio" name="room" value="building">建筑名称 <input
+								type="radio" name="room" value="area"
 								style="display: inline-block">房间面积
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
 								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息"> <span class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="button">搜索</button>
+									placeholder="请输入信息" name="search"> <span class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="submit">搜索</button>
 								</span>
 							</div>
 						</div>
@@ -81,7 +81,7 @@ ol>li {
 					<tr>
 						<td>${r.houseId}</td>
 						<td>${r.companyName}</td>
-						<td>${r.building}</td>
+						<td>${r.buildingName}</td>
 						<td>${r.area}</td>
 					</tr>
 				</c:forEach>

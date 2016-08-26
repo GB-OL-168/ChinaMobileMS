@@ -47,19 +47,19 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="">
+					<form action="/searchHouse" method="get">
 						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="houses" value="company">公司名称 <input
-								type="radio" name="houses" value="building">建筑名称 <input
-								type="radio" name="houses" value="location">坐落地点 <input
-								type="radio" name="houses" value="area"
+							<input type="radio" name="houses" value="companyName">使用单位名称
+							 <input type="radio" name="houses" value="buildingName">建筑名称
+							  <input type="radio" name="houses" value="location">坐落地点 
+							  <input type="radio" name="houses" value="buildingArea"
 								style="display: inline-block">建筑面积
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
 								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息"> <span class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="button">搜索</button>
+									placeholder="请输入信息" name ="search"> <span class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="submit">搜索</button>
 								</span>
 							</div>
 						</div>

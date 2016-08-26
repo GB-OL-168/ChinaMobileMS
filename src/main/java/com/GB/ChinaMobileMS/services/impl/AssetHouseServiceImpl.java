@@ -38,4 +38,19 @@ public class AssetHouseServiceImpl implements AssetHouseService {
 
 		return listroom;
 	}
+	
+	public List<AssetHouse> searchAssetHouse(String room ,String search){
+		if(room.equals("companyName")){
+			List<AssetHouse> listroom = roomMapper.queryAssetHouseByCompanyName(search);
+			return listroom;
+		}else if(room.equals("building"))
+		{
+			List<AssetHouse> listroom = roomMapper.queryAssetHouseByBuilding(search);
+			return listroom;
+		}
+		else {
+			List<AssetHouse> listroom = roomMapper.queryAssetHouseByArea(search);
+			return listroom;
+		}
+	}
 }

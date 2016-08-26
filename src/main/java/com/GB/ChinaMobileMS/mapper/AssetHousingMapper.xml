@@ -60,4 +60,72 @@
 		AND h.asset_info_id =
 		#{assetInfoId}
 	</select>
+	<select id="queryAssetHousingByCompanyName" parameterType="String"
+		resultType="AssetHousing">
+		SELECT
+		h.used_branch_id,
+		b.company_id,
+		c.company_name,
+		h.location,
+		h.building_area,
+		h.asset_info_id,
+		h.building_name
+		FROM branch
+		b,housing_asset_info h,company c
+		WHERE b.branch_id =
+		h.used_branch_id
+		AND c.company_id = b.company_id
+		AND c.company_name like "%"#{search}"%"
+	</select>
+	<select id="queryAssetHousingByBuildingName" parameterType="String"
+		resultType="AssetHousing">
+		SELECT
+		h.used_branch_id,
+		b.company_id,
+		c.company_name,
+		h.location,
+		h.building_area,
+		h.asset_info_id,
+		h.building_name
+		FROM branch
+		b,housing_asset_info h,company c
+		WHERE b.branch_id =
+		h.used_branch_id
+		AND c.company_id = b.company_id
+		AND h.building_name like "%"#{search}"%"
+	</select>
+	<select id="queryAssetHousingBylocation" parameterType="String"
+		resultType="AssetHousing">
+		SELECT
+		h.used_branch_id,
+		b.company_id,
+		c.company_name,
+		h.location,
+		h.building_area,
+		h.asset_info_id,
+		h.building_name
+		FROM branch
+		b,housing_asset_info h,company c
+		WHERE b.branch_id =
+		h.used_branch_id
+		AND c.company_id = b.company_id
+		AND h.location like "%"#{search}"%"
+	</select>
+	<select id="queryAssetHousingByBuildingArea" parameterType="String"
+		resultType="AssetHousing">
+		SELECT
+		h.used_branch_id,
+		b.company_id,
+		c.company_name,
+		h.location,
+		h.building_area,
+		h.asset_info_id,
+		h.building_name
+		FROM branch
+		b,housing_asset_info h,company c
+		WHERE b.branch_id =
+		h.used_branch_id
+		AND c.company_id = b.company_id
+		AND h.building_area like "%"#{search}"%"
+	</select>
 </mapper>

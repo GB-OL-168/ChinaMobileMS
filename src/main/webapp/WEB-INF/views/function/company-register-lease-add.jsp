@@ -167,14 +167,14 @@ ol>li {
 						<label class="col-sm-4 control-label">领用日期</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" placeholder="领用日期"
-								name="getDate">
+								name="getDate" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">到期时间</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" placeholder="到期时间"
-								name="expiredDate">
+								name="expiredDate" required>
 						</div>
 					</div>
 					<div class="form-group">

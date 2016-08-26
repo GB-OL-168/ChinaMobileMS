@@ -28,5 +28,24 @@ public class AssetFurnitureServiceImpl implements AssetFurnitureService{
 		
 		return listasf;
 	}
+	public List<AssetFurniture> search(String asf,String search){
+		if(asf.equals("furnitureType")){
+			List<AssetFurniture> listasf = assetfurnMapper.queryAssetFurnitureByFurnitureType(search);
+			
+			return listasf;
+		}else if(asf.equals("brand"))
+		{
+			List<AssetFurniture> listasf = assetfurnMapper.queryAssetFurnitureByBrand(search);
+			return listasf;
+		}else if(asf.equals("branchName"))
+		{
+			List<AssetFurniture> listasf = assetfurnMapper.queryAssetFurnitureByBranchName(search);
+			return listasf;
+		}else
+		{
+			List<AssetFurniture> listasf = assetfurnMapper.queryAssetFurnitureByBuilding(search);
+			return listasf;
+		}
+	} 
 
 }

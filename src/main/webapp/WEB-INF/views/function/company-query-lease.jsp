@@ -48,19 +48,19 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="">
+					<form action="/searchLD" method="get">
 						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="houses" value="company">公司名称 <input
-								type="radio" name="houses" value="building">建筑名称 <input
-								type="radio" name="houses" value="location">坐落地点 <input
-								type="radio" name="houses" value="area"
-								style="display: inline-block">建筑面积
+							<input type="radio" name="loean" value="type">类型 <input
+								type="radio" name="loean" value="brand">品牌/型号 <input
+								type="radio" name="loean" value="batch">批次 <input
+								type="radio" name="loean" value="loanInfoId"
+								style="display: inline-block">设备编号
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
 								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息"> <span class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="button">搜索</button>
+									placeholder="请输入信息" name="search"> <span class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="submit">搜索</button>
 								</span>
 							</div>
 						</div>

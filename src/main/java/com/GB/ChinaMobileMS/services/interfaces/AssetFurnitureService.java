@@ -8,4 +8,6 @@ public interface AssetFurnitureService {
 	String addFurniture(AssetFurniture assetfurn);
 	
 	List<AssetFurniture> queryAssetFurniture();
+	
+	List<AssetFurniture> search(String asf,String search);
 }

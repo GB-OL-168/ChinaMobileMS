@@ -6,54 +6,79 @@ public class AssetHouse {
 	private int belonngBranchId;
 	private int floor;
 	private int area;
-	
+
 	private int companyId;
 	private String companyName;
+	private String buildingName;
+
 	public String getBuilding() {
 		return building;
 	}
+
 	public void setBuilding(String building) {
 		this.building = building;
 	}
+
 	public int getHouseId() {
 		return houseId;
 	}
+
 	public void setHouseId(int houseId) {
 		this.houseId = houseId;
 	}
+
 	public int getBelonngBranchId() {
 		return belonngBranchId;
 	}
+
 	public void setBelonngBranchId(int belonngBranchId) {
 		this.belonngBranchId = belonngBranchId;
 	}
+
 	public int getFloor() {
 		return floor;
 	}
+
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
+
 	public int getArea() {
 		return area;
 	}
+
 	public void setArea(int area) {
 		this.area = area;
 	}
+
 	public int getCompanyId() {
 		return companyId;
 	}
+
 	public void setCompanyId(int companyId) {
 		this.companyId = companyId;
 	}
+
 	public String getCompanyame() {
 		return companyName;
 	}
+
 	public String getCompanyName() {
 		return companyName;
 	}
+
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
+
+	public String getBuildingName() {
+		return buildingName;
+	}
+
+	public void setBuildingName(String buildingName) {
+		this.buildingName = buildingName;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -62,6 +87,8 @@ public class AssetHouse {
 		result = prime * result + belonngBranchId;
 		result = prime * result
 				+ ((building == null) ? 0 : building.hashCode());
+		result = prime * result
+				+ ((buildingName == null) ? 0 : buildingName.hashCode());
 		result = prime * result + companyId;
 		result = prime * result
 				+ ((companyName == null) ? 0 : companyName.hashCode());
@@ -69,6 +96,7 @@ public class AssetHouse {
 		result = prime * result + houseId;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -87,6 +115,11 @@ public class AssetHouse {
 				return false;
 		} else if (!building.equals(other.building))
 			return false;
+		if (buildingName == null) {
+			if (other.buildingName != null)
+				return false;
+		} else if (!buildingName.equals(other.buildingName))
+			return false;
 		if (companyId != other.companyId)
 			return false;
 		if (companyName == null) {
@@ -100,15 +133,14 @@ public class AssetHouse {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "AssetHouse [building=" + building + ", houseId=" + houseId
 				+ ", belonngBranchId=" + belonngBranchId + ", floor=" + floor
 				+ ", area=" + area + ", companyId=" + companyId
-				+ ", companyName=" + companyName + "]";
+				+ ", companyName=" + companyName + ", buildingName="
+				+ buildingName + "]";
 	}
 
-
-	
-	
 }

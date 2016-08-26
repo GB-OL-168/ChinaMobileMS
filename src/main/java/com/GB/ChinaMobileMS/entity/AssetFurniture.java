@@ -14,6 +14,9 @@ public class AssetFurniture {
 	private String companyName = null;
 	private int companyId;
 	private int floor;
+	private String building;
+	private String remark;
+	private String buildingName;
 	public int getOfficeFurnitureInfoId() {
 		return officeFurnitureInfoId;
 	}
@@ -86,6 +89,24 @@ public class AssetFurniture {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
+	public String getBuilding() {
+		return building;
+	}
+	public void setBuilding(String building) {
+		this.building = building;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	public String getBuildingName() {
+		return buildingName;
+	}
+	public void setBuildingName(String buildingName) {
+		this.buildingName = buildingName;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,6 +114,10 @@ public class AssetFurniture {
 		result = prime * result
 				+ ((branchName == null) ? 0 : branchName.hashCode());
 		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
+		result = prime * result
+				+ ((building == null) ? 0 : building.hashCode());
+		result = prime * result
+				+ ((buildingName == null) ? 0 : buildingName.hashCode());
 		result = prime * result + companyId;
 		result = prime * result
 				+ ((companyName == null) ? 0 : companyName.hashCode());
@@ -102,6 +127,7 @@ public class AssetFurniture {
 				+ ((furnitureType == null) ? 0 : furnitureType.hashCode());
 		result = prime * result + houseId;
 		result = prime * result + officeFurnitureInfoId;
+		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
 		result = prime * result
 				+ ((specification == null) ? 0 : specification.hashCode());
 		result = prime * result + usedBranchId;
@@ -128,6 +154,16 @@ public class AssetFurniture {
 				return false;
 		} else if (!brand.equals(other.brand))
 			return false;
+		if (building == null) {
+			if (other.building != null)
+				return false;
+		} else if (!building.equals(other.building))
+			return false;
+		if (buildingName == null) {
+			if (other.buildingName != null)
+				return false;
+		} else if (!buildingName.equals(other.buildingName))
+			return false;
 		if (companyId != other.companyId)
 			return false;
 		if (companyName == null) {
@@ -147,6 +183,11 @@ public class AssetFurniture {
 		if (houseId != other.houseId)
 			return false;
 		if (officeFurnitureInfoId != other.officeFurnitureInfoId)
+			return false;
+		if (remark == null) {
+			if (other.remark != null)
+				return false;
+		} else if (!remark.equals(other.remark))
 			return false;
 		if (specification == null) {
 			if (other.specification != null)
@@ -170,9 +211,9 @@ public class AssetFurniture {
 				+ ", specification=" + specification + ", count=" + count
 				+ ", usedSituation=" + usedSituation + ", branchName="
 				+ branchName + ", companyName=" + companyName + ", companyId="
-				+ companyId + ", floor=" + floor + "]";
+				+ companyId + ", floor=" + floor + ", building=" + building
+				+ ", remark=" + remark + ", buildingName=" + buildingName + "]";
 	}
-
 	
 
 	

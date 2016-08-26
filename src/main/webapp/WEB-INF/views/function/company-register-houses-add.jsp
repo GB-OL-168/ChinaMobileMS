@@ -47,12 +47,12 @@ ol>li {
 				<form class="form-horizontal" action="/addAH" method="get">
 					<h3 style="text-align: center">房屋资产信息登记</h3>
 
-<!-- 					<div class="form-group"> -->
-<!-- 						<label class="col-sm-2 control-label">房屋编号</label> -->
-<!-- 						<div class="col-sm-3"> -->
-<!-- 							<input type="text" class="form-control" name="assetInfoId" /> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+					<!-- 					<div class="form-group"> -->
+					<!-- 						<label class="col-sm-2 control-label">房屋编号</label> -->
+					<!-- 						<div class="col-sm-3"> -->
+					<!-- 							<input type="text" class="form-control" name="assetInfoId" /> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">坐落地点</label>
@@ -118,7 +118,7 @@ ol>li {
 						</div>
 						<label class="col-sm-2 control-label">建成年份</label>
 						<div class="col-sm-3">
-							<input name="addition" type="date" class="form-control" />
+							<input name="addition" type="date" class="form-control" required/>
 						</div>
 					</div>
 
@@ -138,12 +138,12 @@ ol>li {
 						<label class="col-sm-2 control-label">租贷时间段</label>
 						<div class="col-sm-3">
 							<input name="loanTimeStart" type="date" class="form-control"
-								value="null" />
+								value="0001-01-01" />
 						</div>
-						<label class="col-sm-2 control-label">至</label>
+						<label class="col-sm-2 control-label loan">至</label>
 						<div class="col-sm-3">
 							<input name="loanTimeEnd" type="date" class="form-control"
-								value="null" />
+								value="0001-01-01" />
 						</div>
 					</div>
 
@@ -168,6 +168,14 @@ ol>li {
 				$("option." + b).css("display", "block");
 
 			});
+			$("input[name='isLoan']").onload(function() {
+				if ($("input[name='isLoan']").value() == 0) {
+					$("input[name='loanTimeStart']").hide();
+					$("input[name='loanTimeEnd']").hide();
+					$("input[name='loanSource']").hide();
+					$("#loan").hide();
+				}
+			})
 		});
 	</script>
 </body>
