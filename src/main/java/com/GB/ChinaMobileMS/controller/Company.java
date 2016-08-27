@@ -49,6 +49,8 @@ public class Company {
 				return GetFunitureList();
 			}
 		}
+		else if (id.equals("count-list"))
+			return new ModelAndView("/function/company-count-list");
 		else if (id.equals("count"))
 			return new ModelAndView("/function/company-count");
 		else
