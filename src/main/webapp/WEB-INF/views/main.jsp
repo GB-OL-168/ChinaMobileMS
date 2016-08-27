@@ -38,52 +38,52 @@
 		<ul class="menu">
 			<li><a href="#"><i class="icon-cogs icon-2x"></i>&nbsp&nbsp<strong>系统设置</strong></a>
 				<ul>
-					<li><a href="javascript:void(0)">账号管理</a>
-					<c:if test="${sysAccountManage==1}" >
-						<ul>
-							<li><a href="/system/user" target="/u/main">用户列表</a></li>
-							<li><a href="/user-add" target="/u/main">增加用户</a></li>
-						</ul>
+					<li><a href="javascript:void(0)">账号管理</a> <c:if
+							test="${sysAccountManage==1}">
+							<ul>
+								<li><a href="/system/user" target="/u/main">用户列表</a></li>
+								<li><a href="/user-add" target="/u/main">增加用户</a></li>
+							</ul>
 						</c:if></li>
-					<li><a href="javascript:void(0)">权限设置</a>
-					<c:if test="${sysPrivilegeSetting==1}" >
-						<ul>
-							<li><a href="/system/role-assignment" target="/u/main">角色分配</a></li>
-							<li><a href="/system/role-authorization" target="/u/main">角色授权</a></li>
-							<li><a href="/system/role-authorization-add"
-								target="/u/main">新增系统角色</a></li>
-						</ul>
+					<li><a href="javascript:void(0)">权限设置</a> <c:if
+							test="${sysPrivilegeSetting==1}">
+							<ul>
+								<li><a href="/system/role-assignment" target="/u/main">角色分配</a></li>
+								<li><a href="/system/role-authorization" target="/u/main">角色授权</a></li>
+								<li><a href="/system/role-authorization-add"
+									target="/u/main">新增系统角色</a></li>
+							</ul>
 						</c:if></li>
-					<c:if test="${sysParameterSetting==1}" >
-					<li><a href="/system/parameter" target="/u/main">参数配置</a></li>
+					<c:if test="${sysParameterSetting==1}">
+						<li><a href="/system/parameter" target="/u/main">参数配置</a></li>
 					</c:if>
-					<c:if test="${sysDataRestore==1}" >
-					<li><a href="/system/data" target="/u/main">数据备份</a></li>
+					<c:if test="${sysDataRestore==1}">
+						<li><a href="/system/data" target="/u/main">数据备份</a></li>
 					</c:if>
 				</ul></li>
 			<li><a href="#"><i class="icon-bar-chart icon-2x"></i>&nbsp&nbsp<strong>信息管理平台</strong></a>
 				<ul>
 					<li><a href="javascript:void(0)" target="/u/main">上市公司资产信息</a>
 						<ul>
-						<c:if test="${registerAsset==1}" >
-							<li><a href="/register/houses-add" target="/u/main">信息登记</a></li>
+							<c:if test="${registerAsset==1}">
+								<li><a href="/register/houses-add" target="/u/main">信息登记</a></li>
 							</c:if>
-							<c:if test="${queryAsset==1}" >
-							<li><a href="/companyquery/houses" target="/u/main">信息查询</a></li>
+							<c:if test="${queryAsset==1}">
+								<li><a href="/companyquery/houses" target="/u/main">信息查询</a></li>
 							</c:if>
-							<c:if test="${mangaementAsset==1}" >
-							<li><a href="/company/info" target="/u/main">使用信息</a></li>
-							<li><a href="/company/count-list" target="/u/main">信息统计</a></li>
+							<c:if test="${mangaementAsset==1}">
+								<li><a href="/company/info" target="/u/main">使用信息</a></li>
+								<li><a href="/company/count-list" target="/u/main">信息统计</a></li>
 							</c:if>
 						</ul></li>
 					<li><a href="javascript:void(0)" target="/u/main">全省车辆信息</a>
 
 						<ul>
-						<c:if test="${registerVehicle==1}" >
-							<li><a href="/vehicle/info-add" target="/u/main"> 车辆登记</a></li>
+							<c:if test="${registerVehicle==1}">
+								<li><a href="/vehicle/info-add" target="/u/main"> 车辆登记</a></li>
 							</c:if>
-							<c:if test="${queryVehicle==1}" >
-							<li><a href="/vehicle/info-find" target="/u/main">车辆查询</a></li>
+							<c:if test="${queryVehicle==1}">
+								<li><a href="/vehicle/info-find" target="/u/main">车辆查询</a></li>
 							</c:if>
 						</ul></li>
 
@@ -100,24 +100,30 @@
 					<li><a href="/function/" target="/u/main">配餐维护服务申请</a></li>
 					<li><a>配餐中心用餐申请</a>
 						<ul>
-						<c:if test="${serverApplicationDinner==1}" >
-							<li><a href="/property/dinnerApplicationView"
-								target="/u/main">申请方应用</a></li>
-								</c:if>
-								<c:if test="${auditingApplicationDinner==1}" >
-							<li><a href="/property/dinnerAuditing" target="/u/main">审核方应用</a></li></c:if>
-							<c:if test="${managementApplicationDinner==1}" >
-							<li><a href="/property/dinnerManagement" target="/u/main">管理方应用</a></li></c:if>
+							<c:if test="${serverApplicationDinner==1}">
+								<li><a href="/property/dinnerApplicationView"
+									target="/u/main">申请方应用</a></li>
+							</c:if>
+							<c:if test="${auditingApplicationDinner==1}">
+								<li><a href="/property/dinnerAuditing" target="/u/main">审核方应用</a></li>
+							</c:if>
+							<c:if test="${managementApplicationDinner==1}">
+								<li><a href="/property/dinnerManagement" target="/u/main">管理方应用</a></li>
+							</c:if>
 						</ul></li>
 					<li><a href="/function/" target="/u/main">省公司公务通信服务</a></li>
 					<li><a href="/function/" target="/u/main">办公家具请购</a></li>
 					<li><a>物业服务需求申请</a>
-						<ul><c:if test="${serverApplicationProperty==1}" >
-							<li><a href="/property/server" target="/u/main">申请方应用</a></li></c:if>
-							<c:if test="${auditingApplicationProperty==1}" >
-							<li><a href="/property/auditing" target="/u/main">审核方应用</a></li></c:if>
-							<c:if test="${managementApplicationProperty==1}" >
-							<li><a href="/property/management" target="/u/main">管理方应用</a></li></c:if>
+						<ul>
+							<c:if test="${serverApplicationProperty==1}">
+								<li><a href="/property/server" target="/u/main">申请方应用</a></li>
+							</c:if>
+							<c:if test="${auditingApplicationProperty==1}">
+								<li><a href="/property/auditing" target="/u/main">审核方应用</a></li>
+							</c:if>
+							<c:if test="${managementApplicationProperty==1}">
+								<li><a href="/property/management" target="/u/main">管理方应用</a></li>
+							</c:if>
 						</ul></li>
 					<li><a href="/function/" target="/u/main">面点预订</a></li>
 					<li><a href="/function/" target="/u/main">省公司房屋分配</a></li>
@@ -125,8 +131,12 @@
 				</ul></li>
 			<li><a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong></a>
 				<ul>
-					<li><a href="/service/management-write" target="/u/main">物业服务考评填写</a></li>
-					<li><a href="/service/management-check" target="/u/main">物业服务考评管理</a></li>
+					<c:if test="${evaluationFillProperty==1}">
+						<li><a href="/service/management-write" target="/u/main">物业服务考评填写</a></li>
+					</c:if>
+					<c:if test="${evaluationMangaementProperty==1}">
+						<li><a href="/service/management-check" target="/u/main">物业服务考评管理</a></li>
+					</c:if>
 					<li><a href="/function/" target="/u/main">用餐张贴满意度调查</a></li>
 				</ul></li>
 		</ul>

@@ -19,6 +19,8 @@ public class Role {
 	private int  registerVehicle=0;
 	private int  registerAsset=0;
 	private int  mangaementAsset=0;
+	private int  evaluationMangaementProperty=0;
+	private int  evaluationFillProperty=0;
 	private String description;
 	public int getRoleId() {
 		return roleId;
@@ -128,6 +130,18 @@ public class Role {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public int getEvaluationMangaementProperty() {
+		return evaluationMangaementProperty;
+	}
+	public void setEvaluationMangaementProperty(int evaluationMangaementProperty) {
+		this.evaluationMangaementProperty = evaluationMangaementProperty;
+	}
+	public int getEvaluationFillProperty() {
+		return evaluationFillProperty;
+	}
+	public void setEvaluationFillProperty(int evaluationFillProperty) {
+		this.evaluationFillProperty = evaluationFillProperty;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -136,6 +150,8 @@ public class Role {
 		result = prime * result + auditingApplicationProperty;
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + evaluationFillProperty;
+		result = prime * result + evaluationMangaementProperty;
 		result = prime * result + managementApplicationDinner;
 		result = prime * result + managementApplicationProperty;
 		result = prime * result + mangaementAsset;
@@ -171,6 +187,10 @@ public class Role {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
+			return false;
+		if (evaluationFillProperty != other.evaluationFillProperty)
+			return false;
+		if (evaluationMangaementProperty != other.evaluationMangaementProperty)
 			return false;
 		if (managementApplicationDinner != other.managementApplicationDinner)
 			return false;
@@ -213,10 +233,11 @@ public class Role {
 				+ ", sysAccountManage=" + sysAccountManage
 				+ ", sysPrivilegeSetting=" + sysPrivilegeSetting
 				+ ", sysParameterSetting=" + sysParameterSetting
-				+ ", sysDataRestore=" + sysDataRestore + ", serverApplication="
-				+ serverApplicationDinner + ", serverApplicationProperty="
-				+ serverApplicationProperty + ", auditingApplicationDinner="
-				+ auditingApplicationDinner + ", auditingApplicationProperty="
+				+ ", sysDataRestore=" + sysDataRestore
+				+ ", serverApplicationDinner=" + serverApplicationDinner
+				+ ", serverApplicationProperty=" + serverApplicationProperty
+				+ ", auditingApplicationDinner=" + auditingApplicationDinner
+				+ ", auditingApplicationProperty="
 				+ auditingApplicationProperty
 				+ ", managementApplicationDinner="
 				+ managementApplicationDinner
@@ -225,7 +246,10 @@ public class Role {
 				+ queryVehicle + ", queryAsset=" + queryAsset
 				+ ", registerVehicle=" + registerVehicle + ", registerAsset="
 				+ registerAsset + ", mangaementAsset=" + mangaementAsset
-				+ ", description=" + description + "]";
+				+ ", evaluationMangaementProperty="
+				+ evaluationMangaementProperty + ", evaluationFillProperty="
+				+ evaluationFillProperty + ", description=" + description + "]";
 	}
+	
 	
 }

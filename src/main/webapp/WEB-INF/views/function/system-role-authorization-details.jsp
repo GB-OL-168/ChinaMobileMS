@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>后勤服务中心管理信息系统 - 权限设置</title>
-	<link rel="stylesheet" href="/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/assets/css/system.css">
-	<script src="/assets/js/jquery-1.9.1.js"></script>
-	<script src="/assets/js/bootstrap.js"></script>
+<meta charset="utf-8">
+<title>后勤服务中心管理信息系统 - 权限设置</title>
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/system.css">
+<script src="/assets/js/jquery-1.9.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -62,7 +63,8 @@
 								type="checkbox" id="serverApplicationDinner" value="1"
 								name="serverApplicationDinner">配餐中心申请方应用
 							</label><label class="checkbox-inline"> <input type="checkbox"
-								id="auditingApplicationDinner" value="1" name="auditingApplicationDinner">配餐中心审核方应用
+								id="auditingApplicationDinner" value="1"
+								name="auditingApplicationDinner">配餐中心审核方应用
 							</label><label class="checkbox-inline"> <input type="checkbox"
 								id="managementApplicationDinner" value="1"
 								name="managementApplicationDinner">配餐中心管理方应用
@@ -75,6 +77,12 @@
 							</label><label class="checkbox-inline"> <input type="checkbox"
 								id="managementApplicationProperty" value="1"
 								name="managementApplicationProperty">物业服务管理方应用
+							</label> <br> <label class="checkbox-inline"> <input
+								type="checkbox" id="evaluationMangaementProperty" value="1"
+								name="evaluationMangaementProperty">物业服务考评管理
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="evaluationFillProperty" value="1"
+								name="evaluationFillProperty">物业服务考评填写
 							</label>
 						</div>
 					</div>
@@ -149,7 +157,15 @@
 					if(${Role.mangaementAsset} == true)
 					{
 					$("input#mangaementAsset").attr("checked","checked");
-					}				
+					}
+					if(${Role.evaluationMangaementProperty} == true)
+					{
+					$("input#evaluationMangaementProperty").attr("checked","checked");
+					}	
+					if(${Role.evaluationFillProperty} == true)
+					{
+					$("input#evaluationFillProperty").attr("checked","checked");
+					}	
 				});
 				</script>
 
