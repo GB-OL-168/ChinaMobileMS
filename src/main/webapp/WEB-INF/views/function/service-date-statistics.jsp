@@ -14,30 +14,40 @@
 	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-<div class="container">
-    <h2 style="margin:0 auto">${investigationItemsName}</h2><br>
-    
-    <table id="form_make" class='table table-bordered table-hover center'>
-        <div class='col-md-12 '>
-            <tr>
-                <th>考评项目</th>
-                <th>考评标准</th>
-                <th>统计结果</th>
-            </tr>
-            <c:forEach items="${investigationScoreEntitySetList}" var="investigationScoreEntitySetList">
-            <tr>
-                <td>${investigationScoreEntitySetList.investigationItemValue}</td>
-                <td>${investigationScoreEntitySetList.investigationStanddard}</td>
-                <td>
-                    <p>十分满意:${investigationScoreEntitySetList.excellentPercentage}%</p>
-                    <p>一般满意:${investigationScoreEntitySetList.goodPercentage}%</p>
-                    <p>不满意:${investigationScoreEntitySetList.badPercentage}%</p>
-                </td>
-            </tr>
-            </c:forEach>
-        </div>
-    </table>
-    <a href="/service/management-check"><button class="btn btn-info" style="margin: 0 auto">返回</button></a>
-</div>
+	<div class="container" style="width:900px">
+		<div class="row">
+			<div class="col-md-12">
+				<ol class="breadcrumb">
+				  <li><a href="javascript:void(0)">后勤服务考评</a></li>
+				  <li><a href="javascript:void(0)">物业服务考评</a></li>
+				  <li class="dropdown active">
+				  	<a href="javascript:void(0)">考评表统计</a></li>
+				</ol>
+			</div>
+		    <h4 style="margin-left:350px;">${investigationItemsName}</h4>
+		    
+		    <table id="form_make" class='table table-bordered table-hover center'>
+		        <div class='col-md-12 '>
+		            <tr>
+		                <th>考评项目</th>
+		                <th>考评标准</th>
+		                <th>统计结果</th>
+		            </tr>
+		            <c:forEach items="${investigationScoreEntitySetList}" var="investigationScoreEntitySetList">
+		            <tr>
+		                <td>${investigationScoreEntitySetList.investigationItemValue}</td>
+		                <td>${investigationScoreEntitySetList.investigationStanddard}</td>
+		                <td>
+		                    <p>十分满意:${investigationScoreEntitySetList.excellentPercentage}%</p>
+		                    <p>一般满意:${investigationScoreEntitySetList.goodPercentage}%</p>
+		                    <p>不满意:${investigationScoreEntitySetList.badPercentage}%</p>
+		                </td>
+		            </tr>
+		            </c:forEach>
+		        </div>
+		    </table>
+		    <a href="/service/management-check"><button class="btn btn-info" style="margin: 0 auto">返回</button></a>
+		</div>
+	</div>
 </body>
 </html>

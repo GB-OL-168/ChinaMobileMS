@@ -15,34 +15,22 @@
 </head>
 <body>
 
-	<div class="container" style="margin:30px;padding:0px;">
-		      
+	<div class="container"  style="width:900px;">      
 		<div class="row">
-	
 			<div class="col-md-12 main">
 				<div class="row"> 
 					<div class="col-md-5">
 						<ol class="breadcrumb">
 						  <li><a href="#">物业服务管理</a></li>
 						  <li><a href="#">审核方应用</a></li>
+						  <li><a href="#">待审核申请</a></li>
 						</ol>
 					</div>
-					<div class="col-md-3">
-						
-					</div>
-					
-					<!-- <div class="col-md-4">
-						<div class="input-group">
-					      <input type="text" class="form-control input-sm" placeholder="Search for User">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default btn-sm" type="button">Go!</button>
-					      </span>
-					    </div>
-					</div> -->
+					<div class="col-md-3"></div>
 				</div>
-				
-				              
-				<table id="a" class="table table-bordered">
+		          
+				<table id="a" class="table table-bordered" style="width:900px;">
+				<h4 style="text-align:center;">审核申请</h4>
 				  <tr>        
 				  	<th>编号</th>
 				  	<th>申请时间</th>

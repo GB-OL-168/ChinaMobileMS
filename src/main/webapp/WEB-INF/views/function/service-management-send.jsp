@@ -5,27 +5,29 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>后勤服务中心管理信息系统 - 服务考评</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<meta name="description" content="">
-<meta name="keywords" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>后勤服务中心管理信息系统 - 服务考评</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="width:900px">
 		<div class="row">
-			<div class="col-md-12 left">
-				<h2>服务考评</h2>
-				<b>物业服务考评</b>
-				<form class="form-horizontal"
+			<div class="col-md-12">
+				<ol class="breadcrumb">
+				  <li><a href="javascript:void(0)">后勤服务考评</a></li>
+				  <li><a href="javascript:void(0)">物业服务考评</a></li>
+				  <li class="dropdown active">
+				  	<a href="javascript:void(0)">考评表发送</a></li>
+				</ol>
+			</div>
+			<div class="col-md-12 left"  style="width:900px">
+				<form class="form-horizontal" 
 					action="/sendServiceManagement2/${investigationId}" method="post">
-					<div class="container">
-						<div class='col-md-12 '>
-							<h3 style="text-align: center">考评表发放情况</h3>
+							<h4 style="text-align: center">考评表发放操作</h4>
 							<table class='table table-bordered table-hover center'>
 								<tr>
 									<th>考评表名字</th>
@@ -88,8 +90,6 @@
 				</form>
 
 			</div>
-		</div>
-	</div>
 
 	<script>
 		var all = 1;

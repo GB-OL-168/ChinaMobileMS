@@ -106,13 +106,12 @@
 	</style>
 </head>
 <body>
-        <div class="container  col-md-12" style="margin-left:5px;">
-
+        <div class="container" style="width:900px;">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
                     <ol class="breadcrumb">
-                        <li><a href="dinner-application.html">用餐服务表格申请</a></li>
-                       <!--  <li><a href="dinner-application-view.html">服务状态查询</a></li> -->
+                        <li>配餐中心用餐申请</li>
+   					    <li>申请方应用</li>
                         <li class="dropdown active">
 						  	<a href="/property/server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务状态 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
@@ -124,7 +123,7 @@
             </div>
 
             <!-- <h3 style="text-align: center">用餐申请状态</h3> -->
-            <table class="table table-bordered">
+            <table class="table table-bordered col-md-12">
                 <tr>
                     <th>编号</th>
                     <th>申请时间</th>

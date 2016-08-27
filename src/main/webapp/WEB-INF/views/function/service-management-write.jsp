@@ -22,60 +22,60 @@
 	</style>
 </head>
 <body>
-	 <div class="container " style="margin-left:20px;">
-	  <div class="row">
+	 <div class="container" style="width:900px;">
+	  	<div class="row">
+	  		<div class="col-md-12">
+				<ol class="breadcrumb">
+				  <li><a href="javascript:void(0)">后勤服务考评</a></li>
+				  <li><a href="javascript:void(0)">物业服务考评</a></li>
+				  <li class="dropdown active">
+				  	<a href="javascript:void(0)">考评表填写</a></li>
+				</ol>
+			</div>
+	  
 			<div class="col-md-12 left">
-					<div class="container">
-						<h3 style="text-align: center">考评表列表</h3>
-						<div class='col-md-12 '>
-							<div class="container">
-									<div class='col-md-8 '>
-									</div>
-									<div class='col-md-4 '>
-									</div>
-							</div>
-							<table class='table table-bordered table-hover center'>
-								<tr>
-									<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
-								</tr>
-								<c:forEach items="${investigationTableEntitySetList}" var="investigationTableEntitySetList">
-								<tr>
-									<td>${investigationTableEntitySetList.investigationTableName}</td>
-									<td>
-									<c:choose>
-										<c:when test="${investigationTableEntitySetList.status==1}">
-										已回收
-										</c:when>
-										<c:when test="${investigationTableEntitySetList.status==0}">
-										未回收
-										</c:when>
-									</c:choose>
-									</td>
-									<td>${investigationTableEntitySetList.createStaff}</td>
-									<td>${investigationTableEntitySetList.recoveryTime}</td>
-									<td>
-									<c:choose>
-										<c:when test="${investigationTableEntitySetList.status==1}">
-										已回收
-										</c:when>
-										<c:when test="${investigationTableEntitySetList.isFill==1}">
-										已填写
-										</c:when>
-										<c:otherwise>
-									<a href="/showWiriteInvestigationItems/${investigationTableEntitySetList.investigationId}"><button class='btn btn-info'>填写</button></a>
-										</c:otherwise>
-									</c:choose>
-									</td>
-								</tr>
-								</c:forEach>
-							</table>
-						</div>
+				<div class="container">
+					<h4 style="text-align: center">考评表列表</h4>
+					<div class='col-md-12 '>
+						<table class='table table-bordered table-hover center'>
+							<tr>
+								<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
+							</tr>
+							<c:forEach items="${investigationTableEntitySetList}" var="investigationTableEntitySetList">
+							<tr>
+								<td>${investigationTableEntitySetList.investigationTableName}</td>
+								<td>
+								<c:choose>
+									<c:when test="${investigationTableEntitySetList.status==1}">
+									已回收
+									</c:when>
+									<c:when test="${investigationTableEntitySetList.status==0}">
+									未回收
+									</c:when>
+								</c:choose>
+								</td>
+								<td>${investigationTableEntitySetList.createStaff}</td>
+								<td>${investigationTableEntitySetList.recoveryTime}</td>
+								<td>
+								<c:choose>
+									<c:when test="${investigationTableEntitySetList.status==1}">
+									已回收
+									</c:when>
+									<c:when test="${investigationTableEntitySetList.isFill==1}">
+									已填写
+									</c:when>
+									<c:otherwise>
+								<a href="/showWiriteInvestigationItems/${investigationTableEntitySetList.investigationId}"><button class='btn btn-info'>填写</button></a>
+									</c:otherwise>
+								</c:choose>
+								</td>
+							</tr>
+							</c:forEach>
+						</table>
 					</div>
-				
-				
-			</div>
-			
-			</div>
+				</div>
+			</div>	
+		</div>
 	  </div>
 	
 </body>

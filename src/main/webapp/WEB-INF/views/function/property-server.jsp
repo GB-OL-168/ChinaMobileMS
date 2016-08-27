@@ -107,9 +107,7 @@
 </head>
 <body>
 
-	<div class="container" style="margin-left:20px;">
-	<!-- <div class="container  col-md-12" style="margin-left:5px;"> -->
-		      
+	<div class="container" style="width:900px;">		      
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row"> 
@@ -125,40 +123,17 @@
 						  </li>
 						</ol>
 					</div>
-					<!-- <div class="col-md-3">
-						<div class="dropdown active">
-						  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">2016 <span class="caret"></span></a>
-					          <ul class="dropdown-menu">
-					            <li><a href="property/applicant-server">2015</a></li>
-					            <li><a href="property/applicant-server">2014</a></li>
-					          </ul>
-						</div>
-					</div>
 					
-					<div class="col-md-4">
-						<div class="input-group">
-					      <input type="text" class="form-control input-sm" placeholder="Search for User"/>
-					      <span class="input-group-btn">
-					        <button class="btn btn-default btn-sm" type="button">Go!</button>
-					      </span>
-					    </div>
-					</div> -->
 				</div>
-				
-<!-- 
-				<a class="btn btn-default btn-xs" href="system-user-add.html">01</a>
-				<a class="btn btn-default btn-xs" href="system-user-add.html">02</a>
-				<a class="btn btn-default btn-xs" href="system-user-add.html">03</a> -->
 
-				              
-				<table class="table table-bordered">
+				<table class="table table-bordered"  style="width:900px;">
+				  <h4 style="text-align:center">申请情况</h4>
 				  <tr>        
 				  	<th>编号</th>
 				  	<th>申请时间</th>
 				  	<th>服务日期</th>
 				  	<th>具体时间</th>
 				  	<th>服务地点</th>
-<!-- 				  	<th>申请人</th> -->
 				  	<th>联系方式</th>
 				  	<th>临时需求</th>
 				  	<th>当前状态</th>

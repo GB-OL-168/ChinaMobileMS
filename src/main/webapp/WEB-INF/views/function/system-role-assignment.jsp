@@ -14,35 +14,21 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-12">
 						<ol class="breadcrumb">
-							<li><a href="#">系统设置</a></li>
-							<li><a href="#">权限设置</a></li>
-							<li class="dropdown active"><a
-								href="/system/role-assignment" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">角色分配 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="/system/role-authorization">角色授权</a></li>
-								</ul></li>
+							<li><a href="javascript:void(0)">系统设置</a></li>
+							<li><a href="javascript:void(0)">权限设置</a></li>
+							<li class="dropdown"><a
+								href="javascript:void(0)">角色分配 </a>
 						</ol>
 					</div>
-<!-- 
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control input-sm"
-								placeholder="搜索用户或角色"> <span class="input-group-btn">
-								<button class="btn btn-default btn-sm" type="button">搜索</button>
-							</span>
-						</div>
-					</div> -->
 				</div>
 
-				<table class="table table-bordered col-md-8">
+				<table class="table table-bordered col-md-12" style="width:900px;">
 					<h3 style="text-align: center;">设置系统角色</h3>
 
 					<tr>
@@ -53,7 +39,7 @@
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
 							<td class="userName">${a.userName}</td>
-							<td class="roleId">${a.roleName}</td>
+							<td class="roleName">${a.roleName}</td>
 							<td><a class="assignment_modify" href="javascript:void(0)">修改资料</a>
 							</td>
 						</tr>
@@ -67,32 +53,28 @@
 
 
 	<form action="/updateUserRole" Method="post" class="assignment_form" style="display: none;">
-		<input name="userName" class="name" style="display: none" type="text"></input>
+		<input name="userName" class="Name" type="text" style="display:none"></input>
 		<select name="roleName" class="assignment_list" name="assignment_list">
 			<c:forEach items="${listRole}" var="b">
 				<option name="${b.roleName}" value="${b.roleName}">${b.roleName}</option>
 			</c:forEach>
 		</select> 
 		<input type="submit" value="确认修改" /> 
-		<input  class="cancle" type="button" value="取消" /> 
 	</form>
 
 	<script>
 		$(function() {
 			/* 修改用户角色 */
-			var a=$(".assignment_form").clone().css("display", "inline-block");
 			$(".assignment_modify").click(
-					function() {
-						/* 写入的位置 */
-						var $location = $(this).parents().siblings(".roleId");
-						var $userName = $(this).parents().siblings(".userName").text();
-						$("input.name").val($userName);
-						$location.html(a);
-						$(this).unbind("click");
-					});
-			
-			/* 	取消修改用户角色 */
-			
+				function() {
+					/* 写入的位置 */
+					var a=$(".assignment_form").clone().css("display", "inline-block");
+					var $location = $(this).parents().siblings(".roleName");
+					var $userName = $(this).parents().siblings(".userName").text();
+					$location.html(a);
+					$("input.Name").val($userName);
+					$(this).unbind("click");
+				});
 		});
 		
 	</script>

@@ -6,24 +6,23 @@
 <html>
 <%@ page import="java.util.List"%>
 <head>
-<meta charset="utf-8">
-<title>后勤服务中心管理信息系统 - 账号管理</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<!-- <link rel="stylesheet" href="/assets/css/system.css"> -->
-<link rel="stylesheet" href="/assets/css/system-make.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<style>
-.1 {
-	display: none;
-}
-</style>
+	<meta charset="utf-8">
+	<title>后勤服务中心管理信息系统 - 账号管理</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system-make.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<style>
+	.1 {
+		display: none;
+	}
+	</style>
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" style="width:900px">
 		<div class="row">
-			<div class="col-md-12 main">
+			<div class="col-md-12 left">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
@@ -32,23 +31,11 @@
 							<li><a href="javascript:void(0)">用户列表</a></li>
 						</ol>
 					</div>
-				<!-- 	<div class="col-md-3">
-						<a class="btn btn-default btn-xs" href="/user-add">增加用户</a>
-					</div>
-
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control input-sm"
-								placeholder="搜索用户"> <span class="input-group-btn">
-								<button class="btn btn-default btn-sm" type="button">搜索</button>
-							</span>
-						</div>
-					</div> -->
 				</div>
 
 
 				<table class="table table-bordered user-list">
-				<!-- 	<h3>用户列表</h3> -->
+		 			<h4 style="text-align:center;">用户列表</h4> 
 					<tr>
 						<th>ID</th>
 						<th>用户名</th>

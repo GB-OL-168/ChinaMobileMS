@@ -1,80 +1,101 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en" class="login-content" data-ng-app="materialAdmin">
- <head>
-  <meta charset="UTF-8"> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>四川省移动服务公司</title>
-  <link href="/assets/css/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
-  <!-- CSS -->
-  <link href="/assets/css/app.min.1.css" rel="stylesheet" type="text/css">
-  <link rel = "Shortcut Icon" href="/assets/img/favicon.ico">
- </head>
- <body class="login-content" data-ng-controller="loginCtrl as lctrl">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/assets/css/login.css" media="screen" type="text/css" />
+<link type="text/css" href="/assets/css/style.css" rel="stylesheet" />
+<link rel = "Shortcut Icon" href="/assets/img/favicon.ico">
+<title>四川省移动后勤服务管理系统</title>
+</head> 
+<body>
 
-    <div class="lc-block" id="l-login" data-ng-class="{'toggled':lctrl.login === 1}">
-    	<h1 class="lean">登录</h1>
- 	<form action="/login" method="post">
-    	<div class="input-group m-b-20">
-    		<span class="input-group-addon">
-    			<i class="zmdi zmdi-account"></i>
-    		</span>
-     
-            <div class="fg-line">
-    			<input type="text" class="form-control"  name="userName" placeholder="用户名" regex="^\w{3,16}$"/>
-    		</div>
-    	</div>
+<div id="level">
+	<div id="content">
+	<div id="img">
+		<img id="cmccimg" src="/assets/img/CMCC_tittle.png">
+	</div>
+	<div id="window" style="display:none;">
+	<div class="page page-front">
+		<form action="/login" method="post">
+		<div class="page-content">
+			<div class="input-row">
+				<label class="label fadeIn">账&nbsp;号</label>
+				<input id="username"  name="userName" type="text"  class="input fadeIn delay1"/>
+			</div>
+			<div class="input-row">
+				<label class="label fadeIn delay2">密&nbsp;码</label>
+				<input id="password" type="password" name="password" class="input fadeIn delay3"/>
+			</div>
+			<div class="input-row perspective">
+				<button id="submit" class="button load-btn fadeIn delay4" type="submit">
+					<span class="default"><i class="ion-arrow-right-b"></i>登录</span>
+				</button>
+			</div>
+		</div>
+		</form>
+	</div>	
+</div>
+		<div id="gears">
+			<div id="gears-static"></div>
+			<div id="gear-system-1">
+				<div class="shadow" id="shadow15"></div>
+				<div id="gear15"></div>
+				<div class="shadow" id="shadow14"></div>
+				<div id="gear14"></div>
+				<div class="shadow" id="shadow13"></div>
+				<div id="gear13"></div>
+			</div>
+			<div id="gear-system-2">
+				<div class="shadow" id="shadow10"></div>
+				<div id="gear10"></div>
+				<div class="shadow" id="shadow3"></div>
+				<div id="gear3"></div>
+			</div>
+			<div id="gear-system-3">
+				<div class="shadow" id="shadow9"></div>
+				<div id="gear9"></div>
+				<div class="shadow" id="shadow7"></div>
+				<div id="gear7"></div>
+			</div>
+			<div id="gear-system-4">
+				<div class="shadow" id="shadow6"></div>
+				<div id="gear6"></div>
+				<div id="gear4"></div>
+			</div>
+			<div id="gear-system-5">
+				<div class="shadow" id="shadow12"></div>
+				<div id="gear12"></div>
+				<div class="shadow" id="shadow11"></div>
+				<div id="gear11"></div>
+				<div class="shadow" id="shadow8"></div>
+				<div id="gear8"></div>
+			</div>
+			<div class="shadow" id="shadow1"></div>
+			<div id="gear1"></div>
+			<div id="gear-system-6">
+				<div class="shadow" id="shadow5"></div>
+				<div id="gear5"></div>
+				<div id="gear2"></div>
+			</div>
+			<div id="chain-circle"></div>
+			<div id="chain"></div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src='/assets/js/jquery-1.9.1.js'></script>
+	<script type="text/javascript" src="/assets/js/login.js"></script>
 
-        <div class="input-group m-b-20">  
-    		<span class="input-group-addon">
-    			<i class="zmdi zmdi-male"></i>
-    		</span>
-    		<div class="fg-line">
-    			<input type="password" class="form-control" name="password" placeholder="密码" regex="^\w+"/>
-    		</div>
-    	</div>
-    	<div class="clearfix"></div>
-    
-          <input type="submit" value="GO" class="btn btn-login btn-danger btn-float">
-      </form>
-    		
-    </div>
-<script src="/assets/js/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/assets/js/log.js"></script>
-    <!-- Angular -->
-    <script src="/assets/js/bower_components/angular/angular.min.js"></script>
-    <script src="/assets/js/bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="/assets/js/bower_components/angular-animate/angular-animate.min.js"></script>
-    
-    
-    <!-- Angular Modules -->
-    <script src="/assets/js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="/assets/js/bower_components/angular-loading-bar/src/loading-bar.js"></script>
-    <script src="/assets/js/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-    <script src="/assets/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    
-    <!-- Common js -->
-    <script src="/assets/js/bower_components/angular-nouislider/src/nouislider.min.js"></script>
-    <script src="/assets/js/bower_components/ng-table/dist/ng-table.min.js"></script>
-    
-    <!-- Placeholder for IE9 -->
-    <!--[if IE 9 ]>
-        <script src="js/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
-    <![endif]-->
-    <!-- App level -->
-    <script src="/assets/js/app.js"></script>
-    <script src="/assets/js/controllers/main.js"></script>
-    <script src="/assets/js/controllers/ui-bootstrap.js"></script>
-    
-    
-    <!-- Template Modules -->
-    <script src="/assets/js/modules/form.js"></script>
-    <script type="text/javascript" language="javascript">
+	<script type="text/javascript">
+	$(function(){
+		$("#img").fadeIn(5000);
+		$("#gears").fadeIn(5000);
+	}
+	);
+	</script>
+
+ 	<script type="text/javascript" language="javascript">
         function ale(message) {
             if (message == "user_null") {
                 alert("用户不存在。");
@@ -89,5 +110,5 @@
             out.println("<script>ale('" + id + "')</script>");
         }
     %>
- </body>
+</body>
 </html>

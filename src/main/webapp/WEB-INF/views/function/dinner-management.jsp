@@ -12,16 +12,21 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    <style>
-        ol>li{
-            font-size:18px;
-        }
-    </style>
+ 
 </head>
 <body>
-    <div class="container  col-md-12" style="margin-left:5px;">
-        <h3 style="text-align: center">申请情况</h3>
-        <table class="table table-bordered">
+    <div class="container"  style="width:900px;">
+     <div class="row">
+         <div class="col-md-12">
+             <ol class="breadcrumb">
+                 <li>配餐中心用餐申请</li>
+                 <li>管理方应用</li>
+                 <li class="dropdown active">
+ 				<a href="javascript:void(0)">管理状态</a></li>
+             </ol>
+         </div>
+        <h4 style="text-align: center">申请情况</h4>
+        <table class="table table-bordered col-md-12" style="width:900px;">
             <tr>
                 <th>编号</th>
                 <th>所属公司</th>
@@ -74,6 +79,7 @@
             	</tr>
             </c:forEach>
         </table>
+    </div>
     </div>
 </body>
 </html>
