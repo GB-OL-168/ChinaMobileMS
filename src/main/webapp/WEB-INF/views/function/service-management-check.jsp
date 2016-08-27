@@ -22,61 +22,62 @@
 	</style>
 </head>
 <body>
-	 <div class="container " style="margin-left:20px;">
+	 <div class="container" style="width:900px;">
 	  <div class="row">
+	  		<div class="col-md-12">
+				<ol class="breadcrumb">
+				  <li><a href="javascript:void(0)">后勤服务考评</a></li>
+				  <li><a href="javascript:void(0)">物业服务考评</a></li>
+				  <li class="dropdown active">
+				  	<a href="javascript:void(0)">考评表管理</a></li>
+				</ol>
+			</div>
 			<div class="col-md-12 left">
-				<h2>服务考评</h2>
-					<div class="container">
-						<h3 style="text-align: center">考评表列表</h3>
-						<div class='col-md-12 '>
-							<div class="container">
-									<div class='col-md-8 '>
-										 <a href="/service/management-table-make"><button class="btn btn-info">新建考评表</button></a>
-									</div>
-									<div class='col-md-4 '>
-									</div>
-							</div>
-							<table class='table table-bordered table-hover center'>
-								<tr>
-									<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
-								</tr>
-								<c:forEach items="${investigationTableEntityList}" var="investigationTableEntityList">
-								<tr>
-									<td>${investigationTableEntityList.investigationName}</td>
-									<td>
-										<c:choose>
-										<c:when test="${investigationTableEntityList.status==0}">
-										未发放
-										</c:when>
-										<c:when test="${investigationTableEntityList.status==1}">
-										已发放
-										</c:when>
-										<c:when test="${investigationTableEntityList.status==2}">
-										已回收
-										</c:when>
-										</c:choose>
-									</td>
-									<td>${investigationTableEntityList.createStaff}</td>
-									<td>${investigationTableEntityList.recoveryTime}</td>
-									<td>
-									<!-- <a href="/service/management-table-make"><button class="btn btn-info">新建</button></a>
-									&nbsp&nbsp -->
-									<a href="/showInvestigationItem/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>查看</button></a>
-										&nbsp&nbsp<a href="/sendServiceManagement1/${investigationTableEntityList.investigationId}" "><button class='btn btn-info' onclick="checkeStatus(${investigationTableEntityList.status})">发放</button></a>
-										&nbsp&nbsp<a href="/recycleServiceManagement/${investigationTableEntityList.investigationId}"><button class='btn btn-info'onclick="checkRecoveryeStatus(${investigationTableEntityList.status})">回收</button></a>
-										&nbsp&nbsp<a href="/deleteTable/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>删除</button></a>
-										&nbsp&nbsp<a href="/statistics/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>统计</button></a>
-									</td>
-								</tr>
-								</c:forEach>
-							</table>
+				<div class="container">
+					<h4 style="text-align: center">考评表列表</h4>
+					<div class='col-md-12 '>
+						<div class="container">
+								<div class='col-md-8 '>
+									 <a href="/service/management-table-make"><button class="btn btn-info">新建考评表</button></a>
+								</div>
 						</div>
+						<table class='table table-bordered table-hover center'>
+							<tr>
+								<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
+							</tr>
+							<c:forEach items="${investigationTableEntityList}" var="investigationTableEntityList">
+							<tr>
+								<td>${investigationTableEntityList.investigationName}</td>
+								<td>
+									<c:choose>
+									<c:when test="${investigationTableEntityList.status==0}">
+									未发放
+									</c:when>
+									<c:when test="${investigationTableEntityList.status==1}">
+									已发放
+									</c:when>
+									<c:when test="${investigationTableEntityList.status==2}">
+									已回收
+									</c:when>
+									</c:choose>
+								</td>
+								<td>${investigationTableEntityList.createStaff}</td>
+								<td>${investigationTableEntityList.recoveryTime}</td>
+								<td>
+				
+								<a href="/showInvestigationItem/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>查看</button></a>
+									&nbsp&nbsp<a href="/sendServiceManagement1/${investigationTableEntityList.investigationId}" "><button class='btn btn-info' onclick="checkeStatus(${investigationTableEntityList.status})">发放</button></a>
+									&nbsp&nbsp<a href="/recycleServiceManagement/${investigationTableEntityList.investigationId}"><button class='btn btn-info'onclick="checkRecoveryeStatus(${investigationTableEntityList.status})">回收</button></a>
+									&nbsp&nbsp<a href="/deleteTable/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>删除</button></a>
+									&nbsp&nbsp<a href="/statistics/${investigationTableEntityList.investigationId}"><button class='btn btn-info'>统计</button></a>
+								</td>
+							</tr>
+							</c:forEach>
+						</table>
 					</div>
-				
-				
+				</div>
 			</div>
-			
-			</div>
+		</div>
 	  </div>
 	<script type="text/javascript">
 	function checkeStatus(status){

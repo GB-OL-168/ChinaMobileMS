@@ -1,11 +1,4 @@
 @CHARSET "UTF-8";
-.container{
-	margin-left:10px;
-}
-h3{
-	margin:0;
-	text-align: center;
-}
 
 .breadcrumb{
 	background-color:#fff;	
@@ -16,6 +9,7 @@ h3{
 
 .user-list{
 	text-align:center;
+	margin:0 auto;
 }
 
 .user-list th{

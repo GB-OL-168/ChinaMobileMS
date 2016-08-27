@@ -6,24 +6,24 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-<title>上市公司资产信息管理 - 信息登记</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-
-<style>
-ol>li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="utf-8">
+	<title>上市公司资产信息管理 - 信息登记</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	
+	<style>
+	ol>li {
+		font-size: 18px;
+	}
+	</style>
 </head>
 <body>
-	<div class="container" style="margin-left: 20px;">
+	<div class="container">
 
 		<div class="row">
-			<div class="col-md-8 main">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
@@ -32,8 +32,7 @@ ol>li {
 							<li><a href="#">信息登记 </a></li>
 							<li class="dropdown active"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
-								aria-haspopup="true" aria-expanded="false">租赁设备信息登记 <span
-									class="caret"></span></a>
+								>租赁设备信息登记 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/register/houses-add">房屋资产信息登记</a></li>
 									<li><a href="/register/rooms-add">房间信息登记</a></li>
@@ -43,7 +42,7 @@ ol>li {
 					</div>
 				</div>
 
-				<form class="form-horizontal" action="/addLoanDevice" method="get">
+				<form class="form-horizontal col-md-12 main"" action="/addLoanDevice" method="get">
 					<h3 style="text-align: center">租贷设备信息登记</h3>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">批次</label>

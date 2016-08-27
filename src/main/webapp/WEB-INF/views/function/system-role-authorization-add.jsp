@@ -20,15 +20,9 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ol class="breadcrumb">
-							<li><a href="#">系统设置</a></li>
-							<li><a href="#">权限设置</a></li>
-							<li class="dropdown active"><a
-								href="/system/role-authorization" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">角色授权 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="/system/role-assignment">角色分配</a></li>
-								</ul></li>
+							<li><a href="javascript:void(0)">系统设置</a></li>
+							<li><a href="javascript:void(0)">权限设置</a></li>
+							<li class="dropdown"><a href="javascript:void(0)">角色授权</a></li>
 						</ol>
 					</div>
 				</div>
@@ -84,9 +78,6 @@
 								id="inlineCheckbox1" value="1"
 								name="managementApplicationProperty">物业服务管理方应用
 							</label>
-
-
-
 
 						</div>
 					</div>

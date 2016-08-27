@@ -28,9 +28,12 @@
 .wea_time{
     width:90%;
     margin-left:200px;
-    padding-left:50px;
+    padding-left:20px;
+    margin-bottom:5px;
+    border:1px dotted #c0c0c0;
     height:25px;
-    background-color:hsla(220,10%,10%,.1);
+/*     background-color:hsla(220,10%,10%,.1); */
+	
 }
 
 

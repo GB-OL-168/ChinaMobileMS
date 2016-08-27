@@ -34,7 +34,8 @@
 <!-- 			<div class="container">
 				<div class="row"> -->
 					<ul class="menu">
-						<li><a href="#"><i class="icon-cogs icon-2x"></i>&nbsp&nbsp<strong>系统设置</strong></a>
+						<li><a href="javscript:void(0)"><i class="icon-cogs icon-2x"></i>&nbsp&nbsp<strong>系统设置</strong>
+							&nbsp&nbsp<span class="caret"></span></a>
 							<ul>
 								<li><a href="javascript:void(0)">账号管理</a>
 									<ul>
@@ -52,7 +53,8 @@
 								<li><a href="/system/parameter" target="/u/main">参数配置</a></li>
 								<li><a href="/system/data" target="/u/main">数据备份</a></li>
 							</ul></li>
-						<li><a href="#"><i class="icon-bar-chart icon-2x"></i>&nbsp&nbsp<strong>信息管理平台</strong></a>
+						<li><a href="#"><i class="icon-bar-chart icon-2x"></i>&nbsp&nbsp<strong>信息管理平台</strong>
+							<span class="caret"></span></a>
 							<ul>
 								<li><a href="javascript:void(0)" target="/u/main">上市公司资产信息</a>
 									<ul>
@@ -75,7 +77,8 @@
 								<li><a href="/function/" target="/u/main">省公司交通信息</a></li>
 								<li><a href="/function/" target="/u/main">省公司水电能耗信息</a></li>
 							</ul></li>
-						<li><a href="#"><i class="icon-briefcase icon-2x"></i>&nbsp&nbsp<strong>服务功能应用</strong></a>
+						<li><a href="#"><i class="icon-briefcase icon-2x"></i>&nbsp&nbsp<strong>服务功能应用</strong>
+							<span class="caret"></span></a>
 							<ul>
 								<li><a href="/function/" target="/u/main">办公设备租贷</a></li>
 								<li><a href="/function/" target="/u/main">维修维护服务申请</a></li>
@@ -98,7 +101,8 @@
 								<li><a href="/function/" target="/u/main">省公司房屋分配</a></li>
 								<li><a href="/function/" target="/u/main">海报张贴服务</a></li>
 							</ul></li>
-						<li><a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong></a>
+						<li><a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong>
+							<span class="caret"></span></a>
 							<ul>
 								<li><a href="/service/management-write" target="/u/main">物业服务考评填写</a></li>
 								<li><a href="/service/management-check" target="/u/main">物业服务考评管理</a></li>

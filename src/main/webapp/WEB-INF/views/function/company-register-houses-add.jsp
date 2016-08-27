@@ -1,39 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>上市公司资产信息管理 - 信息登记</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<style>
-ol>li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="UTF-8">
+	<title>上市公司资产信息管理 - 信息登记</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<style>
+	ol>li {
+		font-size: 18px;
+	}
+	</style>
 </head>
 <body>
-
-	<div class="container" style="margin-left: 20px;">
-
+	<div class="container">
 		<div class="row">
-
 			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
-							<li><a href="#">信息管理</a></li>
-							<li><a href="#">上市公司资产信息</a></li>
-							<li><a href="#">信息登记</a></li>
-							<li class="dropdown active"><a href="#"
-								class="dropdown-toggle" data-toggle="dropdown" role="button"
-								aria-haspopup="true" aria-expanded="false">房屋资产信息登记 <span
+							<li><a href="javascript:void(0)">信息管理</a></li>
+							<li><a href="javascript:void(0)">上市公司资产信息</a></li>
+							<li><a href="javascript:void(0)">信息登记</a></li>
+							<li class="dropdown"><a href="#"
+								class="dropdown-toggle" data-toggle="dropdown" role="button">房屋资产信息登记 <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/register/rooms-add">房间信息登记</a></li>
@@ -44,8 +38,8 @@ ol>li {
 					</div>
 				</div>
 
-				<form class="form-horizontal" action="/addAH" method="get">
-					<h3 style="text-align: center">房屋资产信息登记</h3>
+				<form class="form-horizontal col-md-12" action="/addAH" method="get">
+					<h4 style="text-align: center">房屋资产信息登记</h4>
 
 					<!-- 					<div class="form-group"> -->
 					<!-- 						<label class="col-sm-2 control-label">房屋编号</label> -->

@@ -16,11 +16,11 @@
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<ol class="breadcrumb">
-							<li><a href="#">系统设置</a></li>
-							<li><a href="#">账号管理</a></li>
-							<li><a href="#">添加角色</a></li>
+							<li><a href="javascript:void(0)">系统设置</a></li>
+							<li><a href="javascript:void(0)">账号管理</a></li>
+							<li><a href="javascript:void(0)">添加角色</a></li>
 						</ol>
 					</div>
 				</div>

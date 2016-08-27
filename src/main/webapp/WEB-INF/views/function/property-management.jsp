@@ -11,103 +11,14 @@
 	<title>上市公司资产信息管理 - 物业服务管理</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
+	<link rel="stylesheet" href="/assets/css/propetry-management.css"/>
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	
-	<style>
-			*{margin:0;padding:0;list-style-type:none;}
-			a,img{border:0;}
-			/*按钮样式*/
-			
-			#code{
-				border:1px solid black;
-				width: 400px;
-				height: 550px;
-				background-color: #fff;
-				padding: 10px;
-				position: absolute;
-				display: none;
-				left: 45%;
-				z-index: 1002;
-			}
-			#modify_div{	
-				border:1px solid black;
-				width: 450px;
-				height: 200px;
-				background-color: #fff;
-				padding: 10px;
-				position: absolute;
-				display: none;
-				left: 45%;
-				z-index: 1002;
-			}
-			
-			
-			#check_div{
-				border:1px solid black;
-				width: 400px;
-				height: 310px;
-				background-color: #fff;
-				padding: 10px;
-				position: absolute;
-				display: none;
-				left: 45%;
-				z-index: 1002;	
-			}
-			
-			
-			.close1 {
-				width: 380px;
-				height: 20px;
-			}
-			#closebt1 {
-				float: right;
-			}
-			#closebt1 img {
-				width: 20px;
-				height:20px;
-			}
-			#closebt2 {
-				float: right;
-			}
-			#closebt2 img {
-				width: 20px;
-				height:20px;
-			}
-			
-			#closebt3 {
-				float: right;
-			}
-			#closebt3 img {
-				width: 20px;
-				height:20px;
-			}
-			
-			.goodtxt {
-				text-align: center;
-			}
-			.goodtxt p {
-				height: 30px;
-				line-height: 30px;
-				font-size: 16px;
-				color: #000;
-				font-weight: 600;
-			}
-			#code button{
-				margin-left:80px;
-			}
-			#modify_div button{
-				margin-left:15px;
-			}
-					
-	</style>
 </head>
 <body>
 
-	<div class="container">
-		      
+	<div class="container" style="width:900px;">		      
 		<div class="row">
-
 			<div class="col-md-12 main">
 				<div class="row"> 
 					<div class="col-md-5">
@@ -117,22 +28,10 @@
 						  <li><a href="#">申请状态 </a></li>
 						</ol>
 					</div>
-					<div class="col-md-3">
-						
-					</div>
-					
-					<!-- <div class="col-md-4">
-						<div class="input-group">
-					      <input type="text" class="form-control input-sm" placeholder="Search for User">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default btn-sm" type="button">Go!</button>
-					      </span>
-					    </div>
-					</div> -->
-				</div>
-				
-				              
-				<table class="table table-bordered">
+					<div class="col-md-3"></div>
+				</div>           
+				<table class="table table-bordered" style="width:900px;">
+					<h4 style="text-align:center;">审核情况</h4>
 				  <tr>        
 				  	<th>编号</th>
 				  	<th>申请时间</th>
@@ -202,10 +101,14 @@
 	</div>
 
 	<div id="code">
-		<div class="close1"><a href="javascript:void(0)" id="closebt1"><img src="/assets/img/close.gif"></a></div>
+		<div class="title">
+		    <span>具体要求</span>
+		    <div class="close">
+				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+			</div>
+		</div>
 		<div class="goodtxt">
-				<table class="table table-bordered table-hover">
-				<h3 style="align-text:center">具体要求</h3>
+			<table class="table table-bordered table-hover">
 				<tr><td>礼仪接待</td>
 					<td><p class="receptionService"></p></td></tr>
 				<tr><td>就餐服务</td>
@@ -257,27 +160,12 @@
 			});
 				
 				
-			$('#closebt1').click(function() {
+			$('#closebt').click(function() {
 				$('#code').hide();
-			/* 	$('#goodcover').hide(); */
 			});
 			
-			$('#closebt2').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#modify_closed_btn').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#closebt3').click(function() {
-				$('#check_div').hide();
-			});
-			
-		/* 	$('#goodcover').click(function() {
-				$('#code').hide();
-				$('#goodcover').hide();
-			}); */
+		
+		
 			jQuery.fn.center = function(loaded) {
 				var obj = this;
 
