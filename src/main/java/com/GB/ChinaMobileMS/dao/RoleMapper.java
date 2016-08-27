@@ -14,4 +14,6 @@ public interface RoleMapper {
 	int updateRole(Role role);
 	
 	int deleteRoleByName(int roleId);
+	
+	Role findRoleById(int roleId);
 }

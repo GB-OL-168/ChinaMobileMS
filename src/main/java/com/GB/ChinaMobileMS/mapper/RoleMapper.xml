@@ -61,6 +61,13 @@
 		delete from role
 		where role_id = #{roleId}
 	</delete>
+	
+	<select id="findRoleById" parameterType="int"
+		resultType="com.GB.ChinaMobileMS.entity.Role">
+		select * from role
+		where role_id = #{roleId}
+
+	</select>
 
 	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
 		返回的类型 -->
