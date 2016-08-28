@@ -30,7 +30,12 @@ public class RoleController {
 
 	@RequestMapping(value = "/updateUserRole", method = RequestMethod.POST)
 	public ModelAndView updateUserRole(User user, HttpSession session) {
+<<<<<<< HEAD
 	
+=======
+		// System.out.println("updateUserRole");
+		System.out.println("user:" + user);
+>>>>>>> 5fc09527563779f476085b6590b41676747c9d7b
 		List<Role> listRole = roleService.ListRole();
 		Iterator<Role> it = listRole.iterator();
 		while (it.hasNext()) {

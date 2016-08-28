@@ -55,5 +55,13 @@ public class RoleServiceImpl implements RoleService {
 		
 		return "Deleted";
 	}
+	
+	public Role findRoleById(int roleId){
+		System.out.println("Enter findRoleById");
+		
+		Role role = roleMapper.findRoleById(roleId);
+		
+		return role;
+	}
 
 }

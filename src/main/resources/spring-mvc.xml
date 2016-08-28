@@ -34,9 +34,15 @@
 	<!-- 拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/u/*"/>
+			<mvc:mapping path="/*"/>
+			<mvc:mapping path="/*/*"/>
 			<bean class="com.GB.ChinaMobileMS.Interceptor.LoginInterceptor"/>
 		</mvc:interceptor> 
+		<mvc:interceptor>
+			<mvc:mapping path="/*"/>
+			<mvc:mapping path="/*/*"/>
+			<bean class="com.GB.ChinaMobileMS.Interceptor.RoleInterceptor"/>
+		</mvc:interceptor>
 	</mvc:interceptors> 
 
 	<!-- 视图 -->

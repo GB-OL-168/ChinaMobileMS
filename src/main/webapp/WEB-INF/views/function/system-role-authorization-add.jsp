@@ -78,6 +78,13 @@
 								id="inlineCheckbox1" value="1"
 								name="managementApplicationProperty">物业服务管理方应用
 							</label>
+							<br> <label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1"
+								name="evaluationMangaementProperty">物业服务考评管理
+							</label><label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1"
+								name="evaluationFillProperty">物业服务考评填写
+							</label>
 
 						</div>
 					</div>

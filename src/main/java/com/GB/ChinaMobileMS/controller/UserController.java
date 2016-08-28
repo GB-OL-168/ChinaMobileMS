@@ -18,11 +18,13 @@ import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.Information;
 import com.GB.ChinaMobileMS.entity.JobEntity;
+import com.GB.ChinaMobileMS.entity.Role;
 import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.BranchService;
 import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 import com.GB.ChinaMobileMS.services.interfaces.InfoService;
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
+import com.GB.ChinaMobileMS.services.interfaces.RoleService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
@@ -38,6 +40,8 @@ public class UserController {
 	private JobService JobService;
 	@Autowired
 	private InfoService infoService;
+	@Autowired
+	private RoleService roleService;
 	
 	//在Spring中生成set get方法 自动获取userService对象
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -46,8 +50,6 @@ public class UserController {
 		String password = user.getPassword();
 		//ModeAndView Spring中的一个方便跳转类  spring 进行解析
 		user = userService.login(user.getUserName(), user.getPassword());
-		System.out.println("after "+user);
-
 		
 		if (user == null) {
 			return new ModelAndView("forward:/").addObject("id", "user_null");
@@ -55,11 +57,39 @@ public class UserController {
 			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
 		}
 		
+
 		Information info = infoService.findbyInfoID();
 
 		session.setAttribute("user", user);
+		
 		session.setAttribute("info", info.getContent());
-		return new ModelAndView("redirect:/u/main");
+		
+		Map map = new HashMap();
+
+		Role role = roleService.findRoleById(user.getRoleId());
+		
+		System.out.println("role="+role);
+		map.put("r", role);
+		
+		session.setAttribute("sysAccountManage", role.getSysAccountManage());
+		session.setAttribute("sysPrivilegeSetting",role.getSysPrivilegeSetting());
+		session.setAttribute("sysParameterSetting", role.getSysParameterSetting());
+		session.setAttribute("sysDataRestore", role.getSysDataRestore());
+		session.setAttribute("serverApplicationDinner", role.getServerApplicationDinner());
+		session.setAttribute("serverApplicationProperty", role.getServerApplicationProperty());
+		session.setAttribute("auditingApplicationDinner", role.getAuditingApplicationDinner());
+		session.setAttribute("auditingApplicationProperty", role.getAuditingApplicationProperty());
+		session.setAttribute("managementApplicationDinner", role.getManagementApplicationDinner());
+		session.setAttribute("managementApplicationProperty", role.getManagementApplicationProperty());
+		session.setAttribute("queryVehicle", role.getQueryVehicle());
+		session.setAttribute("queryAsset", role.getQueryAsset());
+		session.setAttribute("registerVehicle", role.getRegisterVehicle());
+		session.setAttribute("registerAsset", role.getRegisterAsset());
+		session.setAttribute("mangaementAsset", role.getMangaementAsset());
+		session.setAttribute("evaluationFillProperty", role.getEvaluationFillProperty());
+		session.setAttribute("evaluationMangaementProperty", role.getEvaluationMangaementProperty());
+		
+		return new ModelAndView("redirect:/u/main",map);
 	}
 	
 	@RequestMapping(value = "/deleteUser/{userName}" , method = RequestMethod.GET)

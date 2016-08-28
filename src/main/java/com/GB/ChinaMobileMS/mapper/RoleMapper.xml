@@ -17,13 +17,15 @@
 		INSERT INTO
 		role(role_name,
 		sys_account_manage,sys_privilege_setting,sys_parameter_setting,sys_data_restore,server_application_dinner,server_application_property,auditing_application_dinner,
-		auditing_application_property,management_application_dinner,management_application_property,query_vehicle,query_asset,register_vehicle,register_asset,mangaement_asset,description)
+		auditing_application_property,management_application_dinner,management_application_property,query_vehicle,query_asset,register_vehicle,
+		register_asset,mangaement_asset,
+		evaluation_mangaement_property,evaluation_fill_property,description)
 		VALUES
 		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore}
 		,#{serverApplicationDinner},#{serverApplicationProperty},#{auditingApplicationDinner}
 		,#{auditingApplicationProperty},#{managementApplicationDinner},#{managementApplicationProperty},#{queryVehicle}
 		,#{queryAsset},#{registerVehicle},#{registerAsset},#{mangaementAsset}
-		,#{description})
+		,#{evaluationMangaementProperty},#{evaluationFillProperty},#{description})
 	</insert>
 
 	<select id="findRoleByName" parameterType="String"
@@ -51,6 +53,8 @@
 		register_vehicle=#{registerVehicle},
 		register_asset=#{registerAsset},
 		mangaement_asset=#{mangaementAsset},
+		evaluation_mangaement_property=#{evaluationMangaementProperty},
+		evaluation_fill_property=#{evaluationFillProperty},
 		description =#{description}
 		where
 		role_name
@@ -61,6 +65,13 @@
 		delete from role
 		where role_id = #{roleId}
 	</delete>
+	
+	<select id="findRoleById" parameterType="int"
+		resultType="com.GB.ChinaMobileMS.entity.Role">
+		select * from role
+		where role_id = #{roleId}
+
+	</select>
 
 	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
 		返回的类型 -->

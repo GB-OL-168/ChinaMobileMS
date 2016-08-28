@@ -12,12 +12,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 //	private static final String[] IGNORE_URI={"/login"};
 	
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response,Object handler){
-		 Object username =request.getSession().getAttribute("user"); 
-//		 for(String s:IGNORE_URI){
-//			 if(request.getRequestURI().toString().contains(s)){
-//				 return true;
-//			 }
-//		 }
+		 
+		Object username =request.getSession().getAttribute("user"); 
+		 
+		 
+		 if(request.getRequestURI().equals("/login"))
+		 return true;
 	        if(username == null){    
 				try {
 					response.sendRedirect("/");
