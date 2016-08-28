@@ -50,8 +50,6 @@ public class UserController {
 		String password = user.getPassword();
 		//ModeAndView Spring中的一个方便跳转类  spring 进行解析
 		user = userService.login(user.getUserName(), user.getPassword());
-		System.out.println("after "+user);
-
 		
 		if (user == null) {
 			return new ModelAndView("forward:/").addObject("id", "user_null");
@@ -59,9 +57,11 @@ public class UserController {
 			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
 		}
 		
+
 		Information info = infoService.findbyInfoID();
 
 		session.setAttribute("user", user);
+		
 		session.setAttribute("info", info.getContent());
 		
 		Map map = new HashMap();
