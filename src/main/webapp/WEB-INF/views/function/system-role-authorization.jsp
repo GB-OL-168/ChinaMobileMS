@@ -13,7 +13,7 @@
 	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -27,7 +27,7 @@
 				</div>
 
 
-				<table class="table table-bordered">
+				<table class="table table-bordered" style="width:900px;">
 					<h4 style="text-align: center;">已设置角色权限</h4>
 					<tr>
 						<th>编号</th>
@@ -56,7 +56,7 @@
 		var a="0";
 		var a=$("#flag").text();
 		if(a=="1"){
-			alert("此角色存在于用户中，不能删除");
+			alert("该权限角色已被分配到某用户中，删除失败！");
 		}
 	});
 	

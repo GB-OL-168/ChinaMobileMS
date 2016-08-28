@@ -82,8 +82,14 @@
 							<c:if test="${registerVehicle==1}">
 								<li><a href="/vehicle/info-add" target="/u/main"> 车辆登记</a></li>
 							</c:if>
+							<c:if test="${registerVehicle==1}">
+								<li><a href="/vehicle/person-add" target="/u/main"> 驾驶员登记</a></li>
+							</c:if>
 							<c:if test="${queryVehicle==1}">
 								<li><a href="/vehicle/info-find" target="/u/main">车辆查询</a></li>
+							</c:if>
+							<c:if test="${queryVehicle==1}">
+								<li><a href="/vehicle/person-find" target="/u/main">驾驶员查询</a></li>
 							</c:if>
 						</ul></li>
 

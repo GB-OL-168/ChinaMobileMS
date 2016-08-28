@@ -10,14 +10,10 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    <style>
-        ol>li{
-            font-size:18px;
-        }
-    </style>
+   
 </head>
 <body>
-        <div class="container" style="margin-left:20px;">
+        <div class="container" style="width:900px;">
 
             <div class="row">
 
@@ -27,12 +23,7 @@
                             <ol class="breadcrumb">
                                 <li>信息管理</li>
                                 <li>全省车辆信息</li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息登记 <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/vehicle/info-find">信息查询</a></li>
-                                    </ul>
-                                </li>
+                                <li class="dropdown">信息登记</li>
                                 <li class="dropdown active">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">驾驶员信息登记 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -43,8 +34,8 @@
                         </div>
                     </div>
 
-                    <form class="form-horizontal" action = "/addVehiclePerson" method="post">
-                        <h3 style="text-align: center">驾驶员信息登记</h3>
+                    <form class="form-horizontal" action = "/addVehiclePerson" method="post"  style="width:900px;">
+                        <h4 style="text-align: center">驾驶员信息登记</h4>
 
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">姓名</label>

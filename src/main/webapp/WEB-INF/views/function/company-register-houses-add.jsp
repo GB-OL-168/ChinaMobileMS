@@ -10,14 +10,9 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<style>
-	ol>li {
-		font-size: 18px;
-	}
-	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -38,7 +33,7 @@
 					</div>
 				</div>
 
-				<form class="form-horizontal col-md-12" action="/addAH" method="get">
+				<form class="form-horizontal col-md-12"  style="width:900px;" action="/addAH" method="get">
 					<h4 style="text-align: center">房屋资产信息登记</h4>
 
 					<!-- 					<div class="form-group"> -->

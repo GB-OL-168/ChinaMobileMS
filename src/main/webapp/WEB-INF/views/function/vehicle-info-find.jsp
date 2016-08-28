@@ -11,14 +11,10 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    <style>
-        ol>li{
-            font-size:18px;
-        }
-    </style>
+   
 </head>
 <body>
-    <div class="container" style="margin-left:20px;">
+    <div class="container" style="width:900px;">
 
         <div class="row">
 
@@ -28,12 +24,7 @@
                         <ol class="breadcrumb">
                             <li>信息管理</li>
                             <li>全省车辆信息</li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息查询 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/vehicle/info-add">信息登记</a></li>
-                                </ul>
-                            </li>
+                            <li>信息查询 </a></li>
                             <li class="dropdown active">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车辆信息查询 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -63,10 +54,10 @@
                 </form>
                 
             </div>
-            <hr>
+         
             </div>
-                <table class="table table-bordered">
-                    <h3 style="text-align:center;">查询结果</h3>
+                <table class="table table-bordered" style="width:900px;">
+                    <h4 style="text-align:center;">查询结果</h4>
                     <tr>
                         <th>品牌</th>
                         <th>型号</th>

@@ -6,22 +6,18 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-<title>上市公司资产信息管理 - 信息登记</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<style>
-ol>li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="utf-8">
+	<title>上市公司资产信息管理 - 信息登记</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+
 </head>
 <body>
 
 
-	<div class="container" style="margin-left: 20px;">
+	<div class="container" style="width:900px;">
 
 		<div class="row">
 			<div class="col-md-12 main">
@@ -43,7 +39,7 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="/searchRoom" method="get">
+					<form action="/searchRoom" method="get"  style="width:900px;">
 						<div class="col-md-offset-1 col-md-4">
 							<input type="radio" name="room" value="companyName">公司名称 <input
 								type="radio" name="room" value="building">建筑名称 <input
@@ -60,11 +56,11 @@ ol>li {
 						</div>
 					</form>
 				</div>
-				<hr>
+			
 			</div>
 
-			<table class="table table-bordered">
-				<h3 style="text-align: center;">房间信息查询</h3>
+			<table class="table table-bordered"  style="width:900px;">
+				<h4 style="text-align: center;">房间信息查询</h4>
 				<tr>
 					<th>房间编号</th>
 					<th>所属单位</th>

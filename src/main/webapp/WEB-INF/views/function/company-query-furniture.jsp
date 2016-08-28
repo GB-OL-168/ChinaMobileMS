@@ -6,21 +6,17 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-<title>上市公司资产信息管理 - 信息登记</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<style>
-ol>li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="utf-8">
+	<title>上市公司资产信息管理 - 信息登记</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+
 </head>
 <body>
 
-	<div class="container" style="margin-left: 20px;">
+	<div class="container" style="width:900px;">
 
 		<div class="row">
 			<div class="col-md-12 main">
@@ -44,7 +40,7 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="/searchASF"  method="get">
+					<form action="/searchASF"  method="get"  style="width:900px;">
 						<div class="col-md-offset-1 col-md-4">
 							 <input type="radio" name="asf" value="furnitureType">家具类型
 							 <input type="radio" name="asf" value="brand">品牌型号 
@@ -61,9 +57,9 @@ ol>li {
 						</div>
 					</form>
 				</div>
-				<hr>
-				<table class="table table-bordered">
-					<h3 style="text-align: center;">办公家具信息查询</h3>
+			
+				<table class="table table-bordered"  style="width:900px;">
+					<h4 style="text-align: center;">办公家具信息查询</h4>
 					<tr>
 						<th>编号</th>
 						<th>家具类型</th>

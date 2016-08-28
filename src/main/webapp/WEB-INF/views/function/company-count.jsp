@@ -10,15 +10,11 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<style>
-		ol>li{
-			font-size:18px;
-		}
-	</style>
+
 </head>
 <body>
 
-	<div class="container" style="margin-left:20px;">
+	<div class="container" style="width:900px;">
 		
 		<div class="row">
 			<div class="col-md-12 main">
@@ -27,32 +23,16 @@
 						<ol class="breadcrumb">
 						  <li><a href="#">信息管理</a></li>
 						  <li><a href="#">上市公司资产信息</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息统计 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="company-register-houses.html">信息查询</a></li>
-									<li><a href="company-register-houses-add.html">信息登记</a></li>
-								</ul>
+							<li>
+								<a href="#">信息统计</a>
 							</li>
 							<li><a href="#">统计分析</a></li>
 						</ol>
 					</div>
-					<hr>
-					
-					<div class="col-md-4">
-						<form action="" >
-							<div class="input-group">
-								<input type="text" class="form-control input-sm" placeholder="请输入所搜公司名称">
-								<span class="input-group-btn">
-									<input type="submit" class="btn btn-default btn-sm" value="搜索"/>
-							  	</span>
-							</div>
-						</form>
-					</div>
 				</div>
 
-				<h3 style="text-align:center;">资产统计</h3>
-				<table class="table	table-responsive table-bordered col-md-8">
+				<h4 style="text-align:center;">资产统计</h4>
+				<table class="table	table-responsive table-bordered col-md-12" style="width:900px;">
 				  <tr>
 					  <th>公司编号</th>
 				  	<th>公司名称</th>

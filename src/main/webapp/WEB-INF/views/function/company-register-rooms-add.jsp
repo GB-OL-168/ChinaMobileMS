@@ -12,15 +12,11 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<style>
-	ol>li {
-		font-size: 18px;
-	}
-	</style>
+
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -42,8 +38,8 @@
 					</div>
 				</div>
 
-				<form class="form-horizontal col-md-12" action="/addRoom" method="get">
-					<h3 style="text-align: center;">房间信息登记</h3>
+				<form class="form-horizontal col-md-12"  style="width:900px;" action="/addRoom" method="get">
+					<h4 style="text-align: center;">房间信息登记</h4>
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属公司</label>
 						<div class="col-sm-5">

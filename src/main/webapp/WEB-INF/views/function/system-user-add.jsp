@@ -12,7 +12,7 @@
 	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -24,7 +24,7 @@
 						</ol>
 					</div>
 				</div>
-				<form class="form-horizontal" action="/addUser" method="post">
+				<form class="form-horizontal" style="width:900px;" action="/addUser" method="post">
 					<h3 style="text-align: center;">添加用户</h3>
 	
 					<div class="form-group">

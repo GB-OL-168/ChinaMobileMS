@@ -6,22 +6,18 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>信息管理-上市公司资产信息-使用情况</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<link rel="stylesheet" href="/assets/css/test.css">
-<style>
-ol li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="UTF-8">
+	<title>信息管理-上市公司资产信息-使用情况</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="/assets/css/system-make.css">
+
 </head>
 <body>
 
-	<div class="container" style="margin-left: 20px;">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -29,21 +25,13 @@ ol li {
 						<ol class="breadcrumb">
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">使用信息 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="company-register-houses-add.html">信息登记</a></li>
-									<li><a href="company-register-houses.html">信息查询</a></li>
-									<li><a href="company-count.html">信息统计</a></li>
-								</ul></li>
-							<li class="active"><a href="javascript:void(0)">使用信息查询 <span
-									class="caret"></span></a></li>
+							<li><a href="#">使用信息</a> </li>
+							<li class="active"><a href="javascript:void(0)">使用信息查询 </a></li>
 						</ol>
 					</div>
 				</div>
 				<hr>
-				<form action="/company/info">
+				<form action="/company/info"  style="width:900px;">
 					<div class="col-md-offset-3 col-md-2">
 						<input type="radio" name="condition" value="use">在用 <input
 							type="radio" name="condition" value="notuse">闲置
@@ -59,10 +47,10 @@ ol li {
 					</div>
 				</form>
 			</div>
-			<hr>
+		
 			<div class="col-md-12">
-				<table class="table table-bordered">
-					<h3 style="text-align: center;">查询结果</h3>
+				<table class="table table-bordered"  style="width:900px;">
+					<h4 style="text-align: center;">查询结果</h4>
 					<tr>
 						<th>家具类型</th>
 						<th>品牌型号</th>
@@ -81,6 +69,7 @@ ol li {
 							<td class="brand">${f.brand}</td>
 							<td class="specification">${f.specification}</td>
 							<td class="count">${f.count}</td>
+							<td>无</td>
 							<%-- <th>${f.remark}</th>  --%>
 							<td class="usedSituation" style="display: none">${f.usedSituation}</td>
 							<td><a class="modify" href="javascript:void(0)">修改</a>|
@@ -96,18 +85,18 @@ ol li {
 	<!-- 	新添加的地方-->
 
 	<div id="code">
-		<div class="close1">
-			<a href="javascript:void(0)" id="closebt"><img
-				src="/assets/img/close.gif"></a>
+		<div class="title">
+		    <span>修改信息</span>
+		    <div class="close">
+				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+			</div>
 		</div>
 		<form action="/updateFurnitureInfo" method="post">
 			<div class="goodtxt">
 
 
 				<table class="table table-bordered table-hover">
-					<h3 style="align-text: center">修改信息</h3>
-					<input type="hidden" name="officeFurnitureInfoId"
-						class="officeFurnitureInfoId" />
+					<input type="hidden" name="officeFurnitureInfoId" class="officeFurnitureInfoId" />
 					<tr>
 						<td>家具类型</td>
 						<td><input name="furnitureType" class="furnitureType" /></td>
@@ -124,10 +113,6 @@ ol li {
 						<td>数量</td>
 						<td><input type="number" name="count" class="count" /></td>
 					</tr>
-					<!-- <tr>
-						<td>备注</td>
-						<td><input name="furnitureType" class="furnitureType" /></td>
-					</tr> -->
 					<tr>
 						<td>使用情况</td>
 						<td>
