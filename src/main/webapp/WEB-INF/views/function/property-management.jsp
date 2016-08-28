@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<div class="container" style="width:900px;">		      
+	<div class="container" style="width:920px;">		      
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row"> 
@@ -30,10 +30,10 @@
 					</div>
 					<div class="col-md-3"></div>
 				</div>           
-				<table class="table table-bordered" style="width:900px;">
+				<table class="table table-bordered" style="width:920px;">
 					<h4 style="text-align:center;">审核情况</h4>
 				  <tr>        
-				  	<th>编号</th>
+				   	<th>编号</th> 
 				  	<th>申请时间</th>
 				  	<th>服务日期</th>
 				  	<th>地点</th>
@@ -46,7 +46,7 @@
 				  </tr>
 				  <c:forEach items="${propertyList}" var="propertyList" varStatus="status">
 				  <tr>
-				  	<td>${ status.index + 1}</td>
+				   	<td>${ status.index + 1}</td> 
 				  	<td>${propertyList.applyTime }</td>
 				  	<td>${propertyList.serviceDate }</td>
 				  	<td>${propertyList.serviceLocation }</tdh>

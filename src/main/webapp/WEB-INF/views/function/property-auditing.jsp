@@ -11,11 +11,11 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<link rel="stylesheet" href="/assets/css/test.css">
+	<link rel="stylesheet" href="/assets/css/system-make.css">
 </head>
 <body>
 
-	<div class="container"  style="width:900px;">      
+	<div class="container"  style="width:950px;">      
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row"> 
@@ -29,10 +29,10 @@
 					<div class="col-md-3"></div>
 				</div>
 		          
-				<table id="a" class="table table-bordered" style="width:900px;">
+				<table id="a" class="table table-bordered" style="width:950px;">
 				<h4 style="text-align:center;">审核申请</h4>
 				  <tr>        
-				  	<th>编号</th>
+				  	<!-- <th>编号</th> -->
 				  	<th>申请时间</th>
 				  	<th>服务日期</th>
 				  	<th>具体时间</th>
@@ -46,7 +46,7 @@
 				  </tr>
 				    <c:forEach items="${propertyServiceList}" var="a"  varStatus="status">
 				  <tr class="a">
-				  	<td>${ status.index + 1}</td>
+		<%-- 		  	<td>${ status.index + 1}</td> --%>
 				  	<td>${a.applyTime}</td>
 				  	<td>${a.serviceDate}</td>
 				  	<td>${a.concreteTime}</td>
@@ -126,7 +126,12 @@
 <!-- 	新添加的地方--> 
 	
 	<div id="code">
-		<div class="close1"><a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a></div>
+		<div class="title">
+		    <span>修改信息</span>
+		    <div class="close">
+				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+			</div>
+		</div>
 		<div class="goodtxt">
 
 				<table class="table table-bordered table-hover">
