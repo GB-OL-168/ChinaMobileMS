@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +30,7 @@ public class RoleController {
 
 	@RequestMapping(value = "/updateUserRole", method = RequestMethod.POST)
 	public ModelAndView updateUserRole(User user, HttpSession session) {
-		// System.out.println("updateUserRole");
-		// System.out.println("user:" + user);
+	
 		List<Role> listRole = roleService.ListRole();
 		Iterator<Role> it = listRole.iterator();
 		while (it.hasNext()) {
@@ -92,6 +92,7 @@ public class RoleController {
 		}
 		if (flag == 1) {
 			System.out.println("can't delete this Role");
+			return GetRoleList1();
 		} else {
 			String str = roleService.deleteRoleByName(roleId);
 		}
@@ -124,10 +125,23 @@ public class RoleController {
 		return new ModelAndView("/function/system-role-assignment", map);
 	}
 
+	public ModelAndView GetRoleList1() {
+		List<Role> listRole = roleService.ListRole();
+		Map<String, List<Role>> map = new HashMap<String, List<Role>>();
+		map.put("listRole", listRole);
+		ModelAndView a =new ModelAndView("/function/system-role-authorization",map);
+		int flag=1;
+		a.addObject("flag",flag);
+		return a;
+	}
+	
 	public ModelAndView GetRoleList() {
 		List<Role> listRole = roleService.ListRole();
 		Map map = new HashMap();
 		map.put("listRole", listRole);
-		return new ModelAndView("/function/system-role-authorization", map);
+		ModelAndView a =new ModelAndView("/function/system-role-authorization", map);
+		int flag=0;
+		a.addObject("flag",flag);
+		return a;
 	}
 }
