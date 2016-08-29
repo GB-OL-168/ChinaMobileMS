@@ -22,7 +22,7 @@
 
 	<div class="container" style="width:900px">
 		<div class="row">
-			<div class="col-md-12 left">
+			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">

@@ -25,13 +25,13 @@
 					</div>
 				</div>
 				<form class="form-horizontal" style="width:900px;" action="/addUser" method="post">
-					<h3 style="text-align: center;">添加用户</h3>
+					<h4 style="text-align: center;">添加用户</h4>
 	
 					<div class="form-group">
 						<label class="col-sm-4 control-label">账号</label>
 						<div class="col-sm-5">
 							<input name="userName" type="text" class="form-control"
-								placeholder="请输入用账号">
+								placeholder="请输入用户账号">
 						</div>
 					</div>
 	
@@ -138,7 +138,7 @@
 						<label class="col-sm-4 control-label">备注</label>
 						<div class="col-sm-5">
 							<input name="remark" type="text" class="form-control"
-								placeholder="remark">
+								placeholder="请输入备注">
 						</div>
 					</div>
 	

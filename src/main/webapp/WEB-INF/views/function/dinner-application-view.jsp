@@ -106,7 +106,7 @@
 	</style>
 </head>
 <body>
-        <div class="container" style="width:900px;">
+        <div class="container" style="width:1100px;">
             <div class="row">
                 <div class="col-md-12">
                     <ol class="breadcrumb">
@@ -122,7 +122,7 @@
                 </div>
             </div>
 
-            <!-- <h3 style="text-align: center">用餐申请状态</h3> -->
+            <h4 style="text-align: center">用餐申请状态</h4> 
             <table class="table table-bordered col-md-12">
                 <tr>
                     <th>编号</th>

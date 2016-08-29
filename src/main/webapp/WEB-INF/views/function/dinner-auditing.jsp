@@ -15,7 +15,7 @@
   
 </head>
 <body>
-      <div class="container" style="width:900px;">
+      <div class="container" style="width:1100px;">
         <div class="row">
                 <div class="col-md-12">
                     <ol class="breadcrumb">
@@ -26,7 +26,7 @@
                     </ol>
                 </div>
             <h4 style="text-align: center">用餐申请情况</h4>
-            <table class="table table-bordered col-md-12" style="width:900px;">
+            <table class="table table-bordered col-md-12" >
                 <tr>
                     <th>编号</th>
                     <th>申请人</th>

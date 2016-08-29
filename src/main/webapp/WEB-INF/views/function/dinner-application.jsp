@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<div class="container" style="width:900px;">
+<div class="container" style="width:1100px;">
 
     <div class="row">
         <div class="col-md-12 main">
@@ -48,7 +48,7 @@
 			<%branchName = (String)request.getAttribute("branchName");
 				companyName = (String)request.getAttribute("companyName");%>
             <form class="form-horizontal" action = "/addDinnerProperty" method="post">
-                <!-- <h3 style="text-align: center">用餐申请表格填写</h3> -->
+                 <h4 style="text-align: center">用餐申请表格填写</h4> 
                 <div class="form-group">
                     <label  class="col-sm-offset-2 col-sm-2 control-label">所属公司</label>
                     <div class="col-sm-4">

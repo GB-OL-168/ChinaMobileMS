@@ -12,20 +12,23 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-
+	<style>
+		tr>th{
+			text-align:center;
+		}
+	</style>
 </head>
 <body>
 	<div class="container" style="width:900px;">
-
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
-							<li><a href="#">信息管理</a></li>
-							<li><a href="#">上市公司资产信息</a></li>
-							<li ><a href="#">信息查询</a> </li>
-							<li class="dropdown active"><a href="#"
+							<li><a href="javascript:void(0)">信息管理</a></li>
+							<li><a href="javascript:void(0)">上市公司资产信息</a></li>
+							<li ><a href="javascript:void(0)">信息查询</a> </li>
+							<li class="dropdown active"><a href="javascript:void(0)"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">房屋资产查询 <span
 									class="caret"></span></a>
@@ -36,30 +39,29 @@
 								</ul></li>
 						</ol>
 					</div>
-					<hr>
-					<form action="/searchHouse" method="get" style="width:900px;">
-						<div class="col-md-offset-1 col-md-12">
-							<input type="radio" name="houses" value="companyName" required>使用单位名称
-							 <input type="radio" name="houses" value="buildingName" required>建筑名称
-							  <input type="radio" name="houses" value="location" required>坐落地点 
-							  <input type="radio" name="houses" value="buildingArea" required
-								style="display: inline-block">建筑面积
-					<!-- 	</div>
-						<div class="col-md-4"> -->
-							<div class="input-group col-md-4"> 
-								<input type="text" class="form-control input-sm" style="display:inline-block;"
-									placeholder="请输入信息" name ="search">
-								 <span class="input-group-btn"> 
-									<button class="btn btn-default btn-sm" type="submit">搜索</button>
-								</span> 
-							</div> 
-						</div>
-					</form>
 				</div>
-			
-
-				<table class="table table-responsive table-bordered col-md-8">
-					<h4 style="text-align: center;">房屋资产查询 </h4>
+				<br>
+				<form action="/searchHouse" method="get">
+					<div class="col-md-offset-1 col-md-6">
+						<input type="radio" name="houses" value="companyName" required>使用单位名称
+						 <input type="radio" name="houses" value="buildingName" required>建筑名称
+						  <input type="radio" name="houses" value="location" required>坐落地点 
+						  <input type="radio" name="houses" value="buildingArea" required
+							style="display: inline-block">建筑面积
+				 	</div>
+					<div class="col-md-5"> 
+						<div class="input-group col-md-12"> 
+							<input type="text" class="form-control input-sm" style="display:inline-block;"
+								placeholder="请输入信息" name ="search">
+							 <span class="input-group-btn"> 
+								<button class="btn btn-default btn-sm" type="submit">搜索</button>
+							</span> 
+						</div> 
+					</div>
+				</form>
+				<br><hr>
+				<table class="table table-responsive table-bordered col-md-8" style="text-align:center;">
+					<h4 style="text-align:center;">房屋资产查询 </h4>
 					<tr>
 						<th>房屋编号</th>
 						<th>建筑名称</th>
@@ -70,22 +72,15 @@
 					</tr>
 					<c:forEach items="${listash}" var="a">
 						<tr>
-						<td>${a.assetInfoId}</td>
-						<td>${a.buildingName}</td>
-						<td>${a.companyName}</td>
-						<td>${a.location}</td>
-						<td>${a.buildingArea}</td>
-						<td><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
+							<td>${a.assetInfoId}</td>
+							<td>${a.buildingName}</td>
+							<td>${a.companyName}</td>
+							<td>${a.location}</td>
+							<td>${a.buildingArea}</td>
+							<td><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
 						</tr>
 					</c:forEach>
-<!-- 					<tr> -->
-<!-- 						<td>1</td> -->
-<!-- 						<td>创业大厦</td> -->
-<!-- 						<td>四川华迪有限公司</td> -->
-<!-- 						<td>四川成都</td> -->
-<!-- 						<td>1430</td> -->
-<!-- 						<td><a href="/companyquery/detailed_information">查看</a></td> -->
-<!-- 					</tr> -->
+					
 				</table>
 			</div>
 		</div>

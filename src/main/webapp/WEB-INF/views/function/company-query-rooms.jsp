@@ -12,13 +12,16 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-
+	<style>
+		tr>th{
+			text-align:center;
+		}
+	</style>
 </head>
 <body>
 
 
 	<div class="container" style="width:900px;">
-
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -38,28 +41,28 @@
 								</ul></li>
 						</ol>
 					</div>
-					<hr>
-					<form action="/searchRoom" method="get"  style="width:900px;">
-						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="room" value="companyName" required>公司名称 <input
-								type="radio" name="room" value="building" required>建筑名称 <input
-								type="radio" name="room" value="area"
-								style="display: inline-block" required>房间面积
-						</div>
-						<div class="col-md-4">
-							<div class="input-group">
-								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息" name="search"> <span class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="submit">搜索</button>
-								</span>
-							</div>
-						</div>
-					</form>
 				</div>
+				<br>
+			<form action="/searchRoom" method="get"  style="width:900px;">
+				<div class="col-md-offset-1 col-md-6">
+					<input type="radio" name="room" value="companyName" required>公司名称 <input
+						type="radio" name="room" value="building" required>建筑名称 <input
+						type="radio" name="room" value="area"
+						style="display: inline-block" required>房间面积
+				</div>
+				<div class="col-md-5">
+					<div class="input-group">
+						<input type="text" class="form-control input-sm"
+							placeholder="请输入信息" name="search"> <span class="input-group-btn">
+							<button class="btn btn-default btn-sm" type="submit">搜索</button>
+						</span>
+					</div>
+				</div>
+			</form>
 			
-			</div>
 
-			<table class="table table-bordered"  style="width:900px;">
+			<br><hr>
+			<table class="table table-bordered"  style="width:900px;text-align: center;">
 				<h4 style="text-align: center;">房间信息查询</h4>
 				<tr>
 					<th>房间编号</th>
@@ -68,26 +71,17 @@
 					<th>房间面积(平方米)</th>
 				</tr>
 				<c:forEach items="${listroom}" var="r">
-					<tr>
+					<tr >
 						<td>${r.houseId}</td>
 						<td>${r.companyName}</td>
 						<td>${r.buildingName}</td>
 						<td>${r.area}</td>
 					</tr>
 				</c:forEach>
-
-
-				<!-- 				<tr> -->
-				<!-- 					<td>1</td> -->
-				<!-- 					<td>四川移动成都分公司</td> -->
-				<!-- 					<td>梦想大厦</td> -->
-				<!-- 					<td>120</td> -->
-				<!-- 				</tr> -->
 			</table>
-
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
 
 </body>
 </html>

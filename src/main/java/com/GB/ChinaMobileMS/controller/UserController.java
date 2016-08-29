@@ -147,12 +147,9 @@ public class UserController {
 			
 	//修改用户信息
 	@RequestMapping(value="/updateUserInfo" , method=RequestMethod.POST)
-	public ModelAndView updateUserInfo(User user){
-		
-		System.out.println(user);
-		
+	public ModelAndView updateUserInfo(User user){		
+		System.out.println(user);		
 		int updateUserInfo = userService.updateUserInfo(user);
-		
 		return  GetUserList();
 	}
 	
@@ -168,8 +165,6 @@ public class UserController {
 	
 	@RequestMapping(value="/u/top", method=RequestMethod.GET)
 	public ModelAndView top(){
-//		User user=(User) session.getAttribute("user");
-//		session.setAttribute("user", user);
 		return new ModelAndView("top");
 	}
 	
@@ -179,20 +174,14 @@ public class UserController {
 	}
 	@RequestMapping(value="/u/main", method=RequestMethod.GET)
 	public ModelAndView main(HttpSession session){
-		//if(session.getAttribute("user")!=null)
 		return new ModelAndView("main");
-		//return new ModelAndView("redirect:/login");
 	}
 	
 	public  ModelAndView GetUserList()
 	{
-		List<User> listUser = userService.listUser();
-				
+		List<User> listUser = userService.listUser();				
 		Map map =new HashMap();
 		map.put("listUser",listUser);//userlist是个Arraylist之类的  
-
 		return new ModelAndView("/function/system-user",map);
-
-		
 	}
 }

@@ -91,6 +91,7 @@ div.left {
 
 .right{
     width:84%;
+    min-height:700px;
     display:inline-block;
     margin:2px 0 0 10px;
 }
