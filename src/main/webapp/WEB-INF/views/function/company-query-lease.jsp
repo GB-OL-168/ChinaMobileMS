@@ -40,10 +40,10 @@
 					<hr>
 					<form action="/searchLD" method="get"  style="width:900px;">
 						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="loean" value="type">类型 <input
-								type="radio" name="loean" value="brand">品牌/型号 <input
-								type="radio" name="loean" value="batch">批次 <input
-								type="radio" name="loean" value="loanInfoId"
+							<input type="radio" name="loean" value="type" required>类型 <input
+								type="radio" name="loean" value="brand" required>品牌/型号 <input
+								type="radio" name="loean" value="batch" required>批次 <input
+								type="radio" name="loean" value="loanInfoId" required
 								style="display: inline-block">设备编号
 						</div>
 						<div class="col-md-4">

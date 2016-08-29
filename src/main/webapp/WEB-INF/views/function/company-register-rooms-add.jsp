@@ -43,7 +43,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属公司</label>
 						<div class="col-sm-5">
-							<select name="company" class="company form-control" required>
+							<select name="companyId" class="company form-control" required>
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
 									<option value="${c.companyId }">${c.companyName}</option>
@@ -54,7 +54,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属部门</label>
 						<div class="col-sm-5">
-							<select name=branch class="Branch form-control" required>
+							<select name="belongBranchId" class="branch form-control" required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -69,8 +69,8 @@
 							<select name="assetInfoId" class="building form-control" required>
 								<option value="">--请选择建筑--</option>
 								<c:forEach items="${listash}" var="a">
-									<option style="display: none;" class="${a.usedBranchId}"
-										value="${a.assetInfoId}">${a.buildingName}</option>
+									<option value="${a.assetInfoId}" style="display: none;"
+									class="${a.usedBranchId}">${a.buildingName}</option>
 								</c:forEach>
 							</select>
 						</div>

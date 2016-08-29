@@ -39,10 +39,10 @@
 					<hr>
 					<form action="/searchHouse" method="get" style="width:900px;">
 						<div class="col-md-offset-1 col-md-12">
-							<input type="radio" name="houses" value="companyName">使用单位名称
-							 <input type="radio" name="houses" value="buildingName">建筑名称
-							  <input type="radio" name="houses" value="location">坐落地点 
-							  <input type="radio" name="houses" value="buildingArea"
+							<input type="radio" name="houses" value="companyName" required>使用单位名称
+							 <input type="radio" name="houses" value="buildingName" required>建筑名称
+							  <input type="radio" name="houses" value="location" required>坐落地点 
+							  <input type="radio" name="houses" value="buildingArea" required
 								style="display: inline-block">建筑面积
 					<!-- 	</div>
 						<div class="col-md-4"> -->

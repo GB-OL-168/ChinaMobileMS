@@ -41,10 +41,10 @@
 					<hr>
 					<form action="/searchRoom" method="get"  style="width:900px;">
 						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="room" value="companyName">公司名称 <input
-								type="radio" name="room" value="building">建筑名称 <input
+							<input type="radio" name="room" value="companyName" required>公司名称 <input
+								type="radio" name="room" value="building" required>建筑名称 <input
 								type="radio" name="room" value="area"
-								style="display: inline-block">房间面积
+								style="display: inline-block" required>房间面积
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">

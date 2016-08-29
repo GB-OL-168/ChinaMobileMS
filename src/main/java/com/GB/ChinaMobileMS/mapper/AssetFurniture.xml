@@ -7,13 +7,12 @@
 	<insert id="addFurniture" parameterType="AssetFurniture">
 		INSERT INTO
 		office_furniture_info
-		(house_id,furniture_type,brand,specification,used_branch_id,count,used_situation)
+		(house_id,furniture_type,brand,specification,count,used_situation)
 		VALUES
-		(#{houseId},#{furnitureType},#{brand},#{specification},#{usedBranchId},#{count},#{usedSituation})
+		(#{houseId},#{furnitureType},#{brand},#{specification},#{count},#{usedSituation})
 	</insert>
 	<select id="queryAssetFurniture" resultType="AssetFurniture">
 		SELECT
-		o.used_branch_id,
 		b.branch_name,
 		o.house_id,
 		o.furniture_type,
@@ -27,21 +26,22 @@
 		FROM branch b,
 		house_info h,
 		office_furniture_info o,
-		housing_asset_info ha
-		WHERE b.branch_id =
-		o.used_branch_id
-		And
-		h.house_id =
+		housing_asset_info ha,
+		company c
+		WHERE h.house_id =
 		o.house_id
-		AND
-		h.building =
+		And
+		h.asset_info_id = 
 		ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
+		AND
+		c.company_id = b.company_id
 
 	</select>
 	<select id="queryAssetFurnitureByFurnitureType" parameterType="String"
 		resultType="AssetFurniture">
 		SELECT
-		o.used_branch_id,
 		b.branch_name,
 		o.house_id,
 		o.furniture_type,
@@ -52,24 +52,25 @@
 		h.floor,
 		h.building,
 		ha.building_name
-		FROM
-		branch b,
+		FROM branch b,
 		house_info h,
 		office_furniture_info o,
-		housing_asset_info ha
-		WHERE b.branch_id =
-		o.used_branch_id
-		And
-		h.house_id =
+		housing_asset_info ha,
+		company c
+		WHERE h.house_id =
 		o.house_id
+		And
+		h.asset_info_id = 
+		ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
 		AND
-		h.building = ha.asset_info_id
+		c.company_id = b.company_id
 		AND o.furniture_type like "%"#{search}"%"
 	</select>
 	<select id="queryAssetFurnitureByBrand" parameterType="String"
 		resultType="AssetFurniture">
 		SELECT
-		o.used_branch_id,
 		b.branch_name,
 		o.house_id,
 		o.furniture_type,
@@ -80,25 +81,25 @@
 		h.floor,
 		h.building,
 		ha.building_name
-		FROM
-		branch b,
+		FROM branch b,
 		house_info h,
 		office_furniture_info o,
-		housing_asset_info ha
-		WHERE b.branch_id =
-		o.used_branch_id
-		And
-		h.house_id =
+		housing_asset_info ha,
+		company c
+		WHERE h.house_id =
 		o.house_id
-		AND
-		h.building =
+		And
+		h.asset_info_id = 
 		ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
+		AND
+		c.company_id = b.company_id
 		AND o.brand like "%"#{search}"%"
 	</select>
 	<select id="queryAssetFurnitureByBranchName" parameterType="String"
 		resultType="AssetFurniture">
 		SELECT
-		o.used_branch_id,
 		b.branch_name,
 		o.house_id,
 		o.furniture_type,
@@ -109,24 +110,25 @@
 		h.floor,
 		h.building,
 		ha.building_name
-		FROM
-		branch b,
+		FROM branch b,
 		house_info h,
 		office_furniture_info o,
-		housing_asset_info ha
-		WHERE b.branch_id =
-		o.used_branch_id
-		And
-		h.house_id =
+		housing_asset_info ha,
+		company c
+		WHERE h.house_id =
 		o.house_id
+		And
+		h.asset_info_id = 
+		ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
 		AND
-		h.building = ha.asset_info_id
+		c.company_id = b.company_id
 		AND b.branch_name like "%"#{search}"%"
 	</select>
 	<select id="queryAssetFurnitureByBuilding" parameterType="String"
 		resultType="AssetFurniture">
 		SELECT
-		o.used_branch_id,
 		b.branch_name,
 		o.house_id,
 		o.furniture_type,
@@ -137,18 +139,20 @@
 		h.floor,
 		h.building,
 		ha.building_name
-		FROM
-		branch b,
+		FROM branch b,
 		house_info h,
 		office_furniture_info o,
-		housing_asset_info ha
-		WHERE b.branch_id =
-		o.used_branch_id
-		And
-		h.house_id =
+		housing_asset_info ha,
+		company c
+		WHERE h.house_id =
 		o.house_id
+		And
+		h.asset_info_id = 
+		ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
 		AND
-		h.building = ha.asset_info_id
+		c.company_id = b.company_id
 		AND ha.building_name like "%"#{search}"%"
 	</select>
 	

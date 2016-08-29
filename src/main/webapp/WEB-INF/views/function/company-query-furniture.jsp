@@ -42,10 +42,10 @@
 					<hr>
 					<form action="/searchASF"  method="get"  style="width:900px;">
 						<div class="col-md-offset-1 col-md-4">
-							 <input type="radio" name="asf" value="furnitureType">家具类型
-							 <input type="radio" name="asf" value="brand">品牌型号 
-							 <input type="radio" name="asf" value="branchName">所在部门 
-							 <input type="radio" name="asf" value="building"style="display: inline-block">所在建筑
+							 <input type="radio" name="asf" value="furnitureType" required>家具类型
+							 <input type="radio" name="asf" value="brand" required>品牌型号 
+							 <input type="radio" name="asf" value="branchName" required>所在部门 
+							 <input type="radio" name="asf" value="building"style="display: inline-block" required>所在建筑
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">

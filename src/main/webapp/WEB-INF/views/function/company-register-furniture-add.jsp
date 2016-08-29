@@ -58,7 +58,7 @@
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
-										value="${b.branchId }">${b.branchName}</option>
+										value="${b.branchId}">${b.branchName}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -70,36 +70,28 @@
 							<select class="building form-control" required>
 								<option value="">请选择建筑</option>
 								<c:forEach items="${listash}" var="a">
-									<option value="${a.assetInfoId}" class="${a.usedBranchId}">${a.buildingName}</option>
+									<option value="${a.assetInfoId}" style="display: none;"
+									class="${a.usedBranchId}">${a.buildingName}</option>
 								</c:forEach>
 							</select>
 						</div>
 					</div>
+					
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">房间编号</label>
 						<div class="col-sm-10">
 							<select class="room form-control" name="houseId" required>
 								<option value="">请选择房间编号</option>
 								<c:forEach items="${listRoom}" var="r">
-									<option style="display: none;" class="${r.building}"
-										value="${r.houseId}">${r.houseId}</option>
+									<option style="display: none;"	value="${r.houseId}"
+									 class="${r.assetInfoId}" >${r.houseId}</option>
 								</c:forEach>
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">所属楼层</label>
-						<div class="col-sm-10">
-							<select class="floor form-control" required>
-								<option value="">请选择楼层</option>
-								<c:forEach items="${listRoom}" var="r">
-									<option style="display: none;" class="${r.houseId}"
-										value="${r.floor}">${r.floor}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
-
+					
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">家具类型</label>
 						<div class="col-sm-10">
@@ -121,29 +113,7 @@
 								name="specification" required>
 						</div>
 					</div>
-					<!-- 					<div class="form-group"> -->
-					<!-- 						<label class="col-sm-2 control-label">使用公司</label> -->
-					<!-- 						<div class="col-sm-10"> -->
-					<!-- 							<select name="company" class="company1 form-control"> -->
-					<!-- 								<option value="">--请选择公司--</option> -->
-					<%-- 								<c:forEach items="${listCompany}" var="c"> --%>
-					<%-- 									<option value="${c.companyId }">${c.companyName}</option> --%>
-					<%-- 								</c:forEach> --%>
-					<!-- 							</select> -->
-					<!-- 						</div> -->
-					<!-- 					</div> -->
-					<!-- 					<div class="form-group"> -->
-					<!-- 						<label class="col-sm-2 control-label">使用部门</label> -->
-					<!-- 						<div class="col-sm-10"> -->
-					<!-- 							<select class="branch1 form-control" name="usedBranchId"> -->
-					<!-- 								<option value="">--请选择部门--</option> -->
-					<%-- 								<c:forEach items="${listBranch}" var="b"> --%>
-					<%-- 									<option style="display: none;" class="${b.companyId}" --%>
-					<%-- 										value="${b.branchId }">${b.branchName}</option> --%>
-					<%-- 								</c:forEach> --%>
-					<!-- 							</select> -->
-					<!-- 						</div> -->
-					<!-- 					</div> -->
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">数量</label>
 						<div class="col-sm-10">
@@ -208,18 +178,18 @@
 			});
 		});
 	</script>
-	<script>
-		var all = 1;
-		$(function() {
-			$(".room").change(function() {
-				$(".floor").val("");
-				$("option." + all).css("display", "none");
-				var b = $(".room").val();
-				all = b;
-				$("option." + b).css("display", "block");
+<!-- <!-- 	<script> --> 
+<!-- // 		var all = 1; -->
+<!-- // 		$(function() { -->
+<!-- // 			$(".room").change(function() { -->
+<!-- // 				$(".floor").val(""); -->
+<!-- // 				$("option." + all).css("display", "none"); -->
+<!-- // 				var b = $(".room").val(); -->
+<!-- // 				all = b; -->
+<!-- // 				$("option." + b).css("display", "block"); -->
 
-			});
-		});
-	</script>
+<!-- // 			}); -->
+<!-- // 		}); -->
+<!-- <!-- 	</script> --> 
 </body>
 </html>

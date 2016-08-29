@@ -19,46 +19,43 @@
 
 	<select id="queryAssetHouse2" resultType="AssetHouse">
 		SELECT
-		h.belonng_branch_id,
+		h.asset_info_id,
 		b.company_id,
 		c.company_name,
 		h.area,
 		h.house_id,
-		h.building,
 		ha.building_name
 		FROM branch b,
 		company c,
 		house_info h,
 		housing_asset_info ha
 		WHERE
-		b.branch_id =
-		h.belonng_branch_id
-		AND c.company_id = b.company_id
-		And
-		h.building = ha.asset_info_id
+		h.asset_info_id = ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
+		AND
+		c.company_id = b.company_id
 	</select>
 
 	<select id="queryAssetHouseByCompanyName" parameterType="String"
 		resultType="AssetHouse">
 		SELECT
-		h.belonng_branch_id,
+		h.asset_info_id,
 		b.company_id,
 		c.company_name,
 		h.area,
 		h.house_id,
-		h.building,
 		ha.building_name
 		FROM branch b,
 		company c,
 		house_info h,
 		housing_asset_info ha
 		WHERE
-		b.branch_id =
-		h.belonng_branch_id
-		AND c.company_id = b.company_id
-		And
-		h.building =
-		ha.asset_info_id
+		h.asset_info_id = ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
+		AND
+		c.company_id = b.company_id
 		AND
 		c.company_name like "%"#{search}"%"
 	</select>
@@ -66,24 +63,22 @@
 	<select id="queryAssetHouseByBuilding" parameterType="String"
 		resultType="AssetHouse">
 		SELECT
-		h.belonng_branch_id,
+		h.asset_info_id,
 		b.company_id,
 		c.company_name,
 		h.area,
 		h.house_id,
-		h.building,
 		ha.building_name
 		FROM branch b,
 		company c,
 		house_info h,
 		housing_asset_info ha
 		WHERE
-		b.branch_id =
-		h.belonng_branch_id
-		AND c.company_id = b.company_id
-		And
-		h.building =
-		ha.asset_info_id
+		h.asset_info_id = ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
+		AND
+		c.company_id = b.company_id
 		AND
 		ha.building_name like "%"#{search}"%"
 	</select>
@@ -91,24 +86,22 @@
 	<select id="queryAssetHouseByArea" parameterType="String"
 		resultType="AssetHouse">
 		SELECT
-		h.belonng_branch_id,
+		h.asset_info_id,
 		b.company_id,
 		c.company_name,
 		h.area,
 		h.house_id,
-		h.building,
 		ha.building_name
 		FROM branch b,
 		company c,
 		house_info h,
 		housing_asset_info ha
 		WHERE
-		b.branch_id =
-		h.belonng_branch_id
-		AND c.company_id = b.company_id
-		And
-		h.building =
-		ha.asset_info_id
+		h.asset_info_id = ha.asset_info_id
+		AND b.branch_id =
+		ha.used_branch_id
+		AND
+		c.company_id = b.company_id
 		AND
 		h.area like "%"#{search}"%"
 	</select>
