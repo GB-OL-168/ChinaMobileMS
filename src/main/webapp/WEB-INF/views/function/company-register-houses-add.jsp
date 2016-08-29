@@ -181,7 +181,10 @@
 		 		var loanTimeEnd=$("#loanTimeEnd").val();
 			    if(loanTimeStart>loanTimeEnd){
 			    	alert("结束时间不得早于开始时间，请输入正确的租赁时间段! ");
-			    	 e.preventDefault();
+						return false;
+			    }
+			    if(loanTimeStart == "" || loanTimeEnd == ""){
+			    	alert("租赁时间不得为空，请输入正确的租赁时间段! ");
 						return false;
 			    }
 		 	});

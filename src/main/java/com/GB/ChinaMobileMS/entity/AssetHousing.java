@@ -18,7 +18,14 @@ public class AssetHousing {
 	private Date loanTimeStart = null;//租贷时间段
 	private Date loanTimeEnd = null;
 	private int floorCount;//层数
+	private int Furniture;
 	
+	public int getFurniture() {
+		return Furniture;
+	}
+	public void setFurniture(int furniture) {
+		Furniture = furniture;
+	}
 	private String companyName= null;
 	private int companyId ;
 	public int getFloorCount() {

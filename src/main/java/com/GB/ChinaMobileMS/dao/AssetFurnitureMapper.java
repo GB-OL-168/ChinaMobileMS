@@ -19,4 +19,6 @@ public interface AssetFurnitureMapper {
 	
 	int updateFurnitureInfo(AssetFurniture assetfurn);
 	boolean deleteFurnitureInfo(int officeFurnitureInfoId);
+	
+	List<AssetFurniture> queryAssetFurnitureByBuildingID(int assetInfoId);
 }

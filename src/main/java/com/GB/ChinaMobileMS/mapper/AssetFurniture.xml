@@ -174,5 +174,12 @@
 		where office_furniture_info_id = #{officeFurnitureInfoId}
 	</delete>
 	
+	<select id="queryAssetFurnitureByBuildingID" parameterType="int" resultType="AssetFurniture">
+		SELECT * FROM office_furniture_info
+		WHERE office_furniture_info.house_id IN
+		(SELECT house_id FROM house_info WHERE asset_info_id = #{assetInfoId})
+	</select>
+	
+	
 </mapper>
  
