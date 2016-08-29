@@ -17,11 +17,10 @@
 			text-align:center;
 		}
 	</style>
+
 </head>
 <body>
-
-	<div class="container" style="width:900px;">
-
+	<div class="container" style="margin-left: 20px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -29,7 +28,7 @@
 						<ol class="breadcrumb">
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
-							<li ><a href="#">信息查询</a> </li>
+							<li><a href="#">信息查询</a></li>
 							<li class="dropdown active"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">租赁设备查询 <span
@@ -41,7 +40,25 @@
 								</ul></li>
 						</ol>
 					</div>
-				
+					<hr>
+					<form action="/searchLD" method="get" style="width: 900px;">
+						<div class="col-md-offset-1 col-md-4">
+							<input type="radio" name="loean" value="type" required>类型
+							<input type="radio" name="loean" value="brand" required>品牌/型号
+							<input type="radio" name="loean" value="batch" required>批次
+							<input type="radio" name="loean" value="loanInfoId" required
+								style="display: inline-block">设备编号
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<input type="text" class="form-control input-sm"
+									placeholder="请输入信息" name="search"> <span
+									class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="submit">搜索</button>
+								</span>
+							</div>
+						</div>
+					</form>
 				</div>
 				<br>
 				<form action="/searchLD" method="get"  style="width:900px;">
@@ -76,15 +93,24 @@
 						<th>单位价值(元)</th>
 						<th>总价值</th>
 					</tr>
-					<c:forEach items="${listald2}" var="a2">
+					<c:forEach items="${listald}" var="a">
 						<tr>
-							<td>${a2.orderNumber}</td>
-							<td>${a2.loanInfoId}</td>
-							<td>${a2.loanUserName}</td>
-							<td>${a2.branchName}</td>
-							<td>${a2.jobId}</td>
-							<td>${a2.getDate}</td>
-							<td>${a2.expiredDate}</td>
+							<td>${a.orderNumber}</td>
+							<td>${a.loanInfoId}</td>
+							<td>${a.loanUserName}</td>
+							<td>${a.branchName}</td>
+							<td>${a.jobId}</td>
+							<td>${a.getDate}</td>
+							<td>${a.expiredDate}</td>
+							<td>${a.batch}</td>
+							<td>${a.type}</td>
+							<td>${a.brand}</td>
+							<td>${a.specification}</td>
+							<td>${a.arrivalDate}</td>
+							<td>${a.count}</td>
+							<td>${a.allowUseYears}年</td>
+							<td>${a.unitValue}</td>
+							<td>${a.allValue}</td>
 							<td><a href="">更新</a> | <a href="">删除</a></td>
 						</tr>
 					</c:forEach>

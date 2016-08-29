@@ -46,8 +46,8 @@
 			
 			#check_div{
 				border:1px solid black;
-				width: 400px;
-				height: 310px;
+				width: 470px;
+				height: 500px;
 				background-color: #fff;
 				padding: 10px;
 				position: absolute;
@@ -251,7 +251,7 @@
 		<div class="goodtxt">
 			<table class="table table-bordered table-hover">
 				<p style="align-text:center">目前审核进度</p>
-				<text class="context"></text>
+				<img class="context" src = "">
 			</table> 		
 		</div>
 	</div>
@@ -264,31 +264,31 @@
 				var context;
 				if(statusId=="0"){
 					context = "未开始";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_0.png');
 				};
 				if(statusId=="1"){
 					context = "未开始<br>丨<br>拒绝受理";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_1.png');
 				};
 				if(statusId=="2"){
 					context = "未开始<br>丨<br>开始<br>丨<br>等待一审";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_2.png');
 				};
 				if(statusId=="4"){
 					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审拒绝";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_4.png');
 				};
 				if(statusId=="5"){
 					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审通过<br>丨<br>等待二审";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_5.png');
 				};
 				if(statusId=="6"){
 					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审通过<br>丨<br>等待二审<br>丨<br>二审通过";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_6.png');
 				};
 				if(statusId=="7"){
 					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审通过<br>丨<br>等待二审<br>丨<br>二审拒绝";
-					$("text.context").html(context);
+					$("img.context").attr('src','/assets/img/progress_7.png');
 				};
 				$('#check_div').center();
 				$('#check_div').fadeIn();
