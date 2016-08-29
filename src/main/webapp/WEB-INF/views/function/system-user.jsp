@@ -34,7 +34,7 @@
 				</div>
 
 
-				<table class="table table-bordered user-list">
+				<table class="table table-bordered user-list" style="width:900px;">
 		 			<h4 style="text-align:center;">用户列表</h4> 
 					<tr>
 						<th>ID</th>

@@ -13,7 +13,7 @@
 	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="width:900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -24,25 +24,10 @@
 							<li class="dropdown"><a href="javascript:void(0)">角色授权 </a></li>
 						</ol>
 					</div>
-
-					<!-- <div class="col-md-3">
-						<a href="/system/role-authorization-add"
-							class="btn btn-default btn-xs">新增系统角色</a>
-					</div> -->
-
-					<!-- <div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control input-sm"
-								placeholder="Search for User"> <span
-								class="input-group-btn">
-								<button class="btn btn-default btn-sm" type="button">Go!</button>
-							</span>
-						</div>
-					</div> -->
 				</div>
 
 
-				<table class="table table-bordered">
+				<table class="table table-bordered" style="width:900px;">
 					<h4 style="text-align: center;">已设置角色权限</h4>
 					<tr>
 						<th>编号</th>
@@ -51,28 +36,6 @@
 						<th>详情</th>
 						<th>操作</th>
 					</tr>
-					<!-- 				  <tr> -->
-					<!-- 				  	<th>1</th> -->
-					<!-- 				  	<th>zhangsan</th> -->
-					<!-- 				  	<th>Admin</th> -->
-					<!-- 				  	<th><a href="#">查看</a></th> -->
-					<!-- 				  	<th><a href="">update</a> | <a href="">remove</a></th> -->
-					<!-- 				  </tr> -->
-					<!-- 				  <tr> -->
-					<!-- 				  	<th>2</th> -->
-					<!-- 				  	<th>zhangsan</th> -->
-					<!-- 				  	<th>role2</th> -->
-					<!-- 				  	<th><a href="#">查看</a></th> -->
-					<!-- 				  	<th><a href="">update</a> | <a href="">remove</a></th> -->
-					<!-- 				  </tr> -->
-					<!-- 				  <tr> -->
-					<!-- 				  	<th>3</th> -->
-					<!-- 				  	<th>zhangsan</th> -->
-					<!-- 				  	<th>role3</th> -->
-					<!-- 				  	<th><a href="#">查看</a></th> -->
-					<!-- 				  	<th><a href="">update</a> | <a href="">remove</a></th> -->
-					<!-- 				  </tr> -->
-
 					<c:forEach items="${listRole}" var="a">
 						<tr>
 							<td class="roleId">${a.roleId }</td>
@@ -80,13 +43,23 @@
 							<td class="description">${a.description}</td>
 							<td><a href="/authorization/details/${a.roleName}">查看</a></td>
 							<td><a href="/delRole/${a.roleId}"">移除</a></td>
-						<!-- 	  class="btn btn-default btn-xs -->
 						</tr>
 					</c:forEach>
+					<p id="flag" style="display:none;">${flag}</p>
 				</table>
 			</div>
 		</div>
 	</div>
 
+<script>
+	$(function(){
+		var a="0";
+		var a=$("#flag").text();
+		if(a=="1"){
+			alert("该权限角色已被分配到某用户中，删除失败！");
+		}
+	});
+	
+</script>
 </body>
 </html>

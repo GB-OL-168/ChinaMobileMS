@@ -31,22 +31,19 @@
     padding-left:20px;
     margin-bottom:5px;
     border:1px dotted #c0c0c0;
-    height:25px;
-/*     background-color:hsla(220,10%,10%,.1); */
-	
+    height:25px;	
 }
-
 
 /*登录信息框*/
 
 .top>.account_info{
     margin-left:80%;
-    padding-top:20px;
+    padding-top:25px;
     width:350px;
     height:20px;
-    /*background-color: #fff;*/
 }
 .top>.account_info>a{
+	font-family:"华文细黑";
     list-style-type: none;
     color:#fff;
     font-size:17px;

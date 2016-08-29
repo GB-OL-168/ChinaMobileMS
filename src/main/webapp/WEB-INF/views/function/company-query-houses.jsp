@@ -6,20 +6,16 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>上市公司资产-房屋查询主界面</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<style>
-ol>li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="UTF-8">
+	<title>上市公司资产-房屋查询主界面</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+
 </head>
 <body>
-	<div class="container" style="margin-left: 20px;">
+	<div class="container" style="width:900px;">
 
 		<div class="row">
 			<div class="col-md-12 main">
@@ -41,28 +37,29 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="/searchHouse" method="get">
-						<div class="col-md-offset-1 col-md-4">
+					<form action="/searchHouse" method="get" style="width:900px;">
+						<div class="col-md-offset-1 col-md-12">
 							<input type="radio" name="houses" value="companyName">使用单位名称
 							 <input type="radio" name="houses" value="buildingName">建筑名称
 							  <input type="radio" name="houses" value="location">坐落地点 
 							  <input type="radio" name="houses" value="buildingArea"
 								style="display: inline-block">建筑面积
-						</div>
-						<div class="col-md-4">
-							<div class="input-group">
-								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息" name ="search"> <span class="input-group-btn">
+					<!-- 	</div>
+						<div class="col-md-4"> -->
+							<div class="input-group col-md-4"> 
+								<input type="text" class="form-control input-sm" style="display:inline-block;"
+									placeholder="请输入信息" name ="search">
+								 <span class="input-group-btn"> 
 									<button class="btn btn-default btn-sm" type="submit">搜索</button>
-								</span>
-							</div>
+								</span> 
+							</div> 
 						</div>
 					</form>
 				</div>
-				<hr>
+			
 
 				<table class="table table-responsive table-bordered col-md-8">
-					<h3 style="text-align: center;">房屋资产查询 </h3>
+					<h4 style="text-align: center;">房屋资产查询 </h4>
 					<tr>
 						<th>房屋编号</th>
 						<th>建筑名称</th>

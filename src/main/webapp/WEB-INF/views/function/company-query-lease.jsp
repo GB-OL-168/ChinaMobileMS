@@ -6,21 +6,17 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-<title>上市公司资产信息管理 - 信息查询</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<style>
-ol>li {
-	font-size: 18px;
-}
-</style>
+	<meta charset="utf-8">
+	<title>上市公司资产信息管理 - 信息查询</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+
 </head>
 <body>
 
-	<div class="container" style="margin-left: 20px;">
+	<div class="container" style="width:900px;">
 
 		<div class="row">
 			<div class="col-md-12 main">
@@ -42,7 +38,7 @@ ol>li {
 						</ol>
 					</div>
 					<hr>
-					<form action="/searchLD" method="get">
+					<form action="/searchLD" method="get"  style="width:900px;">
 						<div class="col-md-offset-1 col-md-4">
 							<input type="radio" name="loean" value="type">类型 <input
 								type="radio" name="loean" value="brand">品牌/型号 <input
@@ -62,7 +58,7 @@ ol>li {
 				</div>
 				<hr>
 
-				<table class="table table-responsive table-bordered col-md-8">
+				<table class="table table-responsive table-bordered"  style="width:900px;">
 					<h3 style="text-align: center;">租赁设备查询</h3>
 					<tr>
 						<th>批次</th>
@@ -75,56 +71,6 @@ ol>li {
 						<th>单位价值(元)</th>
 						<th>总价值</th>
 					</tr>
-<!-- 					<tr> -->
-<!-- 						<td>1</td> -->
-<!-- 						<td>打印机</td> -->
-<!-- 						<td>联想</td> -->
-<!-- 						<td>大型</td> -->
-<!-- 						<td>2015-09-12</td> -->
-<!-- 						<td>100</td> -->
-<!-- 						<td>2年</td> -->
-<!-- 						<td>2000</td> -->
-<!-- 						<td>200000</td> -->
-<!-- 					</tr> -->
-					<c:forEach items="${listald}" var="a">
-						<tr>
-						<td>${a.batch}</td>
-						<td>${a.type}</td>
-						<td>${a.brand}</td>
-						<td>${a.specification}</td>
-						<td>${a.arrivalDate}</td>
-						<td>${a.count}</td>
-						<td>${a.allowUseYears}年</td>
-						<td>${a.unitValue}</td>
-						<td>${a.allValue}</td>
-						</tr>
-					</c:forEach>
-
-
-				</table>
-
-
-				<table class="table	table-responsive table-bordered col-md-8">
-					<tr>
-						<th>序号</th>
-						<th>设备编号</th>
-						<th>使用人</th>
-						<th>所在部门</th>
-						<th>使用人员工编号</th>
-						<th>领用日期</th>
-						<th>到期时间</th>
-						<th>操作</th>
-					</tr>
-<!-- 					<tr> -->
-<!-- 						<td>1</td> -->
-<!-- 						<td>打印机</td> -->
-<!-- 						<td>叶绪创</td> -->
-<!-- 						<td>公关部</td> -->
-<!-- 						<td>110</td> -->
-<!-- 						<td>2015-05-01</td> -->
-<!-- 						<td>2017-06-17</td> -->
-<!-- 						<td><a href="">更新</a> | <a href="">删除</a></td> -->
-<!-- 					</tr> -->
 					<c:forEach items="${listald2}" var="a2">
 						<tr>
 						<td>${a2.orderNumber}</td>

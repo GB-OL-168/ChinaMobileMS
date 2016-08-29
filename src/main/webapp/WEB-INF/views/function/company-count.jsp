@@ -12,29 +12,22 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<style>
-		ol>li{
-			font-size:18px;
-		}
-	</style>
+
 </head>
 <body>
 
-	<div class="container" style="margin-left:20px;">
+	<div class="container" style="width:900px;">
 		
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
-						  <li>信息管理</li>
-						  <li>上市公司资产信息</li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息统计 <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="/companyquery/houses">信息查询</a></li>
-									<li><a href="/register/houses-add">信息登记</a></li>
-								</ul>
+
+						  <li><a href="#">信息管理</a></li>
+						  <li><a href="#">上市公司资产信息</a></li>
+							<li>
+								<a href="#">信息统计</a>
 							</li>
 							<li>统计分析</li>
 						</ol>
@@ -51,10 +44,11 @@
 	                        </div>
 	                    </form>
 					</div>
+
 				</div>
 
-				<h3 style="text-align:center;">资产统计</h3>
-				<table class="table	table-responsive table-bordered col-md-8">
+				<h4 style="text-align:center;">资产统计</h4>
+				<table class="table	table-responsive table-bordered col-md-12" style="width:900px;">
 				  <tr>
 				  	<th>公司名称</th>
 				  	<th>房屋总数</th>

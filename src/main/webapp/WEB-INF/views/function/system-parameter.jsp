@@ -12,34 +12,22 @@
 	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="width:900px;">
 		
 		<div class="row">
-			<div class="col-md-8 main">
+			<div class="col-md-12 main">
 				<div class="row">
-					<div class="col-md-5">
 						<ol class="breadcrumb">
 						  <li><a href="#">系统设置</a></li>
 						  <li><a href="#">参数设置</a></li>
-						  <li class="dropdown active">
-						  	<a href="/system/paremeter" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">提醒信息 
-						  		<!-- <span class="caret"></span> -->
-						  	</a>
-					          <!-- <ul class="dropdown-menu">
-					            <li><a href="#"></a></li>
-					          </ul> -->
+						  <li class="dropdown">
+						  	<a href="/system/paremeter" class="dropdown-toggle" data-toggle="dropdown" >提醒信息 </a>
 						  </li>
+						  <li>	<a href="/system/parameter-update" class="btn btn-default btn-xs">新增信息</a></li>
 						</ol>
-					</div>
-					<div class="col-md-3">
-						<a href="/system/parameter-update" class="btn btn-default btn-xs">新增信息</a>
-					</div>
-					
-					
 				</div>
-				
-
-				<form class="form-horizontal">
+		
+				<form class="form-horizontal" style="width:900px;">
 				  <h4 style="text-align: center;">提醒信息</h4>
 				  <div class="form-group">
 				    <label for="topic" class="col-sm-2 control-label">标题</label>
@@ -59,18 +47,7 @@
 				      <label class="control-label-content"><%=request.getAttribute("content") %> </label>
 				    </div>
 				  </div>
-<!-- 				  <div class="form-group"> -->
-<!-- 				    <label for="file" class="col-sm-2 control-label">附件</label> -->
-<!-- 				    <div class="col-sm-10"> -->
-<!-- 				      <label class="control-label-content">A file.</label> -->
-<!-- 				    </div> -->
-<!-- 				  </div> -->
-<!-- 				  <div class="form-group"> -->
-<!-- 				    <label  class="col-sm-2 control-label">提醒对象</label> -->
-<!-- 				    <div class="col-sm-10"> -->
-<%-- 				      <label class="control-label-content">Role <%=request.getAttribute("recomandRoleId") %> </label> --%>
-<!-- 				    </div> -->
-<!-- 				  </div> -->
+				
 				</form>
 			</div>
 		</div>
