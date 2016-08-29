@@ -1,6 +1,5 @@
 package com.GB.ChinaMobileMS.controller;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +29,7 @@ import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -42,37 +42,45 @@ public class UserController {
 	private InfoService infoService;
 	@Autowired
 	private RoleService roleService;
-	
-	//在Spring中生成set get方法 自动获取userService对象
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView login(User user, HttpSession session){
-		
+
+	// 在Spring中生成set get方法 自动获取userService对象
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ModelAndView login(User user, HttpSession session) {
+
 		String password = user.getPassword();
-		//ModeAndView Spring中的一个方便跳转类  spring 进行解析
+		// ModeAndView Spring中的一个方便跳转类 spring 进行解析
+
 		user = userService.login(user.getUserName(), user.getPassword());
-		
+
+		//用户不存在
 		if (user == null) {
 			return new ModelAndView("forward:/").addObject("id", "user_null");
+		} else if (user.getIsExist() == -1) {
+			return new ModelAndView("forward:/").addObject("id", "user_null");
 		} else if (!password.equals(user.getPassword())) {
+			//密码错误
 			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
 		}
-		
 
 		Information info = infoService.findbyInfoID();
 
 		session.setAttribute("user", user);
-		
+
 		session.setAttribute("info", info.getContent());
-		
+
 		Map map = new HashMap();
 
+		if (user.getRoleId() == 0) {
+			String infomation = "该用户尚未分配角色";
+			return new ModelAndView("forward:/").addObject("id", "role_null");
+		}
+
 		Role role = roleService.findRoleById(user.getRoleId());
-		
-		System.out.println("role="+role);
+		System.out.println("role=" + role);
 		map.put("r", role);
-		
+
 		session.setAttribute("sysAccountManage", role.getSysAccountManage());
-		session.setAttribute("sysPrivilegeSetting",role.getSysPrivilegeSetting());
+		session.setAttribute("sysPrivilegeSetting", role.getSysPrivilegeSetting());
 		session.setAttribute("sysParameterSetting", role.getSysParameterSetting());
 		session.setAttribute("sysDataRestore", role.getSysDataRestore());
 		session.setAttribute("serverApplicationDinner", role.getServerApplicationDinner());
@@ -88,111 +96,98 @@ public class UserController {
 		session.setAttribute("mangaementAsset", role.getMangaementAsset());
 		session.setAttribute("evaluationFillProperty", role.getEvaluationFillProperty());
 		session.setAttribute("evaluationMangaementProperty", role.getEvaluationMangaementProperty());
-		
-		return new ModelAndView("redirect:/u/main",map);
-	}
-	
-	@RequestMapping(value = "/deleteUser/{userName}" , method = RequestMethod.GET)
-	public ModelAndView deleteUser( HttpSession session,@PathVariable("userName") String userName){
-		System.out.println("DELETE userName = " + userName );
-		
-		if(userService.findByUserNamefromBranch(userName) != null){
-			System.out.println("此人为某部门的头头");
-		}
-		else if(userService.findByUserNamefromCompany(userName)!= null)
-				System.out.println("此人为某公司的头头");
-		else{	
-			System.out.println("此人为无名氏");
-			userService.deleteUser(userName);
-		}
-			
-		return  GetUserList();
+
+		return new ModelAndView("redirect:/u/main", map);
 	}
 
-	//新增一个用户
-	@RequestMapping(value="/addUser", method=RequestMethod.POST)
-	public ModelAndView addUser(User user){
-		
+	// 删除用户
+	@RequestMapping(value = "/deleteUser/{userName}", method = RequestMethod.GET)
+	public ModelAndView deleteUser(HttpSession session, @PathVariable("userName") String userName) {
+		if (userService.findByUserNamefromBranch(userName) != null) {
+			System.out.println("此人为某部门的头头");
+			return GetUserList().addObject("infomation", "此用户为某个部门的管理员，请更改后再删除");
+		} else if (userService.findByUserNamefromCompany(userName) != null) {
+			System.out.println("此人为某公司的头头");
+			return GetUserList().addObject("infomation", "此用户为某个公司的管理员，请更改后再删除");
+		} else {
+			System.out.println("此人为无名氏");
+			try {
+				userService.deleteUser(userName);
+			} catch (DataAccessException e) {
+				userService.updateIsExist(userName);
+				System.out.println("捕获到了异常");
+			}
+		}
+
+		return  GetUserList().addObject("infomation","删除成功");
+	}
+
+	// 新增一个用户
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public ModelAndView addUser(User user) {
 
 		String string = userService.addUser(user);
 
-		return  GetUserList();
+		return GetUserList().addObject("infomation", "新增成功");
 	}
-	
-	/**
-	 * 删除用户
-	 * @Author Arron
-	 */
-	
-	//跳转新增用户界面
-	@RequestMapping(value="user-add")
-	public ModelAndView useradd(){
-		
+
+	// 新增用户界面
+	@RequestMapping(value = "user-add")
+	public ModelAndView useradd() {
+
 		System.out.println("进入了User-add");
 		List<CompanyEntity> listCompany = companyService.queryCompany();
 		List<BranchEntity> listBranch = branchService.queryBranch();
 		List<JobEntity> listJob = JobService.queryJob();
-		
-		Map map =new HashMap();
-		map.put("listCompany",listCompany);
+
+		Map map = new HashMap();
+		map.put("listCompany", listCompany);
 		map.put("listBranch", listBranch);
 		map.put("listJob", listJob);
-		
+
 		System.out.println(listCompany);
 		System.out.println(listBranch);
 		System.out.println(listJob);
-		
-		return new ModelAndView("/function/system-user-add",map);
+
+		return new ModelAndView("/function/system-user-add", map);
 	}
-			
-	//修改用户信息
-	@RequestMapping(value="/updateUserInfo" , method=RequestMethod.POST)
-	public ModelAndView updateUserInfo(User user){
-		
+
+	// 修改用户信息
+	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
+	public ModelAndView updateUserInfo(User user) {
 		System.out.println(user);
-		
 		int updateUserInfo = userService.updateUserInfo(user);
-		
-		return  GetUserList();
+		return GetUserList().addObject("infomation","修改成功");
 	}
-	
-	
-//	登出
+
+	// 登出
 	@RequestMapping("/logout2")
-	public ModelAndView logout(HttpSession session){
-		System.out.println("退出成功");	
+	public ModelAndView logout(HttpSession session) {
+		System.out.println("退出成功");
 		session.invalidate();
 		return new ModelAndView("redirect:/login.jsp");
 	}
 
-	
-	@RequestMapping(value="/u/top", method=RequestMethod.GET)
-	public ModelAndView top(){
-//		User user=(User) session.getAttribute("user");
-//		session.setAttribute("user", user);
+	@RequestMapping(value = "/u/top", method = RequestMethod.GET)
+	public ModelAndView top() {
 		return new ModelAndView("top");
 	}
-	
-	@RequestMapping(value="/u/left", method=RequestMethod.GET)
-	public ModelAndView left(HttpSession session){
+
+	@RequestMapping(value = "/u/left", method = RequestMethod.GET)
+	public ModelAndView left(HttpSession session) {
 		return new ModelAndView("left");
 	}
-	@RequestMapping(value="/u/main", method=RequestMethod.GET)
-	public ModelAndView main(HttpSession session){
-		//if(session.getAttribute("user")!=null)
+
+	@RequestMapping(value = "/u/main", method = RequestMethod.GET)
+	public ModelAndView main(HttpSession session) {
 		return new ModelAndView("main");
-		//return new ModelAndView("redirect:/login");
 	}
-	
-	public  ModelAndView GetUserList()
-	{
+
+	// 通用返回UserList方法
+	public ModelAndView GetUserList() {
 		List<User> listUser = userService.listUser();
-				
-		Map map =new HashMap();
-		map.put("listUser",listUser);//userlist是个Arraylist之类的  
-
-		return new ModelAndView("/function/system-user",map);
-
-		
+		Map map = new HashMap();
+		map.put("listUser", listUser);// userlist是个Arraylist之类的
+		return new ModelAndView("/function/system-user", map);
 	}
 }
