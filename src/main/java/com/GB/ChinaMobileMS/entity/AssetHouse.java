@@ -6,11 +6,19 @@ public class AssetHouse {
 	private int belonngBranchId;
 	private int floor;
 	private int area;
+	private int assetInfoId;
 
 	private int companyId;
 	private String companyName;
 	private String buildingName;
 
+	public int getAssetInfoId() {
+		return assetInfoId;
+	}
+
+	public void setAssetInfoId(int assetInfoId) {
+		this.assetInfoId = assetInfoId;
+	}
 	public String getBuilding() {
 		return building;
 	}
@@ -94,6 +102,7 @@ public class AssetHouse {
 				+ ((companyName == null) ? 0 : companyName.hashCode());
 		result = prime * result + floor;
 		result = prime * result + houseId;
+		result = prime * result + assetInfoId;
 		return result;
 	}
 
@@ -131,6 +140,8 @@ public class AssetHouse {
 			return false;
 		if (houseId != other.houseId)
 			return false;
+		if (houseId != other.assetInfoId)
+			return false;
 		return true;
 	}
 
@@ -138,7 +149,7 @@ public class AssetHouse {
 	public String toString() {
 		return "AssetHouse [building=" + building + ", houseId=" + houseId
 				+ ", belonngBranchId=" + belonngBranchId + ", floor=" + floor
-				+ ", area=" + area + ", companyId=" + companyId
+				+ ", area=" + area + ", companyId=" + companyId + ", assetInfoId=" + assetInfoId
 				+ ", companyName=" + companyName + ", buildingName="
 				+ buildingName + "]";
 	}

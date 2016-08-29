@@ -15,4 +15,6 @@ public interface AssetLoanDeviceService {
 	List<AssetLoanDevice> search(String loean,String search);
 	
 	List<AssetLoanDevice> search2(String loean,String search);
+	
+	String getLoanDeviceSumByCompany(int companyId);
 }

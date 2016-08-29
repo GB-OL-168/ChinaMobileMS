@@ -54,10 +54,8 @@ public class AssetFurnitureServiceImpl implements AssetFurnitureService{
 	}
 	
 	@Override
-	public boolean deleteFurnitureInfo(int officeFurnitureInfoId) {
-		
-		System.out.println(assetfurnMapper.deleteFurnitureInfo(officeFurnitureInfoId));
-		
+	public boolean deleteFurnitureInfo(int officeFurnitureInfoId) {		
+		System.out.println(assetfurnMapper.deleteFurnitureInfo(officeFurnitureInfoId));		
 		return false;
 	}
 }

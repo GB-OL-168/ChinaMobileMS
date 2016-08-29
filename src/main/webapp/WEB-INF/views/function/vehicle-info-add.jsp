@@ -64,7 +64,8 @@
                         </div>
                         <label  class="col-sm-2 control-label">车座</label>
                         <div class="col-sm-3">
-                            <input name="seat"  type="text" class="form-control"/>
+                        <input name="seat" class="form-control"  placeholder="仅支持数字" required
+                        onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
                         </div>
                     </div>
 
@@ -105,7 +106,7 @@
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">出厂日期</label>
                         <div class="col-sm-3">
-                            <input name="productDate" type="date" class="form-control"/>
+                            <input name="productDate" type="date" class="form-control" required/>
                         </div>
                         <label  class="col-sm-2 control-label">车主</label>
                         <div class="col-sm-3">
@@ -115,7 +116,8 @@
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">车辆价格</label>
                         <div class="col-sm-3">
-                            <input name="price" type="text" class="form-control"/>
+                           <input name="price" type="text" class="form-control" placeholder="仅支持数字" required
+                       	   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
                         </div>
                         <label  class="col-sm-2 control-label">使用单位</label>
                         <div class="col-sm-3">
@@ -126,10 +128,9 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-8">
                             <button type="submit" class="btn btn-default col-sm-offset-4">登记</button>
-                            <a href="/vehicle/info-add" class="btn btn-default">返回</a>
+                            <button type="reset" class="btn btn-default">重置</button>
                         </div>
-                    </div>
-                    
+                    </div>                  
                 </form>
                 
             </div>

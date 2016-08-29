@@ -27,18 +27,17 @@ ol li {
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
-							<li><a href="#">信息管理</a></li>
-							<li><a href="#">上市公司资产信息</a></li>
+							<li>信息管理</li>
+							<li>上市公司资产信息</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">使用信息 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="company-register-houses-add.html">信息登记</a></li>
-									<li><a href="company-register-houses.html">信息查询</a></li>
-									<li><a href="company-count.html">信息统计</a></li>
+									<li><a href="/register/houses-add">信息登记</a></li>
+									<li><a href="/companyquery/houses">信息查询</a></li>
+									<li><a href="/company/count-list">信息统计</a></li>
 								</ul></li>
-							<li class="active"><a href="javascript:void(0)">使用信息查询 <span
-									class="caret"></span></a></li>
+								<li>使用信息查询 </li>
 						</ol>
 					</div>
 				</div>
@@ -51,8 +50,8 @@ ol li {
 					<div class="col-md-4">
 						<div class="input-group">
 							<input type="text" name="queryInformation"
-								class="form-control input-sm" placeholder="请输入信息"> <span
-								class="input-group-btn">
+								class="form-control input-sm" placeholder="请输入信息"> 
+							<span class="input-group-btn">
 								<button type="submit" class="btn btn-default btn-sm">搜索</button>
 							</span>
 						</div>
@@ -81,6 +80,7 @@ ol li {
 							<td class="brand">${f.brand}</td>
 							<td class="specification">${f.specification}</td>
 							<td class="count">${f.count}</td>
+							<td class="remark">${f.remark}</td>
 							<%-- <th>${f.remark}</th>  --%>
 							<td class="usedSituation" style="display: none">${f.usedSituation}</td>
 							<td><a class="modify" href="javascript:void(0)">修改</a>|
@@ -92,22 +92,18 @@ ol li {
 			</div>
 		</div>
 	</div>
-	</div>
+	
 	<!-- 	新添加的地方-->
-
 	<div id="code">
 		<div class="close1">
-			<a href="javascript:void(0)" id="closebt"><img
-				src="/assets/img/close.gif"></a>
+			<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
 		</div>
 		<form action="/updateFurnitureInfo" method="post">
 			<div class="goodtxt">
 
-
 				<table class="table table-bordered table-hover">
 					<h3 style="align-text: center">修改信息</h3>
-					<input type="hidden" name="officeFurnitureInfoId"
-						class="officeFurnitureInfoId" />
+					<input type="hidden" name="officeFurnitureInfoId" class="officeFurnitureInfoId" />
 					<tr>
 						<td>家具类型</td>
 						<td><input name="furnitureType" class="furnitureType" /></td>
@@ -124,23 +120,22 @@ ol li {
 						<td>数量</td>
 						<td><input type="number" name="count" class="count" /></td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<td>备注</td>
-						<td><input name="furnitureType" class="furnitureType" /></td>
-					</tr> -->
+						<td><input name="remark" class="remark" /></td>
+					</tr>
 					<tr>
 						<td>使用情况</td>
 						<td>
 							<div class="form-group">
 								<input name="usedSituation" type="radio" value="1" />在用
-								 <input name="usedSituation" type="radio" value="0" />闲置
+								<input name="usedSituation" type="radio" value="0" />闲置
 							</div> 
 						</td>
 					</tr>
 
 				</table>
 			</div>
-
 			<button type="submit" class="btn btn-info">修改</button>
 			<button class="btn btn-info">返回</button>
 		</form>
@@ -158,6 +153,7 @@ ol li {
 						var specification = $(this).parent().siblings(
 								".specification").text();
 						var count = $(this).parent().siblings(".count").text();
+						var remark = $(this).parent().siblings(".remark").text();
 						var usedSituation = $(this).parent().siblings(
 								".usedSituation").text();
 
@@ -174,6 +170,7 @@ ol li {
 						$("input.brand").val(brand);
 						$("input.specification").val(specification);
 						$("input.count").val(count);
+						$("input.remark").val(remark);
 						$("input.usedSituation").val(usedSituation);
 
 						$('#code').center();
@@ -224,8 +221,6 @@ ol li {
 
 		});
 	</script>
-
-
 
 </body>
 </html>

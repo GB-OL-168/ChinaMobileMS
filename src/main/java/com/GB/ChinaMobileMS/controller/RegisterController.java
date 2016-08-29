@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.GB.ChinaMobileMS.dao.AssetLoanDeviceMapper;
 import com.GB.ChinaMobileMS.entity.AssetFurniture;
 import com.GB.ChinaMobileMS.entity.AssetHouse;
 import com.GB.ChinaMobileMS.entity.AssetHousing;
@@ -50,8 +49,7 @@ public class RegisterController {
 	private  CompanyQuery cq;
 
 	@RequestMapping(value = "/register/{id}", method = RequestMethod.GET)
-	public ModelAndView AssetUser(User user, @PathVariable("id") String id,
-			HttpSession session) {
+	public ModelAndView AssetUser(User user, @PathVariable("id") String id, HttpSession session) {
 
 		List<CompanyEntity> listCompany = companyService.queryCompany();
 		List<BranchEntity> listBranch = branchService.queryBranch();
@@ -59,8 +57,7 @@ public class RegisterController {
 		List<AssetHouse> listRoom = roomService.queryAssetHouse();
 		List<AssetHousing> listash = ashService.queryAssetHousing();
 
-		Map map = new HashMap();
-		
+		Map map = new HashMap();		
 
 		map.put("listCompany", listCompany);
 		map.put("listBranch", listBranch);
@@ -69,14 +66,11 @@ public class RegisterController {
 		map.put("listUser",listUser);
 
 		if (id.equals("houses-add"))
-			return new ModelAndView("/function/company-register-houses-add",
-					map);
+			return new ModelAndView("/function/company-register-houses-add",map);
 		else if (id.equals("rooms-add"))
-			return new ModelAndView("/function/company-register-rooms-add",
-					map);
+			return new ModelAndView("/function/company-register-rooms-add",map);
 		else if (id.equals("furniture-add"))
-			return new ModelAndView("/function/company-register-furniture-add",
-					map);
+			return new ModelAndView("/function/company-register-furniture-add",map);
 		else if (id.equals("lease-add"))
 			return new ModelAndView("/function/company-register-lease-add", map);
 		else
@@ -92,9 +86,10 @@ public class RegisterController {
 		{
 			ash.setLoanTimeStart(null);
 			ash.setLoanTimeEnd(null);
+			ash.setLoanSource("无");
 		}
 
-		String str = ashService.addAssetHousing(ash);
+		ashService.addAssetHousing(ash);
 		return cq.CompanyQueryAfterRegister("houses");
 	}
 
@@ -104,7 +99,7 @@ public class RegisterController {
 
 		System.out.println("ROOM:" + room);
 
-		String str = roomService.addAssetHouse(room);
+		roomService.addAssetHouse(room);
 		return cq.CompanyQueryAfterRegister("rooms");
 	}
 
@@ -115,7 +110,7 @@ public class RegisterController {
 
 		System.out.println("assetfurn:" + assetfurn);
 
-		String str = asfService.addFurniture(assetfurn);
+		asfService.addFurniture(assetfurn);
 		return cq.CompanyQueryAfterRegister("furniture");
 	}
 
@@ -139,7 +134,7 @@ public class RegisterController {
 		}
 		if (flag == 1) {
 			System.out.println("Match UserName");
-			String str = aldService.addLoanDevice(ald);
+			aldService.addLoanDevice(ald);
 		} else {
 			System.out.println("Don't Match UserName");
 		}

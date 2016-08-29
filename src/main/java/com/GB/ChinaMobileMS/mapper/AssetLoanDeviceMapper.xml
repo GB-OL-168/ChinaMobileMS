@@ -175,4 +175,13 @@
 		AND
 		l.loan_info_id like "%"#{search}"%"
 	</select>
+	
+	<select id="getLoanDeviceSumByCompany" parameterType="int" resultType="String">
+		SELECT sum(count)FROM loan_device_info 
+		where belong_branch_id IN
+		(SELECT branch_id 
+			FROM branch 
+			where company_id = #{companyId})
+	</select>
+	
 </mapper>

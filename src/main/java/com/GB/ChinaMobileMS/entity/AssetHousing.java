@@ -17,9 +17,16 @@ public class AssetHousing {
 	private String loanSource;//租贷来源
 	private Date loanTimeStart = null;//租贷时间段
 	private Date loanTimeEnd = null;
+	private int floorCount;//层数
 	
 	private String companyName= null;
 	private int companyId ;
+	public int getFloorCount() {
+		return floorCount;
+	}
+	public void setFloorCount(int floorCount) {
+		this.floorCount = floorCount;
+	}
 	public int getAssetInfoId() {
 		return assetInfoId;
 	}
@@ -146,6 +153,7 @@ public class AssetHousing {
 				+ ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
 		result = prime * result + roomCount;
+		result = prime * result + floorCount;
 		result = prime * result
 				+ ((roomUsage == null) ? 0 : roomUsage.hashCode());
 		result = prime * result
@@ -212,6 +220,8 @@ public class AssetHousing {
 			return false;
 		if (roomCount != other.roomCount)
 			return false;
+		if (floorCount != other.floorCount)
+			return false;
 		if (roomUsage == null) {
 			if (other.roomUsage != null)
 				return false;
@@ -231,19 +241,12 @@ public class AssetHousing {
 		return "AssetHousing [assetInfoId=" + assetInfoId + ", usedBranchId="
 				+ usedBranchId + ", buildingArea=" + buildingArea
 				+ ", location=" + location + ", roomCount=" + roomCount
-				+ ", structureType=" + structureType + ", buildingName="
+				+", floorCount=" + floorCount + ", structureType=" + structureType + ", buildingName="
 				+ buildingName + ", roomUsage=" + roomUsage + ", addition="
 				+ addition + ", remark=" + remark + ", isLoan=" + isLoan
 				+ ", loanSource=" + loanSource + ", loanTimeStart="
 				+ loanTimeStart + ", loanTimeEnd=" + loanTimeEnd
 				+ ", companyName=" + companyName + ", companyId=" + companyId
 				+ "]";
-	}
-	
-	
-	
-	
-	
-	
-	
+	}		
 }

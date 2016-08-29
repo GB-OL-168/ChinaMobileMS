@@ -27,4 +27,6 @@ public interface AssetLoanDeviceMapper {
 	List<AssetLoanDevice> queryLoanDeviceByBatch2(String search);
 
 	List<AssetLoanDevice> queryLoanDeviceByLoanInfoId2(String search);
+	
+	String getLoanDeviceSumByCompany(int companyId);
 }

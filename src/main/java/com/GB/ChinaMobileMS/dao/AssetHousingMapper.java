@@ -21,4 +21,6 @@ public interface AssetHousingMapper {
 	List<AssetHousing> queryAssetHousingBylocation(String search);
 	
 	List<AssetHousing> queryAssetHousingByBuildingArea(String search);
+	
+	public List<AssetHousing> queryAssetHousingByCompany(int companyId);
 }

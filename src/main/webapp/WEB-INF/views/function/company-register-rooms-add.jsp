@@ -58,8 +58,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属部门</label>
 						<div class="col-sm-5">
-							<select class="Branch form-control" name="belonngBranchId"
-								required>
+							<select name=branch class="Branch form-control" required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -68,14 +67,14 @@
 							</select>
 						</div>
 					</div>
-
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属建筑</label>
 						<div class="col-sm-5">
-							<select class="building form-control" name="building" required>
-								<option value="">请选择建筑</option>
+							<select name="assetInfoId" class="building form-control" required>
+								<option value="">--请选择建筑--</option>
 								<c:forEach items="${listash}" var="a">
-									<option value="${a.assetInfoId}" class="${a.usedBranchId}">${a.buildingName}</option>
+									<option style="display: none;" class="${a.usedBranchId}"
+										value="${a.assetInfoId}">${a.buildingName}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -84,24 +83,24 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">所属楼层</label>
 						<div class="col-sm-5">
-							<input type="number" class="form-control" name="floor" required>
-
+							<input name="floor" class="form-control" placeholder="仅支持数字" required
+                       	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间编号</label>
 						<div class="col-sm-5">
-							<input type="number" class="form-control" placeholder="请输入房间编号"
-								name="houseId" required>
+							<input name="houseId" class="form-control" placeholder="仅支持数字" required
+                       	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">房间面积</label>
 						<div class="col-sm-5">
-							<input type="number" class="form-control" placeholder="请输入房间面积"
-								name="area" required>
+							<input name="area" class="form-control" placeholder="仅支持数字" required
+                       	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
 						</div>
 					</div>
 
@@ -116,20 +115,6 @@
 		</div>
 	</div>
 
-
-	<script>
-		var all = 1;
-		$(function() {
-			$(".branch").change(function() {
-				$(".building").val("");
-				$("option." + all).css("display", "none");
-				var b = $(".branch").val();
-				all = b;
-				$("option." + b).css("display", "block");
-
-			});
-		});
-	</script>
 	<script>
 		var all = 1;
 		$(function() {
@@ -139,7 +124,18 @@
 				var b = $(".company").val();
 				all = b;
 				$("option." + b).css("display", "block");
-
+			});
+		});
+	</script>
+	<script>
+		var all = 1;
+		$(function() {
+			$(".branch").change(function() {
+				$(".building").val("");
+				$("option." + all).css("display", "none");
+				var b = $(".branch").val();
+				all = b;
+				$("option." + b).css("display", "block");
 			});
 		});
 	</script>

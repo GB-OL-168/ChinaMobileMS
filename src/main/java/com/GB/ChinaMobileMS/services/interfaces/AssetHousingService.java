@@ -15,4 +15,6 @@ public interface AssetHousingService {
 	AssetHousing detailed(int assetInfoId);
 	
 	List<AssetHousing> searchAssetHousing(String houses,String seacrh);
+	 
+	public List<AssetHousing> getAssetHousingByCompany(int companyId);
 }

@@ -18,8 +18,7 @@ public class AssetHouseServiceImpl implements AssetHouseService {
 	@Override
 	public String addAssetHouse(AssetHouse room) {
 		System.out.println("Enter addAssetHouse");
-
-		int i = roomMapper.addAssetHouse(room);
+		roomMapper.addAssetHouse(room);
 		return "done";
 	}
 

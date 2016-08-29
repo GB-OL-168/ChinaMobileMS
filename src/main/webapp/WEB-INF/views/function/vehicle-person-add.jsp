@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label  class="col-sm-offset-3 col-sm-2 control-label">出生日期</label>
                             <div class="col-sm-3">
-                                <input name="birthday" type="date" class="form-control"/>
+                                <input name="birthday" type="date" class="form-control" required/>
                             </div>
                         </div>
 

@@ -15,5 +15,14 @@
 		from company
 	</select>
 	
+	<select id="queryCompanyByName" parameterType="String" resultType="com.GB.ChinaMobileMS.entity.CompanyEntity">
+		select *
+		from company
+		where company_name like "%"#{companyName}"%"
+	</select>
+	
+	<select id="listcompany" resultType="com.GB.ChinaMobileMS.entity.CompanyEntity">
+		select * from company
+	</select>
 	
 </mapper>

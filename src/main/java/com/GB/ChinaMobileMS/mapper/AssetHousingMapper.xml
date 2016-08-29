@@ -4,13 +4,12 @@
 
 <mapper namespace="com.GB.ChinaMobileMS.dao.AssetHousingMapper">
 	<insert id="addAssetHousing" parameterType="AssetHousing">
-		INSERT INTO
-		housing_asset_info(asset_info_id,
-		used_branch_id,building_area,location,room_count,structure_type,
-		building_name,room_usage,addition,remark,is_loan,loan_source,loan_time_start,loan_time_end)
+		INSERT INTO housing_asset_info
+		(used_branch_id,building_area,location,room_count,structure_type,building_name,
+		room_usage,addition,remark,is_loan,loan_source,loan_time_start,loan_time_end,floor_count)
 		VALUES
-		(#{assetInfoId},#{usedBranchId},#{buildingArea},#{location},#{roomCount},#{structureType},
-		#{buildingName},#{roomUsage},#{addition},#{remark},#{isLoan},#{loanSource},#{loanTimeStart},#{loanTimeEnd})
+		(#{usedBranchId},#{buildingArea},#{location},#{roomCount},#{structureType},#{buildingName},
+		#{roomUsage},#{addition},#{remark},#{isLoan},#{loanSource},#{loanTimeStart},#{loanTimeEnd},#{floorCount})
 	</insert>
 
 	<select id="queryAssetHousing" resultType="AssetHousing">
@@ -127,5 +126,11 @@
 		h.used_branch_id
 		AND c.company_id = b.company_id
 		AND h.building_area like "%"#{search}"%"
+	</select>
+	
+	<select id="queryAssetHousingByCompany" parameterType="int" resultType="com.GB.ChinaMobileMS.entity.AssetHousing">
+		SELECT * FROM housing_asset_info
+		WHERE used_branch_id IN
+		(SELECT branch_id FROM branch WHERE company_id = #{companyId})
 	</select>
 </mapper>

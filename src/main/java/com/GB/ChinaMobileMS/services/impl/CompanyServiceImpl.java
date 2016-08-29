@@ -26,5 +26,14 @@ public class CompanyServiceImpl implements CompanyService {
 		// TODO Auto-generated method stub
 		return companyMapper.queryCompany();
 	}
-
+	
+	@Override
+	public List<CompanyEntity> getCompanyByName(String companyName) {
+		return companyMapper.queryCompanyByName(companyName);
+	}
+	@Override
+	public List<CompanyEntity> listcompany() {
+		return companyMapper.listcompany();
+	}
+	
 }

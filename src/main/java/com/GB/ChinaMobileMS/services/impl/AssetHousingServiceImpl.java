@@ -17,7 +17,7 @@ public class AssetHousingServiceImpl implements AssetHousingService {
 
 	public String addAssetHousing(AssetHousing ash) {
 		System.out.println("Enter addAssetHousing");
-		int addash = ashMapper.addAssetHousing(ash);
+		ashMapper.addAssetHousing(ash);
 		return "done";
 	}
 
@@ -64,5 +64,10 @@ public class AssetHousingServiceImpl implements AssetHousingService {
 			return ash;
 		}
 
+	}
+	
+	@Override
+	public List<AssetHousing> getAssetHousingByCompany(int companyId) {
+		return ashMapper.queryAssetHousingByCompany(companyId);
 	}
 }

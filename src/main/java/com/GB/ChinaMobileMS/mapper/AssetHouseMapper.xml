@@ -6,10 +6,10 @@
 
 <mapper namespace="com.GB.ChinaMobileMS.dao.AssetHouseMapper">
 	<insert id="addAssetHouse" parameterType="AssetHouse">
-		INSERT INTO
-		house_info(house_id,belonng_branch_id,building,floor,area)
+		INSERT INTO house_info
+			(floor,area,asset_info_id)
 		VALUES
-		(#{houseId},#{belonngBranchId},#{building},#{floor},#{area})
+			(#{floor},#{area},#{assetInfoId})
 	</insert>
 
 	<select id="queryAssetHouse" resultType="AssetHouse">

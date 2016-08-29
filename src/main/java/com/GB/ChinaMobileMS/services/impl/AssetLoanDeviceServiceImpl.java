@@ -71,4 +71,9 @@ public class AssetLoanDeviceServiceImpl implements AssetLoanDeviceService {
 			return listald;
 		}
 	}
+	
+	@Override
+	public String getLoanDeviceSumByCompany(int companyId) {
+		return aldMapper.getLoanDeviceSumByCompany(companyId);
+	}
 }
