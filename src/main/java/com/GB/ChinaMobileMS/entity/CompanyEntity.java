@@ -4,7 +4,14 @@ public class CompanyEntity {
 	private int companyId;
 	private String companyName;
 	private String companyManager;
+	private int buildingCount;
 	
+	public int getBuildingCount() {
+		return buildingCount;
+	}
+	public void setBuildingCount(int buildingCount) {
+		this.buildingCount = buildingCount;
+	}
 	public int getCompanyId() {
 		return companyId;
 	}

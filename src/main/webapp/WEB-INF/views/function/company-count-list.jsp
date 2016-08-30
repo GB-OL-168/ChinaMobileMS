@@ -61,8 +61,8 @@
 		                <tr class="c">
 		                <td>${c.companyId}</td>
 		                <td>${c.companyName}</td>
-		                <td>2</td>
-		                <td><a href="/companyCount?companyId=${c.companyId}&companyName=${c.companyName}">查看</a></td>
+		                <td>${c.buildingCount}</td>
+		                <td><a href="/companyCount1?companyId=${c.companyId}&companyName=${c.companyName}">查看</a></td>
 		                </tr>
 	                </c:forEach>
 	

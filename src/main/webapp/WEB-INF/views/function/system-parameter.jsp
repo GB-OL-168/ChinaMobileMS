@@ -23,7 +23,7 @@
 						  <li class="dropdown">
 						  	<a href="/system/paremeter" class="dropdown-toggle" data-toggle="dropdown" >提醒信息 </a>
 						  </li>
-						  <li>	<a href="/system/parameter-update" class="btn btn-default btn-xs">新增信息</a></li>
+						  <li>	<a href="/system/parameter-update" class="btn btn-default btn-xs">设置提醒信息</a></li>
 						</ol>
 				</div>
 		

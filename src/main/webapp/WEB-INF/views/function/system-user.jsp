@@ -35,7 +35,7 @@
 				</div>
 
 
-				<table id="idData" class="table table-bordered table-striped user-list" style="width:900px;">
+				<table id="idData" class="table table-hover table-striped user-list" style="width:900px;">
 		 			<h4 style="text-align:center;">用户列表</h4> 
 					<tr>
 						<th style="width:300px;">ID</th>
@@ -45,28 +45,21 @@
 
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
-							<td class="userName"  style="width:300px;">${a.userName}</td>
-							<td class="accountName"  style="width:300px;">${a.accountName}</td>
-							<td style="display: none" class="remark">${a.remark}</td>
-							<td style="display: none" class="phone">${a.phone}</td>
-							<td style="display: none" class="email">${a.email}</td>
-							<td style="display: none" class="birthday">${a.birthday}</td>
-							<td style="display: none" class="department">${a.department}</td>
-							<td style="display: none" class="identification">${a.identification}</td>
-							<td style="display: none" class="sex">${a.sex}</td>
-							<td style="display: none" class="jobId">${a.jobId}</td>
-							<td style="display: none" class="password">${a.password}</td>
+							<c:if test="${a.isExist=='1'}">
+							<td style="width:300px;" class="userName">${a.userName}</td>
+							<td style="width:300px;" class="accountName">${a.accountName}</td>
 							<td style="width:300px;"><a class="modify" href="javascript:void(0)">修改资料</a> | <a
-								href="/deleteUser/${a.userName}">删除用户</a></td>
+									href="/deleteUser/${a.userName}">删除用户</a></td>
+								</c:if>
 						</tr>
 					</c:forEach>
+					
+					<!-- <p id="delete" style="display:none">1</p> -->
 				</table>
 				<br>
 				<table width="70%" align="right">
 			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
 			    </table>
-				
-				
 			</div>
 		</div>
 	</div>
@@ -84,6 +77,9 @@
 		<form action="/updateUserInfo" method="post">
 			<div class="goodtxt">
 				<table class="table table-bordered">
+					
+					<td><input name="userName" class="userName" style='display:none'/></td>
+					
 					<tr><td>姓名</td>
 						<td><input name="accountName" class="accountName" /></td></tr>
 					
@@ -98,7 +94,7 @@
 					
 					<tr>
 						<td>生日</td>
-						<td><input name="birthday" class="birthday" /></td>
+						<td><input type="date" name="birthday" class="birthday" /></td>
 					</tr>
 					<tr><td>邮箱</td>
 						<td><input name="email" type="email" class="email" /></td></tr>
@@ -118,6 +114,11 @@
 	<script>
 	
 		$(function() {
+			var d= '${infomation}';
+			
+			if(d.length !=0 && d != null)alert(d);
+			console.log(d);
+			
 			$('.a>td>.modify').click(
 					function() {
 						var userName = $(this).parent().siblings(".userName").text();
@@ -133,6 +134,7 @@
 						var accountName = $(this).parent().siblings(".accountName").text();
 						var password = $(this).parent().siblings(".password").text();
 
+						$("input.remark").val(remark);
 						$("input.userName").val(userName);
 						$("input.jobId").val(jobId);
 						$("input.roleId").val(roleId);

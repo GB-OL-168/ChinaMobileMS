@@ -13,4 +13,6 @@ public interface AssetFurnitureService {
 	
 	String updateFurnitureInfo(AssetFurniture assetfurn);
 	boolean deleteFurnitureInfo(int officeFurnitureInfoId);
+	
+	List<AssetFurniture> getAssetFurnitureByBuildingID(int assetInfoId);
 }
