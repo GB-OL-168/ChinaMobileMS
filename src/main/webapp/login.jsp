@@ -26,7 +26,7 @@
 			</div>
 			<div class="input-row">
 				<label class="label fadeIn delay2">密&nbsp;码</label>
-				<input id="password" type="password" name="password" class="input fadeIn delay3"/>
+				<input id='password' type="password" name="password"  class="input fadeIn delay3"/>
 			</div>
 			<div class="input-row perspective">
 				<button id="submit" class="button load-btn fadeIn delay4" type="submit">
@@ -102,6 +102,8 @@
             } else if (message == "psw_incorrect") {
                 alert("密码错误。");
             }
+            else if(message == "role_null") alert("该用户尚未分配角色，请联系管理员。");
+            	
         }
     </script>
     <%

@@ -2,6 +2,8 @@ package com.GB.ChinaMobileMS.dao;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.User;
@@ -18,11 +20,13 @@ public interface UserMapper {
 	
 	int updateUserInfo(User user);
 	
+	int updateIsExist(String userName);
+	
 	List<User> listUser();
 	
 	User queryUserByUserName(String userName);
 
 	int updateUserRole(User user);
-	
-	boolean deleteUser(String userName);
+	 
+	boolean deleteUser(String userName) throws DataAccessException;
 }

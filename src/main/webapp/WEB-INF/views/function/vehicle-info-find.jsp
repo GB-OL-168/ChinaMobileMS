@@ -14,7 +14,7 @@
    
 </head>
 <body>
-    <div class="container" style="width:900px;">
+    <div class="container" style="width:1100px;">
 
         <div class="row">
 
@@ -34,9 +34,9 @@
                          </ol>
                      </div>
                  </div>
-                <hr>
+                <br>
                	<form action = "/findVehicleInfo" method="post">
-                    <div class="col-md-offset-1 col-md-4">
+                    <div class="col-md-offset-1 col-md-5">
                         <input type="radio" name="condition" value="brand" checked>品牌
                         <input type="radio" name="condition" value="model">型号
                         <input type="radio" name="condition" value="vehicleType">车辆类型
@@ -54,9 +54,9 @@
                 </form>
                 
             </div>
-         
+         	<br><br><hr>
             </div>
-                <table class="table table-bordered" style="width:900px;">
+                <table class="table table-bordered" style="width:1100px;">
                     <h4 style="text-align:center;">查询结果</h4>
                     <tr>
                         <th>品牌</th>

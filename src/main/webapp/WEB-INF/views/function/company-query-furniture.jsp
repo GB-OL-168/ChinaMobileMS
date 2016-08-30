@@ -12,7 +12,11 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-
+	<style>
+		tr>th{
+			text-align:center;
+		}
+	</style>
 </head>
 <body>
 
@@ -26,8 +30,6 @@
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
 							<li ><a href="#">信息查询</a> </li>
-									
-								
 							<li class="dropdown active"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">办公家具信息查询 <span
@@ -39,26 +41,26 @@
 								</ul></li>
 						</ol>
 					</div>
-					<hr>
-					<form action="/searchASF"  method="get"  style="width:900px;">
-						<div class="col-md-offset-1 col-md-4">
-							 <input type="radio" name="asf" value="furnitureType" required>家具类型
-							 <input type="radio" name="asf" value="brand" required>品牌型号 
-							 <input type="radio" name="asf" value="branchName" required>所在部门 
-							 <input type="radio" name="asf" value="building"style="display: inline-block" required>所在建筑
-						</div>
-						<div class="col-md-4">
-							<div class="input-group">
-								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息" name="search"> <span class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="submit">搜索</button>
-								</span>
-							</div>
-						</div>
-					</form>
 				</div>
-			
-				<table class="table table-bordered"  style="width:900px;">
+				<br>
+				<form action="/searchASF"  method="get">
+					<div class="col-md-offset-1 col-md-6">
+						 <input type="radio" name="asf" value="furnitureType" required>家具类型
+						 <input type="radio" name="asf" value="brand" required>品牌型号 
+						 <input type="radio" name="asf" value="branchName" required>所在部门 
+						 <input type="radio" name="asf" value="building"style="display: inline-block" required>所在建筑
+					</div>
+					<div class="col-md-5">
+						<div class="input-group">
+							<input type="text" class="form-control input-sm"
+								placeholder="请输入信息" name="search"> <span class="input-group-btn">
+								<button class="btn btn-default btn-sm" type="submit">搜索</button>
+							</span>
+						</div>
+					</div>
+				</form>
+				<br><hr>
+				<table class="table table-bordered"  style="width:900px; text-align: center;">
 					<h4 style="text-align: center;">办公家具信息查询</h4>
 					<tr>
 						<th>编号</th>

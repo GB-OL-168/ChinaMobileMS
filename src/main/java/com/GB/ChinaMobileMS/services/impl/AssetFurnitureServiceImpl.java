@@ -58,4 +58,9 @@ public class AssetFurnitureServiceImpl implements AssetFurnitureService{
 		System.out.println(assetfurnMapper.deleteFurnitureInfo(officeFurnitureInfoId));		
 		return false;
 	}
+	
+	@Override
+	public List<AssetFurniture> getAssetFurnitureByBuildingID(int assetInfoId) {
+		return assetfurnMapper.queryAssetFurnitureByBuildingID(assetInfoId);
+	}
 }

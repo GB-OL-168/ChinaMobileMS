@@ -1,5 +1,6 @@
 package com.GB.ChinaMobileMS.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -84,17 +85,23 @@ public class Company {
 	}
 	/** 
 	 * @param companyEntity
-	 * @信息统计-查询公司
+	 * @信息统计-搜索公司
 	 */
 	@RequestMapping(value="/statisticsCompany" , method=RequestMethod.POST)
 	public ModelAndView statisticsCompany(CompanyEntity companyEntity,HttpServletRequest request){
 		String companyName = request.getParameter("company");//获得所搜公司名称		
 		List<CompanyEntity> listCompany;
+		
 		//当搜索内容非空时执行
 		if(!companyName.equals("")){
 			listCompany = companyService.getCompanyByName(companyName);
 			Map<String, List<CompanyEntity>> map = new HashMap<String, List<CompanyEntity>>();
 			map.put("listCompany", listCompany);
+			//统计建筑数
+			for(int i=0;i<listCompany.size();i++){
+			List<AssetHousing> listAssetHousing = assetHousingService.getAssetHousingByCompany(listCompany.get(i).getCompanyId());
+			listCompany.get(i).setBuildingCount(listAssetHousing.size());
+			}
 			return new ModelAndView("/function/company-count-list", map);
 		}
 		//当搜索内容为空时，显示全部公司
@@ -102,6 +109,11 @@ public class Company {
 			listCompany = companyService.listcompany();
 			Map<String, List<CompanyEntity>> map = new HashMap<String, List<CompanyEntity>>();
 			map.put("listCompany", listCompany);
+			//统计建筑数
+			for(int i=0;i<listCompany.size();i++){
+			List<AssetHousing> listAssetHousing = assetHousingService.getAssetHousingByCompany(listCompany.get(i).getCompanyId());
+			listCompany.get(i).setBuildingCount(listAssetHousing.size());
+			}
 			return new ModelAndView("/function/company-count-list", map);
 		}		
 	}
@@ -109,16 +121,80 @@ public class Company {
 	 * @param request
 	 * @某公司资产统计
 	 */
-	@RequestMapping(value = "/companyCount", method = RequestMethod.GET)
-	public ModelAndView companyCount(HttpServletRequest request) {
+	@RequestMapping(value = "/companyCount1", method = RequestMethod.GET)
+	public ModelAndView companyCount1(HttpServletRequest request) {
 		int companyId = Integer.parseInt(request.getParameter("companyId"));
 		int housesSum = 0;
+		int furnitureCount = 0;//家具数
+		int furnitureSum = 0;//家具总数
+		String companyName = request.getParameter("companyName");
+		
+		//获得该公司的建筑列表
+		List<AssetHousing> listAssetHousing = assetHousingService.getAssetHousingByCompany(companyId);
+		Map<String, List<AssetHousing>> map = new HashMap<String, List<AssetHousing>>();
+		map.put("listAssetHousing", listAssetHousing);		
+		
+		//获得该公司的房间总数、家具数量、家具总数
+		for(int i=0;i<listAssetHousing.size();i++){
+			housesSum += listAssetHousing.get(i).getRoomCount();
+			furnitureCount = 0;
+			List<AssetFurniture> listAssetFurniture = assetFurnitureService.getAssetFurnitureByBuildingID(listAssetHousing.get(i).getAssetInfoId());
+			for(int j=0;j<listAssetFurniture.size();j++){
+				furnitureCount += listAssetFurniture.get(j).getCount();
+			}
+			listAssetHousing.get(i).setFurniture(furnitureCount);
+		}
+			
+		for(int i=0;i<listAssetHousing.size();i++){
+			furnitureSum += listAssetHousing.get(i).getFurniture();
+		}
+		
+		//获得该公司的租赁设备总数
+		String loanDeviceSum = assetLoanDeviceService.getLoanDeviceSumByCompany(companyId);
+		
+		return new ModelAndView("/function/company-count", map)
+				.addObject("companyId", companyId)
+				.addObject("companyName", companyName)
+				.addObject("housesSum", housesSum)
+				.addObject("loanDeviceSum", loanDeviceSum)
+				.addObject("furnitureSum", furnitureSum);
+	}
+	/**
+	 * @param request
+	 * @某公司资产统计—某建筑家具统计
+	 */
+	@RequestMapping(value = "/companyCount2", method = RequestMethod.GET)
+	public ModelAndView companyCount2(HttpServletRequest request) {
+		int assetInfoId = Integer.parseInt(request.getParameter("assetInfoId"));
+		int companyId = Integer.parseInt(request.getParameter("companyId"));
+		int housesSum = 0;
+		int furnitureCount = 0;//家具数
+		int furnitureSum = 0;//家具总数
+		
 		String companyName = request.getParameter("companyName");
 		
 		//获得该公司的建筑列表
 		List<AssetHousing> listAssetHousing = assetHousingService.getAssetHousingByCompany(companyId);
 		Map<String, List<AssetHousing>> map = new HashMap<String, List<AssetHousing>>();
 		map.put("listAssetHousing", listAssetHousing);
+		
+		//获得该公司的房间总数、家具数量、家具总数
+		for(int i=0;i<listAssetHousing.size();i++){
+			housesSum += listAssetHousing.get(i).getRoomCount();
+			furnitureCount = 0;
+			List<AssetFurniture> listAssetFurniture = assetFurnitureService.getAssetFurnitureByBuildingID(listAssetHousing.get(i).getAssetInfoId());
+			for(int j=0;j<listAssetFurniture.size();j++){
+				furnitureCount += listAssetFurniture.get(j).getCount();
+			}
+			listAssetHousing.get(i).setFurniture(furnitureCount);
+		}
+			
+		for(int i=0;i<listAssetHousing.size();i++){
+			furnitureSum += listAssetHousing.get(i).getFurniture();
+		}
+		
+		//获得该公司的该建筑的家具列表
+		List<AssetFurniture> listAssetFurniture = assetFurnitureService.getAssetFurnitureByBuildingID(assetInfoId);
 		
 		//获得该公司的房间总数
 		for(int i=0;i<listAssetHousing.size();i++){
@@ -128,12 +204,13 @@ public class Company {
 		//获得该公司的租赁设备总数
 		String loanDeviceSum = assetLoanDeviceService.getLoanDeviceSumByCompany(companyId);
 		
-		return new ModelAndView("/function/company-count", map)
+		return new ModelAndView("/function/company-count",map)
+				.addObject("companyId", companyId)
 				.addObject("companyName", companyName)
 				.addObject("housesSum", housesSum)
-				.addObject("loanDeviceSum", loanDeviceSum);
-		
-		//System.out.println("ID ="+companyId +"Name ="+companyName);
+				.addObject("loanDeviceSum", loanDeviceSum)
+				.addObject("listAssetFurniture", listAssetFurniture)
+				.addObject("furnitureSum", furnitureSum);
 	}
 	
 	

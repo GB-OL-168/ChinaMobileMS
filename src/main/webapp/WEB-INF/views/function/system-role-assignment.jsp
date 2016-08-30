@@ -22,14 +22,13 @@
 						<ol class="breadcrumb">
 							<li><a href="javascript:void(0)">系统设置</a></li>
 							<li><a href="javascript:void(0)">权限设置</a></li>
-							<li class="dropdown"><a
-								href="javascript:void(0)">角色分配 </a>
+							<li><a href="javascript:void(0)">角色分配 </a></li>
 						</ol>
 					</div>
 				</div>
 
 				<table class="table table-bordered col-md-12" style="width:900px;">
-					<h3 style="text-align: center;">设置系统角色</h3>
+					<h4 style="text-align:center;">设置系统角色</h4>
 
 					<tr>
 						<th style="width: 100px;">用户名</th>
@@ -59,7 +58,7 @@
 				<option name="${b.roleName}" value="${b.roleName}">${b.roleName}</option>
 			</c:forEach>
 		</select> 
-		<input type="submit" value="确认修改" /> 
+		<button type="submit" class="btn btn-info btn-xs">确认修改</button>
 	</form>
 
 	<script>

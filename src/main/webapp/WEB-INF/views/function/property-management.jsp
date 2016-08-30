@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<div class="container" style="width:920px;">		      
+	<div class="container" style="width:1100px;">		      
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row"> 
@@ -30,7 +30,7 @@
 					</div>
 					<div class="col-md-3"></div>
 				</div>           
-				<table class="table table-bordered" style="width:920px;">
+				<table class="table table-bordered" style="width:1100px;">
 					<h4 style="text-align:center;">审核情况</h4>
 				  <tr>        
 				   	<th>编号</th> 

@@ -3,6 +3,7 @@ package com.GB.ChinaMobileMS.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.GB.ChinaMobileMS.dao.UserMapper;
@@ -18,19 +19,16 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 	//UserMapper映射接口，生成一个实现对象
 	
-	public User login(String userName, String password) {
+	public User login(String userName) {
 		
-		User user = userMapper.findByUserName(userName);
-
-		return user;
+		return userMapper.findByUserName(userName);
 	}
 
-	public String addUser(User user) {
+	public int addUser(User user) {
 		// TODO Auto-generated method stub
-		int insertResult = userMapper.insertUser(user);
-		System.out.println("insertResult = "  + insertResult);
 		
-		return null;
+		
+		return userMapper.insertUser(user);
 	}
 	
 	public List<User> listUser() {
@@ -53,14 +51,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean deleteUser(String userName) {
+	public boolean deleteUser(String userName) throws DataAccessException{
 		/**
 		 * @Arron
 		 *
 		 */
 		
 		
-		System.out.println(userMapper.deleteUser(userName));
+		System.out.println("userDelete = "+userMapper.deleteUser(userName));
 		
 		return false;
 	}
@@ -85,6 +83,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		
 		return userMapper.updateUserInfo(user);
+	}
+
+	@Override
+	public int updateIsExist(String userName) {
+		// TODO Auto-generated method stub
+		return userMapper.updateIsExist(userName);
 	}
 	
 }

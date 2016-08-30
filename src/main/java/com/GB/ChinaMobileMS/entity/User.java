@@ -19,7 +19,24 @@ public class User implements Serializable {
 	private String sex;
 	private String accountName;
 	private String password;
+	private String salt;
+	private int isExist;
 	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+	
+	
+	public int getIsExist() {
+		return isExist;
+	}
+	public void setIsExist(int isExist) {
+		this.isExist = isExist;
+	}
 	private String roleName = null;
 	
 	public String getUserName() {

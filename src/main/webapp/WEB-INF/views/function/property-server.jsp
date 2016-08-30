@@ -105,7 +105,7 @@
 </head>
 <body>
 
-	<div class="container" style="width:925px;">		      
+	<div class="container" style="width:1100px;">		      
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row"> 
@@ -123,10 +123,10 @@
 					</div>	
 				</div>
 
-				<table class="table table-bordered"  style="width:925px;">
+				<table class="table table-bordered"  style="width:1100px;">
 				  <h4 style="text-align:center">申请情况</h4>
 				  <tr>        
-				  	<!-- <th>编号</th> -->
+				  	<th>编号</th> 
 				  	<th>申请时间</th>
 				  	<th>服务日期</th>
 				  	<th>具体时间</th>
@@ -140,7 +140,7 @@
 				  
 				  <c:forEach items="${listPropertyApplicant}" var="a"  varStatus="status">
 				  <tr class="a">
-				  	<%-- <td>${ status.index + 1}</td> --%>
+				  	<td>${ status.index + 1}</td> 
 				  	<td>${a.applyTime}</td>
 				  	<td>${a.serviceDate}</td>
 				  	<td>${a.concreteTime}</td>

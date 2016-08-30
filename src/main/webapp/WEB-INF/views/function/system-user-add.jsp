@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/assets/css/system.css">
 <script src="/assets/js/jquery-1.9.1.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/js/md5.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container" style="width: 900px;">
@@ -29,26 +30,28 @@
 					action="/addUser" method="post">
 					<h3 style="text-align: center;">添加用户</h3>
 
-					<td><input name="isExist" class="isExist"
-					value = "1"
+					<td><input name="isExist" class="isExist" value="1"
 						style='display: none' /></td>
-						
+
 					<div class="form-group">
 						<label class="col-sm-4 control-label">账号</label>
 						<div class="col-sm-5">
 							<input name="userName" type="text" class="form-control"
-								placeholder="请输入用账号">
+								placeholder="请输入用户账号">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">密码</label>
 						<div class="col-sm-5">
-							<input name="password" type="password" class="form-control"
-								placeholder="请输入密码">
+							<input id='nullpassword' type="password" class="form-control"
+								placeholder="请输入密码" required>
 						</div>
 					</div>
 
+					<td><input id='password' name="password" class="password"
+						style='display: none'/></td>
+						
 					<div class="form-group">
 						<label class="col-sm-4 control-label">姓名</label>
 						<div class="col-sm-5">
@@ -78,7 +81,7 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label">公司</label>
 						<div class="col-sm-5">
-							<select name="company" class="company form-control">
+							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
 								<c:forEach items="${listCompany}" var="c">
 									<option value="${c.companyId }">${c.companyName}</option>
@@ -90,7 +93,7 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label">部门</label>
 						<div class="col-sm-5">
-							<select name="branch" class="branch form-control">
+							<select name="branch" class="branch form-control" required>
 								<option value="">--请选择部门--</option>
 								<c:forEach items="${listBranch}" var="b">
 									<option style="display: none;" class="${b.companyId}"
@@ -104,7 +107,7 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label">岗位</label>
 						<div class="col-sm-5">
-							<select name="jobId" class="Job form-control">
+							<select name="jobId" class="Job form-control" required>
 								<option value="">--请选择岗位--</option>
 								<c:forEach items="${listJob}" var="j">
 									<option style="display: none;" class="${j.branchId}"
@@ -119,7 +122,7 @@
 						<label class="col-sm-4 control-label">生日</label>
 						<div class="col-sm-5">
 							<input name="birthday" type="date" class="form-control"
-								placeholder="请输入出生年月日">
+								placeholder="请输入出生年月日" required>
 						</div>
 					</div>
 
@@ -144,7 +147,7 @@
 						<label class="col-sm-4 control-label">备注</label>
 						<div class="col-sm-5">
 							<input name="remark" type="text" class="form-control"
-								placeholder="remark">
+								placeholder="请输入备注">
 						</div>
 					</div>
 
@@ -170,6 +173,13 @@
 				$("option." + b).css("display", "block");
 			});
 		});
+
+		$("#nullpassword").blur(function() {
+			if ($("#nullpassword").val() != "") {
+				var hash = hex_md5($("#nullpassword").val());
+				document.getElementById("password").value = hash;
+			}
+		});
 	</script>
 
 	<script>
@@ -185,6 +195,8 @@
 			});
 		});
 	</script>
+
+
 
 </body>
 </html>

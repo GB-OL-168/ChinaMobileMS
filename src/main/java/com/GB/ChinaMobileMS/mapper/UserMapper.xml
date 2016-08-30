@@ -29,22 +29,23 @@
 	<insert id="insertUser" parameterType="User">
 		INSERT INTO
 		user(
-		user_name,job_id,account_name,remark,phone,email,birthday,department,identification,sex,password)
+		user_name,job_id,account_name,remark,phone,email,birthday,department,identification,sex,password,salt)
 		VALUES
-		(#{userName},#{jobId},#{accountName},#{remark},#{phone},#{email},#{birthday},#{department},#{identification},#{sex},#{password})
+		(#{userName},#{jobId},#{accountName},#{remark},#{phone},#{email},#{birthday},#{department},#{identification},#{sex},#{password},#{salt})
 	</insert>
 
 	<select id="listUser" resultType="User">
 		select * from user
 
 	</select>
-	
-	<select id = "queryUserByUserName" parameterType="string" resultType="com.GB.ChinaMobileMS.entity.User">
+
+	<select id="queryUserByUserName" parameterType="string"
+		resultType="com.GB.ChinaMobileMS.entity.User">
 		select *
 		from user
 		where user_name = #{userName}
 	</select>
-	
+
 	<update id="updateUserRole" parameterType="Information">
 		update
 		user
@@ -55,24 +56,31 @@
 		where user_name = #{userName}
 	</update>
 
-	<update id="updateUserInfo" >
-		update user 
-		set 
+	<update id="updateIsExist">
+	update user set isExist = -1
+	where user_name = #{userName}
+	</update>
+	
+	<update id="updateUserInfo">
+		update user
+		set
 		account_name = #{accountName},
 		password = #{password},
-		identification = #{identification},
+		identification =
+		#{identification},
 		birthday = #{birthday},
 		email = #{email},
-		phone = #{phone},
+		phone =
+		#{phone},
 		remark = #{remark}
-		
+
 		where user_name = #{userName}
-		
+
 	</update>
 
 	<delete id="deleteUser">
-	delete from User 
-	where user_name = #{userName}
+		delete from User
+		where user_name = #{userName}
 	</delete>
 
 	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
