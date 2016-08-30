@@ -12,13 +12,14 @@
 	<link rel="stylesheet" href="/assets/css/system-make.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
 	<style>
 	.1 {
 		display: none;
 	}
 	</style>
 </head>
-<body>
+<body onLoad="goPage(1,10);">
 
 	<div class="container" style="width:900px">
 		<div class="row">
@@ -34,18 +35,18 @@
 				</div>
 
 
-				<table class="table table-bordered user-list" style="width:900px;">
+				<table id="idData" class="table table-bordered table-striped user-list" style="width:900px;">
 		 			<h4 style="text-align:center;">用户列表</h4> 
 					<tr>
-						<th>ID</th>
-						<th>用户名</th>
-						<th>操作</th>
+						<th style="width:300px;">ID</th>
+						<th style="width:300px;">用户名</th>
+						<th style="width:300px;">操作</th>
 					</tr>
 
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
-							<td class="userName">${a.userName}</td>
-							<td class="accountName">${a.accountName}</td>
+							<td class="userName"  style="width:300px;">${a.userName}</td>
+							<td class="accountName"  style="width:300px;">${a.accountName}</td>
 							<td style="display: none" class="remark">${a.remark}</td>
 							<td style="display: none" class="phone">${a.phone}</td>
 							<td style="display: none" class="email">${a.email}</td>
@@ -55,11 +56,17 @@
 							<td style="display: none" class="sex">${a.sex}</td>
 							<td style="display: none" class="jobId">${a.jobId}</td>
 							<td style="display: none" class="password">${a.password}</td>
-							<td><a class="modify" href="javascript:void(0)">修改资料</a> | <a
+							<td style="width:300px;"><a class="modify" href="javascript:void(0)">修改资料</a> | <a
 								href="/deleteUser/${a.userName}">删除用户</a></td>
 						</tr>
 					</c:forEach>
 				</table>
+				<br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
+				
+				
 			</div>
 		</div>
 	</div>
@@ -109,6 +116,7 @@
 	</div>
 
 	<script>
+	
 		$(function() {
 			$('.a>td>.modify').click(
 					function() {

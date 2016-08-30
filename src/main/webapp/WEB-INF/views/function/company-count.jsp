@@ -48,7 +48,7 @@
 				</div>
 
 				<h4 style="text-align:center;">资产统计</h4>
-				<table class="table	table-responsive table-bordered col-md-12" style="width:900px;">
+				<table class="table	table-responsive table-bordered col-md-12  table-striped" style="width:900px;">
 				  <tr>
 				  	<th>公司名称</th>
 				  	<th>房屋总数</th>
