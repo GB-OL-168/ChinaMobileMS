@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<form class="form-horizontal" style="width: 900px;"
-					action="/addUser" method="post">
+					action="/addUser" method="post" onsubmit="return check();">
 					<h3 style="text-align: center;">添加用户</h3>
 
 					<td><input name="isExist" class="isExist" value="1"
@@ -37,26 +37,23 @@
 						<label class="col-sm-4 control-label">账号</label>
 						<div class="col-sm-5">
 							<input name="userName" type="text" class="form-control"
-								placeholder="请输入用户账号">
+								placeholder="请输入用户账号" maxlength="20">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">密码</label>
 						<div class="col-sm-5">
-							<input id='nullpassword' type="password" class="form-control"
-								placeholder="请输入密码" required>
+							<input id='password' name="password" type="password" class="form-control"
+								placeholder="请输入密码" maxlength="20" required>
 						</div>
 					</div>
 
-					<td><input id='password' name="password" class="password"
-						style='display: none'/></td>
-						
 					<div class="form-group">
 						<label class="col-sm-4 control-label">姓名</label>
 						<div class="col-sm-5">
 							<input name="accountName" type="text" class="form-control"
-								placeholder="请输入姓名">
+								placeholder="请输入姓名" maxlength="20">
 						</div>
 					</div>
 
@@ -74,7 +71,7 @@
 						<label class="col-sm-4 control-label">身份证</label>
 						<div class="col-sm-5">
 							<input name="identification" type="text" class="form-control"
-								placeholder="请输入身份证">
+								placeholder="请输入身份证" maxlength="20">
 						</div>
 					</div>
 
@@ -122,7 +119,7 @@
 						<label class="col-sm-4 control-label">生日</label>
 						<div class="col-sm-5">
 							<input name="birthday" type="date" class="form-control"
-								placeholder="请输入出生年月日" required>
+								placeholder="请输入出生年月日" required maxlength="20">
 						</div>
 					</div>
 
@@ -131,7 +128,7 @@
 						<label class="col-sm-4 control-label">邮箱</label>
 						<div class="col-sm-5">
 							<input name="email" type="email" class="form-control"
-								placeholder="请输入邮箱">
+								placeholder="请输入邮箱" maxlength="20">
 						</div>
 					</div>
 
@@ -139,7 +136,7 @@
 						<label class="col-sm-4 control-label">电话</label>
 						<div class="col-sm-5">
 							<input name="phone" type="tel" class="form-control"
-								placeholder="请输入电话">
+								placeholder="请输入电话" maxlength="20">
 						</div>
 					</div>
 
@@ -147,7 +144,7 @@
 						<label class="col-sm-4 control-label">备注</label>
 						<div class="col-sm-5">
 							<input name="remark" type="text" class="form-control"
-								placeholder="请输入备注">
+								placeholder="请输入备注" maxlength="20">
 						</div>
 					</div>
 
@@ -174,12 +171,13 @@
 			});
 		});
 
-		$("#nullpassword").blur(function() {
-			if ($("#nullpassword").val() != "") {
-				var hash = hex_md5($("#nullpassword").val());
+		function check(){
+			if ($("#password").val() != "") {
+				var hash = hex_md5($("#password").val());
 				document.getElementById("password").value = hash;
 			}
-		});
+		};
+		
 	</script>
 
 	<script>

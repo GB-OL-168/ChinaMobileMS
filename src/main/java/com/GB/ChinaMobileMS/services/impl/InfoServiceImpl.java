@@ -19,11 +19,9 @@ public class InfoServiceImpl implements InfoService{
 	}
 
 	public Information findbyInfoID() {
-		System.out.println("Enter CheckInfo");
 		
 		Information info =  infoMapper.findbyInfoID();
 		
-		System.out.println("Finlish CheckInfo");
 		return info;
 	}
 

@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="/assets/css/login.css" media="screen" type="text/css" />
 <link type="text/css" href="/assets/css/style.css" rel="stylesheet" />
+<script src="/assets/js/md5.js" type="text/javascript"></script>
 <link rel = "Shortcut Icon" href="/assets/img/favicon.ico">
 <title>四川省移动后勤服务管理系统</title>
 </head> 
@@ -18,15 +19,15 @@
 	</div>
 	<div id="window" style="display:none;">
 	<div class="page page-front">
-		<form action="/login" method="post">
+		<form action="/login" method="post" onsubmit="return check();">
 		<div class="page-content">
 			<div class="input-row">
 				<label class="label fadeIn">账&nbsp;号</label>
-				<input id="username"  name="userName" type="text"  class="input fadeIn delay1"/>
+				<input id="username"  name="userName" type="text"  class="input fadeIn delay1" required/>
 			</div>
 			<div class="input-row">
 				<label class="label fadeIn delay2">密&nbsp;码</label>
-				<input id='password' type="password" name="password"  class="input fadeIn delay3"/>
+				<input id='password' type="password" name="password"  class="input fadeIn delay3" required/>
 			</div>
 			<div class="input-row perspective">
 				<button id="submit" class="button load-btn fadeIn delay4" type="submit">
@@ -93,6 +94,13 @@
 		$("#gears").fadeIn(5000);
 	}
 	);
+	
+	function check(){
+		if ($("#password").val() != "") {
+			var hash = hex_md5($("#password").val());
+			document.getElementById("password").value = hash;
+		}
+	};
 	</script>
 
  	<script type="text/javascript" language="javascript">
