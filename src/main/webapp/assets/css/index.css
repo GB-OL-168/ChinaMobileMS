@@ -26,7 +26,7 @@
 }
 /*天气样式*/
 .wea_time{
-    width:90%;
+    width:85%;
     margin-left:200px;
     padding-left:20px;
     margin-bottom:5px;
@@ -37,9 +37,9 @@
 /*登录信息框*/
 
 .top>.account_info{
-    margin-left:80%;
+    margin-left:75%;
     padding-top:25px;
-    width:350px;
+    width:300px;
     height:20px;
 }
 .top>.account_info>a{

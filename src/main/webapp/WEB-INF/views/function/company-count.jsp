@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,28 +11,22 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-
 </head>
 <body>
-
 	<div class="container" style="width:900px;">
-		
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
-
 						  <li><a href="#">信息管理</a></li>
 						  <li><a href="#">上市公司资产信息</a></li>
-							<li>
-								<a href="#">信息统计</a>
-							</li>
-							<li>统计分析</li>
+						  <li><a href="#">信息统计</a></li>
+						  <li>统计分析</li>
 						</ol>
 					</div>
 					<hr>
-					
+
 					<div class="col-md-4">
 						<form action="/statisticsCompany" method="post">
 	                        <div class="input-group">
@@ -44,7 +37,6 @@
 	                        </div>
 	                    </form>
 					</div>
-
 				</div>
 
 				<h4 style="text-align:center;">资产统计</h4>

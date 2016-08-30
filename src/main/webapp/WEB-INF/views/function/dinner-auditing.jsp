@@ -26,7 +26,7 @@
                     </ol>
                 </div>
             <h4 style="text-align: center">用餐申请情况</h4>
-            <table class="table table-bordered col-md-12" >
+            <table class="table table-bordered col-md-12  table-striped" >
                 <tr>
                     <th>编号</th>
                     <th>申请人</th>

@@ -14,7 +14,7 @@
   
 </head>
 <body>
-        <div class="container" style="width:900px;">
+        <div class="container" style="width:1100px;">
             <div class="row">
                 <div class="col-md-12 main">
                     <div class="row">
@@ -50,7 +50,7 @@
                      </form>     
                 </div>
             </div>
-            <table class="table table-bordered"  style="width:900px;">
+            <table class="table table-bordered table-striped"  style="width:1050px;">
                 <h4 style="text-align:center;">查询结果</h4>
                 <tr>
                     <th>姓名</th>

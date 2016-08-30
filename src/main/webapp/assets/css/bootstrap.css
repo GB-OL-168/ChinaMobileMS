@@ -1584,10 +1584,10 @@ pre code {
 }
 .container {
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: 10px;
   margin-right: auto;
   margin-left: auto;
-  margin-left:25px;
+  margin-left:20px;
 }
 @media (min-width: 768px) {
   .container {

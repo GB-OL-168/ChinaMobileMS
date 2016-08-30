@@ -13,6 +13,7 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/fenye.js"></script>
+	<script src="/assets/js/md5.js" type="text/javascript"></script>
 	<style>
 	.1 {
 		display: none;
@@ -21,7 +22,7 @@
 </head>
 <body onLoad="goPage(1,10);">
 
-	<div class="container" style="width:900px">
+	<div class="container" style="width: 900px">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -37,6 +38,7 @@
 
 				<table id="idData" class="table table-hover table-striped user-list" style="width:900px;">
 		 			<h4 style="text-align:center;">用户列表</h4> 
+
 					<tr>
 						<th style="width:300px;">ID</th>
 						<th style="width:300px;">用户名</th>
@@ -46,14 +48,26 @@
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
 							<c:if test="${a.isExist=='1'}">
+
 							<td style="width:300px;" class="userName">${a.userName}</td>
 							<td style="width:300px;" class="accountName">${a.accountName}</td>
 							<td style="width:300px;"><a class="modify" href="javascript:void(0)">修改资料</a> | <a
 									href="/deleteUser/${a.userName}">删除用户</a></td>
-								</c:if>
+					
+								<td style="display: none" class="remark">${a.remark}</td>
+								<td style="display: none" class="phone">${a.phone}</td>
+								<td style="display: none" class="email">${a.email}</td>
+								<td style="display: none" class="birthday">${a.birthday}</td>
+								<td style="display: none" class="department">${a.department}</td>
+								<td style="display: none" class="identification">${a.identification}</td>
+								<td style="display: none" class="sex">${a.sex}</td>
+								<td style="display: none" class="jobId">${a.jobId}</td>
+								</td>						
+							</c:if>
+
 						</tr>
 					</c:forEach>
-					
+
 					<!-- <p id="delete" style="display:none">1</p> -->
 				</table>
 				<br>
@@ -64,75 +78,119 @@
 		</div>
 	</div>
 
-	<!-- 	新添加的地方-->
+	<!-- 修改用户信息弹窗-->
 
 	<div id="code">
 		<div class="title">
-		    <span>修改信息</span>
-		    <div class="close">
-				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+			<span>修改信息</span>
+			<div class="close">
+				<a href="javascript:void(0)" id="closebt"><img
+					src="/assets/img/close.gif"></a>
 			</div>
 		</div>
-		
-		<form action="/updateUserInfo" method="post">
+
+		<form action="/updateUserInfo" method="post"
+			onsubmit="return check();">
 			<div class="goodtxt">
 				<table class="table table-bordered">
-					
-					<td><input name="userName" class="userName" style='display:none'/></td>
-					
-					<tr><td>姓名</td>
-						<td><input name="accountName" class="accountName" /></td></tr>
-					
-					<tr><td>密码</td>
-						<td><input name="password" class="password" /></td></tr>
-					
-					<tr><td>性别</td>
-						<td><input class="sex" /></td></tr>
-					
-					<tr><td>身份证</td>
-						<td><input name="identification" class="identification" /></td></tr>
-					
+
+					<td><input name="userName" class="userName"
+						style='display: none' /></td>
+
+					<tr>
+						<td>姓名</td>
+						<td><input name="accountName" class="accountName"
+							maxlength="20" /></td>
+					</tr>
+
+					<tr>
+						<td>密码</td>
+						<td><input id='password' name="password" type="password" class="password" maxlength="20"
+							placeholder="请输入新密码" required/></td>
+					</tr>
+
+					<tr>
+						<td>性别</td>
+						<td style="padding-left:65px;">
+							<select class="col-sm-7" name="sex" class="form-control">
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td>身份证</td>
+						<td><input name="identification" class="identification"
+							maxlength="20" /></td>
+					</tr>
+
 					<tr>
 						<td>生日</td>
-						<td><input type="date" name="birthday" class="birthday" /></td>
+						<td><input type="date" name="birthday" class="birthday"
+							maxlength="20" /></td>
 					</tr>
-					<tr><td>邮箱</td>
-						<td><input name="email" type="email" class="email" /></td></tr>
+					<tr>
+						<td>邮箱</td>
+						<td><input name="email" type="email" class="email"
+							maxlength="20" /></td>
+					</tr>
 
-					<tr><td>电话</td>
-						<td><input name="phone" class="phone" /></td></tr>
+					<tr>
+						<td>电话</td>
+						<td><input name="phone" class="phone" maxlength="20" /></td>
+					</tr>
 
-					<tr><td>备注</td>
-						<td><input name="remark" class="remark" /></td></tr>
+					<tr>
+						<td>备注</td>
+						<td><input name="remark" class="remark" maxlength="20" /></td>
+					</tr>
 				</table>
 			</div>
 			<button type="submit" class="btn">修改</button>
-			<button class="btn">返回</button>
+			<button id="comeback" class="btn">返回</button>
 		</form>
 	</div>
 
 	<script>
-	
+
+		function check() {
+			if ($("#password").val() != "") {
+				var hash = hex_md5($("#password").val());
+				document.getElementById("password").value = hash;
+			}
+		};
+
+
 		$(function() {
-			var d= '${infomation}';
-			
-			if(d.length !=0 && d != null)alert(d);
+			var d = '${infomation}';
+
+			if (d.length != 0 && d != null)
+				alert(d);
 			console.log(d);
-			
+
 			$('.a>td>.modify').click(
 					function() {
-						var userName = $(this).parent().siblings(".userName").text();
+						var userName = $(this).parent().siblings(".userName")
+								.text();
 						var jobId = $(this).parent().siblings(".jobId").text();
-						var roleId = $(this).parent().siblings(".roleId").text();
-						var remark = $(this).parent().siblings(".remark").text();
+						var roleId = $(this).parent().siblings(".roleId")
+								.text();
+						var remark = $(this).parent().siblings(".remark")
+								.text();
 						var phone = $(this).parent().siblings(".phone").text();
 						var email = $(this).parent().siblings(".email").text();
-						var birthday = $(this).parent().siblings(".birthday").text();
-						var department = $(this).parent().siblings(".department").text();
-						var identification = $(this).parent().siblings(".identification").text();
+						var birthday = $(this).parent().siblings(".birthday")
+								.text();
+						var department = $(this).parent().siblings(
+								".department").text();
+						var identification = $(this).parent().siblings(
+								".identification").text();
 						var sex = $(this).parent().siblings(".sex").text();
-						var accountName = $(this).parent().siblings(".accountName").text();
-						var password = $(this).parent().siblings(".password").text();
+						var accountName = $(this).parent().siblings(
+								".accountName").text();
+						var password = $(this).parent().siblings(".password")
+								.text();
 
 						$("input.remark").val(remark);
 						$("input.userName").val(userName);
@@ -159,6 +217,12 @@
 				$('#code').hide();
 				$('#goodcover').hide();
 			});
+
+			$("#comeback").click(function(e) {
+				$("#code").hide();
+				e.preventDefault();
+			});
+
 			jQuery.fn.center = function(loaded) {
 				var obj = this;
 

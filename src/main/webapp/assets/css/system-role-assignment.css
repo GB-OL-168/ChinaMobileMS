@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+.container{
+	width:1100px;
+}
+
+table{
+	width:1100px;
+}	
+
+th{
+	text-align:center;
+}
+
+td{
+	text-align:center;
+}
+
+.userName{
+	width:300px;
+}
+
+.roleName{
+	width:500px;
+}
+
+.modify{
+	width:300px;
+}

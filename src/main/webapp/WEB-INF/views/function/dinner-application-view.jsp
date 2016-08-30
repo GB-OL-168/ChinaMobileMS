@@ -10,100 +10,10 @@
     <title>用餐服务申请状态查看</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
+	<link rel="stylesheet" href="/assets/css/dinner-application-view.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    <!-- <style>
-        ol>li{
-            font-size:18px;
-        }
-    </style> -->
-    <style>
-			*{margin:0;padding:0;list-style-type:none;}
-			a,img{border:0;}
-			/*按钮样式*/
-			
-			#code{
-				border:1px solid black;
-				width: 400px;
-				height: 550px;
-				background-color: #fff;
-				padding: 10px;
-				position: absolute;
-				display: none;
-				left: 45%;
-				z-index: 1002;
-			}
-			#modify_div{	
-				border:1px solid black;
-				width: 450px;
-				height: 200px;
-				background-color: #fff;
-				padding: 10px;
-				position: absolute;
-				display: none;
-				left: 45%;
-				z-index: 1002;
-			}
-			
-			
-			#check_div{
-				border:1px solid black;
-				width: 470px;
-				height: 500px;
-				background-color: #fff;
-				padding: 10px;
-				position: absolute;
-				display: none;
-				left: 45%;
-				z-index: 1002;	
-			}
-			
-			
-			.close1 {
-				width: 380px;
-				height: 20px;
-			}
-			#closebt1 {
-				float: right;
-			}
-			#closebt1 img {
-				width: 20px;
-				height:20px;
-			}
-			#closebt2 {
-				float: right;
-			}
-			#closebt2 img {
-				width: 20px;
-				height:20px;
-			}
-			
-			#closebt3 {
-				float: right;
-			}
-			#closebt3 img {
-				width: 20px;
-				height:20px;
-			}
-			
-			.goodtxt {
-				text-align: center;
-			}
-			.goodtxt p {
-				height: 30px;
-				line-height: 30px;
-				font-size: 16px;
-				color: #000;
-				font-weight: 600;
-			}
-			#code button{
-				margin-left:80px;
-			}
-			#modify_div button{
-				margin-left:15px;
-			}
-					
-	</style>
+    
 </head>
 <body>
         <div class="container" style="width:1100px;">
@@ -123,7 +33,7 @@
             </div>
 
             <h4 style="text-align: center">用餐申请状态</h4> 
-            <table class="table table-bordered col-md-12">
+            <table class="table table-bordered table-striped col-md-12">
                 <tr>
                     <th>编号</th>
                     <th>申请时间</th>
@@ -180,10 +90,14 @@
         </div>
         
         <div id="check_div">
-			<div class="close1"><a href="javascript:void(0)" id="closebt3"><img src="/assets/img/close.gif"></a></div>
+			<div class="title">
+			    <span>目前审核进度</span>
+			    <div class="close">
+					<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+				</div>
+			</div>
 			<div class="goodtxt">
 			<table class="table table-bordered table-hover">
-				<p style="align-text:center">目前审核进度</p>
 				<img class="context">
 			</table> 		
 			</div>
@@ -227,27 +141,12 @@
 				$('#check_div').fadeIn();
 			});
 			
-			$('#closebt1').click(function() {
-				$('#code').hide();
-			/* 	$('#goodcover').hide(); */
-			});
-			
-			$('#closebt2').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#modify_closed_btn').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#closebt3').click(function() {
+
+			$('#closebt').click(function() {
 				$('#check_div').hide();
 			});
 			
-		/* 	$('#goodcover').click(function() {
-				$('#code').hide();
-				$('#goodcover').hide();
-			}); */
+		
 			jQuery.fn.center = function(loaded) {
 				var obj = this;
 
@@ -257,7 +156,7 @@
 						'position': 'absolute'
 					});
 					obj.css({
-						'top': ($(window).height() - $('#code').height()) * 0.2,
+						'top': ($(window).height() - $('#code').height()) * 0.05,
 						'left': 300
 							/* left_position */
 					});
@@ -283,80 +182,7 @@
 		});
 	</script>
 	
-	<!-- 	查看审核进度 -->
-	<div id="check_div">
-		<div class="close1"><a href="javascript:void(0)" id="closebt3"><img src="/assets/img/close.gif"></a></div>
-		<div class="goodtxt">
-			<table class="table table-bordered table-hover">
-				<p style="align-text:center">目前审核进度</p>
-				<p id="context">叶绪创已审核</p>
-			</table> 		
-		</div>
-	</div>
+
 	
-
-	<script>
-		$(function() {
-			/*查看审核进度功能 */
-			$('.check_view').click(function(){
-				$('#check_div').center();
-				$('#check_div').fadeIn();
-			});
-
-			$('#closebt1').click(function() {
-				$('#code').hide();
-			/* 	$('#goodcover').hide(); */
-			});
-			
-			$('#closebt2').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#modify_closed_btn').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#closebt3').click(function() {
-				$('#check_div').hide();
-			});
-			
-		/* 	$('#goodcover').click(function() {
-				$('#code').hide();
-				$('#goodcover').hide();
-			}); */
-			jQuery.fn.center = function(loaded) {
-				var obj = this;
-
-				if (!loaded) {
-
-					obj.css({
-						'position': 'absolute'
-					});
-					obj.css({
-						'top': ($(window).height() - $('#code').height()) * 0.2,
-						'left': 300
-							/* left_position */
-					});
-					$(window).bind('resize', function() {
-						obj.center(!loaded);
-					});
-					$(window).bind('scroll', function() {
-						obj.center(!loaded);
-					});
-
-				} else {
-					obj.stop();
-					obj.css({
-						'position': 'absolute'
-					});
-					obj.animate({
-						'top':100 
-							/* top_position */
-					}, 200, 'linear');
-				}
-			}
-
-		});
-	</script>
 </body>
 </html>

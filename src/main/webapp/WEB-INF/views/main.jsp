@@ -18,8 +18,6 @@
 		type="text/css" />
 </head>
 <body>
-	<!-- <iframe src="/u/top" style="width:100%; height:100px;" scrolling="no" frameborder="0" border="0"></iframe> -->
-	<!--<iframe src="/u/left" style="width:16%; height:900px;" scrolling="no" frameborder="0" border="0"></iframe> -->
 	<div>
 		<!--顶层-->
 		<div class="top">
@@ -172,7 +170,7 @@
 		<%=date%>&nbsp&nbsp&nbsp&nbsp日间天气：<%=dayWeather%>&nbsp&nbsp&nbsp&nbsp夜间天气：<%=nightWeather%>&nbsp&nbsp&nbsp&nbsp最高温：<%=high%>℃&nbsp&nbsp&nbsp&nbsp最低温：<%=low%>℃&nbsp&nbsp&nbsp&nbsp出行建议：<%=suggestion%>&nbsp&nbsp&nbsp&nbsp今日通知：<%=session.getAttribute("info")%>
 	</div>
 	<div class="right">
-		<iframe name="/u/main" style="width:100%; min-height: 900px;"
+		<iframe name="/u/main" style="width:100%; min-height: 700px;"
 			scrolling="no" frameborder="0" border="0">
 			
 			</iframe>

@@ -4,12 +4,12 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-<title>后勤服务中心管理信息系统 - 权限设置</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
+	<meta charset="utf-8">
+	<title>后勤服务中心管理信息系统 - 权限设置</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -27,7 +27,7 @@
 				<form class="form-horizontal" action="/updateRole" method="get">
 					<h4 style="text-align: center;">系统角色详情</h4>
 					<div class="form-group">
-						<label for="roleName" class="col-sm-3 control-label">角色名称</label>
+						<label for="roleName" class="col-sm-4 control-label">角色名称</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="roleName"
 								name="roleName" style="display: none" value="${Role.roleName}">

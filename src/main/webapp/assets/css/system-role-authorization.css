@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+
+.container{
+	width:1100px;
+}
+.roleId{
+	width:50px;
+}
+.roleName{
+	width:250px;
+}
+.description{
+	width:600px;
+}
+.look,.remove{
+	width:100px;
+}

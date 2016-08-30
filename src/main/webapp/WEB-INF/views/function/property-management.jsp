@@ -14,8 +14,9 @@
 	<link rel="stylesheet" href="/assets/css/propetry-management.css"/>
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/fenye.js"></script>
 </head>
-<body>
+<body  onLoad="goPage(1,10);">
 
 	<div class="container" style="width:1100px;">		      
 		<div class="row">
@@ -29,32 +30,32 @@
 						</ol>
 					</div>
 					<div class="col-md-3"></div>
-				</div>           
-				<table class="table table-bordered" style="width:1100px;">
-					<h4 style="text-align:center;">审核情况</h4>
+				</div> 
+				<br>          
+				<table id="idData" class="table table-bordered  table-striped" style="width:1100px;">
 				  <tr>        
-				   	<th>编号</th> 
-				  	<th>申请时间</th>
-				  	<th>服务日期</th>
-				  	<th>地点</th>
-				  	<th>申请公司</th>
-				  	<th>申请部门</th>
-				  	<th>申请人</th>
-				  	<th>联系方式</th>
-				  	<th>状态</th>
-				  	<th>说明</th>
+				   	<th style="max-width:50px;min-width:50px;">编号</th> 
+				  	<th style="max-width:180px;min-width:180px;">申请时间</th>
+				  	<th style="max-width:100px;min-width:100px;">服务日期</th>
+				  	<th style="max-width:100px;min-width:100px;">地点</th>
+				  	<th style="max-width:120px;min-width:120px;">申请公司</th>
+				  	<th style="max-width:150px;min-width:150px;">申请部门</th>
+				  	<th style="max-width:100px;min-width:100px;">申请人</th>
+				  	<th style="max-width:140px;min-width:140px;">联系方式</th>
+				  	<th style="max-width:100px;min-width:100px;">状态</th>
+				  	<th style="max-width:60px;min-width:60px;">说明</th>
 				  </tr>
 				  <c:forEach items="${propertyList}" var="propertyList" varStatus="status">
 				  <tr>
-				   	<td>${ status.index + 1}</td> 
-				  	<td>${propertyList.applyTime }</td>
-				  	<td>${propertyList.serviceDate }</td>
-				  	<td>${propertyList.serviceLocation }</tdh>
-				  	<td>${propertyList.companyName }</td>
-				  	<td>${propertyList.branchName }</td>
-				  	<td>${propertyList.applyUser }</td>
-				  	<td>${propertyList.contactInfo }</td>
-				  	<td>
+				   	<td style="max-width:50px;min-width:50px;">${ status.index + 1}</td> 
+				  	<td style="max-width:180px;min-width:180px;">${propertyList.applyTime }</td>
+				  	<td style="max-width:100px;min-width:100px;">${propertyList.serviceDate }</td>
+				  	<td style="max-width:100px;min-width:100px;">${propertyList.serviceLocation }</tdh>
+				  	<td style="max-width:120px;min-width:120px;">${propertyList.companyName }</td>
+				  	<td style="max-width:150px;min-width:150px;">${propertyList.branchName }</td>
+				  	<td style="max-width:100px;min-width:100px;">${propertyList.applyUser }</td>
+				  	<td style="max-width:140px;min-width:140px;">${propertyList.contactInfo }</td>
+				  	<td style="max-width:100px;min-width:100px;">
 				  		<c:choose>
 				  			<c:when test = "${propertyList.status == 0}">
 				  					未开始
@@ -92,10 +93,16 @@
 				  	<td style="display:none;" class="serviceLocation">${propertyList.serviceLocation }</td>
 				  	<td style="display:none;" class="addition">${propertyList.addition }</td> 
 				  	
-					<td><a class="show" href="javascript:void(0)">查看</a></td>
+					<td style="width:60px;"><a class="show" href="javascript:void(0)">查看</a></td>
 				  </tr>
 				  </c:forEach>
 				</table>
+				
+				<br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
+				
 			</div>
 		</div>
 	</div>
@@ -108,8 +115,8 @@
 			</div>
 		</div>
 		<div class="goodtxt">
-			<table class="table table-bordered table-hover">
-				<tr><td>礼仪接待</td>
+			<table class="table table-bordered table-striped table-hover">
+				<tr><td style="width:40px;">礼仪接待</td>
 					<td><p class="receptionService"></p></td></tr>
 				<tr><td>就餐服务</td>
 					<td><p class="diningService"></p></td></tr>

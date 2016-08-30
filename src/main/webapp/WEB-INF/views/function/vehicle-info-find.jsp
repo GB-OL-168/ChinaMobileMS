@@ -11,9 +11,9 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-   
+    <script src="/assets/js/fenye.js"></script>
 </head>
-<body>
+<body  onLoad="goPage(1,10);">
     <div class="container" style="width:1100px;">
 
         <div class="row">
@@ -56,49 +56,51 @@
             </div>
          	<br><br><hr>
             </div>
-                <table class="table table-bordered" style="width:1100px;">
-                    <h4 style="text-align:center;">查询结果</h4>
+                <table id="idData" class="table table-hover table-striped" style="width:1050px;">
                     <tr>
-                        <th>品牌</th>
-                        <th>型号</th>
-                        <th>车辆类型</th>
-                        <th>车座</th>
-                        <th>国产/进口</th>
-                        <th>车身颜色</th>
-                        <th>燃油种类</th>
-                        <th>发动机号</th>
-                        <th>VIN</th>
-                        <th>出厂日期</th>
-                        <th>车主</th>
-                        <th>车辆价格</th>
-                        <th>使用单位</th>
+                        <th class="brand">品牌</th>
+                        <th class="model">型号</th>
+                        <th class="vehicleType">车辆类型</th>
+                        <th class="seat">车座</th>
+                        <th class="productSource">国产/进口</th>
+                        <th class="color">车身颜色</th>
+                        <th class="fuelType">燃油种类</th>
+                        <th class="engineType">发动机号</th>
+                        <th class="vin">VIN</th>
+                        <th class="productDate">出厂日期</th>
+                        <th class="owner">车主</th>
+                        <th class="price">车辆价格</th>
+                        <th class="usedUnit">使用单位</th>
                     </tr>
                     
 					<c:forEach items="${listVehicleInfoManage}" var="a">
 						<tr class="a">
-						<td>${a.brand}</td>
-						<td>${a.model}</td>
-						<td>${a.vehicleType}</td>
-						<td>${a.seat}</td>
-						<td>
-							<c:choose>
-								<c:when test="${a.productSource==1}">国产</c:when>
-								<c:when test="${a.productSource==2}">进口</c:when>
-							</c:choose>
-						</td>
-						<td>${a.color}</td>
-						<td>${a.fuelType}</td>
-						<td>${a.engineType}</td>
-						<td>${a.vin}</td>
-						<td>${a.productDate}</td>
-						<td>${a.owner}</td>
-						<td>${a.price}</td>
-						<td>${a.usedUnit}</td>
+							<td class="brand">${a.brand}</td>
+							<td class="model">${a.model}</td>
+							<td class="vehicleType">${a.vehicleType}</td>
+							<td class="seat">${a.seat}</td>
+							<td class="productSource">
+								<c:choose>
+									<c:when test="${a.productSource==1}">国产</c:when>
+									<c:when test="${a.productSource==2}">进口</c:when>
+								</c:choose>
+							</td>
+							<td class="color">${a.color}</td>
+							<td class="fuelType">${a.fuelType}</td>
+							<td class="engineType">${a.engineType}</td>
+							<td class="vin">${a.vin}</td>
+							<td class="productDate">${a.productDate}</td>
+							<td class="owner">${a.owner}</td>
+							<td class="price">${a.price}</td>
+							<td class="usedUnit">${a.usedUnit}</td>
 						</tr>
 					</c:forEach>
-              
-                 </table>
-
+                  </table>
+                <br>
+				<table width="70%" align="right">
+		           <tr><td><div id="barcon" name="barcon"></div></td></tr>
+		        </table>
           </div>
+         
 </body>
 </html>

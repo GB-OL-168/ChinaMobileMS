@@ -72,7 +72,8 @@
 		email = #{email},
 		phone =
 		#{phone},
-		remark = #{remark}
+		remark = #{remark},
+		salt = #{salt}
 
 		where user_name = #{userName}
 

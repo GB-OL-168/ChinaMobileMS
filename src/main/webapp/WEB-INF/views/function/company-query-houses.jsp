@@ -12,14 +12,15 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
 	<style>
 		tr>th{
 			text-align:center;
 		}
 	</style>
 </head>
-<body>
-	<div class="container" style="width:900px;">
+<body onLoad="goPage(1,10);" >
+	<div class="container" style="width:1100px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -49,7 +50,7 @@
 						  <input type="radio" name="houses" value="buildingArea" required
 							style="display: inline-block">建筑面积
 				 	</div>
-					<div class="col-md-5"> 
+					<div class="col-md-4"> 
 						<div class="input-group col-md-12"> 
 							<input type="text" class="form-control input-sm" style="display:inline-block;"
 								placeholder="请输入信息" name ="search">
@@ -60,28 +61,34 @@
 					</div>
 				</form>
 				<br><hr>
-				<table class="table table-responsive table-bordered col-md-8" style="text-align:center;">
-					<h4 style="text-align:center;">房屋资产查询 </h4>
+				<table id="idData" class="table table-responsive table-bordered  table-striped" style="text-align:center;">
+					<h4 style="text-align:center;">查询结果 </h4>
 					<tr>
-						<th>房屋编号</th>
-						<th>建筑名称</th>
-						<th>使用单位名称</th>
-						<th>坐落地点</th>
-						<th>建筑面积（m3）</th>
-						<th>查看具体信息</th>
+						<th style="width:100px;">房屋编号</th>
+						<th style="width:250px;">建筑名称</th>
+						<th style="width:250px;">使用单位名称</th>
+						<th style="width:200px;">坐落地点</th>
+						<th style="width:150px;">建筑面积（m3）</th>
+						<th style="width:150px;">查看具体信息</th>
 					</tr>
 					<c:forEach items="${listash}" var="a">
 						<tr>
-							<td>${a.assetInfoId}</td>
-							<td>${a.buildingName}</td>
-							<td>${a.companyName}</td>
-							<td>${a.location}</td>
-							<td>${a.buildingArea}</td>
-							<td><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
+							<td style="width:100px;">${a.assetInfoId}</td>
+							<td style="width:250px;">${a.buildingName}</td>
+							<td style="width:250px;">${a.companyName}</td>
+							<td style="width:200px;">${a.location}</td>
+							<td style="width:150px;">${a.buildingArea}</td>
+							<td style="width:150px;"><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
 						</tr>
 					</c:forEach>
 					
 				</table>
+				
+				<br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
+				
 			</div>
 		</div>
 	</div>

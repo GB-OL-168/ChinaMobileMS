@@ -127,7 +127,7 @@
 	
 	<div id="code">
 		<div class="title">
-		    <span>修改信息</span>
+		    <span>具体要求</span>
 		    <div class="close">
 				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
 			</div>
@@ -135,9 +135,9 @@
 		<div class="goodtxt">
 
 				<table class="table table-bordered table-hover">
-				<h3 style="align-text:center">具体要求</h3>
+			
 				<tr>
-					<td>礼仪接待</td>
+					<td style="width:100px;">礼仪接待</td>
 					<td><p class="receptionService"></p></td>
 				</tr>
 				<tr>

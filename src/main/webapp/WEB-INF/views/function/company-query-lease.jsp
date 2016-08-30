@@ -40,47 +40,28 @@
 								</ul></li>
 						</ol>
 					</div>
-					<hr>
-					<form action="/searchLD" method="get" style="width: 900px;">
-						<div class="col-md-offset-1 col-md-4">
-							<input type="radio" name="loean" value="type" required>类型
-							<input type="radio" name="loean" value="brand" required>品牌/型号
-							<input type="radio" name="loean" value="batch" required>批次
-							<input type="radio" name="loean" value="loanInfoId" required
+					<br><br>
+					<form action="/searchLD" method="get"  style="width:1100px;">
+						<div class="col-md-offset-1 col-md-6">
+							<input type="radio" name="loean" value="type" required>类型 <input
+								type="radio" name="loean" value="brand" required>品牌/型号 <input
+								type="radio" name="loean" value="batch" required>批次 <input
+								type="radio" name="loean" value="loanInfoId" required
 								style="display: inline-block">设备编号
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-5">
 							<div class="input-group">
 								<input type="text" class="form-control input-sm"
-									placeholder="请输入信息" name="search"> <span
-									class="input-group-btn">
+									placeholder="请输入信息" name="search"> <span class="input-group-btn">
 									<button class="btn btn-default btn-sm" type="submit">搜索</button>
 								</span>
 							</div>
 						</div>
 					</form>
 				</div>
-				<br>
-				<form action="/searchLD" method="get"  style="width:900px;">
-					<div class="col-md-offset-1 col-md-6">
-						<input type="radio" name="loean" value="type" required>类型 <input
-							type="radio" name="loean" value="brand" required>品牌/型号 <input
-							type="radio" name="loean" value="batch" required>批次 <input
-							type="radio" name="loean" value="loanInfoId" required
-							style="display: inline-block">设备编号
-					</div>
-					<div class="col-md-5">
-						<div class="input-group">
-							<input type="text" class="form-control input-sm"
-								placeholder="请输入信息" name="search"> <span class="input-group-btn">
-								<button class="btn btn-default btn-sm" type="submit">搜索</button>
-							</span>
-						</div>
-					</div>
-				</form>
-				<br><hr>
+				<hr>
 
-				<table class="table table-responsive table-bordered"  style="width:900px;text-align: center;">
+				<table class="table table-responsive table-bordered"  style="width:1100px;text-align: center;">
 					<h4 style="text-align: center;">租赁设备查询</h4>
 					<tr>
 						<th>批次</th>
@@ -95,13 +76,6 @@
 					</tr>
 					<c:forEach items="${listald}" var="a">
 						<tr>
-							<td>${a.orderNumber}</td>
-							<td>${a.loanInfoId}</td>
-							<td>${a.loanUserName}</td>
-							<td>${a.branchName}</td>
-							<td>${a.jobId}</td>
-							<td>${a.getDate}</td>
-							<td>${a.expiredDate}</td>
 							<td>${a.batch}</td>
 							<td>${a.type}</td>
 							<td>${a.brand}</td>
@@ -111,7 +85,6 @@
 							<td>${a.allowUseYears}年</td>
 							<td>${a.unitValue}</td>
 							<td>${a.allValue}</td>
-							<td><a href="">更新</a> | <a href="">删除</a></td>
 						</tr>
 					</c:forEach>
 

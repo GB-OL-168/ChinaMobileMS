@@ -60,8 +60,8 @@ ol>li {
 					</div>
 				</div>
 
-				<table class="table table-bordered">
-					<h3 style="text-align: center;">查询结果</h3>
+				<table class="table table-bordered  table-striped">
+					<h4 style="text-align: center;">查询结果</h4>
 					<tr>
 						<th>房屋编号</th>
 						<th>建筑名称</th>

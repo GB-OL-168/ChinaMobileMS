@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<div class="container" style="width:900px;">
+	<div class="container" style="width:1100px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -43,7 +43,7 @@
 							<input type="text" name="queryInformation"
 								class="form-control input-sm" placeholder="请输入信息"> 
 							<span class="input-group-btn">
-								<button type="submit" class="btn btn-default btn-sm">搜索</button>
+								<button type="submit" class="btn  btn-sm">搜索</button>
 							</span>
 						</div>
 					</div>
@@ -51,7 +51,7 @@
 			</div>
 		
 			<div class="col-md-12">
-				<table class="table table-bordered"  style="width:900px;">
+				<table class="table table-bordered table-striped"  style="width:1050px;">
 					<h4 style="text-align: center;">查询结果</h4>
 					<tr>
 						<th>家具类型</th>
