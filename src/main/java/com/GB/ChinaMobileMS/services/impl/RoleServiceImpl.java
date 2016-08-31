@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.GB.ChinaMobileMS.dao.RoleMapper;
+import com.GB.ChinaMobileMS.dao.UserMapper;
 import com.GB.ChinaMobileMS.entity.Role;
+import com.GB.ChinaMobileMS.entity.User;
 import com.GB.ChinaMobileMS.services.interfaces.RoleService;
 
 @Service
 public class RoleServiceImpl implements RoleService {
 	@Autowired
 	private RoleMapper roleMapper;
+	@Autowired
+	private UserMapper userMapper;
 
 	public List<Role> ListRole() {
 		List<Role> listRole = roleMapper.ListRole();
@@ -56,12 +60,23 @@ public class RoleServiceImpl implements RoleService {
 		return "done";
 	}
 
-	public String deleteRoleByName(int roleId) {
+	public int deleteRoleByName(int roleId) {
 		System.out.println("Enter deleteRoleByName");
+		
+		List<User> list = userMapper.listUser();
+		Iterator<User> it = list.iterator();
+		int flag = 0;
+		while (it.hasNext()) {
+			User tmp = it.next();
+			if (tmp.getRoleId() == roleId) {
+				flag = 1;
+				break;
+			}
+		}
+		if(flag==0)
+		{int del = roleMapper.deleteRoleByName(roleId);}
 
-		int del = roleMapper.deleteRoleByName(roleId);
-
-		return "Deleted";
+		return flag;
 	}
 
 	public Role findRoleById(int roleId) {

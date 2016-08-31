@@ -9,6 +9,7 @@
     <title>全省车辆信息-车辆信息登记</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
+	<link rel="stylesheet" href="/assets/css/vehicle-info-add.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/fenye.js"></script>
@@ -54,20 +55,20 @@
             </div>
          	<br><br><hr>
             </div>
-                <table id="idData" class="table table-hover table-striped" style="width:1050px;">
+                <table id="idData" class="table table-hover table-striped" style="width:1100px;">
                     <tr>
                         <th class="brand">品牌</th>
                         <th class="model">型号</th>
-                        <th class="vehicleType">车辆类型</th>
+                        <th class="vehicleType">类型</th>
                         <th class="seat">车座</th>
-                        <th class="productSource">国产/进口</th>
-                        <th class="color">车身颜色</th>
-                        <th class="fuelType">燃油种类</th>
+                        <!-- <th class="productSource">国产/进口</th> -->
+                        <th class="color">颜色</th>
+                        <th class="fuelType">燃油</th>
                         <th class="engineType">发动机号</th>
                         <th class="vin">VIN</th>
                         <th class="productDate">出厂日期</th>
                         <th class="owner">车主</th>
-                        <th class="price">车辆价格</th>
+                        <th class="price">价格(万元)</th>
                         <th class="usedUnit">使用单位</th>
                     </tr>
                     
@@ -77,12 +78,12 @@
 							<td class="model">${a.model}</td>
 							<td class="vehicleType">${a.vehicleType}</td>
 							<td class="seat">${a.seat}</td>
-							<td class="productSource">
+							<%-- <td class="productSource">
 								<c:choose>
 									<c:when test="${a.productSource==1}">国产</c:when>
 									<c:when test="${a.productSource==2}">进口</c:when>
 								</c:choose>
-							</td>
+							</td> --%>
 							<td class="color">${a.color}</td>
 							<td class="fuelType">${a.fuelType}</td>
 							<td class="engineType">${a.engineType}</td>
@@ -94,11 +95,11 @@
 						</tr>
 					</c:forEach>
                   </table>
-                <br>
-				<table width="70%" align="right">
+                  <br>
+         		<table width="70%" align="right">
 		           <tr><td><div id="barcon" name="barcon"></div></td></tr>
 		        </table>
           </div>
-         
+           
 </body>
 </html>

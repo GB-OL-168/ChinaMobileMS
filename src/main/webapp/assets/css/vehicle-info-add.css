@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+
+.brand{
+	width:70px;
+}
+.model{
+	width:80px;
+}
+.vehicleType{
+	width:50px;
+}
+.seat{
+	width:50px;
+}
+.productSource{
+	width:80px;
+}
+.color{
+	width:90px;
+}
+.fuelType{
+	width:90px;
+}
+.engineType{
+	width:90px;
+}
+
+.vin{
+	width:150px;
+}
+
+.productDate{
+	width:120px;
+}
+
+.owner{
+	width:70px;
+}
+
+.price{
+	width:100px;
+}
+
+th{
+	text-align:center;
+}
+td{
+	text-align:center;
+}
+
+

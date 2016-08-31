@@ -63,7 +63,7 @@
 				</form>
 				<br><br>
 				<table id="idData" class="table table-responsive table-hover  table-striped" style="text-align:center;">
-				 	<h4 style="text-align:center;">搜索结果 </h4> 
+				 	<!-- <h4 style="text-align:center;">搜索结果 </h4>  -->
 					<tr>
 						<th style="width:100px;">房屋编号</th>
 						<th style="width:250px;">建筑名称</th>

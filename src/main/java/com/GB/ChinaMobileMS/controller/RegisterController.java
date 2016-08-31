@@ -82,12 +82,6 @@ public class RegisterController {
 		System.out.println("Enter Controller");
 
 		System.out.println("Ash:" + ash);
-		if(ash.getIsLoan()==0)
-		{
-			ash.setLoanTimeStart(null);
-			ash.setLoanTimeEnd(null);
-			ash.setLoanSource("无");
-		}
 
 		ashService.addAssetHousing(ash);
 		return cq.CompanyQueryAfterRegister("houses");
@@ -120,24 +114,8 @@ public class RegisterController {
 
 		System.out.println("AssetLoanDevice:" + ald);
 
-		List<User> listUser = userSerice.listUser();
-		Iterator<User> it = listUser.iterator();
-		int flag = 0;
-		while (it.hasNext()) {
-			User tmp = it.next();
-			System.out.println(tmp.getUserName());
-			if (ald.getLoanUserName().equals(tmp.getUserName())) {
-				System.out.println(tmp.getUserName());
-				flag = 1;
-				break;
-			}
-		}
-		if (flag == 1) {
-			System.out.println("Match UserName");
 			aldService.addLoanDevice(ald);
-		} else {
-			System.out.println("Don't Match UserName");
-		}
+
 		return cq.CompanyQueryAfterRegister("lease");
 	}
 

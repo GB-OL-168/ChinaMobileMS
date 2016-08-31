@@ -17,6 +17,13 @@ public class AssetHousingServiceImpl implements AssetHousingService {
 
 	public String addAssetHousing(AssetHousing ash) {
 		System.out.println("Enter addAssetHousing");
+		if(ash.getIsLoan()==0)
+		{
+			ash.setLoanTimeStart(null);
+			ash.setLoanTimeEnd(null);
+			ash.setLoanSource("无");
+		}
+
 		ashMapper.addAssetHousing(ash);
 		return "done";
 	}

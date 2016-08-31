@@ -13,7 +13,7 @@ public interface RoleService {
 	
 	String updateRole(Role role);
 	
-	String deleteRoleByName(int roleId);
+	int deleteRoleByName(int roleId);
 	
 	Role findRoleById(int roleId);
 }

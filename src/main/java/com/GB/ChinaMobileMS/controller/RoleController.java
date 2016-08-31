@@ -56,23 +56,14 @@ public class RoleController {
 			@PathVariable("roleId") int roleId) {
 		System.out.println("delRole");
 		System.out.println("Role_id:" + roleId);
-		List<User> list = userService.listUser();
-		Iterator<User> it = list.iterator();
-		int flag = 0;
-		while (it.hasNext()) {
-			User tmp = it.next();
-			if (tmp.getRoleId() == roleId) {
-				flag = 1;
-				break;
-			}
-		}
+		int flag = roleService.deleteRoleByName(roleId);
 		if (flag == 1) {
 			System.out.println("can't delete this Role");
 			return GetRoleList1();
 		} else {
-			String str = roleService.deleteRoleByName(roleId);
+			return GetRoleList();
 		}
-		return GetRoleList();
+		
 	}
 
 	public ModelAndView GetUserList2() {

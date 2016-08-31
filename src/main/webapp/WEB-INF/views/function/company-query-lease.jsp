@@ -10,8 +10,11 @@
 	<title>上市公司资产信息管理 - 信息查询</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
+	<link rel="stylesheet" href="/assets/css/company-query-lease.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+		<script src="/assets/js/fenye.js"></script>
+	
 	<style>
 		tr>th{
 			text-align:center;
@@ -19,8 +22,8 @@
 	</style>
 
 </head>
-<body>
-	<div class="container" style="margin-left: 20px;">
+<body  onLoad="goPage(1,10);">
+	<div class="container" style="width:1100px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -40,7 +43,7 @@
 								</ul></li>
 						</ol>
 					</div>
-					<br><br>
+					<br><hr>
 					<form action="/searchLD" method="get"  style="width:1100px;">
 						<div class="col-md-offset-1 col-md-6">
 							<input type="radio" name="loean" value="type" required>类型 <input
@@ -59,38 +62,41 @@
 						</div>
 					</form>
 				</div>
-				<hr>
+				<br>
 
-				<table class="table table-responsive table-bordered"  style="width:1100px;text-align: center;">
-					<h4 style="text-align: center;">租赁设备查询</h4>
+				<table id="idData" class="table table-responsive table-hover table-striped"  style="width:1100px;text-align: center;">
+					<!-- <h4 style="text-align: center;">租赁设备查询</h4> -->
 					<tr>
-						<th>批次</th>
-						<th>类型</th>
-						<th>品牌/型号</th>
-						<th>规格</th>
-						<th>到货日期</th>
-						<th>数量</th>
-						<th>使用年限(元)</th>
-						<th>单位价值(元)</th>
-						<th>总价值</th>
+						<th class="batch">批次</th>
+						<th class="type">类型</th>
+						<th class="brand">品牌/型号</th>
+						<th class="specification">规格</th>
+						<th class="arrivalDate">到货日期</th>
+						<th class="count">数量</th>
+						<th class="allowUseYears">使用年限(年)</th>
+						<th class="unitValue">单位价值(元)</th>
+						<th class="allValue">总价值</th>
 					</tr>
 					<c:forEach items="${listald}" var="a">
 						<tr>
-							<td>${a.batch}</td>
-							<td>${a.type}</td>
-							<td>${a.brand}</td>
-							<td>${a.specification}</td>
-							<td>${a.arrivalDate}</td>
-							<td>${a.count}</td>
-							<td>${a.allowUseYears}年</td>
-							<td>${a.unitValue}</td>
-							<td>${a.allValue}</td>
+							<td class="batch">${a.batch}</td>
+							<td class="type">${a.type}</td>
+							<td class="brand">${a.brand}</td>
+							<td class="specification">${a.specification}</td>
+							<td class="arrivalDate">${a.arrivalDate}</td>
+							<td class="count">${a.count}</td>
+							<td class="allowUseYears">${a.allowUseYears}年</td>
+							<td class="unitValue">${a.unitValue}</td>
+							<td class="allValue">${a.allValue}</td>
 						</tr>
 					</c:forEach>
-
-
 				</table>
 
+				<br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
+			
 			</div>
 		</div>
 	</div>
