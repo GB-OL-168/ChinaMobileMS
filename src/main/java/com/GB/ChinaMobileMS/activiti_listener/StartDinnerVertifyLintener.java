@@ -12,6 +12,9 @@ public class StartDinnerVertifyLintener implements Serializable, TaskListener{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 用餐开启流程监听
+	 */
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		switch(DinnerServiceController.STATUS){

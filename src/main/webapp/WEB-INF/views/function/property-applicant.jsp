@@ -31,7 +31,7 @@
 						  <li class="dropdown active">
 						  	<a href="/property/applicant" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">申请表格 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property/server">申请状态</a>
+					            <li><a href="/property/server">服务状态</a>
 					          </ul>
 						  </li>
 						</ol>
@@ -147,6 +147,12 @@
 	});
 	
 	function validateInfo() {
+		var serviceDate = $("#serviceDate").val();
+		if(serviceDate.length > 10){
+			alert("请选择正确的日期格式");
+			return false;
+		}
+		
 		var today=new Date();
 		var day = today.getMonth()+1;
 		var dayStr;
@@ -156,7 +162,6 @@
 			daystr = day + "";
 		var todayStr = today.getFullYear() + "-" + dayStr + "-" + today.getDate();
 		
-		var serviceDate = $("#serviceDate").val();
 		if(serviceDate < todayStr){
 			alert("服务日期必须在当前日期之后");
 			return false;

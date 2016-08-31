@@ -99,6 +99,7 @@ public class XmlParser {
 			try {
 				DocumentBuilder domBuilder = domfac.newDocumentBuilder();
 				Document doc = domBuilder.parse(inStream);
+				//返回所有节点
 				root = doc.getDocumentElement();
 			} catch (ParserConfigurationException e) {
 				e.printStackTrace();
@@ -138,7 +139,7 @@ public class XmlParser {
 									// String
 									// val=node.getFirstChild().getNodeValue();
 									String val = node.getTextContent();
-									System.out.println(nodes[j] + ":" + val);
+//									System.out.println(nodes[j] + ":" + val);
 									// 如果原来已经有值则以分号分隔
 									String temp = map.get(nodes[j]);
 									if (temp != null && !temp.equals("")) {
