@@ -18,13 +18,13 @@
 		role(role_name,
 		sys_account_manage,sys_privilege_setting,sys_parameter_setting,sys_data_restore,server_application_dinner,server_application_property,auditing_application_dinner,
 		auditing_application_property,management_application_dinner,management_application_property,query_vehicle,query_asset,register_vehicle,
-		register_asset,mangaement_asset,
+		register_asset,use_info_asset,statistics_asset,
 		evaluation_mangaement_property,evaluation_fill_property,description)
 		VALUES
 		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore}
 		,#{serverApplicationDinner},#{serverApplicationProperty},#{auditingApplicationDinner}
 		,#{auditingApplicationProperty},#{managementApplicationDinner},#{managementApplicationProperty},#{queryVehicle}
-		,#{queryAsset},#{registerVehicle},#{registerAsset},#{mangaementAsset}
+		,#{queryAsset},#{registerVehicle},#{registerAsset},#{useInfoAsset},#{statisticsAsset}
 		,#{evaluationMangaementProperty},#{evaluationFillProperty},#{description})
 	</insert>
 
@@ -52,7 +52,8 @@
 		query_vehicle=#{queryVehicle},query_asset=#{queryAsset},
 		register_vehicle=#{registerVehicle},
 		register_asset=#{registerAsset},
-		mangaement_asset=#{mangaementAsset},
+		use_info_asset=#{useInfoAsset},
+		statistics_asset=#{statisticsAsset},
 		evaluation_mangaement_property=#{evaluationMangaementProperty},
 		evaluation_fill_property=#{evaluationFillProperty},
 		description =#{description}

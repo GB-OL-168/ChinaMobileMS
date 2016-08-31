@@ -30,15 +30,7 @@ public class RoleController {
 
 	@RequestMapping(value = "/updateUserRole", method = RequestMethod.POST)
 	public ModelAndView updateUserRole(User user, HttpSession session) {
-		List<Role> listRole = roleService.ListRole();
-		Iterator<Role> it = listRole.iterator();
-		while (it.hasNext()) {
-			Role tmp = it.next();
-			if (user.getRoleName().equals(tmp.getRoleName())) {
-				user.setRoleId(tmp.getRoleId());
-				break;
-			}
-		}
+		
 		// System.out.println("End of set new role id");
 		String str = userService.updateUserRole(user);
 		return GetUserList2();
@@ -46,23 +38,8 @@ public class RoleController {
 
 	@RequestMapping(value = "/addRole", method = RequestMethod.GET)
 	public ModelAndView addRole(Role role, HttpSession session) {
-		System.out.println("addRole");
-		System.out.println("Role:" + role);
-		List<Role> listrole = roleService.ListRole();
-		Iterator<Role> it = listrole.iterator();
-		int flag = 0;
-		while (it.hasNext()) {
-			Role tmp = it.next();
-			if (tmp.getRoleName().equals(role.getRoleName())) {
-				flag = 1;
-				break;
-			}
-		}
-		if (flag == 0) {
-			String str = roleService.addRole(role);
-		} else {
-			System.out.println("can't add new Role");
-		}
+		int flag = roleService.addRole(role);
+		
 		return GetRoleList();
 	}
 

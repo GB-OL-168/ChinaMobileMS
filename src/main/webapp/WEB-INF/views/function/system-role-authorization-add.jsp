@@ -14,7 +14,7 @@
 <body>
 
 
-	<div class="container" style="width:900px;">
+	<div class="container" style="width: 900px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -26,7 +26,8 @@
 						</ol>
 					</div>
 				</div>
-				<form class="form-horizontal" style="width:900px;" action="/addRole" method="get">
+				<form class="form-horizontal" style="width: 900px;"
+					action="/addRole" method="get">
 					<h4 style="text-align: center;">新增系统角色</h4>
 					<div class="form-group">
 						<label for="roleName" class="col-sm-3 control-label">角色名称</label>
@@ -54,8 +55,10 @@
 							</label><label class="checkbox-inline"> <input type="checkbox"
 								id="inlineCheckbox1" value="1" name="queryAsset">上市公司资产查询
 							</label><label class="checkbox-inline"> <input type="checkbox"
-								id="inlineCheckbox1" value="1" name="mangaementAsset">上市公司资产管理
-							</label> <br> <label class="checkbox-inline"> <input
+								id="inlineCheckbox1" value="1" name="useInfoAsset">上市公司资产使用信息
+							</label> <label class="checkbox-inline"> <input type="checkbox"
+								id="inlineCheckbox1" value="1" name="statisticsAsset">上市公司资产统计信息
+							</label><br> <label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="registerVehicle">车辆登记
 							</label><label class="checkbox-inline"> <input type="checkbox"
@@ -77,13 +80,11 @@
 							</label><label class="checkbox-inline"> <input type="checkbox"
 								id="inlineCheckbox1" value="1"
 								name="managementApplicationProperty">物业服务管理方应用
-							</label>
-							<br> <label class="checkbox-inline"> <input type="checkbox"
-								id="inlineCheckbox1" value="1"
+							</label> <br> <label class="checkbox-inline"> <input
+								type="checkbox" id="inlineCheckbox1" value="1"
 								name="evaluationMangaementProperty">物业服务考评管理
 							</label><label class="checkbox-inline"> <input type="checkbox"
-								id="inlineCheckbox1" value="1"
-								name="evaluationFillProperty">物业服务考评填写
+								id="inlineCheckbox1" value="1" name="evaluationFillProperty">物业服务考评填写
 							</label>
 
 						</div>
