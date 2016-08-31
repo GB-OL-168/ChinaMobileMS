@@ -18,7 +18,8 @@ public class Role {
 	private int  queryAsset=0;
 	private int  registerVehicle=0;
 	private int  registerAsset=0;
-	private int  mangaementAsset=0;
+	private int  useInfoAsset=0;
+	private int  statisticsAsset=0;
 	private int  evaluationMangaementProperty=0;
 	private int  evaluationFillProperty=0;
 	private String description;
@@ -118,17 +119,17 @@ public class Role {
 	public void setRegisterAsset(int registerAsset) {
 		this.registerAsset = registerAsset;
 	}
-	public int getMangaementAsset() {
-		return mangaementAsset;
+	public int getUseInfoAsset() {
+		return useInfoAsset;
 	}
-	public void setMangaementAsset(int mangaementAsset) {
-		this.mangaementAsset = mangaementAsset;
+	public void setUseInfoAsset(int useInfoAsset) {
+		this.useInfoAsset = useInfoAsset;
 	}
-	public String getDescription() {
-		return description;
+	public int getStatisticsAsset() {
+		return statisticsAsset;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setStatisticsAsset(int statisticsAsset) {
+		this.statisticsAsset = statisticsAsset;
 	}
 	public int getEvaluationMangaementProperty() {
 		return evaluationMangaementProperty;
@@ -142,6 +143,12 @@ public class Role {
 	public void setEvaluationFillProperty(int evaluationFillProperty) {
 		this.evaluationFillProperty = evaluationFillProperty;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -154,7 +161,6 @@ public class Role {
 		result = prime * result + evaluationMangaementProperty;
 		result = prime * result + managementApplicationDinner;
 		result = prime * result + managementApplicationProperty;
-		result = prime * result + mangaementAsset;
 		result = prime * result + queryAsset;
 		result = prime * result + queryVehicle;
 		result = prime * result + registerAsset;
@@ -164,10 +170,12 @@ public class Role {
 				+ ((roleName == null) ? 0 : roleName.hashCode());
 		result = prime * result + serverApplicationDinner;
 		result = prime * result + serverApplicationProperty;
+		result = prime * result + statisticsAsset;
 		result = prime * result + sysAccountManage;
 		result = prime * result + sysDataRestore;
 		result = prime * result + sysParameterSetting;
 		result = prime * result + sysPrivilegeSetting;
+		result = prime * result + useInfoAsset;
 		return result;
 	}
 	@Override
@@ -196,8 +204,6 @@ public class Role {
 			return false;
 		if (managementApplicationProperty != other.managementApplicationProperty)
 			return false;
-		if (mangaementAsset != other.mangaementAsset)
-			return false;
 		if (queryAsset != other.queryAsset)
 			return false;
 		if (queryVehicle != other.queryVehicle)
@@ -217,6 +223,8 @@ public class Role {
 			return false;
 		if (serverApplicationProperty != other.serverApplicationProperty)
 			return false;
+		if (statisticsAsset != other.statisticsAsset)
+			return false;
 		if (sysAccountManage != other.sysAccountManage)
 			return false;
 		if (sysDataRestore != other.sysDataRestore)
@@ -224,6 +232,8 @@ public class Role {
 		if (sysParameterSetting != other.sysParameterSetting)
 			return false;
 		if (sysPrivilegeSetting != other.sysPrivilegeSetting)
+			return false;
+		if (useInfoAsset != other.useInfoAsset)
 			return false;
 		return true;
 	}
@@ -245,11 +255,13 @@ public class Role {
 				+ managementApplicationProperty + ", queryVehicle="
 				+ queryVehicle + ", queryAsset=" + queryAsset
 				+ ", registerVehicle=" + registerVehicle + ", registerAsset="
-				+ registerAsset + ", mangaementAsset=" + mangaementAsset
+				+ registerAsset + ", useInfoAsset=" + useInfoAsset
+				+ ", statisticsAsset=" + statisticsAsset
 				+ ", evaluationMangaementProperty="
 				+ evaluationMangaementProperty + ", evaluationFillProperty="
 				+ evaluationFillProperty + ", description=" + description + "]";
 	}
+	
 	
 	
 }
