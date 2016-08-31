@@ -18,6 +18,10 @@
 	.1 {
 		display: none;
 	}
+	.sex{
+		 width:170px;
+		 margin-left:-70px;  
+	}
 	</style>
 </head>
 <body onLoad="goPage(1,10);">
@@ -112,7 +116,7 @@
 					<tr>
 						<td>性别</td>
 						<td style="padding-left:75px;">
-							<select class="col-sm-5" name="sex" class="form-control">
+							<select class="col-sm-x sex" name="sex" class="form-control">
 								<option value="男">男</option>
 								<option value="女">女</option>
 							</select>

@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.houseId{
+	width:200px;
+}
+
+.companyName{
+	width:300px;
+}
+.buildingName{
+	width:300px;
+}
+.area{
+	width:300px;
+}

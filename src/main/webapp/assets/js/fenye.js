@@ -1,8 +1,8 @@
-			
 	
 	function goPage(pno,psize){
 		var itable = document.getElementById("idData");
-		var num = itable.rows.length-1;//表格所有行数(所有记录数)
+		var a= itable.rows;
+		var num=a.length-1;//表格所有行数(所有记录数)
 		//console.log(num);
 		var totalPage = 0;//总页数
 		var pageSize = psize;//每页显示行数
@@ -47,10 +47,7 @@
 		}
 
 		document.getElementById("barcon").innerHTML = tempStr;
-		
 	}
-	
-	
 	
 	
 

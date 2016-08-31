@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.officeFurnitureInfoId{
+	width:50px;
+}
+.furnitureType{
+	width:100px;
+}
+.brand{
+	width:150px;
+}
+.specification{
+	width:150px;s
+}
+.branchName{
+	width:200px;
+}
+
+.buildingName{
+	width:150px;
+}
+.floor{
+	width:100px;
+}
+.officeFurnitureInhouseIdfoId{
+	width:100px;
+}
+
+.officeFurnitureIncountfoId{
+	width:100px;
+}
+

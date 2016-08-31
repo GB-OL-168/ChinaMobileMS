@@ -170,7 +170,7 @@
 		<%=date%>&nbsp&nbsp&nbsp&nbsp日间天气：<%=dayWeather%>&nbsp&nbsp&nbsp&nbsp夜间天气：<%=nightWeather%>&nbsp&nbsp&nbsp&nbsp最高温：<%=high%>℃&nbsp&nbsp&nbsp&nbsp最低温：<%=low%>℃&nbsp&nbsp&nbsp&nbsp出行建议：<%=suggestion%>&nbsp&nbsp&nbsp&nbsp今日通知：<%=session.getAttribute("info")%>
 	</div>
 	<div class="right">
-		<iframe name="/u/main" style="width:100%; min-height: 800px;"
+		<iframe name="/u/main" style="width:100%; min-height: 1000px;"
 			scrolling="no" frameborder="0" border="0">
 			
 			</iframe>

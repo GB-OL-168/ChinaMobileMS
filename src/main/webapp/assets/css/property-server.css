@@ -96,4 +96,45 @@
 	margin-left:80px;
 }
 
+.index{
+	width:60px;
+}
+.applyTime{
+	width:170px;
+}
+.serviceDate{
+	width:100px;
+}
+.concreteTime{
+	width:100px;
+}
+td.serviceLocation,th.serviceLocation{
+	width:120px;
+}
+.concreteTime{
+	width:110px;
+}
+.TemporaryDemand{
+	width:200px;
+}
+.a>td.temporaryDemand{
+	width:200px;
+}
+.status{
+	width:75px;
+}
+.Show{
+	width:50px;
+}
+.do{
+	width:110px;
+}
+
+
+
+
+
+
+
+
 	

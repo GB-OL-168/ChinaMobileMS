@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+		<script src="/assets/js/fenye.js"></script>
+	
 	<style>
 		tr>th{
 			text-align:center;
@@ -19,8 +21,8 @@
 	</style>
 
 </head>
-<body>
-	<div class="container" style="margin-left: 20px;">
+<body  onLoad="goPage(1,10);">
+	<div class="container" style="width:1100px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -40,7 +42,7 @@
 								</ul></li>
 						</ol>
 					</div>
-					<br><br>
+					<br><hr>
 					<form action="/searchLD" method="get"  style="width:1100px;">
 						<div class="col-md-offset-1 col-md-6">
 							<input type="radio" name="loean" value="type" required>类型 <input
@@ -59,10 +61,10 @@
 						</div>
 					</form>
 				</div>
-				<hr>
+				<br>
 
-				<table class="table table-responsive table-bordered"  style="width:1100px;text-align: center;">
-					<h4 style="text-align: center;">租赁设备查询</h4>
+				<table id="idData" class="table table-responsive table-bordered"  style="width:1100px;text-align: center;">
+					<!-- <h4 style="text-align: center;">租赁设备查询</h4> -->
 					<tr>
 						<th>批次</th>
 						<th>类型</th>
@@ -87,10 +89,13 @@
 							<td>${a.allValue}</td>
 						</tr>
 					</c:forEach>
-
-
 				</table>
 
+				<br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
+			
 			</div>
 		</div>
 	</div>

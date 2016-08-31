@@ -10,10 +10,12 @@
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<link rel="stylesheet" href="/assets/css/property-server.css">
+	<script src="/assets/js/fenye.js"></script>
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/property-server.js"></script>
 </head>
-<body>
+<body onLoad="goPage(1,10)">
 
 	<div class="container" style="width:1100px;">		      
 		<div class="row">
@@ -33,28 +35,28 @@
 					</div>	
 				</div>
 
-				<table class="table table-bordered table-striped"  style="width:1100px;">
+				<table id="idData" class="table table-bordered table-striped"  style="width:1100px;">
 				  <!-- <h4 style="text-align:center">申请情况</h4> -->
 				  <br>
 				  <tr>        
-				  	<th>编号</th> 
-				  	<th>申请时间</th>
-				  	<th>服务日期</th>
-				  	<th>具体时间</th>
-				  	<th>服务地点</th>
-				  	<th>联系方式</th>
-				  	<th>临时需求</th>
-				  	<th>当前状态</th>
-				  	<th>说明</th>
-				  	<th>操作</th>
+				  	<th class="index">编号</th> 
+				  	<th class="applyTime">申请时间</th>
+				  	<th class="serviceDate">服务日期</th>
+				  	<th class="concreteTime">具体时间</th>
+				  	<th class="serviceLocation">服务地点</th>
+				  	<th class="concreteTime">联系方式</th>
+				  	<th class="TemporaryDemand">临时需求</th>
+				  	<th class="status">当前状态</th>
+				  	<th class="Show">说明</th>
+				  	<th class="do">操作</th>
 				  </tr>
 				  
 				  <c:forEach items="${listPropertyApplicant}" var="a"  varStatus="status">
 				  <tr class="a">
-				  	<td>${ status.index + 1}</td> 
-				  	<td>${a.applyTime}</td>
-				  	<td>${a.serviceDate}</td>
-				  	<td>${a.concreteTime}</td>
+				  	<td class="index">${ status.index + 1}</td> 
+				  	<td class="applyTime">${a.applyTime}</td>
+				  	<td class="serviceDate">${a.serviceDate}</td>
+				  	<td class="concreteTime">${a.concreteTime}</td>
 				  	<td class="serviceLocation">${a.serviceLocation }</td>
 				  	<%-- <td class="applyUserName"><%=((User)session.getAttribute("user")).getAccountName() %></td> --%>
 				  	<td class="contactInfo">${a.contactInfo}</td>
@@ -95,10 +97,9 @@
 				  	<td style="display:none;" class="serviceCommand">${a.serviceCommand }</td>
 				  	<td style="display:none;" class="addition">${a.addition }</td>
 	  	
-				  	<td><a class="show" href="javascript:void(0)">查看</a></td>
-<%-- 				  	<td><a href="/property/propertyApplicant/${a.propertyTableId}">update</a> | <a href="">remove</a></td>
- --%>				  	
-				  	<td><a class="modify" href="javascript:void(0)">修改临时需求</a> <br> 
+				  	<td class="Show"><a class="show" href="javascript:void(0)">查看</a></td>
+			  	
+				  	<td class="do"><a class="modify" href="javascript:void(0)">修改临时需求</a> <br> 
 				  		<a class="check_view" href="javascript:void(0)">查看审核进度</a></td>
 	              </tr>
 				  </c:forEach>
@@ -107,10 +108,13 @@
 			</div>
 		</div>
 	</div>
-	
+	 <br>
+		<table width="70%" align="right">
+	        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+	    </table>
 	
 		
-<!-- 	新添加的地方--> 
+			<!-- 	查看具体说明--> 
 	<div id="code">
 		<div class="title">
 		    <span>具体要求</span>
@@ -173,7 +177,7 @@
 			</table> 		
 		</div>
 	</div>
-<!-- 	查看审核进度 -->
+      	<!-- 	查看审核进度 -->
 	<div id="check_div">
 			<div class="title">
 			    <span>目前审核进度</span>
@@ -187,136 +191,7 @@
 			</table> 		
 		</div>
 	</div>
-	
-	<script>
-		$(function() {
-			/*查看审核进度功能 */
-			$('.check_view').click(function(){
-				var statusId=$(this).parents().siblings(".statusId").html();
-				var context;
-				if(statusId=="0"){
-					context = "未开始";
-					$("img.context").attr('src','/assets/img/progress_0.png');
-				};
-				if(statusId=="1"){
-					context = "未开始<br>丨<br>拒绝受理";
-					$("img.context").attr('src','/assets/img/progress_1.png');
-				};
-				if(statusId=="2"){
-					context = "未开始<br>丨<br>开始<br>丨<br>等待一审";
-					$("img.context").attr('src','/assets/img/progress_2.png');
-				};
-				if(statusId=="4"){
-					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审拒绝";
-					$("img.context").attr('src','/assets/img/progress_4.png');
-				};
-				if(statusId=="5"){
-					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审通过<br>丨<br>等待二审";
-					$("img.context").attr('src','/assets/img/progress_5.png');
-				};
-				if(statusId=="6"){
-					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审通过<br>丨<br>等待二审<br>丨<br>二审通过";
-					$("img.context").attr('src','/assets/img/progress_6.png');
-				};
-				if(statusId=="7"){
-					context = "未开始<br>丨<br>开始<br>丨<br>等待一审<br>丨<br>一审通过<br>丨<br>等待二审<br>丨<br>二审拒绝";
-					$("img.context").attr('src','/assets/img/progress_7.png');
-				};
-				$('#check_div').center();
-				$('#check_div').fadeIn();
-			});
-			
-			
-			
-			/* 修改临时需求功能 */
-			$('.modify').click(function(){
-				var temporaryDemand=$(this).parent().siblings(".temporaryDemand").text();
-				var propertyTableId=$(this).parent().siblings(".propertyTableId").text();
-				$("textarea.temporaryDemand").val(temporaryDemand);
-				$("input.propertyTableId").val(propertyTableId);
-				$('#modify_div').center();
-				$('#modify_div').fadeIn();
-			});
-			
 
-				/* 查看需求点击详情功能 */
-			$('.show').click(function() {
-				var receptionService=$(this).parent().siblings(".receptionService").text();
-				
-				var diningService=$(this).parent().siblings(".diningService").text();
-				var enviromentMaintain=$(this).parent().siblings(".enviromentMaintain").text();
-				var engineeringManage=$(this).parent().siblings(".engineeringManage").text();
-				var firefightingManage=$(this).parent().siblings(".firefightingManage").text();
-				var addition=$(this).parent().siblings(".addition").text();
-				var serviceLocation=$(this).parent().siblings(".serviceLocation").text();
-				var serviceCommand=$(this).parent().siblings(".serviceCommand").text();				
-				$("p.receptionService").html(receptionService);
-				
-				$("p.diningService").html(diningService);
-				$("p.enviromentMaintain").html(enviromentMaintain);
-				$("p.engineeringManage").html(engineeringManage);
-				$("p.firefightingManage").html(firefightingManage);
-				$("p.addition").html(addition);
-				$("p.serviceLocation").html(serviceLocation);
-				$("p.serviceCommand").html(serviceCommand);
-				
-
-				$('#code').center();
-				$('#code').fadeIn();
-			});
-				
-				
-			$('#closebt1').click(function() {
-				$('#code').hide();
-			});
-			
-			$('#closebt2').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#modify_closed_btn').click(function() {
-				$('#modify_div').hide();
-			});
-			
-			$('#closebt').click(function() {
-				$('#check_div').hide();
-			});
-			
-			jQuery.fn.center = function(loaded) {
-				var obj = this;
-
-				if (!loaded) {
-
-					obj.css({
-						'position': 'absolute'
-					});
-					obj.css({
-						'top': ($(window).height() - $('#code').height()) * 0.05,
-						'left': 300
-							/* left_position */
-					});
-					$(window).bind('resize', function() {
-						obj.center(!loaded);
-					});
-					$(window).bind('scroll', function() {
-						obj.center(!loaded);
-					});
-
-				} else {
-					obj.stop();
-					obj.css({
-						'position': 'absolute'
-					});
-					obj.animate({
-						'top':100 
-							/* top_position */
-					}, 200, 'linear');
-				}
-			}
-
-		});
-	</script>
-	
 </body>
 
 </html>
