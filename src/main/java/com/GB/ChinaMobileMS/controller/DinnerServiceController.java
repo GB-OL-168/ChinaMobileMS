@@ -37,19 +37,19 @@ import com.GB.ChinaMobileMS.services.interfaces.UserService;
 @Controller
 public class DinnerServiceController {
 	
-	public static final int NOT_START = 0;
-	public static final int REJECT_HANDLE = 1;
-	public static final int FIRST_STAGE_START = 2;
-	public static final int FIRST_REJECT = 4;
-	public static final int SECOND_STAGE_START = 5;
-	public static final int SECOND_PASS = 6;
-	public static final int SECOND_REJECT = 7;
+	public static final int NOT_START = 0;			//为开始状态
+	public static final int REJECT_HANDLE = 1;		//拒绝受理状态
+	public static final int FIRST_STAGE_START = 2;	//一审开始阶段状态
+	public static final int FIRST_REJECT = 4;		//一审拒绝阶段状态
+	public static final int SECOND_STAGE_START = 5;	//二审开始阶段状态
+	public static final int SECOND_PASS = 6;		//二审通过状态
+	public static final int SECOND_REJECT = 7;		//二审拒绝状态
 	
-	public static int dinnerPropertyID = 0;
-	public static int dinnerReviewID = 0;
-	public static String excutionID;
-	public static int STATUS = 0;
-	public static String companyManagerID;
+	public static int dinnerPropertyID = 0;	//申请表ID
+	public static int dinnerReviewID = 0;	//审核表ID
+	public static String excutionID;		//流程表ID
+	public static int STATUS = 0;			//用户执行的状态字
+	public static String companyManagerID;	//审核公司管理员ID
 	
 	@Autowired
 	private UserService userService;

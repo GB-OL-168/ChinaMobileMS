@@ -11,6 +11,9 @@ public class StartVertifyListener implements Serializable, TaskListener {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 物业开启流程监听
+	 */
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		switch(PropertyServiceController.STATUS){

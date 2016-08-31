@@ -128,6 +128,17 @@
 	});
 	
 	function validateInfo() {
+		var startDate = $("#startDate").val();
+		if(startDate.length > 10){
+			alert("请选择正确的开始日期格式");
+			return false;
+		}
+		var finishDate = $("#finishDate").val();
+		if(finishDate.length > 10){
+			alert("请选择正确的结束日期格式");
+			return false;
+		}
+		
 		var today=new Date();
 		var day = today.getMonth()+1;
 		var dayStr;
@@ -137,13 +148,11 @@
 			daystr = day + "";
 		var todayStr = today.getFullYear() + "-" + dayStr + "-" + today.getDate();
 		
-		var startDate = $("#startDate").val();
 		if(startDate < todayStr){
 			alert("开始时间必须在当前日期之后");
 			return false;
 		}
 			
-		var finishDate = $("#finishDate").val();
 		if(startDate > finishDate){
 			alert("结束时间不得早于开始时间。");
 			return false;

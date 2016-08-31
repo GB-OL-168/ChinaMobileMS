@@ -29,19 +29,19 @@ import com.GB.ChinaMobileMS.services.interfaces.ReviewService;
 @Controller
 public class PropertyServiceController {
 
-	public static final int NOT_START = 0;
-	public static final int REJECT_HANDLE = 1;
-	public static final int FIRST_STAGE_START = 2;
-	public static final int FIRST_REJECT = 4;
-	public static final int SECOND_STAGE_START = 5;
-	public static final int SECOND_PASS = 6;
-	public static final int SECOND_REJECT = 7;
+	public static final int NOT_START = 0;			//为开始状态
+	public static final int REJECT_HANDLE = 1;		//拒绝受理状态
+	public static final int FIRST_STAGE_START = 2;	//一审开始阶段状态
+	public static final int FIRST_REJECT = 4;		//一审拒绝阶段状态
+	public static final int SECOND_STAGE_START = 5;	//二审开始阶段状态
+	public static final int SECOND_PASS = 6;		//二审通过状态
+	public static final int SECOND_REJECT = 7;		//二审拒绝状态
 	
-	public static int propertyID = 0;
-	public static int reviewID = 0;
-	public static String excutionID;
-	public static int STATUS = 0;
-	public static String companyManagerID;
+	public static int propertyID = 0;		//申请表ID
+	public static int reviewID = 0;			//审核表ID
+	public static String excutionID;		//流程表ID
+	public static int STATUS = 0;			//用户执行的状态字
+	public static String companyManagerID;	//审核公司管理员ID
 	
 	@Autowired
 	private PropertyServices updatePropertyServicesTemp;
@@ -63,14 +63,17 @@ public class PropertyServiceController {
 		updatePropertyServices = updatePropertyServicesTemp;
 		reviewService = reviewServiceTemp;
 		
+		//初始化数据
 		initData(id, status);
 		
+		//实体赋值，获取审核人的id（一审、二审人）
 		PropertyServiceEntity entity = ((List<PropertyServiceEntity>)updatePropertyServices.getPropertyTableByID(id)).get(0);
 		int companyID = entity.getCompanyId();
 		int branchID = entity.getBranchId();
 		companyManagerID = ((CompanyEntity)companyService.getCompanyManager(companyID)).getCompanyManager();
 		String branchManagerID = branchService.getBranchManager(branchID).getBranchManager();
 		
+		//根据用户选择的状态字进行流程的监听执行
 		switch(status){
 		case REJECT_HANDLE:
 			activitiUtil.excuteProcess(excutionID, false);
@@ -92,13 +95,19 @@ public class PropertyServiceController {
 			break;
 		}
 		
+		//重新获取数据并刷新页面
 		List<PropertyServiceEntity> propertyServiceList=updatePropertyServices.getPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
 		Map<String, List<AuditingPrpoertyEntity>> newmap = new HashMap<>();
 		newmap.put("propertyServiceList", dealPropertyData(propertyServiceList, (User)session.getAttribute("user"), branchManagerID, companyManagerID));
-		List<AuditingPrpoertyEntity> list = newmap.get("propertyServiceList");
 		return new ModelAndView("/function/property-auditing",newmap);	
 	}
 	
+	/**
+	 * 修改临时需求
+	 * @param request
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value="/modifyTempDemand", method=RequestMethod.POST)
 	public ModelAndView modifyTempDemand(HttpServletRequest request, HttpSession session){
 		int propertyTableID = Integer.valueOf(request.getParameter("modify_id"));
@@ -112,6 +121,11 @@ public class PropertyServiceController {
 		return new ModelAndView("/function/property-server",map);
 	}
 	
+	/**
+	 * 初始化数据
+	 * @param propertyID	申请表ID
+	 * @param status		用户选择的状态字
+	 */
 	private void initData(int propertyID, int status){
 		STATUS = status;
 		PropertyServiceController.propertyID = propertyID;
@@ -121,6 +135,14 @@ public class PropertyServiceController {
 		excutionID = reviewEntity.getExcutionId();
 	}
 	
+	/**
+	 * 数据转移，返回至前端显示的实体列表
+	 * @param propertyList		源列表
+	 * @param currentUser		当前用户
+	 * @param branchManager		部门管理员
+	 * @param companyManager	公司管理员
+	 * @return
+	 */
 	private List<AuditingPrpoertyEntity> dealPropertyData(List<PropertyServiceEntity> propertyList, User currentUser, String branchManager, String companyManager){
 		List<AuditingPrpoertyEntity> resultList = new ArrayList<>();
 		for(PropertyServiceEntity entity : propertyList){

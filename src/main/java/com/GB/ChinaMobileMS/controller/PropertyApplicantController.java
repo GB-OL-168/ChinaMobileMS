@@ -72,10 +72,21 @@ public class PropertyApplicantController {
 		return new ModelAndView("/function/property-server",map);
 	}
 	
+	/**
+	 * 开启一条流程
+	 * @param propertyTableId		申请表ID
+	 * @param branchVertifyUser		一审人
+	 * @param companyVertifyUser	二审人
+	 * @return	true：开启成功	false：开启失败
+	 */
 	private boolean startAcititi(int propertyTableId, String branchVertifyUser, String companyVertifyUser){
 		return activitiUtil.startProcess(propertyTableId, branchVertifyUser, companyVertifyUser);
 	}
 	
+	/**
+	 * 时间格式化
+	 * @return	格式化完成的时间（年月日时分秒）
+	 */
 	private Timestamp formatTime(){
 		Date dt = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -12,6 +12,9 @@ public class DinnerVertify1Listener implements Serializable, TaskListener{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 用餐一审监听
+	 */
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		switch(DinnerServiceController.STATUS){

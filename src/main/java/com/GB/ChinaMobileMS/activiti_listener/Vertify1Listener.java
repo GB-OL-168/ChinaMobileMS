@@ -11,6 +11,9 @@ public class Vertify1Listener implements Serializable, TaskListener {
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 物业一审监听
+	 */
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		System.out.println("\n\n=================\nUser1 task excute");
