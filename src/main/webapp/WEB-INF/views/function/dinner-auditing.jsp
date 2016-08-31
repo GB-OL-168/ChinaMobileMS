@@ -12,9 +12,9 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-  
+  	<script src="/assets/js/fenye.js"></script>
 </head>
-<body>
+<body onLoad="goPage(1,10);">
       <div class="container" style="width:1100px;">
         <div class="row">
                 <div class="col-md-12">
@@ -26,7 +26,7 @@
                     </ol>
                 </div>
             <h4 style="text-align: center">用餐申请情况</h4>
-            <table class="table table-bordered col-md-12  table-striped" >
+            <table id="idData" class="table table-hover col-md-12  table-striped" >
                 <tr>
                     <th>编号</th>
                     <th>申请人</th>
@@ -96,6 +96,12 @@
 				  	</tr>
                 </c:forEach>
             </table>
+            
+            
+        <br>
+		<table width="70%" align="right">
+	        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+	    </table>
         </div>
         </div>
 </body>

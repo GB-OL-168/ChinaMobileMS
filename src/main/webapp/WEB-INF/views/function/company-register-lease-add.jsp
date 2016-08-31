@@ -109,13 +109,13 @@
 								name="orderNumber" required>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label">设备编号</label>
-						<div class="col-sm-6">
-							<input type="number" class="form-control" placeholder="设备编号"
-								name="loanInfoId" required>
-						</div>
-					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="col-sm-4 control-label">设备编号</label> -->
+<!-- 						<div class="col-sm-6"> -->
+<!-- 							<input type="number" class="form-control" placeholder="设备编号" -->
+<!-- 								name="loanInfoId" required> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<div class="form-group">
 						<label class="col-sm-4 control-label">公司</label>
 						<div class="col-sm-6">

@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	
 <html lang="en">
 <head>
@@ -10,12 +9,13 @@
     <title>用餐服务申请状态查看</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
-	<link rel="stylesheet" href="/assets/css/dinner-application-view.css">
+	
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    
+    <script src="/assets/js/fenye.js"></script>
+    <link rel="stylesheet" href="/assets/css/dinner-application-view.css">
 </head>
-<body>
+<body onLoad="goPage(1,10);">
         <div class="container" style="width:1100px;">
             <div class="row">
                 <div class="col-md-12">
@@ -32,31 +32,31 @@
                 </div>
             </div>
 
-            <h4 style="text-align: center">用餐申请状态</h4> 
-            <table class="table table-bordered table-striped col-md-12">
+            <!-- <h4 style="text-align: center">用餐申请状态</h4>  -->
+            <table id="idData" class="table table-hover table-striped" style="width:1100px;">
                 <tr>
-                    <th>编号</th>
-                    <th>申请时间</th>
-                    <th>开始日期</th>
-                    <th>结束日期</th>
-                    <th>联系方式</th>
-                    <th>安排人数</th>
-                    <th>用餐类型</th>
-                    <th>备注</th>
-                    <th>审核状态</th>
-                    <th>操作</th>
+                    <th class="index">编号</th>
+                    <th class="applyTime">申请时间</th> 
+                    <th class="startDate">开始日期</th>
+                    <th class="finishDate">结束日期</th>
+                    <th class="contactInfo">联系方式</th>
+                    <th class="arrangePersonCount">安排人数</th>
+                    <th class="dinnerType">用餐类型</th>
+                    <th class="indadditionex">备注</th>
+                    <th class="s">审核状态</th>
+                    <th class="view">审核进度</th>
                 </tr>
                 
                 <c:forEach items="${dinnerPropertys}" var="dinnerProperty"  varStatus="status">
                 	<tr>
-                    	<td>${ status.index + 1}</td>
-                    	<td>${dinnerProperty.applyTime}</td>
-                    	<td>${dinnerProperty.startDate}</td>
-                    	<td>${dinnerProperty.finishDate}</td>
-                    	<td>${dinnerProperty.contactInfo}</td>
-                    	<td>${dinnerProperty.arrangePersonCount}</td>
-                    	<td>${dinnerProperty.dinnerType}</td>
-                    	<td>${dinnerProperty.addition}</td>
+                    	<td class="index">${ status.index + 1}</td>
+                     	<td class="applyTime">${dinnerProperty.applyTime}</td> 
+                    	<td class="startDate">${dinnerProperty.startDate}</td>
+                    	<td class="finishDate">${dinnerProperty.finishDate}</td>
+                    	<td class="contactInfo">${dinnerProperty.contactInfo}</td>
+                    	<td class="arrangePersonCount">${dinnerProperty.arrangePersonCount}</td>
+                    	<td class="dinnerType">${dinnerProperty.dinnerType}</td>
+                    	<td class="indadditionex">${dinnerProperty.addition}</td>
                     	<td class="status">
                     		<c:choose>
 				  			<c:when test = "${dinnerProperty.status == 0}">
@@ -83,11 +83,17 @@
 				  		</c:choose>
 						</td>
 						<td style="display:none"  class="statusId">${dinnerProperty.status}</td>
-						<td><a class="check_view" href="javascript:void(0)">查看审核进度</a></td>
+						<td class="view"><a class="check_view" href="javascript:void(0)">查看</a></td>
                 	</tr>
                 </c:forEach>
             </table>
+ 
         </div>
+                
+        <br>
+		<table width="70%" align="right">
+	        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+	    </table>
         
         <div id="check_div">
 			<div class="title">
@@ -181,8 +187,6 @@
 
 		});
 	</script>
-	
 
-	
 </body>
 </html>

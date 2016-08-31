@@ -1,24 +1,9 @@
-package encrypt;
+package com.GB.ChinaMobileMS.encrypt;
 
 import java.security.MessageDigest;
 import java.util.Random;
 
 public class Encode {
-	public static void main(String[] args) {
-		String password = "input string";
-		String salt = getRandomString(8);
-		try {
-			StringBuffer firstpsw = new StringBuffer();
-			StringBuffer secondpsw = new StringBuffer();
-			firstpsw.append(md5Encode(password));
-			secondpsw.append(firstpsw);
-			secondpsw.append(salt);
-			System.out.println("first password = " + firstpsw.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/***
 	 * MD5加密 生成32位md5码
 	 * 

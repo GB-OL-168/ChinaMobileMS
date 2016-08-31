@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+.name{
+	width:80px;
+}
+.sex{
+	width:50px;
+}
+.birthday{
+	width:100px;
+}
+.driveYear{
+	width:50px;
+}
+.education{
+	width:50px;
+}
+.origin{
+	width:100px;
+}
+
+.serviceUnit{
+	width:100px;
+}
+.identification{
+	width:200px;
+}
+.contactInfo{
+	width:150px;
+} 
+.homeAddress{
+	width:150px;
+}
+.addition{
+	width:50px;
+}
+
+
+
+

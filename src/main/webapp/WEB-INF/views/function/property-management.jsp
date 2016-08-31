@@ -32,7 +32,7 @@
 					<div class="col-md-3"></div>
 				</div> 
 				<br>          
-				<table id="idData" class="table table-bordered  table-striped" style="width:1100px;">
+				<table id="idData" class="table table-hover  table-striped" style="width:1100px;">
 				  <tr>        
 				   	<th style="max-width:50px;min-width:50px;">编号</th> 
 				  	<th style="max-width:180px;min-width:180px;">申请时间</th>

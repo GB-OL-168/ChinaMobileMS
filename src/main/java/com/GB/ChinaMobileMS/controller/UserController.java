@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.GB.ChinaMobileMS.encrypt.Encode;
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.Information;
@@ -26,8 +28,6 @@ import com.GB.ChinaMobileMS.services.interfaces.InfoService;
 import com.GB.ChinaMobileMS.services.interfaces.JobService;
 import com.GB.ChinaMobileMS.services.interfaces.RoleService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
-
-import encrypt.Encode;
 
 @Controller
 public class UserController {
@@ -99,7 +99,8 @@ public class UserController {
 		session.setAttribute("queryAsset", role.getQueryAsset());
 		session.setAttribute("registerVehicle", role.getRegisterVehicle());
 		session.setAttribute("registerAsset", role.getRegisterAsset());
-		session.setAttribute("mangaementAsset", role.getMangaementAsset());
+		session.setAttribute("useInfoAsset", role.getUseInfoAsset());
+		session.setAttribute("statisticsAsset", role.getStatisticsAsset());
 		session.setAttribute("evaluationFillProperty", role.getEvaluationFillProperty());
 		session.setAttribute("evaluationMangaementProperty", role.getEvaluationMangaementProperty());
 
@@ -152,13 +153,8 @@ public class UserController {
 		return GetUserList().addObject("infomation", "删除成功");
 	}
 
-	//更新用户密码函数
-	
-	
-	// 新增一个用户
-	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public ModelAndView addUser(User user) {
-		try {
+	//用户密码加密函数
+	private User changePSW(User user){
 			//定义一个 随机数 范围为5-25
 			Random ne = new Random();
 			int random = ne.nextInt(20) + 5;
@@ -176,14 +172,22 @@ public class UserController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			return user;
+	}
+	
+	// 新增一个用户
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public ModelAndView addUser(User user) {
+		
+		try{
 			// 调用service 插入数据库
+			user = changePSW(user);
 			userService.addUser(user);
 		} catch (DuplicateKeyException e) {
 			System.out.println("用户已存在");
 			System.out.println(user);
 			return GetUserList().addObject("infomation", "用户已存在");
 		}
-
 		System.out.println(user);
 		return GetUserList().addObject("infomation", "新增成功");
 	}
@@ -214,24 +218,7 @@ public class UserController {
 	public ModelAndView updateUserInfo(User user) {
 		
 		try {
-			//定义一个 随机数 范围为5-25
-			Random ne = new Random();
-			int random = ne.nextInt(20) + 5;
-			//定义盐
-			String salt = Encode.getRandomString(random);
-			System.out.println("salt = " + salt);
-			user.setSalt(salt);
-			//前端传入用户加密后密码
-			StringBuffer firstPsw = new StringBuffer(user.getPassword());
-			//加点盐
-			firstPsw.append(salt);
-			try {
-				//密码二次加密
-				String secondPSW = Encode.md5Encode(firstPsw.toString());
-				user.setPassword(secondPSW);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			user = changePSW(user);
 			userService.updateUserInfo(user);
 			System.out.println(user);
 			System.out.println("用户资料更新成功");

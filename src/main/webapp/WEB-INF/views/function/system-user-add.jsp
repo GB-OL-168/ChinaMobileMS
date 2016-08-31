@@ -5,13 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<title>后勤服务中心管理信息系统 - 账号管理</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<script src="/assets/js/md5.js" type="text/javascript"></script>
+	<meta charset="utf-8">
+	<title>后勤服务中心管理信息系统 - 账号管理</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/md5.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container" style="width: 900px;">
@@ -28,7 +28,7 @@
 				</div>
 				<form class="form-horizontal" style="width: 900px;"
 					action="/addUser" method="post" onsubmit="return check();">
-					<h3 style="text-align: center;">添加用户</h3>
+					<h4 style="text-align: center;">添加用户</h4>
 
 					<td><input name="isExist" class="isExist" value="1"
 						style='display: none' /></td>

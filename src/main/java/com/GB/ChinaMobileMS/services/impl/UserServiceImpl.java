@@ -1,5 +1,6 @@
 package com.GB.ChinaMobileMS.services.impl;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Service;
 import com.GB.ChinaMobileMS.dao.UserMapper;
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
+import com.GB.ChinaMobileMS.entity.Role;
 import com.GB.ChinaMobileMS.entity.User;
+import com.GB.ChinaMobileMS.services.interfaces.RoleService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
 
 @Service
@@ -18,6 +21,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 	//UserMapper映射接口，生成一个实现对象
+	@Autowired
+	private RoleService roleService;
 	
 	public User login(String userName) {
 		
@@ -44,7 +49,15 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	public String updateUserRole(User user){
-		System.out.println("进入了 updateUserRole 方法");
+		List<Role> listRole = roleService.ListRole();
+		Iterator<Role> it = listRole.iterator();
+		while (it.hasNext()) {
+			Role tmp = it.next();
+			if (user.getRoleName().equals(tmp.getRoleName())) {
+				user.setRoleId(tmp.getRoleId());
+				break;
+			}
+		}
 		int updateUserRole= userMapper.updateUserRole(user);
 		
 		return null;

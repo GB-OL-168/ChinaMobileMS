@@ -12,19 +12,18 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
+	<link rel="stylesheet" href="/assets/css/company-query-rooms.css">
 	<style>
 		tr>th{
 			text-align:center;
 		}
+		
 	</style>
 </head>
-<body>
-
-
-	<div class="container" style="width:900px;">
+<body onLoad="goPage(1,10);">
+	<div class="container" style="width:1100px;">
 		<div class="row">
-			<div class="col-md-12 main">
-				<div class="row">
 					<div class="col-md-12">
 						<ol class="breadcrumb">
 							<li><a href="#">信息管理</a></li>
@@ -41,10 +40,11 @@
 								</ul></li>
 						</ol>
 					</div>
-				</div>
-				<br>
-			<form action="/searchRoom" method="get"  style="width:900px;">
-				<div class="col-md-offset-1 col-md-6">
+			
+				<br><hr>
+			<form action="/searchRoom" method="get">
+				<div class="col-md-6">
+				    <span>请选择相关的搜索条件：</span>
 					<input type="radio" name="room" value="companyName" required>公司名称 <input
 						type="radio" name="room" value="building" required>建筑名称 <input
 						type="radio" name="room" value="area"
@@ -61,27 +61,33 @@
 			</form>
 			
 
-			<br><hr>
-			<table class="table table-bordered"  style="width:900px;text-align: center;">
-				<h4 style="text-align: center;">房间信息查询</h4>
+			<br><br>
+			<table  id="idData" class="table table-hover table-striped"  style="width:1100px;text-align: center;">
+				<!-- <h4 style="text-align: center;">搜索结果</h4> -->
 				<tr>
-					<th>房间编号</th>
-					<th>所属单位</th>
-					<th>所属建筑</th>
-					<th>房间面积(平方米)</th>
+					<th class="houseId">房间编号</th>
+					<th class="companyName">所属单位</th>
+					<th class="buildingName">所属建筑</th>
+					<th class="area">房间面积(平方米)</th>
 				</tr>
 				<c:forEach items="${listroom}" var="r">
 					<tr >
-						<td>${r.houseId}</td>
-						<td>${r.companyName}</td>
-						<td>${r.buildingName}</td>
-						<td>${r.area}</td>
+						<td class="houseId">${r.houseId}</td>
+						<td class="companyName">${r.companyName}</td>
+						<td class="buildingName">${r.buildingName}</td>
+						<td class="area">${r.area}</td>
 					</tr>
 				</c:forEach>
 			</table>
-				</div>
+		
 			</div>
+			
+			<br>
+			<table width="70%" align="right">
+		        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+		    </table>
 		</div>
+	</div>
 
 </body>
 </html>

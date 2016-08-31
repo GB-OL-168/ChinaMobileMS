@@ -1,8 +1,8 @@
-			
 	
 	function goPage(pno,psize){
 		var itable = document.getElementById("idData");
-		var num = itable.rows.length-1;//表格所有行数(所有记录数)
+		var a= itable.rows;
+		var num=a.length-1;//表格所有行数(所有记录数)
 		//console.log(num);
 		var totalPage = 0;//总页数
 		var pageSize = psize;//每页显示行数
@@ -28,28 +28,26 @@
 		}
 	    itable.rows[0].style.display="block";
 		var pageEnd = document.getElementById("pageEnd");
-		var tempStr = "共"+num+"条记录 &nbsp&nbsp 当前第"+currentPage+"页";
+		var tempStr = "共"+num+"条记录 &nbsp&nbsp 当前第"+currentPage+"页 ";
 		if(currentPage>1){
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(1)+","+psize+")\">首页</a>";
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(currentPage-1)+","+psize+")\"><上一页</a>"
 		}else{
-			tempStr +="首页";
-			tempStr +="<上一页";    
+			tempStr +="&nbsp;&nbsp;  "
+			tempStr +="  首页";
+			tempStr +="&nbsp;"+"  <上一页";    
 		}
 
 		if(currentPage<totalPage){
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(currentPage+1)+","+psize+")\">下一页></a>";
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(totalPage)+","+psize+")\">尾页</a>";
 		}else{
-			tempStr += "&nbsp&nbsp下一页>";
-			tempStr += "&nbsp&nbsp尾页";    
+			tempStr += " &nbsp;  下一页>";
+			tempStr += " &nbsp;  尾页";    
 		}
 
 		document.getElementById("barcon").innerHTML = tempStr;
-		
 	}
-	
-	
 	
 	
 

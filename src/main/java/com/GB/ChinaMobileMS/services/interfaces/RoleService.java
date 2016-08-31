@@ -7,13 +7,13 @@ import com.GB.ChinaMobileMS.entity.Role;
 public interface RoleService {
 	List<Role> ListRole();
 	
-	String addRole(Role role);
+	int addRole(Role role);
 	
 	Role findRoleByName(String roleName);
 	
 	String updateRole(Role role);
 	
-	String deleteRoleByName(int roleId);
+	int deleteRoleByName(int roleId);
 	
 	Role findRoleById(int roleId);
 }
