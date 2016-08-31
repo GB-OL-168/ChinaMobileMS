@@ -35,7 +35,7 @@
 				</div>
 
 				<form class="form-horizontal col-md-12"  style="width:900px;" action="/addAH" method="get">
-					<h4 style="text-align: center">房屋资产信息登记</h4>
+					<h4 style="text-align: center">房屋资产信息登记</h4><br>
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">坐落地点</label>
@@ -137,7 +137,7 @@
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-8">
 							<button type="submit" class="btn btn-default col-sm-offset-4" id="add">登记</button>
-							<button type="reset" class="btn btn-default" id=reset>重置</button>
+							&nbsp;&nbsp;<button type="reset" class="btn btn-default" id=reset>重置</button>
 						</div>
 					</div>
 				</form>

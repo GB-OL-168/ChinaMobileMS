@@ -18,15 +18,12 @@
 	.1 {
 		display: none;
 	}
-	.sex{
-		 width:170px;
-		 margin-left:-70px;  
-	}
+	
 	</style>
 </head>
-<body onLoad="goPage(1,10);">
+<body>
 
-	<div class="container" style="width: 900px">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -38,24 +35,24 @@
 						</ol>
 					</div>
 				</div>
+				<br>
 
-
-				<table id="idData" class="table table-hover table-striped user-list" style="width:900px;">
-		 			<h4 style="text-align:center;">用户列表</h4> 
+				<table id="idData" class="table table-bordered table-hover table-striped user-list">
+		 		<!-- 	<h4 style="text-align:center;">用户列表</h4>  -->
 
 					<tr>
-						<th style="width:300px;">ID</th>
-						<th style="width:300px;">用户名</th>
-						<th style="width:300px;">操作</th>
+						<th>ID</th>
+						<th>用户名</th>
+						<th>操作</th>
 					</tr>
 
 					<c:forEach items="${listUser}" var="a">
 						<tr class="a">
 							<c:if test="${a.isExist=='1'}">
 
-							<td style="width:300px;" class="userName">${a.userName}</td>
-							<td style="width:300px;" class="accountName">${a.accountName}</td>
-							<td style="width:300px;"><a class="modify" href="javascript:void(0)">修改资料</a> | <a
+							<td class="userName">${a.userName}</td>
+							<td class="accountName">${a.accountName}</td>
+							<td><a class="modify" href="javascript:void(0)">修改资料</a> | <a
 									href="/deleteUser/${a.userName}">删除用户</a></td>
 					
 								<td style="display: none" class="remark">${a.remark}</td>
@@ -97,26 +94,27 @@
 			onsubmit="return check();">
 			<div class="goodtxt">
 				<table class="table table-bordered">
-
-					<td><input name="userName" class="userName"
-						style='display: none' /></td>
+<!-- 
+					<td><input name="userName" class="userName form-control"
+						style='display: none' /></td> -->
 
 					<tr>
 						<td>姓名</td>
-						<td><input name="accountName" class="accountName"
+						<td><input name="accountName" class="accountName  form-control"
 							maxlength="20" readonly="true"/></td>
 					</tr>
 
 					<tr>
 						<td>密码</td>
-						<td><input id='password' name="password" type="password" class="password" maxlength="20"
+						<td><input id='password' name="password" type="password" 
+							class="password  form-control"  maxlength="20"
 							placeholder="请输入新密码" required/></td>
 					</tr>
 
 					<tr>
 						<td>性别</td>
-						<td style="padding-left:75px;">
-							<select class="col-sm-x sex" name="sex" class="form-control">
+						<td>
+							<select class="sex form-control" name="sex">
 								<option value="男">男</option>
 								<option value="女">女</option>
 							</select>
@@ -125,31 +123,31 @@
 
 					<tr>
 						<td>身份证</td>
-						<td><input name="identification" class="identification"
+						<td><input name="identification" class="identification  form-control"
 							maxlength="20" /></td>
 					</tr>
 
 					<tr>
 						<td>生日</td>
 						<td>
-						<input style="margin-left:68px;" type="date" name="birthday" class="birthday col-sm-7"
+						<input type="date" name="birthday" class="birthday form-control"
 							maxlength="20" />
 						</td>
 					</tr>
 					<tr>
 						<td>邮箱</td>
-						<td><input name="email" type="email" class="email"
+						<td><input name="email" type="email" class="email  form-control"
 							maxlength="20" /></td>
 					</tr>
 
 					<tr>
 						<td>电话</td>
-						<td><input name="phone" class="phone" maxlength="20" /></td>
+						<td><input name="phone" class="phone form-control" maxlength="20" /></td>
 					</tr>
 
 					<tr>
 						<td>备注</td>
-						<td><input name="remark" class="remark" maxlength="20" /></td>
+						<td><input name="remark" class="remark form-control" maxlength="20" /></td>
 					</tr>
 				</table>
 			</div>

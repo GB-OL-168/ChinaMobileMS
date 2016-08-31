@@ -14,7 +14,7 @@
 	<script src="/assets/js/fenye.js"></script>
 	<script src="/assets/js/system-role-assignment.js"></script>
 </head>
-<body onLoad="goPage(1,10);">
+<body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 main">
@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<br>
-				<table id="idData" class="table table-hover table-striped col-md-12">
+				<table id="idData" class="table table-bordered table-hover table-striped">
 					<tr>
 						<th style="width: 300px;">用户名</th>
 						<th style="width: 500px;">角色</th>

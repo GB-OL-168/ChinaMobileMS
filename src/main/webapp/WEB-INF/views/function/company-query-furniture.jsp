@@ -10,8 +10,8 @@
 	<title>上市公司资产信息管理 - 信息登记</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
-	<link rel="stylesheet" href="/assets/css/company-query-furniture.css">
-	<script src="/assets/js/jquery-1.9.1.js"></script>
+<!-- 	<link rel="stylesheet" href="/assets/css/company-query-furniture.css">
+ -->	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/fenye.js"></script>
 	<style>
@@ -20,7 +20,7 @@
 		}
 	</style>
 </head>
-<body  onLoad="goPage(1,10);">
+<body>
 
 	<div class="container" style="width:1100px;">
 
@@ -63,30 +63,30 @@
 					</div>
 				</form>
 				<br><br>
-				<table id="idData" class="table table-hover table-striped"  style="width:1100px; text-align: center;">
+				<table id="idData" class="table table-hover table-striped table-bordered"  style="width:1100px; text-align: center;">
 				<!-- 	<h4 style="text-align: center;">搜索结果</h4> -->
 					<tr>
-						<th class="officeFurnitureInfoId">编号</th>
-						<th class="furnitureType">家具类型</th>
-						<th class="brand">品牌/型号</th>
-						<th class="specification">规格</th>
-						<th class="branchName">使用部门</th>
-						<th class="buildingName">所在建筑</th>
-						<th class="floor">所在楼层</th>
-						<th class="officeFurnitureInhouseIdfoId">所在房间号</th>
-						<th class="officeFurnitureIncountfoId">数量</th>
+						<th>编号</th>
+						<th>家具类型</th>
+						<th>品牌/型号</th>
+						<th>规格</th>
+						<th>使用部门</th>
+						<th>所在建筑</th>
+						<th>所在楼层</th>
+						<th>所在房间号</th>
+						<th>数量</th>
 					</tr>
 					<c:forEach items="${listasf}" var="a">
 						<tr>
-							<td class="officeFurnitureInfoId">${a.officeFurnitureInfoId}</td>
-							<td class="furnitureType">${a.furnitureType}</td>
-							<td class="brand">${a.brand}</td>
-							<td class="specification">${a.specification}</td>
-							<td class="branchName">${a.branchName}</td>
-							<td class="buildingName">${a.buildingName}</td>
-							<td class="floor">${a.floor}</td>
-							<td class="officeFurnitureInhouseIdfoId">${a.houseId}</td>
-							<td class="officeFurnitureIncountfoId">${a.count}</td>
+							<td>${a.officeFurnitureInfoId}</td>
+							<td>${a.furnitureType}</td>
+							<td>${a.brand}</td>
+							<td>${a.specification}</td>
+							<td>${a.branchName}</td>
+							<td>${a.buildingName}</td>
+							<td>${a.floor}</td>
+							<td>${a.houseId}</td>
+							<td>${a.count}</td>
 						</tr>
 					</c:forEach>
 					

@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="/assets/css/system-make.css">
 	<script src="/assets/js/fenye.js"></script>
 </head>
-<body onLoad="goPage(1,10);">
+<body>
 
 	<div class="container"  style="width:1100px;">      
 		<div class="row">
@@ -30,10 +30,10 @@
 					<div class="col-md-3"></div>
 				</div>
 		          
-				<table id="a" class="table table-bordered" style="width:1100px;">
+				<table id="idData" class="table table-bordered table-hover table-striped" style="width:1100px;">
 				<h4 style="text-align:center;">审核申请</h4>
 				  <tr>        
-				  	 <th>编号</th>
+				  	 <th>编号</th> 
 				  	<th>申请时间</th>
 				  	<th>服务日期</th>
 				  	<th>具体时间</th>
@@ -47,7 +47,7 @@
 				  </tr>
 			    <c:forEach items="${propertyServiceList}" var="a"  varStatus="status">
 				  <tr class="a">
-		 		  	<td>${ status.index + 1}</td> 
+		 		 	<td>${ status.index + 1}</td> 
 				  	<td>${a.applyTime}</td>
 				  	<td>${a.serviceDate}</td>
 				  	<td>${a.concreteTime}</td>
@@ -119,6 +119,12 @@
 				  </tr>
 				  </c:forEach>
 				</table>
+				
+						    
+		        <br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
 			</div>
 		</div>
 	</div>

@@ -22,7 +22,7 @@
 						<ol class="breadcrumb">
 							<li><a href="javascript:void(0)">系统设置</a></li>
 							<li><a href="javascript:void(0)">权限设置</a></li>
-							<li class="dropdown"><a href="javascript:void(0)">角色授权</a></li>
+							<li class="dropdown"><a href="javascript:void(0)">系统角色新增</a></li>
 						</ol>
 					</div>
 				</div>
@@ -33,58 +33,91 @@
 						<label for="roleName" class="col-sm-3 control-label">角色名称</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="roleName"
-								placeholder="请输入系统角色" name="roleName">
+								placeholder="请输入系统角色名称" name="roleName">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label">权限</label>
 						<div class="col-sm-8">
-							<label class="checkbox-inline"> <input type="checkbox"
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox1" value="1" name="sysAccountManage">
 								账号管理
-							</label> <label class="checkbox-inline"> <input type="checkbox"
+							</label> 
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox2" value="1" name="sysPrivilegeSetting">
 								权限设置
-							</label> <label class="checkbox-inline"> <input type="checkbox"
+							</label> 
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox3" value="1" name="sysParameterSetting">参数配置
-							</label> <label class="checkbox-inline"> <input type="checkbox"
+							</label> 
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox3" value="1" name="sysDataRestore">数据备份
-							</label> <br> <label class="checkbox-inline"> <input
+							</label> <br> 
+							<label class="checkbox-inline"> 
+								<input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="registerAsset">上市公司资产登记
-							</label><label class="checkbox-inline"> <input type="checkbox"
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox1" value="1" name="queryAsset">上市公司资产查询
-							</label><label class="checkbox-inline"> <input type="checkbox"
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox1" value="1" name="useInfoAsset">上市公司资产使用信息
-							</label> <label class="checkbox-inline"> <input type="checkbox"
-								id="inlineCheckbox1" value="1" name="statisticsAsset">上市公司资产统计信息
-							</label><br> <label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
+							</label> 
+							<label class="checkbox-inline"> 
+								<input type="checkbox" id="inlineCheckbox1" value="1" 
+								name="statisticsAsset">上市公司资产统计信息
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox" id="inlineCheckbox1" value="1"
 								name="registerVehicle">车辆登记
-							</label><label class="checkbox-inline"> <input type="checkbox"
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox1" value="1" name="queryVehicle">车辆查询
-							</label> <br> <label class="checkbox-inline"> <input
+							</label> <br> 
+							<label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="1"
 								name="serverApplicationDinner">配餐中心申请方应用
-							</label><label class="checkbox-inline"> <input type="checkbox"
-								id="inlineCheckbox1" value="1" name="auditingApplicationDinner">配餐中心审核方应用
-							</label><label class="checkbox-inline"> <input type="checkbox"
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
+								id="inlineCheckbox1" value="1" name="auditingApplicationDinner">
+								配餐中心审核方应用
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox1" value="1"
 								name="managementApplicationDinner">配餐中心管理方应用
-							</label> <br> <label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
+							</label> <br> 
+							<label class="checkbox-inline"> 
+							<input type="checkbox" id="inlineCheckbox1" value="1"
 								name="serverApplicationProperty">物业服务申请方应用
-							</label><label class="checkbox-inline"> <input type="checkbox"
+							</label>
+							<label class="checkbox-inline"> 
+							<input type="checkbox"
 								id="inlineCheckbox1" value="1"
 								name="auditingApplicationProperty">物业服务审核方应用
-							</label><label class="checkbox-inline"> <input type="checkbox"
+							</label>
+							<label class="checkbox-inline"> 
+								<input type="checkbox"
 								id="inlineCheckbox1" value="1"
 								name="managementApplicationProperty">物业服务管理方应用
-							</label> <br> <label class="checkbox-inline"> <input
-								type="checkbox" id="inlineCheckbox1" value="1"
+							</label> <br> 
+							<label class="checkbox-inline"> 
+							<input type="checkbox" id="inlineCheckbox1" value="1"
 								name="evaluationMangaementProperty">物业服务考评管理
-							</label><label class="checkbox-inline"> <input type="checkbox"
-								id="inlineCheckbox1" value="1" name="evaluationFillProperty">物业服务考评填写
+							</label>
+							<label class="checkbox-inline"> 
+							<input type="checkbox"
+								id="inlineCheckbox1" value="1" name="evaluationFillProperty">
+								物业服务考评填写
 							</label>
 
 						</div>
@@ -92,13 +125,13 @@
 					<div class="form-group">
 						<label for="roleIntro" class="col-sm-3 control-label">权限描述</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" id="roleName"
-								placeholder="请输入权限描述" name="description">
+							<textarea maxlength="64" type="text" class="form-control" id="roleName"
+								placeholder="最多输入64个字" name="description"></textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-4 col-sm-8">
-							<button type="submit" class="btn btn-default">设置</button>
+						<div class="col-sm-offset-5 col-sm-8">
+							<button type="submit" class="btn btn-default">设置</button>&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="submit" class="btn btn-default"
 								onclick="javascript:history.back(-1);">返回</button>
 						</div>
