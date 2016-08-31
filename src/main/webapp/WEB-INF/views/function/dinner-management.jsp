@@ -13,6 +13,11 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/fenye.js"></script>
+    <style>
+    	 th{
+    	 text-align:center;
+    	 }
+    </style>
 </head>
 <body  onLoad="goPage(1,10);">
     <div class="container"  style="width:1100px;">
@@ -25,31 +30,31 @@
  				<a href="javascript:void(0)">管理状态</a></li>
              </ol>
          </div>
-        <br>
-        <table id="idData" class="table table-hover col-md-12  table-striped" style="width:1100px;">
+        <br><br>
+        <table id="idData" class="table table-bordered table-hover table-striped" style="width:1100px;text-align:center;">
             <tr>
                 <th style="width:50px;">编号</th>
                 <th style="width:150px;">所属公司</th>
-                <th style="width:200px;">申请部门</th>
+                <th style="width:180px;">申请部门</th>
                 <th style="width:100px;">申请人</th>
                 <th style="width:100px;">开始日期</th>
                 <th style="width:100px;">结束日期</th>
-                <th style="width:100px;">联系方式</th>
-                <th style="width:100px;">安排人数</th>
-                <th style="width:100px;">用餐类型</th>
+                <th style="width:120px;">联系方式</th>
+                <th style="width:80px;">安排人数</th>
+                <th style="width:120px;">用餐类型</th>
                 <th style="width:100px;">审核状态</th>
             </tr>
             <c:forEach items="${dinnerPropertyList}" var="propertyList" varStatus="status">
             	<tr>
             		<td style="width:50px;">${ status.index + 1}</td>
             		<td style="width:150px;">${propertyList.companyName}</td>
-            		<td style="width:200px;">${propertyList.branchName}</td>
+            		<td style="width:180px;">${propertyList.branchName}</td>
             		<td style="width:100px;">${propertyList.applyUser}</td>
             		<td style="width:100px;">${propertyList.startDate}</td>
             		<td style="width:100px;">${propertyList.finishDate}</td>
-            		<td style="width:100px;">${propertyList.contactInfo}</td>
-            		<td style="width:100px;">${propertyList.arrangePersonCount}</td>
-            		<td style="width:100px;">${propertyList.dinnerType}</td>
+            		<td style="width:120px;">${propertyList.contactInfo}</td>
+            		<td style="width:80px;">${propertyList.arrangePersonCount}</td>
+            		<td style="width:120px;">${propertyList.dinnerType}</td>
             		<td style="width:100px;">
 				  		<c:choose>
 				  			<c:when test = "${propertyList.status == 0}">

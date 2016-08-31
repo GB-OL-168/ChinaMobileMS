@@ -144,11 +144,11 @@
 	</div>
 	<div class="wea_time">
 		<%!String date;
-	String dayWeather;
-	String nightWeather;
-	String high;
-	String low;
-	String suggestion;%>
+			String dayWeather;
+			String nightWeather;
+			String high;
+			String low;
+			String suggestion;%>
 		<%
 			String link = "http://php.weather.sina.com.cn/xml.php?city=%b3%c9%b6%bc&password=DJOYnieT8234jlsK&day=0";  
 				        	URL url;

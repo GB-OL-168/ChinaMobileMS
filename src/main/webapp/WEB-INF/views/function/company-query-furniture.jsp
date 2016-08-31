@@ -64,7 +64,7 @@
 				</form>
 				<br><br>
 				<table id="idData" class="table table-hover table-striped"  style="width:1100px; text-align: center;">
-					<h4 style="text-align: center;">搜索结果</h4>
+				<!-- 	<h4 style="text-align: center;">搜索结果</h4> -->
 					<tr>
 						<th class="officeFurnitureInfoId">编号</th>
 						<th class="furnitureType">家具类型</th>

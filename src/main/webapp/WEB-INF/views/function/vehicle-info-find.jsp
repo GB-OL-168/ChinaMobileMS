@@ -95,11 +95,11 @@
 						</tr>
 					</c:forEach>
                   </table>
-                <br>
-				<table width="70%" align="right">
+                  <br>
+         		<table width="70%" align="right">
 		           <tr><td><div id="barcon" name="barcon"></div></td></tr>
 		        </table>
           </div>
-         
+           
 </body>
 </html>
