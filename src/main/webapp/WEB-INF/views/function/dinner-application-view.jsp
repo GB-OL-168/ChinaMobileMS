@@ -13,9 +13,9 @@
 	<link rel="stylesheet" href="/assets/css/dinner-application-view.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    
+    <script src="/assets/js/fenye.js"></script>
 </head>
-<body>
+<body  onLoad="goPage(1,10);">
         <div class="container" style="width:1100px;">
             <div class="row">
                 <div class="col-md-12">
@@ -33,7 +33,7 @@
             </div>
 
             <h4 style="text-align: center">用餐申请状态</h4> 
-            <table class="table table-bordered table-striped col-md-12">
+            <table id="idData" class="table table-hover table-striped col-md-12">
                 <tr>
                     <th>编号</th>
                     <th>申请时间</th>
@@ -87,6 +87,14 @@
                 	</tr>
                 </c:forEach>
             </table>
+            
+            
+        <br>
+		<table width="70%" align="right">
+	        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+	    </table>
+            
+            
         </div>
         
         <div id="check_div">

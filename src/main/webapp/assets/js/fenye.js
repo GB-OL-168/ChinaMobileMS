@@ -28,21 +28,22 @@
 		}
 	    itable.rows[0].style.display="block";
 		var pageEnd = document.getElementById("pageEnd");
-		var tempStr = "共"+num+"条记录 &nbsp&nbsp 当前第"+currentPage+"页";
+		var tempStr = "共"+num+"条记录 &nbsp&nbsp 当前第"+currentPage+"页 ";
 		if(currentPage>1){
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(1)+","+psize+")\">首页</a>";
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(currentPage-1)+","+psize+")\"><上一页</a>"
 		}else{
-			tempStr +="首页";
-			tempStr +="<上一页";    
+			tempStr +="&nbsp;&nbsp;  "
+			tempStr +="  首页";
+			tempStr +="&nbsp;"+"  <上一页";    
 		}
 
 		if(currentPage<totalPage){
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(currentPage+1)+","+psize+")\">下一页></a>";
 			tempStr += "<a href=\"javascript:void(0)\" onClick=\"goPage("+(totalPage)+","+psize+")\">尾页</a>";
 		}else{
-			tempStr += "&nbsp&nbsp下一页>";
-			tempStr += "&nbsp&nbsp尾页";    
+			tempStr += " &nbsp;  下一页>";
+			tempStr += " &nbsp;  尾页";    
 		}
 
 		document.getElementById("barcon").innerHTML = tempStr;

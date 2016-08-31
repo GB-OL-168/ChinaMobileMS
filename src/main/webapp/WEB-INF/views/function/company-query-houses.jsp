@@ -41,9 +41,10 @@
 						</ol>
 					</div>
 				</div>
-				<br>
+				<hr>
 				<form action="/searchHouse" method="get">
-					<div class="col-md-offset-1 col-md-6">
+					<div class="col-md-6">
+						<span>请选择相关的搜索条件：</span>
 						<input type="radio" name="houses" value="companyName" required>使用单位名称
 						 <input type="radio" name="houses" value="buildingName" required>建筑名称
 						  <input type="radio" name="houses" value="location" required>坐落地点 
@@ -60,9 +61,9 @@
 						</div> 
 					</div>
 				</form>
-				<br><hr>
-				<table id="idData" class="table table-responsive table-bordered  table-striped" style="text-align:center;">
-					<h4 style="text-align:center;">查询结果 </h4>
+				<br><br>
+				<table id="idData" class="table table-responsive table-hover  table-striped" style="text-align:center;">
+				 	<h4 style="text-align:center;">搜索结果 </h4> 
 					<tr>
 						<th style="width:100px;">房屋编号</th>
 						<th style="width:250px;">建筑名称</th>

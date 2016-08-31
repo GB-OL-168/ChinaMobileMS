@@ -11,9 +11,9 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-  
+    <script src="/assets/js/fenye.js"></script>
 </head>
-<body>
+<body onLoad="goPage(1,10);">
         <div class="container" style="width:1100px;">
             <div class="row">
                 <div class="col-md-12 main">
@@ -32,7 +32,7 @@
                             </ol>
                         </div>
                     </div>
-                    <hr>
+                    <br>
                    	<form action = "/findVehiclePerson" method="post">
                         <div class="col-md-offset-3 col-md-3">
                             <input type="radio" name="condition" value="name" checked>姓名
@@ -50,8 +50,9 @@
                      </form>     
                 </div>
             </div>
-            <table class="table table-bordered table-striped"  style="width:1050px;">
-                <h4 style="text-align:center;">查询结果</h4>
+            <br>
+            <table id="idData" class="table table-hover table-striped"  style="width:1050px;">
+       <!--          <h4 style="text-align:center;">查询结果</h4> -->
                 <tr>
                     <th>姓名</th>
                     <th>性别</th>
@@ -86,7 +87,10 @@
 					</tr>
 				</c:forEach>
             </table>
-            
+            <br>
+				<table width="70%" align="right">
+		           <tr><td><div id="barcon" name="barcon"></div></td></tr>
+		        </table>
         </div>
 
 </body>

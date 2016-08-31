@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
 	<style>
 		tr>th{
 			text-align:center;
@@ -42,9 +43,10 @@
 						</ol>
 					</div>
 				</div>
-				<br>
+				<hr>
 			<form action="/searchRoom" method="get"  style="width:900px;">
-				<div class="col-md-offset-1 col-md-6">
+				<div class="col-md-6">
+				    <span>请选择相关的搜索条件：</span>
 					<input type="radio" name="room" value="companyName" required>公司名称 <input
 						type="radio" name="room" value="building" required>建筑名称 <input
 						type="radio" name="room" value="area"
@@ -61,9 +63,9 @@
 			</form>
 			
 
-			<br><hr>
-			<table class="table table-bordered"  style="width:900px;text-align: center;">
-				<h4 style="text-align: center;">房间信息查询</h4>
+			<br><br>
+			<table  id="idData" class="table table-hover table-striped"  style="width:900px;text-align: center;">
+				<h4 style="text-align: center;">搜索结果</h4>
 				<tr>
 					<th>房间编号</th>
 					<th>所属单位</th>
@@ -79,9 +81,16 @@
 					</tr>
 				</c:forEach>
 			</table>
-				</div>
+		
 			</div>
+			
+			<br>
+			
+			<table width="70%" align="right">
+		        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+		    </table>
 		</div>
+	</div>
 
 </body>
 </html>

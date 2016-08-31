@@ -12,8 +12,9 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<link rel="stylesheet" href="/assets/css/system-make.css">
+	<script src="/assets/js/fenye.js"></script>
 </head>
-<body>
+<body onLoad="goPage(1,10);">
 
 	<div class="container"  style="width:1100px;">      
 		<div class="row">

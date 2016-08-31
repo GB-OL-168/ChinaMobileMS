@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
 	<style>
 		tr>th{
 			text-align:center;
@@ -42,9 +43,10 @@
 						</ol>
 					</div>
 				</div>
-				<br>
+				<hr>
 				<form action="/searchASF"  method="get">
-					<div class="col-md-offset-1 col-md-6">
+					<div class="col-md-7">
+					     <span>请选择相关的搜索条件：</span>
 						 <input type="radio" name="asf" value="furnitureType" required>家具类型
 						 <input type="radio" name="asf" value="brand" required>品牌型号 
 						 <input type="radio" name="asf" value="branchName" required>所在部门 
@@ -59,15 +61,14 @@
 						</div>
 					</div>
 				</form>
-				<br><hr>
-				<table class="table table-bordered"  style="width:900px; text-align: center;">
-					<h4 style="text-align: center;">办公家具信息查询</h4>
+				<br><br>
+				<table id="idData" class="table table-bordered"  style="width:900px; text-align: center;">
+					<h4 style="text-align: center;">搜索结果</h4>
 					<tr>
 						<th>编号</th>
 						<th>家具类型</th>
 						<th>品牌/型号</th>
 						<th>规格</th>
-						<!-- 				  	<th>花色</th> -->
 						<th>使用部门</th>
 						<th>所在建筑</th>
 						<th>所在楼层</th>
@@ -87,22 +88,14 @@
 							<td>${a.count}</td>
 						</tr>
 					</c:forEach>
-					<!-- 					<tr> -->
-					<!-- 						<td>1</td> -->
-					<!-- 						<td>床</td> -->
-					<!-- 						<td>席梦思</td> -->
-					<!-- 						<td>2米</td> -->
-					<!-- 										  	<td>粉红</td> -->
-					<!-- 						<td>营业部</td> -->
-					<!-- 						<td>梦想大厦</td> -->
-					<!-- 						<td>2层</td> -->
-					<!-- 						<td>120</td> -->
-					<!-- 						<td>1</td> -->
-					<!-- 					</tr> -->
-
-
-
+					
 				</table>
+					
+				<br>
+				
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
 			</div>
 		</div>
 	</div>

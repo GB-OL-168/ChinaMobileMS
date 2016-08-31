@@ -15,9 +15,7 @@
 </head>
 <body  onLoad="goPage(1,10);">
     <div class="container" style="width:1100px;">
-
         <div class="row">
-
             <div class="col-md-12 main">
                 <div class="row">
                     <div class="col-md-12">

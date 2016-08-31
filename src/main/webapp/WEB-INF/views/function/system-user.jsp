@@ -100,7 +100,7 @@
 					<tr>
 						<td>姓名</td>
 						<td><input name="accountName" class="accountName"
-							maxlength="20" /></td>
+							maxlength="20" readonly="true"/></td>
 					</tr>
 
 					<tr>
@@ -111,8 +111,8 @@
 
 					<tr>
 						<td>性别</td>
-						<td style="padding-left:65px;">
-							<select class="col-sm-7" name="sex" class="form-control">
+						<td style="padding-left:75px;">
+							<select class="col-sm-5" name="sex" class="form-control">
 								<option value="男">男</option>
 								<option value="女">女</option>
 							</select>
@@ -127,8 +127,10 @@
 
 					<tr>
 						<td>生日</td>
-						<td><input type="date" name="birthday" class="birthday"
-							maxlength="20" /></td>
+						<td>
+						<input style="margin-left:68px;" type="date" name="birthday" class="birthday col-sm-7"
+							maxlength="20" />
+						</td>
 					</tr>
 					<tr>
 						<td>邮箱</td>

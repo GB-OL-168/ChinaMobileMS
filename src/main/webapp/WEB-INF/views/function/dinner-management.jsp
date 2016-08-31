@@ -26,7 +26,7 @@
              </ol>
          </div>
         <br>
-        <table id="idData" class="table table-bordered col-md-12  table-striped" style="width:1100px;">
+        <table id="idData" class="table table-hover col-md-12  table-striped" style="width:1100px;">
             <tr>
                 <th style="width:50px;">编号</th>
                 <th style="width:150px;">所属公司</th>
