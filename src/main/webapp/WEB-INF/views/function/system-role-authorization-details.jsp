@@ -53,7 +53,9 @@
 							</label> <label class="checkbox-inline"> <input type="checkbox"
 								id="queryAsset" value="1" name="queryAsset">上市公司资产查询
 							</label> <label class="checkbox-inline"> <input type="checkbox"
-								id="mangaementAsset" value="1" name="mangaementAsset">上市公司资产管理
+								id="useInfoAsset" value="1" name="useInfoAsset">上市公司资产使用信息
+							</label> <label class="checkbox-inline"> <input type="checkbox"
+								id="statisticsAsset" value="1" name="statisticsAsset">上市公司资产统计信息
 							</label> <br> <label class="checkbox-inline"> <input
 								type="checkbox" id="registerVehicle" value="1"
 								name="registerVehicle">车辆登记
@@ -154,9 +156,13 @@
 					{
 					$("input#registerAsset").attr("checked","checked");
 					}
-					if(${Role.mangaementAsset} == true)
+					if(${Role.useInfoAsset} == true)
 					{
-					$("input#mangaementAsset").attr("checked","checked");
+					$("input#useInfoAsset").attr("checked","checked");
+					}
+					if(${Role.statisticsAsset} == true)
+					{
+					$("input#statisticsAsset").attr("checked","checked");
 					}
 					if(${Role.evaluationMangaementProperty} == true)
 					{

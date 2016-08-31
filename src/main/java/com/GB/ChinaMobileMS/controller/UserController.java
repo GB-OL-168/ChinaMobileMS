@@ -99,7 +99,8 @@ public class UserController {
 		session.setAttribute("queryAsset", role.getQueryAsset());
 		session.setAttribute("registerVehicle", role.getRegisterVehicle());
 		session.setAttribute("registerAsset", role.getRegisterAsset());
-		session.setAttribute("mangaementAsset", role.getMangaementAsset());
+		session.setAttribute("useInfoAsset", role.getUseInfoAsset());
+		session.setAttribute("statisticsAsset", role.getStatisticsAsset());
 		session.setAttribute("evaluationFillProperty", role.getEvaluationFillProperty());
 		session.setAttribute("evaluationMangaementProperty", role.getEvaluationMangaementProperty());
 
