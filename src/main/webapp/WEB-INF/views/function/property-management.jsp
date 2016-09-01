@@ -16,7 +16,7 @@
 	<script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/fenye.js"></script>
 </head>
-<body  onLoad="goPage(1,10);">
+<body>
 
 	<div class="container" style="width:1100px;">		      
 		<div class="row">
@@ -34,28 +34,28 @@
 				<br>          
 				<table id="idData" class="table table-hover  table-striped" style="width:1100px;">
 				  <tr>        
-				   	<th style="max-width:50px;min-width:50px;">编号</th> 
-				  	<th style="max-width:180px;min-width:180px;">申请时间</th>
-				  	<th style="max-width:100px;min-width:100px;">服务日期</th>
-				  	<th style="max-width:100px;min-width:100px;">地点</th>
-				  	<th style="max-width:120px;min-width:120px;">申请公司</th>
-				  	<th style="max-width:150px;min-width:150px;">申请部门</th>
-				  	<th style="max-width:100px;min-width:100px;">申请人</th>
-				  	<th style="max-width:140px;min-width:140px;">联系方式</th>
-				  	<th style="max-width:100px;min-width:100px;">状态</th>
-				  	<th style="max-width:60px;min-width:60px;">说明</th>
+				   	<th>编号</th> 
+				  	<th>申请时间</th>
+				  	<th>服务日期</th>
+				  	<th>地点</th>
+				  	<th>申请公司</th>
+				  	<th>申请部门</th>
+				  	<th>申请人</th>
+				  	<th>联系方式</th>
+				  	<th>状态</th>
+				  	<th>说明</th>
 				  </tr>
 				  <c:forEach items="${propertyList}" var="propertyList" varStatus="status">
 				  <tr>
-				   	<td style="max-width:50px;min-width:50px;">${ status.index + 1}</td> 
-				  	<td style="max-width:180px;min-width:180px;">${propertyList.applyTime }</td>
-				  	<td style="max-width:100px;min-width:100px;">${propertyList.serviceDate }</td>
-				  	<td style="max-width:100px;min-width:100px;">${propertyList.serviceLocation }</tdh>
-				  	<td style="max-width:120px;min-width:120px;">${propertyList.companyName }</td>
-				  	<td style="max-width:150px;min-width:150px;">${propertyList.branchName }</td>
-				  	<td style="max-width:100px;min-width:100px;">${propertyList.applyUser }</td>
-				  	<td style="max-width:140px;min-width:140px;">${propertyList.contactInfo }</td>
-				  	<td style="max-width:100px;min-width:100px;">
+				   	<td>${ status.index + 1}</td> 
+				  	<td>${propertyList.applyTime }</td>
+				  	<td>${propertyList.serviceDate }</td>
+				  	<td>${propertyList.serviceLocation }</tdh>
+				  	<td>${propertyList.companyName }</td>
+				  	<td>${propertyList.branchName }</td>
+				  	<td>${propertyList.applyUser }</td>
+				  	<td>${propertyList.contactInfo }</td>
+				  	<td>
 				  		<c:choose>
 				  			<c:when test = "${propertyList.status == 0}">
 				  					未开始
@@ -93,7 +93,7 @@
 				  	<td style="display:none;" class="serviceLocation">${propertyList.serviceLocation }</td>
 				  	<td style="display:none;" class="addition">${propertyList.addition }</td> 
 				  	
-					<td style="width:60px;"><a class="show" href="javascript:void(0)">查看</a></td>
+					<td><a class="show" href="javascript:void(0)">查看</a></td>
 				  </tr>
 				  </c:forEach>
 				</table>

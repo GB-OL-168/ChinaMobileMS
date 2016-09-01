@@ -15,7 +15,7 @@
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/property-server.js"></script>
 </head>
-<body onLoad="goPage(1,10)">
+<body>
 
 	<div class="container" style="width:1100px;">		      
 		<div class="row">

@@ -31,7 +31,7 @@
 				</div>
 		          
 				<table id="idData" class="table table-bordered table-hover table-striped" style="width:1100px;">
-				<h4 style="text-align:center;">审核申请</h4>
+				<!-- <h4 style="text-align:center;">审核申请</h4> -->
 				  <tr>        
 				  	 <th>编号</th> 
 				  	<th>申请时间</th>
