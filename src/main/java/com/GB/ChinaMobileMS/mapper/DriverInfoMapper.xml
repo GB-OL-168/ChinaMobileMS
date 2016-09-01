@@ -34,4 +34,20 @@
 		select * from driver_info
 	</select>
 	
+	<delete id="deleteVehiclePerson">
+		delete from driver_info 
+		where driver_id = #{driverId}
+	</delete>
+	
+	<update id="updateVehiclePerson" parameterType="DriverInfoEntity">
+		update driver_info
+		set
+			drive_year = #{driveYear},
+			service_unit = #{serviceUnit},
+			contact_info = #{contactInfo},
+			home_address = #{homeAddress},
+			addition = #{addition}
+		where driver_id = #{driverId}
+	</update>
+	
 </mapper>

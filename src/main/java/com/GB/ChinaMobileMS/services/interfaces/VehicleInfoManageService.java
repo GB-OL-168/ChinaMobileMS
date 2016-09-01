@@ -8,8 +8,10 @@ public interface VehicleInfoManageService {
 	/**
 	 * 车辆信息
 	 */
+	//车辆登记
 	String insertVehicleInfoManage(VehicleInfoManageEntity vehicleInfoManageEntity);
 	
+	//车辆查询
 	public List<VehicleInfoManageEntity> queryVehicleInfoByBrand(String queryInformation);
 	public List<VehicleInfoManageEntity> queryVehicleInfoByModel(String queryInformation);
 	public List<VehicleInfoManageEntity> queryVehicleInfoByVehicleType(String queryInformation);
@@ -17,4 +19,10 @@ public interface VehicleInfoManageService {
 	public List<VehicleInfoManageEntity> queryVehicleInfoByUsedUnit(String queryInformation);
 	
 	public List<VehicleInfoManageEntity> listVehicleInfoManage();
+	
+	//车辆删除
+	boolean deleteVehicleInfoManage(int vehicleInfoId);
+	
+	//车辆修改
+	String updateVehicleInfo(VehicleInfoManageEntity vehicleInfoManageEntity);
 }

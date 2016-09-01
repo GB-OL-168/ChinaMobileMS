@@ -40,5 +40,16 @@ public class DriverInfoServiceImpl implements DriverInfoService{
 	public List<DriverInfoEntity> listDriverInfo() {		
 		return driverInfoMapper.listDriverInfo();
 	}
+	
+	@Override
+	public boolean deleteVehiclePerson(int driverId) {		
+		return driverInfoMapper.deleteVehiclePerson(driverId);	
+	}
+	
+	@Override
+	public String updateVehiclePerson(DriverInfoEntity driverInfoEntity) {		
+		System.out.println(driverInfoMapper.updateVehiclePerson(driverInfoEntity));		
+		return "";
+	}
 
 }
