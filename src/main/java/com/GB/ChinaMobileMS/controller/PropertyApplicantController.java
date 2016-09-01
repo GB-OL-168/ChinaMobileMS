@@ -74,10 +74,10 @@ public class PropertyApplicantController {
 	@RequestMapping(value="/addPropertyApplicant", method=RequestMethod.POST)
 	public String addPropertyApplicant(PropertyServiceEntity propertyApplicant, HttpSession httpSession){
 		User sessionUser = (User)httpSession.getAttribute("user");
-		//电话号码匹配校验
-		if(!propertyApplicantService.validateContactInfo(propertyApplicant.getContactInfo())){
-			return "wrongContactInfo";
-		}
+//		//电话号码匹配校验
+//		if(!propertyApplicantService.validateContactInfo(propertyApplicant.getContactInfo())){
+//			return "wrongContactInfo";
+//		}
 		
 		JobEntity job = jobService.getJobByJobID(sessionUser.getJobId());
 		BranchEntity branchEntity = branchService.getBranchManager(job.getBranchId());

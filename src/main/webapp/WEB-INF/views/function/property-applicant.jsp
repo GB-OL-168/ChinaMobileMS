@@ -65,15 +65,19 @@
 					  
 					    <label for="inputPassword3" class="col-sm-1 control-label">服务日期</label>
 					    <div class="col-sm-4">
-					      <input name ="serviceDate" type="date" class="form-control" id="serviceDate" placeholder="服务日期">
+					      <input name ="serviceDate" type="date" class="form-control" id="serviceDate" placeholder="服务日期" required>
 					    </div>
 				  </div>
 				  
 				  <div class="form-group">   
-					    <label for="inputPassword3" class="col-sm-1 control-label">联系方式</label>
+					    <label for="inputPassword3" class="col-sm-1 control-label">手机号码</label>
 					    <div class="col-sm-4">
-					      <input name ="contactInfo" type="tel" 
-					      class="form-control" id="inputPassword3" placeholder="联系方式">
+					      <input name ="contactInfo" id="contactInfo" type="text"  maxlength = "11" 
+					      class="form-control" id="inputPassword3" placeholder="联系方式"
+					      onkeyup="this.value=this.value.replace(/\D/g,'')" 
+					      onafterpaste="this.value=this.value.replace(/\D/g,'')"
+					      onBlur="if(this.value!=''&&this.value.length!=11) alert('电话号码长度不正确');"
+					      required>
 					    </div>
 					    <label for="inputPassword3" class="col-sm-1 control-label">具体时间</label>
 					    <div class="col-sm-4">
@@ -135,7 +139,7 @@
 				  
 				  <div class="form-group">        
 				    <div class="col-sm-offset-4 col-sm-7">
-				     <button type="submit" id="submit"  class="btn btn-default"  >提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				     <button type="submit" id="submit"  class="btn btn-default" >提交</button>
 				      <input type="button" class="btn btn-default" name="back" value="返回" onclick="javascript:history.back(-1);"/>
 				    </div>
 				  </div>
@@ -150,8 +154,8 @@
 		
 		$("#submit").click(function(){
 			return validateInfo();
-		})
-	});
+		});
+	})
 	
 	function validateInfo() {
 		var serviceDate = $("#serviceDate").val();
@@ -180,6 +184,13 @@
 			alert("服务日期必须在当前日期之后");
 			return false;
 		}
+		
+		var contactInfo = $("#contactInfo").val();
+		var reg = /^1(3|4|5|7|8)\d{9}$/;
+		if(contactInfo.match(reg) == null){
+			alert("电话号码格式不正确");
+			return false;
+		} 
 		return true;
 	}
 	</script>

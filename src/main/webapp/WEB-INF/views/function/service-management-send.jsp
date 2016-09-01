@@ -126,7 +126,7 @@
 			    var inputTimeDate=new Date(inputTime).getTime();
 			    var currentTimeDate= new Date(currentDate).getTime();
 			    if(inputTimeDate<currentTimeDate){
-			    	alert("设置回收日期格式有误!设置回收日期应大于日期");
+			    	alert("设置回收日期格式有误!设置回收日期应大于今天");
 			    	 e.preventDefault();
 						return false;
 			    }
