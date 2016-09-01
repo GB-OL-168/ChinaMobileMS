@@ -40,8 +40,9 @@
                        <td><button class="remove btn btn-default" type="button">删除</button></td>
                    </tr>
                </table>
-               <button class="btn btn-info" type="button" id="add" >增加考核内容</button>
-               <button class="btn btn-info" id="save" type="submit" >创建表格</button>
+               <button class="btn btn-default" type="button" id="add" >增加考核内容</button>
+               <button class="btn btn-default" id="save" type="submit" >创建表格</button>
+               <a href="javascript:history.back(-1)"><button  type="button" class="btn btn-default">返回</button></a>
            </form>
         </div>
     </div>

@@ -41,7 +41,7 @@
 				
 				<form class="form-horizontal" action = "/addPropertyApplicant" method="post">
 					<div class="form-group">
-						<h4 class="col-sm-offset-4">申请表格填写</h4>
+						<h4 class="col-sm-offset-5">申请表格填写</h4>
 					</div>
 					
 					<div class="form-group">     

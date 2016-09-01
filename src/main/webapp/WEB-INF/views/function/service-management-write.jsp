@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<style>
@@ -37,7 +38,7 @@
 				<div class="container">
 					<h4 style="text-align: center">考评表列表</h4>
 					<div class='col-md-12 '>
-						<table class='table table-bordered table-hover center'>
+						<table id="idData" class='table table-bordered table-hover center'>
 							<tr>
 								<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
 							</tr>
@@ -72,8 +73,14 @@
 							</tr>
 							</c:forEach>
 						</table>
+						
 					</div>
+				
 				</div>
+					<br>
+				<table width="70%" align="right">
+			        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+			    </table>
 			</div>	
 		</div>
 	  </div>

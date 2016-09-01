@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<style>
@@ -36,7 +37,7 @@
 				<div class="container">
 					<a href="/service/management-table-make"><button class="btn btn-sm">新建考评表</button></a>
 						
-					<table class='table table-bordered table-hover center table-striped'>
+					<table id="idData"class='table table-bordered table-hover center table-striped'>
 						<tr>
 							<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
 						</tr>
@@ -68,14 +69,20 @@
 							</td>
 						</tr>
 						</c:forEach>
-					</table>
-<%-- 													&nbsp&nbsp<a href="/deleteTable/${investigationTableEntityList.investigationId}"><button class='btn btn-sm' onclick="deleteSuccess()">删除</button></a>
- --%>					
+					</table>	
+					
+			 		<br>
+					<table width="70%" align="right">
+				        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+				    </table>
+					 </div>			
 				</div>
-			</div>
 			</div>
 		</div>
 	  </div>
+	  
+		
+			 
 	<script type="text/javascript">
 	function checkeStatus(status){
 		if(status==1||status==2){
