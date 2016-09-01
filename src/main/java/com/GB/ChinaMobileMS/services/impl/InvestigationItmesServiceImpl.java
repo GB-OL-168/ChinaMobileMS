@@ -25,16 +25,22 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 	private InvestigationScoreService investigationScoreService;
 	@Autowired
 	private InvestigationTableService investigationTableService;
+	
+	/**
+	 * 插入考评项目
+	 */
 	@Override
 	public int inserItems(List<InvestigationItemsEntity> investigationItemsEntityList, String userName,String investigationName) {
 		List<InvestigationItemsEntity> list = new ArrayList<InvestigationItemsEntity>();
 		if(!investigationItemsEntityList.isEmpty()&&investigationItemsEntityList!=null&&investigationName!=""){
 			for(int i = 0; i <investigationItemsEntityList.size(); i++){
-				if(investigationItemsEntityList.get(i) != null){
+				if(investigationItemsEntityList.get(i).getInvestigationItemValue() != null&&investigationItemsEntityList.get(i).getInvestigationStanddard()!=null){
 					list.add(investigationItemsEntityList.get(i));
 				}
 			}
+			
 			for(int i =0; i<list.size();i++){
+					System.out.println("aaaaaaaaaaaaaaaa"+list.get(i));
 					list.get(i).setInvestigationItemName(investigationName);
 			}
 
@@ -44,14 +50,14 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 				investigationtableEntity.setCreateStaff(userName);
 				investigationTableService.insertMessage(investigationtableEntity);//插入的同时返回主键
 				
-				for (int i = 0; i < investigationItemsEntityList.size(); i++) {
+				for (int i = 0; i < list.size(); i++) {
 							//设置考评项的对应的表格id
-						investigationItemsEntityList.get(i).setInvestigationId(investigationtableEntity.getInvestigationId());
+						list.get(i).setInvestigationId(investigationtableEntity.getInvestigationId());
 				}
 			}
 
-		if(!investigationItemsEntityList.isEmpty()&&investigationItemsEntityList!=null)
-			return investigationItemsMapper.insertInvestigationItems(investigationItemsEntityList);
+		if(!list.isEmpty()&&list!=null)
+			return investigationItemsMapper.insertInvestigationItems(list);
 		else
 			return 0;
 	}
@@ -65,7 +71,9 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 	public boolean deleteInvestigationItemsByInvestigationId(int investigationId) {
 		return investigationItemsMapper.deleteInvestigationItemsByInvestigationId(investigationId);
 	}
-
+	/**
+	 * 统计考评项目
+	 */
 	@Override
 	public List<InvestigationScoreEntitySet> getStatistics(int id) {
 		int excellent = 0,good = 0,bad = 0;

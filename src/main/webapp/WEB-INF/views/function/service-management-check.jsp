@@ -91,6 +91,9 @@
 		}
 	}
 	function checkRecoveryeStatus(status){
+		if(status==0){
+			alert("还没有发放不能回收");
+		}
 		if(status==2){
 			alert("已经回收啦")
 			return false;
