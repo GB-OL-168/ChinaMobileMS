@@ -42,15 +42,44 @@ public class PropertyApplicantController {
 	@Autowired
 	private ActivitiUtil activitiUtil;
 
-	@RequestMapping(value="/addPropertyApplicant", method=RequestMethod.POST)
-	public ModelAndView addPropertyApplicant(PropertyServiceEntity propertyApplicant, HttpSession httpSession){
-		User sessionUser = (User)httpSession.getAttribute("user");
-		if(sessionUser.getUserName()!=null)
+//	@RequestMapping(value="/addPropertyApplicant", method=RequestMethod.POST)
+//	public ModelAndView addPropertyApplicant(PropertyServiceEntity propertyApplicant, HttpSession httpSession){
+//		User sessionUser = (User)httpSession.getAttribute("user");
+//		if(sessionUser.getUserName()!=null)
+//	
+//		System.out.println("sessionUser = "+sessionUser.getUserName()+"/n");
+//		
+//		JobEntity job = jobService.getJobByJobID(sessionUser.getJobId());
+//		BranchEntity branchEntity = branchService.getBranchManager(job.getBranchId());
+//		CompanyEntity companyEntity = companyService.getCompanyManager(branchEntity.getCompanyId());
+//		
+//        String applyUserName = sessionUser.getUserName();
+//        propertyApplicant.setApplyUserName(applyUserName);
+//        propertyApplicant.setBranchId(branchEntity.getBranchId());
+//        propertyApplicant.setCompanyId(companyEntity.getCompanyId());
+//		
+//		propertyApplicant.setApplyTime(formatTime());
+//
+//		//提取申请表id
+//		int propertyID = propertyApplicantService.addPropertyApplicant(propertyApplicant);
+//		//开启申请
+//		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
+//		
+//		List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.getPropertyApplicantByApplyUserName(sessionUser.getUserName());
+//		Map map =new HashMap();
+//		map.put("listPropertyApplicant",listPropertyApplicant);
+//		return new ModelAndView("/function/property-server",map);
+//	}
 	
-		System.out.println("sessionUser = "+sessionUser.getUserName()+"/n");
+	@RequestMapping(value="/addPropertyApplicant", method=RequestMethod.POST)
+	public String addPropertyApplicant(PropertyServiceEntity propertyApplicant, HttpSession httpSession){
+		User sessionUser = (User)httpSession.getAttribute("user");
+		//电话号码匹配校验
+		if(!propertyApplicantService.validateContactInfo(propertyApplicant.getContactInfo())){
+			return "wrongContactInfo";
+		}
 		
 		JobEntity job = jobService.getJobByJobID(sessionUser.getJobId());
-		System.out.println("job = " + job);
 		BranchEntity branchEntity = branchService.getBranchManager(job.getBranchId());
 		CompanyEntity companyEntity = companyService.getCompanyManager(branchEntity.getCompanyId());
 		
@@ -66,10 +95,7 @@ public class PropertyApplicantController {
 		//开启申请
 		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
 		
-		List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantService.getPropertyApplicantByApplyUserName(sessionUser.getUserName());
-		Map map =new HashMap();
-		map.put("listPropertyApplicant",listPropertyApplicant);
-		return new ModelAndView("/function/property-server",map);
+		return "redirect:/property/server";
 	}
 	
 	/**
