@@ -16,6 +16,16 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
+	<style>
+		.star{
+        	color:red;
+        	font-size:20px;
+        	display:inline;
+        	padding-top:8px;
+        }
+	
+	</style>
+
 </head>
 <body>
 	<div class="container" style="width:1100px;">
@@ -63,7 +73,7 @@
 					      <input type="text" readOnly="true" class="form-control" id="inputPassword3" placeholder=<%=((User)session.getAttribute("user")).getAccountName() %>> 
 					    </div>
 					  
-					    <label for="inputPassword3" class="col-sm-1 control-label">服务日期</label>
+					    <label for="inputPassword3" class="col-sm-1 control-label">服务日期</label><span class="star">*</span>
 					    <div class="col-sm-4">
 					      <input name ="serviceDate" type="date" class="form-control" id="serviceDate" placeholder="服务日期" required>
 					    </div>
@@ -71,22 +81,23 @@
 				  
 				  <div class="form-group">   
 					    <label for="inputPassword3" class="col-sm-1 control-label">手机号码</label>
+					    
 					    <div class="col-sm-4">
 					      <input name ="contactInfo" id="contactInfo" type="text"  maxlength = "11" 
 					      class="form-control" id="inputPassword3" placeholder="联系方式"
 					      onkeyup="this.value=this.value.replace(/\D/g,'')" 
 					      onafterpaste="this.value=this.value.replace(/\D/g,'')"
 					      onBlur="if(this.value!=''&&this.value.length!=11) alert('电话号码长度不正确');"
-					      required>
+					      required style="display:inline;">
 					    </div>
-					    <label for="inputPassword3" class="col-sm-1 control-label">具体时间</label>
+					    <label for="inputPassword3" class="col-sm-1 control-label">具体时间</label><span class="star">*</span>
 					    <div class="col-sm-4">
 					      <input name ="concreteTime" type="time" class="form-control" id="inputPassword3" required placeholder="具体时间">
 					    </div>
 				  </div>
-				  
+				  <span class="star" style="position:absolute; left:459px; top:191px;">*</span>
 				  <div class="form-group">
-					    <label for="inputPassword3" class="col-sm-1 control-label">服务地点</label>
+					    <label for="inputPassword3" class="col-sm-1 control-label">服务地点</label><span class="star">*</span>
 					    <div class="col-sm-4">
 					      <textarea name ="serviceLocation" type="text" class="form-control" maxlength="64"
 					       id="inputPassword3" required placeholder="最多可输入64字"></textarea>

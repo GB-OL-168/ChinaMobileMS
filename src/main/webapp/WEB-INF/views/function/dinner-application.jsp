@@ -17,6 +17,12 @@
         ol>li{
             font-size:15px;
         }
+        .star{
+        	color:red;
+        	font-size:20px;
+        	display:inline-block;
+        	padding-top:8px;
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery-ui-1.8.18.custom.min.js"></script>
@@ -35,9 +41,9 @@
                         <li>配餐中心用餐申请</li>
                         <li>申请方应用</li>
                         <li class="dropdown active">
-						  	<a href="/property/server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务状态 <span class="caret"></span></a>
+						  	<a href="/property/server" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用餐表格申请<span class="caret"></span></a>
 					          <ul class="dropdown-menu">
-					            <li><a href="/property/dinnerApplicationView">用餐表格申请</a>
+					            <li><a href="/property/dinnerApplicationView">服务状态 </a>
 					          </ul>
 						  </li>
                     </ol>
@@ -68,32 +74,35 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">开始日期</label>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">开始日期</label><span class="star">*</span>
                     <div class="col-sm-4">
                         <input id="startDate" name ="startDate" type="date" class="form-control" required  placeholder="开始日期">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">结束日期</label>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">结束日期</label><span class="star">*</span>
                     <div class="col-sm-4">
                         <input id="finishDate" name ="finishDate" type="date" class="form-control" required  placeholder="结束日期">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">联系方式</label>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">联系方式</label><span class="star">*</span>
                     <div class="col-sm-4">
-                        <input name ="contactInfo" type="tel" class="form-control"   placeholder="联系方式">
+                        <input name ="contactInfo" id="contactInfo" type="text"  maxlength = "11"  class="form-control" required  placeholder="联系方式"
+                        onkeyup="this.value=this.value.replace(/\D/g,'')" 
+					    onafterpaste="this.value=this.value.replace(/\D/g,'')"
+					    onBlur="if(this.value!=''&&this.value.length!=11) alert('电话号码长度不正确');">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">安排人数</label>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">安排人数</label><span class="star">*</span>
                     <div class="col-sm-4">
                         <input id="arrangePersonCount" name ="arrangePersonCount" type="text" class="form-control" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="安排人数">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">用餐类型</label>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">用餐类型</label><span class="star">*</span>
                     <div class="col-sm-4">
                        <select name="dinnerType" type="text" class="form-control" >
                            <option>新员工用餐</option>
@@ -165,6 +174,13 @@
 			alert("结束时间不得早于开始时间。");
 			return false;
 		}
+		
+		var contactInfo = $("#contactInfo").val();
+		var reg = /^1(3|4|5|7|8)\d{9}$/;
+		if(contactInfo.match(reg) == null){
+			alert("电话号码格式不正确");
+			return false;
+		} 
 		return true;
 	}
 	</script>
