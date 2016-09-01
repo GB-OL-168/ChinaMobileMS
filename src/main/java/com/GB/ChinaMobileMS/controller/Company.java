@@ -215,9 +215,14 @@ public class Company {
 	
 	
 	public  ModelAndView GetFunitureList(){
-		
+		try{
 		List<AssetFurniture> listFuniture = companyassetinformationservice.querylistFuniture();
 		return new ModelAndView("/function/company-info-using").addObject("listFuniture",listFuniture);
+		}
+		catch(Exception e){
+			System.out.println("获取家具列表失败");
+		}
+		return new ModelAndView("/function/company-info-using");
 	}
 
 }

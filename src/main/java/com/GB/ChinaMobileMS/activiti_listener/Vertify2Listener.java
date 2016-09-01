@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.activiti.engine.delegate.DelegateTask;
 import org.activiti.engine.delegate.TaskListener;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.GB.ChinaMobileMS.controller.PropertyServiceController;
 
@@ -14,6 +15,7 @@ public class Vertify2Listener implements Serializable, TaskListener {
 	/**
 	 * 物业二审监听
 	 */
+	@Transactional
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		System.out.println("\n\n=================\nUser2 task excute");

@@ -140,13 +140,21 @@
 		}
 		
 		var today=new Date();
-		var day = today.getMonth()+1;
+		var month = today.getMonth()+1;
+		var day = today.getDate();
+		var monthStr;
 		var dayStr;
-		if(day < 10){
+		if(month < 10)
+			monthStr = "0" + month;
+		else
+			monthStr = month + "";
+		
+		if(day < 10) 
 			dayStr = "0" + day;
-		}else
-			daystr = day + "";
-		var todayStr = today.getFullYear() + "-" + dayStr + "-" + today.getDate();
+		else
+			dayStr = day + "";
+		
+		var todayStr = today.getFullYear() + "-" + monthStr + "-" + dayStr;
 		
 		if(startDate < todayStr){
 			alert("开始时间必须在当前日期之后");

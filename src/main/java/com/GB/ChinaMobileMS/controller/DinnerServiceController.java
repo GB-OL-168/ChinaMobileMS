@@ -113,10 +113,6 @@ public class DinnerServiceController {
 		dinnerReviewService = dinnerReviewServiceTemp;
 		
 		List<DinnerPropertyTableEntity> dinnerPorpertys = dinnerPropertyService.getDinnerPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
-		System.out.println(dinnerPorpertys.size());
-		for(DinnerPropertyTableEntity entity : dinnerPorpertys){
-			System.out.println(entity);
-		}
 		Map<String, List<AuditingDinnerPropertyEntity>> map = new HashMap<>();
 		map.put("dinnerPropertys", dealPropertyData(dinnerPorpertys, (User)session.getAttribute("user")));
 		
