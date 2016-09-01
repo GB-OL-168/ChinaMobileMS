@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import org.activiti.engine.delegate.DelegateTask;
 import org.activiti.engine.delegate.TaskListener;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.GB.ChinaMobileMS.controller.DinnerServiceController;
-import com.GB.ChinaMobileMS.controller.PropertyServiceController;
 
 public class StartDinnerVertifyLintener implements Serializable, TaskListener{
 
@@ -15,6 +15,7 @@ public class StartDinnerVertifyLintener implements Serializable, TaskListener{
 	/**
 	 * 用餐开启流程监听
 	 */
+	@Transactional
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		switch(DinnerServiceController.STATUS){

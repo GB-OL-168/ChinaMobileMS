@@ -156,14 +156,21 @@
 		}
 		
 		var today=new Date();
-		var day = today.getMonth()+1;
+		var month = today.getMonth()+1;
+		var day = today.getDate();
+		var monthStr;
 		var dayStr;
-		if(day < 10){
-			dayStr = "0" + day;
-		}else
-			daystr = day + "";
-		var todayStr = today.getFullYear() + "-" + dayStr + "-" + today.getDate();
+		if(month < 10)
+			monthStr = "0" + month;
+		else
+			monthStr = month + "";
 		
+		if(day < 10) 
+			dayStr = "0" + day;
+		else
+			dayStr = day + "";
+		
+		var todayStr = today.getFullYear() + "-" + monthStr + "-" + dayStr;
 		if(serviceDate < todayStr){
 			alert("服务日期必须在当前日期之后");
 			return false;

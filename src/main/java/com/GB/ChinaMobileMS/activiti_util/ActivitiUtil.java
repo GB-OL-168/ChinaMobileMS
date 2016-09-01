@@ -8,8 +8,7 @@ import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.GB.ChinaMobileMS.services.interfaces.DinnerReviewService;
 import com.GB.ChinaMobileMS.services.interfaces.ReviewService;
@@ -47,6 +46,7 @@ public class ActivitiUtil {
 	 * @param vertifyUserID
 	 *            审核人ID
 	 */
+	@Transactional
 	public boolean startProcess(int propertyTableId, String branchVertifyUserID, String companyVertifyUserID) {
 		String excutionID = runtimeService.startProcessInstanceByKey("myProcess").getId();
 		if (!startReviewInDB(propertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID)) {
@@ -88,6 +88,7 @@ public class ActivitiUtil {
 	
 //===============================用餐部分
 	
+	@Transactional
 	public boolean startDinnerProcess(int dinnerPropertyTableId, String branchVertifyUserID, String companyVertifyUserID) {
 		String excutionID = runtimeService.startProcessInstanceByKey("dinnerProcess").getId();
 		if (!startDinnerReviewInDB(dinnerPropertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID)) {

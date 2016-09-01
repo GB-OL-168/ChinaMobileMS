@@ -1,6 +1,8 @@
 package com.GB.ChinaMobileMS.services.impl;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +45,11 @@ public class PropertyApplicantServiceImpl implements PropertyApplicantService {
 	@Override
 	public boolean setPropertyTempDemand(int id, String tempDemand) {
 		return propertyApplicantMapper.updateTempDemand(id, tempDemand);
+	}
+
+	@Override
+	public boolean validateContactInfo(String contactInfo) {
+		Pattern p = Pattern.compile("^1(3|4|5|7|8)\\d{9}$");
+		return p.matcher(contactInfo).matches();
 	}
 }

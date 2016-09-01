@@ -17,4 +17,11 @@ public interface PropertyApplicantService {
 	public List<PropertyServiceEntity> getPropertyApplicantByApplyUserName(String userName);
 	
 	public boolean setPropertyTempDemand(int id, String tempDemand);
+	
+	/**
+	 * 验证联系信息，信息需为电话号码
+	 * @param contactInfo 需要验证的信息
+	 * @return	
+	 */
+	public boolean validateContactInfo(String contactInfo);
 }
