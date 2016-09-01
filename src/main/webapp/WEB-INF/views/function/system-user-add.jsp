@@ -28,7 +28,7 @@
 				</div>
 				<form class="form-horizontal" style="width: 900px;"
 					action="/addUser" method="post" onsubmit="return check();">
-					<h4 style="text-align: center;">添加用户</h4>
+					<!-- <h4 style="text-align: center;">添加用户</h4> -->
 
 					<td><input name="isExist" class="isExist" value="1"
 						style='display: none' /></td>
@@ -192,6 +192,7 @@
 
 			});
 		});
+		
 	</script>
 
 

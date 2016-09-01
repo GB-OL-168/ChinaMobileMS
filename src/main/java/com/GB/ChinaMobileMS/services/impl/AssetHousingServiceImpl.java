@@ -16,7 +16,7 @@ public class AssetHousingServiceImpl implements AssetHousingService {
 	public AssetHousingMapper ashMapper;
 
 	public String addAssetHousing(AssetHousing ash) {
-		System.out.println("Enter addAssetHousing");
+
 		if(ash.getIsLoan()==0)
 		{
 			ash.setLoanTimeStart(null);
@@ -29,28 +29,27 @@ public class AssetHousingServiceImpl implements AssetHousingService {
 	}
 
 	public List<AssetHousing> queryAssetHousing() {
-		System.out.println("Enter queryAssetHousing");
 		List<AssetHousing> listash = ashMapper.queryAssetHousing();
 
 		return listash;
 	}
 
 	public List<AssetHousing> queryAssetHousing2() {
-		System.out.println("Enter queryAssetHousing2");
+
 		List<AssetHousing> listash = ashMapper.queryAssetHousing2();
 
 		return listash;
 	}
 
 	public AssetHousing detailed(int assetInfoId) {
-		System.out.println("Enter detailed");
+
 		AssetHousing ash = ashMapper.detailed(assetInfoId);
 
 		return ash;
 	}
 
 	public List<AssetHousing> searchAssetHousing(String houses, String search) {
-		System.out.println("Enter searchAssetHousing");
+
 
 		if (houses.equals("companyName")) {
 			List<AssetHousing> ash = ashMapper
@@ -65,7 +64,6 @@ public class AssetHousingServiceImpl implements AssetHousingService {
 					.queryAssetHousingBylocation(search);
 			return ash;
 		} else {
-//			int i =Integer.valueOf(search).intValue();
 			List<AssetHousing> ash = ashMapper
 					.queryAssetHousingByBuildingArea(search);
 			return ash;

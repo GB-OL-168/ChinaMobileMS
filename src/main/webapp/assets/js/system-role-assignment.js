@@ -14,7 +14,16 @@ $(function() {
 			$("input.Name").val($userName);
 			$(this).unbind("click");
 		});
-});
-		
 
+	
+	/* 修改用户角色成功 */
+	
+	var a="0";
+	a=$("#flag").text();
+	
+	if(a=="1"){
+		alert("用户已经获取该权限角色，修改成功！");};
+	
+	
+	});
 

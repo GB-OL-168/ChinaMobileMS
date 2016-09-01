@@ -98,7 +98,7 @@
 								<li><a href="/vehicle/person-find" target="/u/main">驾驶员查询</a></li>
 							</c:if>
 						</ul></li>
-					<li><a href="/function/" target="/u/main">省公司维修维护信息</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">省公司维修维护信息</a></li>
 					<li><a href="/function/" target="/u/main">省公司公务电话信息</a></li>
 					<li><a href="/function/" target="/u/main">服务公司资产信息</a></li>
 					<li><a href="/function/" target="/u/main">省公司交通信息</a></li>
@@ -185,7 +185,9 @@
 		<iframe name="/u/main" style="width: 100%; min-height: 1000px;"
 			scrolling="no" frameborder="0" border="0"> </iframe>
 	</div>
-
+	<div class="footer">
+		
+	</div>
 
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>

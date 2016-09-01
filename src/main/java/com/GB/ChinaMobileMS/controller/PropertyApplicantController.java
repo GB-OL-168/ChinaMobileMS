@@ -90,10 +90,10 @@ public class PropertyApplicantController {
 		
 		propertyApplicant.setApplyTime(formatTime());
 
-//		//提取申请表id
-//		int propertyID = propertyApplicantService.addPropertyApplicant(propertyApplicant);
-//		//开启申请
-//		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
+		//提取申请表id
+		int propertyID = propertyApplicantService.addPropertyApplicant(propertyApplicant);
+		//开启申请
+		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
 		
 		return "redirect:/property/server";
 	}

@@ -27,18 +27,17 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 	private InvestigationTableService investigationTableService;
 	@Override
 	public int inserItems(List<InvestigationItemsEntity> investigationItemsEntityList, String userName,String investigationName) {
-		
+		List<InvestigationItemsEntity> list = new ArrayList<InvestigationItemsEntity>();
 		if(!investigationItemsEntityList.isEmpty()&&investigationItemsEntityList!=null&&investigationName!=""){
-			for(int i =0;i<investigationItemsEntityList.size();i++){
-				if (!investigationItemsEntityList.get(i).getInvestigationItemValue().equals("") && investigationItemsEntityList.get(i).getInvestigationItemValue() != null
-						&& investigationItemsEntityList.get(i).getInvestigationStanddard() != null
-						&&!investigationItemsEntityList.get(i).getInvestigationStanddard().equals("")) {
-					investigationItemsEntityList.get(i).setInvestigationItemName(investigationName);
-				} else {
-					investigationItemsEntityList.remove(investigationItemsEntityList.get(i));
+			for(int i = 0; i <investigationItemsEntityList.size(); i++){
+				if(investigationItemsEntityList.get(i) != null){
+					list.add(investigationItemsEntityList.get(i));
 				}
 			}
-			if(!investigationItemsEntityList.isEmpty()&&investigationItemsEntityList!=null){
+			for(int i =0; i<list.size();i++){
+					list.get(i).setInvestigationItemName(investigationName);
+			}
+
 				//插入表
 				InvestigationTableEntity investigationtableEntity = new InvestigationTableEntity();
 				investigationtableEntity.setInvestigationName(investigationName);
@@ -46,18 +45,11 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 				investigationTableService.insertMessage(investigationtableEntity);//插入的同时返回主键
 				
 				for (int i = 0; i < investigationItemsEntityList.size(); i++) {
-					if ((!investigationItemsEntityList.get(i).getInvestigationItemValue().isEmpty() && investigationItemsEntityList.get(i).getInvestigationItemValue() != null) 
-							&& (investigationItemsEntityList.get(i).getInvestigationStanddard() != null
-							&&!investigationItemsEntityList.get(i).getInvestigationStanddard().isEmpty())) {
 							//设置考评项的对应的表格id
 						investigationItemsEntityList.get(i).setInvestigationId(investigationtableEntity.getInvestigationId());
-					} else {
-						investigationItemsEntityList.remove(investigationItemsEntityList.get(i));
-					}
 				}
 			}
 
-		}
 		if(!investigationItemsEntityList.isEmpty()&&investigationItemsEntityList!=null)
 			return investigationItemsMapper.insertInvestigationItems(investigationItemsEntityList);
 		else

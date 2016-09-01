@@ -14,10 +14,8 @@
 	<title>上市公司资产信息管理 - 物业服务管理</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
-	<link rel="stylesheet" href="/assets/css/">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<script src="/assets/js/fenye.js"></script>
 </head>
 <body>
 	<div class="container" style="width:1100px;">
@@ -41,7 +39,7 @@
 				
 				<form class="form-horizontal" action = "/addPropertyApplicant" method="post">
 					<div class="form-group">
-						<h4 class="col-sm-offset-4">申请表格填写</h4>
+						<h4 class="col-sm-offset-5">申请表格填写</h4>
 					</div>
 					
 					<div class="form-group">     
@@ -153,14 +151,13 @@
 
 <script type="text/javascript">
 	$(function(){
+		
 		$("#submit").click(function(){
-			alert("a");
 			return validateInfo();
 		});
 	})
 	
 	function validateInfo() {
-		alert();
 		var serviceDate = $("#serviceDate").val();
 		if(serviceDate.length > 10){
 			alert("请选择正确的日期格式");
@@ -188,14 +185,13 @@
 			return false;
 		}
 		
-		/* var contactInfo = $("#contactInfo").val();
-		alert(contactInfo);
+		var contactInfo = $("#contactInfo").val();
 		var reg = /^1(3|4|5|7|8)\d{9}$/;
 		if(contactInfo.match(reg) == null){
 			alert("电话号码格式不正确");
 			return false;
-		} */
-		return false;
+		} 
+		return true;
 	}
 	</script>
 </body>
