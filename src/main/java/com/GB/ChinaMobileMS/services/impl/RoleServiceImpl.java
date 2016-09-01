@@ -36,7 +36,7 @@ public class RoleServiceImpl implements RoleService {
 				break;
 			}
 		}
-		if(flag ==1)
+		if(flag ==0)
 		{int add = roleMapper.addRole(role);}
 
 		

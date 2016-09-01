@@ -46,10 +46,12 @@ public class RegisterController {
 	@Autowired
 	private BranchService branchService;
 	@Autowired
-	private  CompanyQuery cq;
+	private CompanyQuery cq;
 
+	// 上市公司资产登记
 	@RequestMapping(value = "/register/{id}", method = RequestMethod.GET)
-	public ModelAndView AssetUser(User user, @PathVariable("id") String id, HttpSession session) {
+	public ModelAndView AssetUser(User user, @PathVariable("id") String id,
+			HttpSession session) {
 
 		List<CompanyEntity> listCompany = companyService.queryCompany();
 		List<BranchEntity> listBranch = branchService.queryBranch();
@@ -57,64 +59,51 @@ public class RegisterController {
 		List<AssetHouse> listRoom = roomService.queryAssetHouse();
 		List<AssetHousing> listash = ashService.queryAssetHousing();
 
-		Map map = new HashMap();		
+		Map map = new HashMap();
 
 		map.put("listCompany", listCompany);
 		map.put("listBranch", listBranch);
 		map.put("listash", listash);
 		map.put("listRoom", listRoom);
-		map.put("listUser",listUser);
+		map.put("listUser", listUser);
 
+		// 一次性获取登记时所需数据库信息，不会ajax
 		if (id.equals("houses-add"))
-			return new ModelAndView("/function/company-register-houses-add",map);
+			return new ModelAndView("/function/company-register-houses-add",
+					map);// 上市公司资产建筑登记跳转
 		else if (id.equals("rooms-add"))
-			return new ModelAndView("/function/company-register-rooms-add",map);
+			return new ModelAndView("/function/company-register-rooms-add", map);// 上市公司资产房间登记跳转
 		else if (id.equals("furniture-add"))
-			return new ModelAndView("/function/company-register-furniture-add",map);
+			return new ModelAndView("/function/company-register-furniture-add",
+					map);// 上市公司资产家具登记跳转
 		else if (id.equals("lease-add"))
-			return new ModelAndView("/function/company-register-lease-add", map);
+			return new ModelAndView("/function/company-register-lease-add", map);// 上市公司资产租赁设备登记跳转
 		else
 			return new ModelAndView("forward:/");
 	}
-
+	//上市公司资产建筑登记控制
 	@RequestMapping(value = "/addAH", method = RequestMethod.GET)
 	public ModelAndView addAssetHousing(AssetHousing ash, HttpSession session) {
-		System.out.println("Enter Controller");
-
-		System.out.println("Ash:" + ash);
-
 		ashService.addAssetHousing(ash);
 		return cq.CompanyQueryAfterRegister("houses");
 	}
-
+	//上市公司资产房间登记控制
 	@RequestMapping(value = "/addRoom", method = RequestMethod.GET)
 	public ModelAndView addAssetHouse(AssetHouse room, HttpSession session) {
-		System.out.println("Enter Controller");
-
-		System.out.println("ROOM:" + room);
-
 		roomService.addAssetHouse(room);
 		return cq.CompanyQueryAfterRegister("rooms");
 	}
-
+	//上市公司资产家具登记控制
 	@RequestMapping(value = "/addFurniture", method = RequestMethod.GET)
 	public ModelAndView addFurniture(AssetFurniture assetfurn,
 			HttpSession session) {
-		System.out.println("Enter Controller");
-
-		System.out.println("assetfurn:" + assetfurn);
-
 		asfService.addFurniture(assetfurn);
 		return cq.CompanyQueryAfterRegister("furniture");
 	}
-
+	//上市公司资产租赁设备登记控制
 	@RequestMapping(value = "/addLoanDevice", method = RequestMethod.GET)
 	public ModelAndView addLoanDevice(AssetLoanDevice ald, HttpSession session) {
-		System.out.println("Enter Controller");
-
-		System.out.println("AssetLoanDevice:" + ald);
-
-			aldService.addLoanDevice(ald);
+		aldService.addLoanDevice(ald);
 
 		return cq.CompanyQueryAfterRegister("lease");
 	}

@@ -28,29 +28,36 @@ public class RoleController {
 	@Autowired
 	private RoleService roleService;
 
+	// 用户的权限角色分配
 	@RequestMapping(value = "/updateUserRole", method = RequestMethod.POST)
 	public ModelAndView updateUserRole(User user, HttpSession session) {
-		
+
 		// System.out.println("End of set new role id");
 		String str = userService.updateUserRole(user);
-		return GetUserList2();
+		return GetUserList2(1);
 	}
 
+	// 新增权限角色
 	@RequestMapping(value = "/addRole", method = RequestMethod.GET)
 	public ModelAndView addRole(Role role, HttpSession session) {
 		int flag = roleService.addRole(role);
-		
-		return GetRoleList();
+		if (flag == 1) {
+			return GetRoleList(2);
+		} else {
+			return GetRoleList(-2);
+		}
 	}
 
+	// 修改权限角色
 	@RequestMapping(value = "/updateRole", method = RequestMethod.GET)
 	public ModelAndView updateRole(Role role, HttpSession session) {
 		System.out.println("updateRole");
 		System.out.println("Role:" + role);
 		String str = roleService.updateRole(role);
-		return GetRoleList();
+		return GetRoleList(-3);
 	}
 
+	// 删除权限角色
 	@RequestMapping(value = "/delRole/{roleId}", method = RequestMethod.GET)
 	public ModelAndView delRole(HttpSession session,
 			@PathVariable("roleId") int roleId) {
@@ -59,14 +66,15 @@ public class RoleController {
 		int flag = roleService.deleteRoleByName(roleId);
 		if (flag == 1) {
 			System.out.println("can't delete this Role");
-			return GetRoleList1();
+			return GetRoleList(flag);
 		} else {
-			return GetRoleList();
+			return GetRoleList(-1);
 		}
-		
+
 	}
 
-	public ModelAndView GetUserList2() {
+	// 更新用户的权限角色后跳转
+	public ModelAndView GetUserList2(int flag) {
 		List<User> listUser = userService.listUser();
 		List<Role> listRole = roleService.ListRole();
 		Iterator<User> it1 = listUser.iterator();
@@ -89,26 +97,20 @@ public class RoleController {
 		Map map = new HashMap();
 		map.put("listUser", listUser);// userlist是个Arraylist之类的
 		map.put("listRole", listRole);
-		return new ModelAndView("/function/system-role-assignment", map);
-	}
-
-	public ModelAndView GetRoleList1() {
-		List<Role> listRole = roleService.ListRole();
-		Map<String, List<Role>> map = new HashMap<String, List<Role>>();
-		map.put("listRole", listRole);
-		ModelAndView a =new ModelAndView("/function/system-role-authorization",map);
-		int flag=1;
-		a.addObject("flag",flag);
+		ModelAndView a = new ModelAndView(
+				"/function/system-role-assignment", map);
+		a.addObject("flag", flag);
 		return a;
 	}
-	
-	public ModelAndView GetRoleList() {
+
+	// 管理权限角色跳转控制
+	public ModelAndView GetRoleList(int flag) {
 		List<Role> listRole = roleService.ListRole();
 		Map map = new HashMap();
 		map.put("listRole", listRole);
-		ModelAndView a =new ModelAndView("/function/system-role-authorization", map);
-		int flag=0;
-		a.addObject("flag",flag);
+		ModelAndView a = new ModelAndView(
+				"/function/system-role-authorization", map);
+		a.addObject("flag", flag);
 		return a;
 	}
 }

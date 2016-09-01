@@ -13,6 +13,7 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/fenye.js"></script>
+	<script src="/assets/js/company-query.js"></script>
 	<style>
 		tr>th{
 			text-align:center;
@@ -82,7 +83,7 @@
 							<td><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
 						</tr>
 					</c:forEach>
-					
+					<p id="flag" style="display:none;">${flag}</p>
 				</table>
 				
 				<br>
