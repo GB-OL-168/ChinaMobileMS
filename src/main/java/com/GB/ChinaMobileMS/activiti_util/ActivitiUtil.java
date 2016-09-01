@@ -43,8 +43,10 @@ public class ActivitiUtil {
 	 * 
 	 * @param propertyTableId
 	 *            申请表ID
-	 * @param vertifyUserID
-	 *            审核人ID
+	 * @param branchVertifyUserID
+	 *            一审人ID
+	 * @param companyVertifyUserID
+	 * 			    二审人ID
 	 */
 	@Transactional
 	public boolean startProcess(int propertyTableId, String branchVertifyUserID, String companyVertifyUserID) {
@@ -64,6 +66,7 @@ public class ActivitiUtil {
 	 * @param isPass
 	 *            该流程节点操作：通过/拒绝
 	 */
+	@Transactional
 	public void excuteProcess(String excutionID, boolean isPass) {
 		List<Task> tasks = taskService.createTaskQuery().executionId(excutionID).list();
 		for (Task task : tasks) {
@@ -88,6 +91,13 @@ public class ActivitiUtil {
 	
 //===============================用餐部分
 	
+	/**
+	 * 根据部署的流程开启一条申请，并把申请的流程ID存入数据库
+	 * @param dinnerPropertyTableId	用餐申请表ID
+	 * @param branchVertifyUserID	一审人ID
+	 * @param companyVertifyUserID	二审人ID
+	 * @return
+	 */
 	@Transactional
 	public boolean startDinnerProcess(int dinnerPropertyTableId, String branchVertifyUserID, String companyVertifyUserID) {
 		String excutionID = runtimeService.startProcessInstanceByKey("dinnerProcess").getId();
@@ -98,6 +108,12 @@ public class ActivitiUtil {
 		return true;
 	}
 	
+	/**
+	 * 执行一条流程
+	 * @param excutionID	流程ID
+	 * @param isPass		是否通过
+	 */
+	@Transactional
 	public void excuteDinnerProcess(String excutionID, boolean isPass) {
 		List<Task> tasks = taskService.createTaskQuery().executionId(excutionID).list();
 		for (Task task : tasks) {
@@ -106,6 +122,14 @@ public class ActivitiUtil {
 		}
 	}
 	
+	/**
+	 * 新增一条审核记录
+	 * @param propertyTableId		申请表ID
+	 * @param excutionID			流程ID
+	 * @param branchVertifyUserID	一身人ID
+	 * @param companyVertifyUserID	二审人ID
+	 * @return	boolean：true 新增成功  false：新增失败
+	 */
 	private boolean startDinnerReviewInDB(int propertyTableId, String excutionID, String branchVertifyUserID, String companyVertifyUserID) {
 		return dinnerReviewService.startDinnerReview(propertyTableId, excutionID, branchVertifyUserID, companyVertifyUserID);
 	}

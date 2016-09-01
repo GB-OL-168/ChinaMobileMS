@@ -74,10 +74,10 @@ public class PropertyApplicantController {
 	@RequestMapping(value="/addPropertyApplicant", method=RequestMethod.POST)
 	public String addPropertyApplicant(PropertyServiceEntity propertyApplicant, HttpSession httpSession){
 		User sessionUser = (User)httpSession.getAttribute("user");
-		//电话号码匹配校验
-		if(!propertyApplicantService.validateContactInfo(propertyApplicant.getContactInfo())){
-			return "wrongContactInfo";
-		}
+//		//电话号码匹配校验
+//		if(!propertyApplicantService.validateContactInfo(propertyApplicant.getContactInfo())){
+//			return "wrongContactInfo";
+//		}
 		
 		JobEntity job = jobService.getJobByJobID(sessionUser.getJobId());
 		BranchEntity branchEntity = branchService.getBranchManager(job.getBranchId());
@@ -90,10 +90,10 @@ public class PropertyApplicantController {
 		
 		propertyApplicant.setApplyTime(formatTime());
 
-		//提取申请表id
-		int propertyID = propertyApplicantService.addPropertyApplicant(propertyApplicant);
-		//开启申请
-		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
+//		//提取申请表id
+//		int propertyID = propertyApplicantService.addPropertyApplicant(propertyApplicant);
+//		//开启申请
+//		startAcititi(propertyID, branchEntity.getBranchManager(), companyEntity.getCompanyManager());
 		
 		return "redirect:/property/server";
 	}

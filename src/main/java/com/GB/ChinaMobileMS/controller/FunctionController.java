@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -20,13 +19,11 @@ import com.GB.ChinaMobileMS.entity.AuditingPrpoertyEntity;
 import com.GB.ChinaMobileMS.entity.BranchEntity;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
 import com.GB.ChinaMobileMS.entity.Information;
-import com.GB.ChinaMobileMS.entity.InvestigationTableEntity;
 import com.GB.ChinaMobileMS.entity.JobEntity;
 import com.GB.ChinaMobileMS.entity.ManagementPropertyEntity;
 import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
 import com.GB.ChinaMobileMS.entity.Role;
 import com.GB.ChinaMobileMS.entity.User;
-import com.GB.ChinaMobileMS.entity.WaitForInvestigationUserEntity;
 import com.GB.ChinaMobileMS.services.interfaces.BranchService;
 import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 import com.GB.ChinaMobileMS.services.interfaces.InfoService;
@@ -36,7 +33,6 @@ import com.GB.ChinaMobileMS.services.interfaces.PropertyApplicantService;
 import com.GB.ChinaMobileMS.services.interfaces.PropertyServices;
 import com.GB.ChinaMobileMS.services.interfaces.RoleService;
 import com.GB.ChinaMobileMS.services.interfaces.UserService;
-import com.GB.ChinaMobileMS.services.interfaces.WaitForInvestigationService;
 
 @Controller
 public class FunctionController {
