@@ -29,7 +29,7 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 	public int inserItems(List<InvestigationItemsEntity> investigationItemsEntityList, String userName,String investigationName) {
 		
 		if(!investigationItemsEntityList.isEmpty()&&investigationItemsEntityList!=null&&investigationName!=""){
-			for(int i =0;i<investigationItemsEntityList.size();i++){
+			for(int i = investigationItemsEntityList.size();i>=0;i--){
 				if (!investigationItemsEntityList.get(i).getInvestigationItemValue().equals("") && investigationItemsEntityList.get(i).getInvestigationItemValue() != null
 						&& investigationItemsEntityList.get(i).getInvestigationStanddard() != null
 						&&!investigationItemsEntityList.get(i).getInvestigationStanddard().equals("")) {

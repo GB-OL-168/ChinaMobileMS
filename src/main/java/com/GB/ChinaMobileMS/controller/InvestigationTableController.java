@@ -113,6 +113,7 @@ public class InvestigationTableController {
 			//获得表格的名称
 			String investigationName = request.getParameter("investigationItmeName");
 			//调用插入考评项方法
+			System.out.println("555555555555"+ model.size());
 			investigationItemsService.inserItems(model.getInvestigationItemsEntityList(),userName,investigationName);
 			List<InvestigationTableEntity> investigationTableEntityList = investigationTableService
 					.getInvestigationTableEntityByUserName(sessionUser.getUserName());

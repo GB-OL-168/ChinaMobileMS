@@ -178,7 +178,9 @@
 			scrolling="no" frameborder="0" border="0">
 			</iframe>
 	</div>
-
+	<div class="footer">
+		
+	</div>
 
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>

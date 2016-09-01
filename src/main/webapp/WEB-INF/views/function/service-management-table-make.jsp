@@ -32,10 +32,12 @@
                    <tr>
                        <th>考评项目</th>
                        <th>考评标准</th>
+                       <th>操作</th>
                    </tr>
                    <tr>
-                       <td><input class="investigationItemValue" type="text" required name="InvestigationItemsEntityList[0].investigationItemValue" maxlength="12"></td>
-                       <td><textarea class="investigationStandadard"name="InvestigationItemsEntityList[0].investigationStanddard" required rows="3" cols="50"></textarea></td>
+                       <td><input class="investigationItemValue" type="text"  required name="InvestigationItemsEntityList[0].investigationItemValue" maxlength="12"></td>
+                       <td><textarea class="investigationStandadard" required name="InvestigationItemsEntityList[0].investigationStanddard"  rows="3" cols="50"></textarea></td>
+                       <td><button class="remove btn btn-default" type="button">删除</button></td>
                    </tr>
                </table>
                <button class="btn btn-info" type="button" id="add" >增加考核内容</button>
@@ -45,19 +47,44 @@
     </div>
 
 <script>
-	var index=0;
-      $form_make=$("#form_make");//拿到Id
-      $("#add").click(function(){
-    	  index++;
-         $form_make.append("<tr>" +
-                 "<td><input class='investigationItemValue' type='text' required name=InvestigationItemsEntityList[" + index + "].investigationItemValue maxlength='12'></td> " +
-          "<td><textarea class='investigationStandadard' name=InvestigationItemsEntityList[" + index + "].investigationStanddard required rows='3' cols='50'></textarea></td>" +
-          +
-          "</tr>");
         
-      });
-      
       $(function(){
+    	  
+				 var index=0;
+				 var number=0;
+		         $form_make=$("#form_make");//拿到Id
+		      
+		         $("#add").click(function(){
+		    	  index++;
+		    	  number++;
+		         $form_make.append("<tr>" +
+		                 "<td><input class='investigationItemValue' type='text' required name=InvestigationItemsEntityList[" + index + "].investigationItemValue maxlength='12'></td> " +
+		          "<td><textarea class='investigationStandadard' required name=InvestigationItemsEntityList[" + index + "].investigationStanddard rows='3' cols='50'></textarea></td>" +
+		          "<td><button class='remove btn btn-default' type='button'>删除</button></td>"
+		          +"</tr>");
+		         
+		          $(".remove").click(function(){
+		        	$(this).parent().parent().remove();	
+		        	number--;
+		       	 	}); 
+		          
+		          $("#investigationItmeName").attr("placeholder","最多输入12个字！");
+			      $(".investigationItemValue").attr("placeholder","最多输入12个字！");
+			      $(".investigationStandadard").attr("maxlength","64");
+			      $(".investigationStandadard").attr("placeholder","最多输入64个字！");
+	        			     
+		      });
+		      
+		      
+		 
+		      $(".remove").click(function(e){
+		     	$(this).parent().parent().remove();
+
+		    	 });
+    	  
+    	  
+    	  
+    	  
     	  $("#save").click(function(e){
     		var investigationItmeName = $("#investigationItmeName").val();
     	 	var inputtext = $(".investigationItemValue");
