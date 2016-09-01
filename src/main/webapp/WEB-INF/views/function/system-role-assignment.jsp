@@ -5,15 +5,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<title>后勤服务中心管理信息系统 - 权限设置</title>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/system.css">
-<link rel="stylesheet" href="/assets/css/system-role-assignment.css">
-<script src="/assets/js/jquery-1.9.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
-<script src="/assets/js/fenye.js"></script>
-<script src="/assets/js/system-role-assignment.js"></script>
+	<meta charset="utf-8">
+	<title>后勤服务中心管理信息系统 - 权限设置</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/system.css">
+	<link rel="stylesheet" href="/assets/css/system-role-assignment.css">
+	<script src="/assets/js/jquery-1.9.1.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/fenye.js"></script>
+	<script src="/assets/js/system-role-assignment.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -44,7 +44,7 @@
 								href="javascript:void(0)">修改角色</a></td>
 						</tr>
 					</c:forEach>
-					<p id="flag" style="display:none;" >${flag}</p>
+					
 				</table>
 				<br>
 				<table width="70%" align="right">
@@ -55,6 +55,7 @@
 			</div>
 		</div>
 	</div>
+	<p id="flag" style="display:none">${flag}</p>
 	<!-- 修改角色下拉框 -->
 
 	<form action="/updateUserRole" Method="post" class="assignment_form"

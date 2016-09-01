@@ -14,10 +14,8 @@
 	<title>上市公司资产信息管理 - 物业服务管理</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
-	<link rel="stylesheet" href="/assets/css/">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-	<script src="/assets/js/fenye.js"></script>
 </head>
 <body>
 	<div class="container" style="width:1100px;">
@@ -149,6 +147,7 @@
 
 <script type="text/javascript">
 	$(function(){
+		
 		$("#submit").click(function(){
 			return validateInfo();
 		})
