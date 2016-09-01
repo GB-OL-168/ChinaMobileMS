@@ -16,7 +16,6 @@ public class InvestigationTableServiceImpl implements InvestigationTableService{
 	@Override
 	public int insertMessage(InvestigationTableEntity investigationTableEntity) {
 		// TODO Auto-generated method stub
-	
 		return investigationTableMapper.insertTableMessage(investigationTableEntity);
 	}
 	@Override
@@ -37,4 +36,5 @@ public class InvestigationTableServiceImpl implements InvestigationTableService{
 		// TODO Auto-generated method stub
 		return investigationTableMapper.deleteInvestiationTableById(investigationId);
 	}
+	
 }

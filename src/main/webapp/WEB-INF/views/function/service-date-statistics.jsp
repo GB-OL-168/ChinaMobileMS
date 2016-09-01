@@ -24,7 +24,7 @@
 				  	<a href="javascript:void(0)">考评表统计</a></li>
 				</ol>
 			</div>
-		    <h4 style="margin-left:350px;">${investigationItemsName}</h4>
+		    <h4 style="margin-left:350px;">数据分析</h4>
 		    
 		    <table id="form_make" class='table table-bordered table-hover center'>
 		        <div class='col-md-12 '>
