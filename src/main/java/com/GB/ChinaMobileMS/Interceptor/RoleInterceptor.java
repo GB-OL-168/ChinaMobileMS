@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-
 public class RoleInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 		System.out.println("URL = " + request.getRequestURI());
@@ -192,10 +191,19 @@ public class RoleInterceptor extends HandlerInterceptorAdapter {
 				}
 			return false;
 		}
-		// 上市公司资产管理
-		else if (request.getRequestURI().equals("/company/info")
-				|| request.getRequestURI().equals("/company/count-list")) {
-			if ((int) request.getSession().getAttribute("mangaementAsset") == 1)
+		// 上市公司使用信息
+		else if (request.getRequestURI().equals("/company/info")) {
+			if ((int) request.getSession().getAttribute("useInfoAsset") == 1)
+				return true;
+			else
+				try {
+					response.sendRedirect("/error.jsp");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			return false;
+		} else if (request.getRequestURI().equals("/company/count-list")) {
+			if ((int) request.getSession().getAttribute("statisticsAsset") == 1)
 				return true;
 			else
 				try {
@@ -205,12 +213,13 @@ public class RoleInterceptor extends HandlerInterceptorAdapter {
 				}
 			return false;
 		}
+
 		// 物业服务考评填写
 		else if (request.getRequestURI().equals("/service/management-write")) {
-			//有权访问
+			// 有权访问
 			if ((int) request.getSession().getAttribute("evaluationFillProperty") == 1)
 				return true;
-			//无权访问
+			// 无权访问
 			else
 				try {
 					response.sendRedirect("/error.jsp");
@@ -222,10 +231,10 @@ public class RoleInterceptor extends HandlerInterceptorAdapter {
 		// 物业服务考评管理
 		else if (request.getRequestURI().equals("/service/management-check")
 				|| request.getRequestURI().equals("/service/management-table-make")) {
-			//有权访问
+			// 有权访问
 			if ((int) request.getSession().getAttribute("evaluationMangaementProperty") == 1)
 				return true;
-			//无权访问
+			// 无权访问
 			else
 				try {
 					response.sendRedirect("/error.jsp");
@@ -234,8 +243,8 @@ public class RoleInterceptor extends HandlerInterceptorAdapter {
 				}
 			return false;
 		}
-		
-		//非系统功能
+
+		// 非系统功能
 		else
 			return true;
 	}
