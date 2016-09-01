@@ -37,12 +37,14 @@
 /*登录信息框*/
 
 .top>.account_info{
-    margin-left:75%;
-    padding-top:25px;
-    width:300px;
+ 	float:right;
+ 	padding:20px 3% 0 0;
+    width:700px;
     height:20px;
 }
 .top>.account_info>a{
+	float:right;
+	margin-left:10px;
 	font-family:"华文细黑";
     list-style-type: none;
     color:#fff;

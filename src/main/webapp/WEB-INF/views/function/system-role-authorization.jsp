@@ -8,13 +8,13 @@
 	<title>后勤服务中心管理信息系统 - 权限设置</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
-	<link rel="stylesheet" href="/assets/css/system-role-authorization.css">
-	<script src="/assets/js/jquery-1.9.1.js"></script>
+<!-- 	<link rel="stylesheet" href="/assets/css/system-role-authorization.css">
+ -->	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/fenye.js"></script>
 	<script src="/assets/js/system-role-authorization.js"></script>
 </head>
-<body onLoad="goPage(1,10);">
+<body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 main">
@@ -28,21 +28,21 @@
 					</div>
 				</div>
 				<br>
-				<table id="idData" class="table table-hover table-striped">			
+				<table id="idData" class="table table-hover table-striped table-bordered">			
 					<tr>
-						<th class="roleId">编号</th>
-						<th class="roleName">角色名称</th>
-						<th class="description">角色描述</th>
-						<th class="look">详情</th>
-						<th class="remove">操作</th>
+						<th>编号</th>
+						<th>角色名称</th>
+						<th>角色描述</th>
+						<th>详情</th>
+						<th>操作</th>
 					</tr>
 					<c:forEach items="${listRole}" var="a" varStatus="status">
 						<tr>
-							<td class="roleId">${ status.index + 1}</td>
-							<td class="roleName">${a.roleName}</td>
-							<td class="description">${a.description}</td>
-							<td class="look"><a href="/authorization/details/${a.roleName}">查看</a></td>
-							<td class="remove"><a href="/delRole/${a.roleId}"">删除角色</a></td>
+							<td>${ status.index + 1}</td>
+							<td>${a.roleName}</td>
+							<td>${a.description}</td>
+							<td><a href="/authorization/details/${a.roleName}">查看</a></td>
+							<td><a href="/delRole/${a.roleId}"">删除角色</a></td>
 						</tr>
 					</c:forEach>
 					<p id="flag" style="display:none;">${flag}</p>

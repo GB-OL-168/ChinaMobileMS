@@ -23,18 +23,18 @@
 				  	<a href="javascript:void(0)">新建考评表</a></li>
 				</ol>
 			</div>
-           <form id="submitTable" action="/investigationItem" method="post" >
+           <form id="submitTable" action="/createInvestigationTable" method="post" >
                <table id="form_make" class='table table-bordered table-hover center'>
                	   <div style="margin-left:350px;">
    		             	<a style="display: inline-block">调查表名称</a>
-               			&nbsp&nbsp<input id="investigationItmeName" type="text" required name="investigationItmeName"/>
+               			&nbsp&nbsp<input id="investigationItmeName" type="text" required name="investigationItmeName" maxlength="12"/>
                	   </div>
                    <tr>
                        <th>考评项目</th>
                        <th>考评标准</th>
                    </tr>
                    <tr>
-                       <td><input class="investigationItemValue" type="text" required name="InvestigationItemsEntityList[0].investigationItemValue"></td>
+                       <td><input class="investigationItemValue" type="text" required name="InvestigationItemsEntityList[0].investigationItemValue" maxlength="12"></td>
                        <td><textarea class="investigationStandadard"name="InvestigationItemsEntityList[0].investigationStanddard" required rows="3" cols="50"></textarea></td>
                    </tr>
                </table>
@@ -50,27 +50,40 @@
       $("#add").click(function(){
     	  index++;
          $form_make.append("<tr>" +
-                 "<td><input class='investigationItemValue' type='text' required name=InvestigationItemsEntityList[" + index + "].investigationItemValue></td> " +
+                 "<td><input class='investigationItemValue' type='text' required name=InvestigationItemsEntityList[" + index + "].investigationItemValue maxlength='12'></td> " +
           "<td><textarea class='investigationStandadard' name=InvestigationItemsEntityList[" + index + "].investigationStanddard required rows='3' cols='50'></textarea></td>" +
           +
           "</tr>");
         
       });
       
- 
-      
-      function checkCorrect(){
-    	  var form=document.getElementById("form_make");
-    	  var inputArray=form.getElementsByClassName("investigationItemValue");
-    	  var inputArrayLength=inputArray.length;
-    	  for(var i=0;i<inputArray;i++){
-    		  if(inputArray[i].value==""||inputArray[i]==null){
-    			  alert("不能为空！");
-    		  }
-    		  return false;
-    	  }
-    	  return true;
-      }
+      $(function(){
+    	  $("#save").click(function(e){
+    		var investigationItmeName = $("#investigationItmeName").val();
+    	 	var inputtext = $(".investigationItemValue");
+    	 	var textareaArray = $(".investigationStandadard");
+    	 	var reg = new RegExp(/["'<>%;)(&+]/);
+    	 	var flag = 0;
+    	 
+    	 	if(reg.test(investigationItmeName)){
+    	 		flag = 1;
+    	 	} 
+    	  	for(var i = 0 ;i<inputtext.length; i++){
+    	  		var tempinputtext = inputtext[i];
+    	  		var temptextarea = textareaArray[i];
+    	  		if(reg.test(tempinputtext.value)||reg.test(temptextarea.value))
+    	  			flag = 1;
+    	  		/* inputtext[i].value=temp.value.replace(reg,''); */
+    	  	}
+    	  	if(flag==1){
+    	  		alert("含有非法字符，请认真输入");
+    	  		e.preventDefault();
+    	  		return false;
+    	  	}
+    	  });
+    	  
+    	  
+      });
  
 </script>
 </body>

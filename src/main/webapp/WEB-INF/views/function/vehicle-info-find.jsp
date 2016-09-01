@@ -9,12 +9,12 @@
     <title>全省车辆信息-车辆信息登记</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/system.css">
-	<link rel="stylesheet" href="/assets/css/vehicle-info-add.css">
-	<script src="/assets/js/jquery-1.9.1.js"></script>
+<!-- 	<link rel="stylesheet" href="/assets/css/vehicle-info-add.css">
+ -->	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/fenye.js"></script>
 </head>
-<body  onLoad="goPage(1,10);">
+<body>
     <div class="container" style="width:1100px;">
         <div class="row">
             <div class="col-md-12 main">
@@ -52,46 +52,45 @@
                     </div>
                 </form>
                 
+         	<br><br>
             </div>
-         	<br><br><hr>
-            </div>
-                <table id="idData" class="table table-hover table-striped" style="width:1100px;">
+                <table id="idData" class="table table-hover table-striped table-bordered" style="width:1100px;">
                     <tr>
-                        <th class="brand">品牌</th>
-                        <th class="model">型号</th>
-                        <th class="vehicleType">类型</th>
-                        <th class="seat">车座</th>
+                        <th>品牌</th>
+                        <th>型号</th>
+                        <th>类型</th>
+                        <th>车座</th>
                         <!-- <th class="productSource">国产/进口</th> -->
-                        <th class="color">颜色</th>
-                        <th class="fuelType">燃油</th>
-                        <th class="engineType">发动机号</th>
-                        <th class="vin">VIN</th>
-                        <th class="productDate">出厂日期</th>
-                        <th class="owner">车主</th>
-                        <th class="price">价格(万元)</th>
-                        <th class="usedUnit">使用单位</th>
+                        <th>颜色</th>
+                        <th>燃油</th>
+                        <th>发动机号</th>
+                        <th>VIN</th>
+                        <th>出厂日期</th>
+                        <th>车主</th>
+                        <th>价格(万元)</th>
+                        <th>使用单位</th>
                     </tr>
                     
 					<c:forEach items="${listVehicleInfoManage}" var="a">
 						<tr class="a">
-							<td class="brand">${a.brand}</td>
-							<td class="model">${a.model}</td>
-							<td class="vehicleType">${a.vehicleType}</td>
-							<td class="seat">${a.seat}</td>
+							<td>${a.brand}</td>
+							<td>${a.model}</td>
+							<td>${a.vehicleType}</td>
+							<td>${a.seat}</td>
 							<%-- <td class="productSource">
 								<c:choose>
 									<c:when test="${a.productSource==1}">国产</c:when>
 									<c:when test="${a.productSource==2}">进口</c:when>
 								</c:choose>
 							</td> --%>
-							<td class="color">${a.color}</td>
-							<td class="fuelType">${a.fuelType}</td>
-							<td class="engineType">${a.engineType}</td>
-							<td class="vin">${a.vin}</td>
-							<td class="productDate">${a.productDate}</td>
-							<td class="owner">${a.owner}</td>
-							<td class="price">${a.price}</td>
-							<td class="usedUnit">${a.usedUnit}</td>
+							<td>${a.color}</td>
+							<td>${a.fuelType}</td>
+							<td>${a.engineType}</td>
+							<td>${a.vin}</td>
+							<td>${a.productDate}</td>
+							<td>${a.owner}</td>
+							<td>${a.price}</td>
+							<td>${a.usedUnit}</td>
 						</tr>
 					</c:forEach>
                   </table>
@@ -100,6 +99,6 @@
 		           <tr><td><div id="barcon" name="barcon"></div></td></tr>
 		        </table>
           </div>
-           
+      </div> 
 </body>
 </html>

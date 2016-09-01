@@ -13,15 +13,15 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/fenye.js"></script>
-	<link rel="stylesheet" href="/assets/css/company-query-rooms.css">
-	<style>
+<!-- 	<link rel="stylesheet" href="/assets/css/company-query-rooms.css">
+ -->	<style>
 		tr>th{
 			text-align:center;
 		}
 		
 	</style>
 </head>
-<body onLoad="goPage(1,10);">
+<body>
 	<div class="container" style="width:1100px;">
 		<div class="row">
 					<div class="col-md-12">
@@ -62,20 +62,20 @@
 			
 
 			<br><br>
-			<table  id="idData" class="table table-hover table-striped"  style="width:1100px;text-align: center;">
+			<table  id="idData" class="table table-hover table-striped table-bordered"  style="width:1100px;text-align: center;">
 				<!-- <h4 style="text-align: center;">搜索结果</h4> -->
 				<tr>
-					<th class="houseId">房间编号</th>
-					<th class="companyName">所属单位</th>
-					<th class="buildingName">所属建筑</th>
-					<th class="area">房间面积(平方米)</th>
+					<th>房间编号</th>
+					<th>所属单位</th>
+					<th>所属建筑</th>
+					<th>房间面积(平方米)</th>
 				</tr>
 				<c:forEach items="${listroom}" var="r">
 					<tr >
-						<td class="houseId">${r.houseId}</td>
-						<td class="companyName">${r.companyName}</td>
-						<td class="buildingName">${r.buildingName}</td>
-						<td class="area">${r.area}</td>
+						<td>${r.houseId}</td>
+						<td>${r.companyName}</td>
+						<td>${r.buildingName}</td>
+						<td>${r.area}</td>
 					</tr>
 				</c:forEach>
 			</table>

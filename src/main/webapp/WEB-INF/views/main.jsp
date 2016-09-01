@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page import="java.net.MalformedURLException"%>
@@ -9,22 +8,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>四川移动后勤服务中心管理系统</title>
-<link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
-<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="/assets/css/left.css" rel="stylesheet" type="text/css" />
-<link href="/assets/css/font-awesome.css" rel="stylesheet"
-	type="text/css" />
+	<meta charset="UTF-8">
+	<title>四川移动后勤服务中心管理系统</title>
+	<link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/left.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div>
 		<!--顶层-->
 		<div class="top">
 			<div class="account_info">
-				<a href="#"><span class="user_name">${user.userName}</span> </a> <a
-					href="#"> <span class="account_name">${user.accountName}</span></a>
-				<a href="/logout2" target="_top"><span>退出登录</span></a>
+				<a href="/logout2" target="_top"><img src="/assets/img/logout.png" style="width:25px;height:25px;display:inline-block"></a>
+				<a href="javascript:void(0)"> <span class="account_name">${user.accountName}</span></a>
+				<a href="javascript:void(0)"><span class="user_name">${user.userName}</span> </a> 
 			</div>
 		</div>
 	</div>
@@ -147,6 +145,7 @@
 				</ul></li>
 		</ul>
 	</div>
+<!-- 	天气预报-->	
 	<div class="wea_time">
 		<%!String date;
 			String dayWeather;
@@ -176,7 +175,7 @@
 	</div>
 	<div class="right">
 		<iframe name="/u/main" style="width:100%; min-height: 1000px;"
-			scrolling="no" frameborder="0" border="0">		
+			scrolling="no" frameborder="0" border="0">
 			</iframe>
 	</div>
 

@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +11,9 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
   	<script src="/assets/js/fenye.js"></script>
+ 
 </head>
-<body onLoad="goPage(1,10);">
+<body>
       <div class="container" style="width:1100px;">
         <div class="row">
                 <div class="col-md-12">
@@ -26,7 +25,7 @@
                     </ol>
                 </div>
             <h4 style="text-align: center">用餐申请情况</h4>
-            <table id="idData" class="table table-hover col-md-12  table-striped" >
+            <table id="idData" class="table table-hover table-striped" >
                 <tr>
                     <th>编号</th>
                     <th>申请人</th>
@@ -58,9 +57,6 @@
 				  			<c:when test = "${dinnerProperty.status == 2}">
 				  					一审阶段
 				  			</c:when>
-				  			<%-- <c:when test = "${dinnerProperty.status == 3}">
-				  					一审通过
-				  			</c:when> --%>
 				  			<c:when test = "${dinnerProperty.status == 4}">
 				  					一审拒绝
 				  			</c:when>

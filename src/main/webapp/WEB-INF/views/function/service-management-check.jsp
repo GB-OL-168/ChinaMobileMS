@@ -41,7 +41,7 @@
 							<th>考评表名字</th><th>状态</th><th>建表人员</th><th>回收时间</th><th>操作</th>
 						</tr>
 						<c:forEach items="${investigationTableEntityList}" var="investigationTableEntityList">
-						<tr>
+						<tr >
 							<td>${investigationTableEntityList.investigationName}</td>
 							<td>
 								<c:choose>
@@ -63,12 +63,14 @@
 							<a href="/showInvestigationItem/${investigationTableEntityList.investigationId}"><button class='btn btn-sm'>查看</button></a>
 								&nbsp&nbsp<a href="/sendServiceManagement1/${investigationTableEntityList.investigationId}" "><button class='btn btn-sm' onclick="checkeStatus(${investigationTableEntityList.status})">发放</button></a>
 								&nbsp&nbsp<a href="/recycleServiceManagement/${investigationTableEntityList.investigationId}"><button class='btn btn-sm'onclick="checkRecoveryeStatus(${investigationTableEntityList.status})">回收</button></a>
-								&nbsp&nbsp<a href="/deleteTable/${investigationTableEntityList.investigationId}"><button class='btn btn-sm'>删除</button></a>
+								&nbsp&nbsp<button class='btn btn-sm' onclick="deleteTable(${investigationTableEntityList.investigationId})">删除</button>
 								&nbsp&nbsp<a href="/statistics/${investigationTableEntityList.investigationId}"><button class='btn btn-sm'>统计</button></a>
 							</td>
 						</tr>
 						</c:forEach>
 					</table>
+<%-- 													&nbsp&nbsp<a href="/deleteTable/${investigationTableEntityList.investigationId}"><button class='btn btn-sm' onclick="deleteSuccess()">删除</button></a>
+ --%>					
 				</div>
 			</div>
 			</div>
@@ -87,6 +89,36 @@
 			return false;
 		}
 	}
+	function deleteSuccess(){
+		alert("删除成功!");
+	}
+		
+	 function deleteTable (investigationId){
+		var isDelete  = confirm("是否删除?");
+		if(isDelete){
+			
+		$.ajax({
+			type: "POST",
+			url:"/service/delete",
+			data:{
+				investigationId:investigationId
+			},
+			dataType:"json",
+			success:function(flag){
+				if(flag==true){
+					alert("删除成功");
+					window.location.href ="/service/management-check";
+				}
+				else
+					alert("删除失败");
+			},
+			error:function(e){
+				alert("连接服务器失败");
+			}
+			
+		});
+		}
+	}; 
 	</script>
 </body>
 </html>

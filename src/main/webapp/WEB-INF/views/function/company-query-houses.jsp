@@ -19,7 +19,7 @@
 		}
 	</style>
 </head>
-<body onLoad="goPage(1,10);" >
+<body>
 	<div class="container" style="width:1100px;">
 		<div class="row">
 			<div class="col-md-12 main">
@@ -62,24 +62,24 @@
 					</div>
 				</form>
 				<br><br>
-				<table id="idData" class="table table-responsive table-hover  table-striped" style="text-align:center;">
+				<table id="idData" class="table table-responsive table-hover  table-striped table-bordered" style="text-align:center;">
 				 	<!-- <h4 style="text-align:center;">搜索结果 </h4>  -->
 					<tr>
-						<th style="width:100px;">房屋编号</th>
-						<th style="width:250px;">建筑名称</th>
-						<th style="width:250px;">使用单位名称</th>
-						<th style="width:200px;">坐落地点</th>
-						<th style="width:150px;">建筑面积（m3）</th>
-						<th style="width:150px;">查看具体信息</th>
+						<th>房屋编号</th>
+						<th>建筑名称</th>
+						<th>使用单位名称</th>
+						<th>坐落地点</th>
+						<th>建筑面积（m3）</th>
+						<th>查看具体信息</th>
 					</tr>
 					<c:forEach items="${listash}" var="a">
 						<tr>
-							<td style="width:100px;">${a.assetInfoId}</td>
-							<td style="width:250px;">${a.buildingName}</td>
-							<td style="width:250px;">${a.companyName}</td>
-							<td style="width:200px;">${a.location}</td>
-							<td style="width:150px;">${a.buildingArea}</td>
-							<td style="width:150px;"><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
+							<td>${a.assetInfoId}</td>
+							<td>${a.buildingName}</td>
+							<td>${a.companyName}</td>
+							<td>${a.location}</td>
+							<td>${a.buildingArea}</td>
+							<td><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
 						</tr>
 					</c:forEach>
 					
