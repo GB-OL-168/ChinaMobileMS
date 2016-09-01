@@ -19,7 +19,9 @@
 </head>
 <body>
 	<div>
-		<!--顶层-->
+		<!--顶层 
+			公司logo 登录人信息 登出按钮
+		-->
 		<div class="top">
 			<div class="account_info">
 				<a href="/logout2" target="_top"><img
@@ -32,7 +34,9 @@
 		</div>
 	</div>
 
-	<!--左边-->
+	<!--左边
+		功能下拉框
+	-->
 	<div class="left">
 		<ul class="menu">
 			<c:if
@@ -99,10 +103,10 @@
 							</c:if>
 						</ul></li>
 					<li><a href="/assets/img/404.png" target="/u/main">省公司维修维护信息</a></li>
-					<li><a href="/function/" target="/u/main">省公司公务电话信息</a></li>
-					<li><a href="/function/" target="/u/main">服务公司资产信息</a></li>
-					<li><a href="/function/" target="/u/main">省公司交通信息</a></li>
-					<li><a href="/function/" target="/u/main">省公司水电能耗信息</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">省公司公务电话信息</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">服务公司资产信息</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">省公司交通信息</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">省公司水电能耗信息</a></li>
 				</ul></li>
 			<li><a href="javascript:void(0)"><i
 					class="icon-briefcase icon-2x"></i>&nbsp&nbsp<strong>服务功能应用</strong></a>
@@ -132,14 +136,14 @@
 								<li><a href="/property/management" target="/u/main">管理方应用</a></li>
 							</c:if>
 						</ul></li>
-					<li><a href="/function/" target="/u/main">办公设备租贷</a></li>
-					<li><a href="/function/" target="/u/main">维修维护服务申请</a></li>
-					<li><a href="/function/" target="/u/main">配餐维护服务申请</a></li>
-					<li><a href="/function/" target="/u/main">省公司公务通信服务</a></li>
-					<li><a href="/function/" target="/u/main">办公家具请购</a></li>
-					<li><a href="/function/" target="/u/main">面点预订</a></li>
-					<li><a href="/function/" target="/u/main">省公司房屋分配</a></li>
-					<li><a href="/function/" target="/u/main">海报张贴服务</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">办公设备租贷</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">维修维护服务申请</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">配餐维护服务申请</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">省公司公务通信服务</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">办公家具请购</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">面点预订</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">省公司房屋分配</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">海报张贴服务</a></li>
 				</ul></li>
 			<li><a href="#"><i class="icon-wrench icon-2x"></i>&nbsp&nbsp<strong>后勤服务考评</strong></a>
 				<ul>
@@ -149,7 +153,7 @@
 					<c:if test="${evaluationMangaementProperty==1}">
 						<li><a href="/service/management-check" target="/u/main">物业服务考评管理</a></li>
 					</c:if>
-					<li><a href="/function/" target="/u/main">用餐张贴满意度调查</a></li>
+					<li><a href="/assets/img/404.png" target="/u/main">用餐张贴满意度调查</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -181,6 +185,10 @@
 		%>
 		<%=date%>&nbsp&nbsp&nbsp&nbsp日间天气：<%=dayWeather%>&nbsp&nbsp&nbsp&nbsp夜间天气：<%=nightWeather%>&nbsp&nbsp&nbsp&nbsp最高温：<%=high%>℃&nbsp&nbsp&nbsp&nbsp最低温：<%=low%>℃&nbsp&nbsp&nbsp&nbsp出行建议：<%=suggestion%>&nbsp&nbsp&nbsp&nbsp今日通知：<%=session.getAttribute("info")%>
 	</div>
+	
+	<!--
+		右边主功能显示区域
+	  -->
 	<div class="right">
 		<iframe name="/u/main" style="width: 100%; min-height: 1000px;"
 			scrolling="no" frameborder="0" border="0"> </iframe>
