@@ -1,19 +1,15 @@
 package com.GB.ChinaMobileMS.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.GB.ChinaMobileMS.entity.AssetFurniture;
 import com.GB.ChinaMobileMS.entity.AssetHousing;
 import com.GB.ChinaMobileMS.entity.CompanyEntity;
@@ -25,7 +21,9 @@ import com.GB.ChinaMobileMS.services.interfaces.CompanyService;
 
 @Controller
 public class Company {
-
+	
+	private static final int use=1;
+	private static final int notuse=0;
 	@Autowired
 	CompanyAssetinformationService companyassetinformationservice;
 	@Autowired
@@ -38,23 +36,52 @@ public class Company {
 	AssetLoanDeviceService assetLoanDeviceService;
 	
 	@RequestMapping(value = "/company/{id}", method = RequestMethod.GET)
-	public ModelAndView Company(@PathVariable("id") String id,HttpServletRequest request) {
+	public ModelAndView CompanyInfo(@PathVariable("id") String id,HttpServletRequest request) {
+		List<AssetFurniture> listFuniture=null;
+		//上市公司--使用信息
 		if (id.equals("info")){		
 			String condition = request.getParameter("condition"); //获得查询条件
+			System.out.println("condition"+condition);
 			String queryInformation = request.getParameter("queryInformation");//获得搜索内容			
-			//当搜索内容非空时执行
+			System.out.println("queryInformation"+queryInformation);
+			//当搜索内容非空时执行 
 			if(condition!=null ){
+				//条件为在用
 				if(condition.equals("use")){
-					List<AssetFurniture> listFuniture = companyassetinformationservice.querylistFuniturewithcon(1);
+					//输入条件非空
+					if(queryInformation != null && !"".equals(queryInformation)){
+						try{
+							System.out.println("查询信息为 在用"+queryInformation);
+							listFuniture = companyassetinformationservice.querylistFuniturewithTwoCon(use, queryInformation);
+						}catch(Exception e){
+							System.out.println("查询家具出错");
+						}
+					}
+					else{
+						listFuniture = companyassetinformationservice.querylistFuniturewithcon(use);
+					}
 					return new ModelAndView("/function/company-info-using").addObject("listFuniture",listFuniture);
 				}
+				//状态为闲置
 				else if(condition.equals("notuse")){
-					List<AssetFurniture> listFuniture = companyassetinformationservice.querylistFuniturewithcon(0);
+					//输入条件非空
+					if(queryInformation != null && !"".equals(queryInformation)){
+						try{
+							System.out.println("查询信息为 闲置"+queryInformation);
+							listFuniture = companyassetinformationservice.querylistFuniturewithTwoCon(notuse, queryInformation);
+						}catch(Exception e){
+							System.out.println("查询家具出错");
+						}
+					}
+					else{
+						listFuniture = companyassetinformationservice.querylistFuniturewithcon(notuse);
+					}
 					return new ModelAndView("/function/company-info-using").addObject("listFuniture",listFuniture);
 				}
 				else
 					return new ModelAndView("/function/company-info-using");
 			}
+			
 			//当搜索内容为空时，显示全部家具
 			else{
 				return GetFunitureList();
@@ -83,39 +110,52 @@ public class Company {
 		assetFurnitureService.deleteFurnitureInfo(id);
 		return GetFunitureList();
 	}
+	
+	
 	/** 
 	 * @param companyEntity
 	 * @信息统计-搜索公司
 	 */
 	@RequestMapping(value="/statisticsCompany" , method=RequestMethod.POST)
 	public ModelAndView statisticsCompany(CompanyEntity companyEntity,HttpServletRequest request){
-		String companyName = request.getParameter("company");//获得所搜公司名称		
-		List<CompanyEntity> listCompany;
 		
+		String companyName = request.getParameter("company");//获得所搜公司名称		
+		List<CompanyEntity> listCompany = null;
+		List<AssetHousing> listAssetHousing = null;
+		Map<String, List<CompanyEntity>> map = new HashMap<String, List<CompanyEntity>>();
 		//当搜索内容非空时执行
-		if(!companyName.equals("")){
+			try{
 			listCompany = companyService.getCompanyByName(companyName);
-			Map<String, List<CompanyEntity>> map = new HashMap<String, List<CompanyEntity>>();
 			map.put("listCompany", listCompany);
+			}
+			catch(Exception e){
+				System.out.println("查询公司列表失败");
+			}
 			//统计建筑数
 			for(int i=0;i<listCompany.size();i++){
-			List<AssetHousing> listAssetHousing = assetHousingService.getAssetHousingByCompany(listCompany.get(i).getCompanyId());
-			listCompany.get(i).setBuildingCount(listAssetHousing.size());
+			
+				try{
+				listAssetHousing = assetHousingService.getAssetHousingByCompany(listCompany.get(i).getCompanyId());
+				listCompany.get(i).setBuildingCount(listAssetHousing.size());
+				}
+				catch(Exception e){
+					System.out.println("查询房屋列表失败");
+				}
 			}
 			return new ModelAndView("/function/company-count-list", map);
-		}
+		
+		
 		//当搜索内容为空时，显示全部公司
-		else{
+		/*else{
 			listCompany = companyService.listcompany();
-			Map<String, List<CompanyEntity>> map = new HashMap<String, List<CompanyEntity>>();
 			map.put("listCompany", listCompany);
 			//统计建筑数
 			for(int i=0;i<listCompany.size();i++){
-			List<AssetHousing> listAssetHousing = assetHousingService.getAssetHousingByCompany(listCompany.get(i).getCompanyId());
+			listAssetHousing = assetHousingService.getAssetHousingByCompany(listCompany.get(i).getCompanyId());
 			listCompany.get(i).setBuildingCount(listAssetHousing.size());
 			}
 			return new ModelAndView("/function/company-count-list", map);
-		}		
+		}	*/	
 	}
 	/**
 	 * @param request
@@ -123,8 +163,9 @@ public class Company {
 	 */
 	@RequestMapping(value = "/companyCount1", method = RequestMethod.GET)
 	public ModelAndView companyCount1(HttpServletRequest request) {
+		
 		int companyId = Integer.parseInt(request.getParameter("companyId"));
-		int housesSum = 0;
+		int housesSum = 0;//房屋总数
 		int furnitureCount = 0;//家具数
 		int furnitureSum = 0;//家具总数
 		String companyName = request.getParameter("companyName");
@@ -159,6 +200,7 @@ public class Company {
 				.addObject("loanDeviceSum", loanDeviceSum)
 				.addObject("furnitureSum", furnitureSum);
 	}
+	
 	/**
 	 * @param request
 	 * @某公司资产统计—某建筑家具统计
@@ -186,9 +228,10 @@ public class Company {
 			for(int j=0;j<listAssetFurniture.size();j++){
 				furnitureCount += listAssetFurniture.get(j).getCount();
 			}
+			//每栋建筑的办公家具数量
 			listAssetHousing.get(i).setFurniture(furnitureCount);
 		}
-			
+		//公司下属办公家具数量总和	
 		for(int i=0;i<listAssetHousing.size();i++){
 			furnitureSum += listAssetHousing.get(i).getFurniture();
 		}

@@ -30,7 +30,8 @@
 					<div class="col-md-4">
 						<form action="/statisticsCompany" method="post">
 	                        <div class="input-group">
-	                            <input type="text" name="company" class="form-control input-sm" placeholder="请输入所搜公司名称">
+	                            <input type="text" name="company" class="form-control input-sm" maxlength="10"
+	                            placeholder="请输入所搜公司名称">
 									<span class="input-group-btn">
 										<button type="submit" class="btn btn-default btn-sm">搜索</button>
 								  	</span>

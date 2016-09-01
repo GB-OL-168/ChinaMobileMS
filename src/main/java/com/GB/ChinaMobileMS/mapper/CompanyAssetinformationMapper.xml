@@ -11,6 +11,12 @@
 		where used_situation = #{used_situation}
 	</select>
   
+  <select id="querylistFuniturewithTwoCon" resultType="com.GB.ChinaMobileMS.entity.AssetFurniture">
+		select *
+		from office_furniture_info
+		where used_situation = #{0} and furniture_type like "%"#{1}"%"
+	</select>
+  
   <select id="querylistFuniture"  resultType="com.GB.ChinaMobileMS.entity.AssetFurniture">
 		select *
 		from office_furniture_info

@@ -65,6 +65,7 @@
 		update user
 		set
 		account_name = #{accountName},
+		sex = #{sex},
 		password = #{password},
 		identification =
 		#{identification},
@@ -76,7 +77,23 @@
 		salt = #{salt}
 
 		where user_name = #{userName}
+	</update>
 
+
+	<update id="updateUserInfoNPsw">
+		update user
+		set
+		account_name = #{accountName},
+		sex = #{sex},
+		identification =
+		#{identification},
+		birthday = #{birthday},
+		email = #{email},
+		phone =
+		#{phone},
+		remark = #{remark}
+
+		where user_name = #{userName}
 	</update>
 
 	<delete id="deleteUser">

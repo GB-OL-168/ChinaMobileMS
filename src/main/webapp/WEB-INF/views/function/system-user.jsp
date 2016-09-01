@@ -94,21 +94,21 @@
 			onsubmit="return check();">
 			<div class="goodtxt">
 				<table class="table table-bordered">
-<!-- 
+
 					<td><input name="userName" class="userName form-control"
-						style='display: none' /></td> -->
+						style='display: none' /></td>
 
 					<tr>
 						<td>姓名</td>
 						<td><input name="accountName" class="accountName  form-control"
-							maxlength="20" readonly="true"/></td>
+							maxlength="20" /></td>
 					</tr>
 
 					<tr>
 						<td>密码</td>
 						<td><input id='password' name="password" type="password" 
 							class="password  form-control"  maxlength="20"
-							placeholder="请输入新密码" required/></td>
+							placeholder="请输入新密码,如无需修改,请留空" /></td>
 					</tr>
 
 					<tr>

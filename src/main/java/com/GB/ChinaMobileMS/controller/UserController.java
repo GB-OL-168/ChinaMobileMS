@@ -50,7 +50,7 @@ public class UserController {
 	public ModelAndView login(User user, HttpSession session) {
 
 		System.out.println("进入了 Login controller");
-		
+
 		String inputpassword = user.getPassword();
 		// ModeAndView Spring中的一个方便跳转类 spring 进行解析
 
@@ -66,7 +66,7 @@ public class UserController {
 		} else if (!checkPsw(inputpassword, user.getPassword(), user.getSalt())) {
 			// 密码错误
 			return new ModelAndView("forward:/").addObject("id", "psw_incorrect");
-		} else if (user.getRoleId() == 0 ) {
+		} else if (user.getRoleId() == 0) {
 			// 该用户尚未分配角色
 			return new ModelAndView("forward:/").addObject("id", "role_null");
 		}
@@ -77,36 +77,35 @@ public class UserController {
 		session.setAttribute("user", user);
 		session.setAttribute("info", info.getContent());
 
-		//将用户权限读入session
+		// 将用户权限读入session
 		Map<String, Object> map = new HashMap<>();
-		
-		try{
-		Role role = roleService.findRoleById(user.getRoleId());
-		System.out.println("role=" + role);
-		
-		map.put("r", role);
-		session.setAttribute("sysAccountManage", role.getSysAccountManage());
-		session.setAttribute("sysPrivilegeSetting", role.getSysPrivilegeSetting());
-		session.setAttribute("sysParameterSetting", role.getSysParameterSetting());
-		session.setAttribute("sysDataRestore", role.getSysDataRestore());
-		session.setAttribute("serverApplicationDinner", role.getServerApplicationDinner());
-		session.setAttribute("serverApplicationProperty", role.getServerApplicationProperty());
-		session.setAttribute("auditingApplicationDinner", role.getAuditingApplicationDinner());
-		session.setAttribute("auditingApplicationProperty", role.getAuditingApplicationProperty());
-		session.setAttribute("managementApplicationDinner", role.getManagementApplicationDinner());
-		session.setAttribute("managementApplicationProperty", role.getManagementApplicationProperty());
-		session.setAttribute("queryVehicle", role.getQueryVehicle());
-		session.setAttribute("queryAsset", role.getQueryAsset());
-		session.setAttribute("registerVehicle", role.getRegisterVehicle());
-		session.setAttribute("registerAsset", role.getRegisterAsset());
-		session.setAttribute("useInfoAsset", role.getUseInfoAsset());
-		session.setAttribute("statisticsAsset", role.getStatisticsAsset());
-		session.setAttribute("evaluationFillProperty", role.getEvaluationFillProperty());
-		session.setAttribute("evaluationMangaementProperty", role.getEvaluationMangaementProperty());
 
-		return new ModelAndView("redirect:/u/main", map);
-		}
-		catch(DataAccessException e){
+		try {
+			Role role = roleService.findRoleById(user.getRoleId());
+			System.out.println("role=" + role);
+
+			map.put("r", role);
+			session.setAttribute("sysAccountManage", role.getSysAccountManage());
+			session.setAttribute("sysPrivilegeSetting", role.getSysPrivilegeSetting());
+			session.setAttribute("sysParameterSetting", role.getSysParameterSetting());
+			session.setAttribute("sysDataRestore", role.getSysDataRestore());
+			session.setAttribute("serverApplicationDinner", role.getServerApplicationDinner());
+			session.setAttribute("serverApplicationProperty", role.getServerApplicationProperty());
+			session.setAttribute("auditingApplicationDinner", role.getAuditingApplicationDinner());
+			session.setAttribute("auditingApplicationProperty", role.getAuditingApplicationProperty());
+			session.setAttribute("managementApplicationDinner", role.getManagementApplicationDinner());
+			session.setAttribute("managementApplicationProperty", role.getManagementApplicationProperty());
+			session.setAttribute("queryVehicle", role.getQueryVehicle());
+			session.setAttribute("queryAsset", role.getQueryAsset());
+			session.setAttribute("registerVehicle", role.getRegisterVehicle());
+			session.setAttribute("registerAsset", role.getRegisterAsset());
+			session.setAttribute("useInfoAsset", role.getUseInfoAsset());
+			session.setAttribute("statisticsAsset", role.getStatisticsAsset());
+			session.setAttribute("evaluationFillProperty", role.getEvaluationFillProperty());
+			session.setAttribute("evaluationMangaementProperty", role.getEvaluationMangaementProperty());
+
+			return new ModelAndView("redirect:/u/main", map);
+		} catch (DataAccessException e) {
 			System.out.println("用户权限读取错误");
 		}
 		return new ModelAndView("redirect:/u/main");
@@ -153,33 +152,33 @@ public class UserController {
 		return GetUserList().addObject("infomation", "删除成功");
 	}
 
-	//用户密码加密函数
-	private User changePSW(User user){
-			//定义一个 随机数 范围为5-25
-			Random ne = new Random();
-			int random = ne.nextInt(20) + 5;
-			//定义盐
-			String salt = Encode.getRandomString(random);
-			user.setSalt(salt);
-			//前端传入用户加密后密码
-			StringBuffer firstPsw = new StringBuffer(user.getPassword());
-			//加点盐
-			firstPsw.append(salt);
-			try {
-				//密码二次加密
-				String secondPSW = Encode.md5Encode(firstPsw.toString());
-				user.setPassword(secondPSW);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return user;
+	// 用户密码加密函数
+	private User changePSW(User user) {
+		// 定义一个 随机数 范围为5-25
+		Random ne = new Random();
+		int random = ne.nextInt(20) + 5;
+		// 定义盐
+		String salt = Encode.getRandomString(random);
+		user.setSalt(salt);
+		// 前端传入用户加密后密码
+		StringBuffer firstPsw = new StringBuffer(user.getPassword());
+		// 加点盐
+		firstPsw.append(salt);
+		try {
+			// 密码二次加密
+			String secondPSW = Encode.md5Encode(firstPsw.toString());
+			user.setPassword(secondPSW);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
-	
+
 	// 新增一个用户
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public ModelAndView addUser(User user) {
-		
-		try{
+
+		try {
 			// 调用service 插入数据库
 			user = changePSW(user);
 			userService.addUser(user);
@@ -216,16 +215,27 @@ public class UserController {
 	// 修改用户信息
 	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
 	public ModelAndView updateUserInfo(User user) {
-		
-		try {
-			user = changePSW(user);
-			userService.updateUserInfo(user);
-			System.out.println(user);
-			System.out.println("用户资料更新成功");
-		}catch (DuplicateKeyException e) {
-			System.out.println("用户密码更新错误");
+		if ("".equals(user.getPassword())) {
+			System.out.println("密码为空");
+			try {
+				userService.updateUserInfoNPsw(user);
+			} catch (DuplicateKeyException e) {
+				System.out.println("用户密码更新错误");
+				return GetUserList().addObject("infomation", "修改失败");
+			}
 		}
-		
+
+		else
+			try {
+				user = changePSW(user);
+				userService.updateUserInfo(user);
+				System.out.println(user);
+				System.out.println("用户资料更新成功");
+			} catch (DuplicateKeyException e) {
+				System.out.println("用户密码更新错误");
+				return GetUserList().addObject("infomation", "修改失败");
+			}
+
 		return GetUserList().addObject("infomation", "修改成功");
 	}
 
@@ -236,7 +246,7 @@ public class UserController {
 		map.put("listUser", listUser);// userlist是个Arraylist之类的
 		return new ModelAndView("/function/system-user", map);
 	}
-	
+
 	// 登出
 	@RequestMapping("/logout2")
 	public ModelAndView logout(HttpSession session) {

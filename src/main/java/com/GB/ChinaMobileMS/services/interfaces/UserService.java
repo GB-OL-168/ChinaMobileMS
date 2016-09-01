@@ -17,6 +17,8 @@ public interface UserService {
 	
 	int updateUserInfo(User user);
 	
+	int updateUserInfoNPsw(User user);
+	
 	int updateIsExist(String userName);
 	
 	String updateUserRole(User user);
