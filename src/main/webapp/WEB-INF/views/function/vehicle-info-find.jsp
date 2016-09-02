@@ -155,9 +155,9 @@
 
 				</table>
 			</div>
-			<button type="submit" class="btn btn-info" onclick="javascript:if(confirm('确定要修改此信息吗？'))
+			<button type="submit" class="btn btn-sm one" onclick="javascript:if(confirm('确定要修改此信息吗？'))
 							{alert('修改成功！');return true;}return false;">修改</button>
-			<button class="btn btn-info">返回</button>
+			<button class="btn btn-sm one">返回</button>
 		</form>
 	</div>
 
@@ -189,11 +189,10 @@
 					});
 			$('#closebt').click(function() {
 				$('#code').hide();
-				$('#goodcover').hide();
 			});
-			$('#goodcover').click(function() {
+			$(".one").click(function(e){
 				$('#code').hide();
-				$('#goodcover').hide();
+				e.preventDefault();
 			});
 			jQuery.fn.center = function(loaded) {
 				var obj = this;
