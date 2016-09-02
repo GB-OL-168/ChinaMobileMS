@@ -15,5 +15,9 @@ public interface DriverInfoMapper {
 	public List<DriverInfoEntity> queryDriverInfoByServiceUnit(String queryInformation);
 	
 	public List<DriverInfoEntity> listDriverInfo();
+	
+	boolean deleteVehiclePerson(int driverId);
+	
+	int updateVehiclePerson(DriverInfoEntity driverInfoEntity);
 
 }

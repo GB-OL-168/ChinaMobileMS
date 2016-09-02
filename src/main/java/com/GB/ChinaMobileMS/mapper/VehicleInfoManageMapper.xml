@@ -44,4 +44,17 @@
 		select * from vehicle_info_manage
 	</select>
 	
+	<delete id="deleteVehicleInfoManage">
+		delete from vehicle_info_manage 
+		where vehicle_info_id = #{vehicleInfoId}
+	</delete>
+	
+	<update id="updateVehicleInfo" parameterType="VehicleInfoManageEntity">
+		update vehicle_info_manage
+		set
+			owner = #{owner},
+			used_unit = #{usedUnit}
+		where vehicle_info_id = #{vehicleInfoId}
+	</update>
+	
 </mapper>

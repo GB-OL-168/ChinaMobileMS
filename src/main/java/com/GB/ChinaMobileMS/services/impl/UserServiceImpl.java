@@ -103,5 +103,11 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.updateIsExist(userName);
 	}
+
+	@Override
+	public int updateUserInfoNPsw(User user) {
+		// TODO Auto-generated method stub
+		return userMapper.updateUserInfoNPsw(user);
+	}
 	
 }

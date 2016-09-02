@@ -6,18 +6,18 @@
 
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>信息管理-上市公司资产信息-使用情况</title>
-	<link rel="stylesheet" href="/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/assets/css/system.css">
-	<script src="/assets/js/jquery-1.9.1.js"></script>
-	<script src="/assets/js/bootstrap.js"></script>
-	<link rel="stylesheet" href="/assets/css/system-make.css">
+<meta charset="UTF-8">
+<title>信息管理-上市公司资产信息-使用情况</title>
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/system.css">
+<script src="/assets/js/jquery-1.9.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<link rel="stylesheet" href="/assets/css/system-make.css">
 
 </head>
 <body>
 
-	<div class="container" style="width:1100px;">
+	<div class="container" style="width: 1100px;">
 		<div class="row">
 			<div class="col-md-12 main">
 				<div class="row">
@@ -26,14 +26,14 @@
 
 							<li><a href="#">信息管理</a></li>
 							<li><a href="#">上市公司资产信息</a></li>
-							<li><a href="#">使用信息</a> </li>
+							<li><a href="#">使用信息</a></li>
 							<li class="active"><a href="javascript:void(0)">使用信息查询 </a></li>
 
 						</ol>
 					</div>
 				</div>
 				<hr>
-				<form action="/company/info"  style="width:900px;">
+				<form action="/company/info" style="width: 900px;">
 					<div class="col-md-offset-3 col-md-2">
 						<input type="radio" name="condition" value="use">在用 <input
 							type="radio" name="condition" value="notuse">闲置
@@ -41,24 +41,23 @@
 					<div class="col-md-4">
 						<div class="input-group">
 							<input type="text" name="queryInformation"
-								class="form-control input-sm" placeholder="请输入信息"> 
-							<span class="input-group-btn">
+								class="form-control input-sm" maxlength="10"
+								placeholder="请输入家具类型"> <span class="input-group-btn">
 								<button type="submit" class="btn  btn-sm">搜索</button>
 							</span>
 						</div>
 					</div>
 				</form>
 			</div>
-		
+
 			<div class="col-md-12">
-				<table class="table table-bordered table-striped"  style="width:1050px;">
+				<table class="table table-bordered table-striped"
+					style="width: 1050px;">
 					<h4 style="text-align: center;">查询结果</h4>
 					<tr>
 						<th>家具类型</th>
 						<th>品牌型号</th>
 						<th>规格</th>
-						<!-- 	<th>所在公司</th>
-						<th>所在部门</th> -->
 						<th>数量</th>
 						<th>备注</th>
 						<th>操作</th>
@@ -71,36 +70,32 @@
 							<td class="brand">${f.brand}</td>
 							<td class="specification">${f.specification}</td>
 							<td class="count">${f.count}</td>
-
 							<td class="remark">${f.remark}</td>
-
-
-							
 							<td class="usedSituation" style="display: none">${f.usedSituation}</td>
-							<td><a class="modify" href="javascript:void(0)">修改</a>|
-							<a href="/deleteFurnitureInfo/${f.officeFurnitureInfoId}">删除</a></td>
+							<td><a class="modify" href="javascript:void(0)">修改</a>| <a
+								href="/deleteFurnitureInfo/${f.officeFurnitureInfoId}">删除</a></td>
 						</tr>
 					</c:forEach>
-
 				</table>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 	新添加的地方-->
 	<div id="code">
 		<div class="title">
-		    <span>修改信息</span>
-		    <div class="close">
-				<a href="javascript:void(0)" id="closebt"><img src="/assets/img/close.gif"></a>
+			<span>修改信息</span>
+			<div class="close">
+				<a href="javascript:void(0)" id="closebt"><img
+					src="/assets/img/close.gif"></a>
 			</div>
-
 		</div>
 		<form action="/updateFurnitureInfo" method="post">
 			<div class="goodtxt">
 
 				<table class="table table-bordered table-hover">
-					<input type="hidden" name="officeFurnitureInfoId" class="officeFurnitureInfoId" />
+					<input type="hidden" name="officeFurnitureInfoId"
+						class="officeFurnitureInfoId" />
 					<tr>
 						<td>家具类型</td>
 						<td><input name="furnitureType" class="furnitureType" /></td>
@@ -115,27 +110,29 @@
 					</tr>
 					<tr>
 						<td>数量</td>
-						<td><input type="number" name="count" class="count" /></td>
+						<!-- <td><input type="number" name="count" class="count" /></td> -->
+					<td><input class="count" type=text name="count"
+						onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
+						></td>
 					</tr>
+
 					<tr>
 						<td>备注</td>
 						<td><input name="remark" class="remark" /></td>
 					</tr>
-
 					<tr>
 						<td>使用情况</td>
 						<td>
 							<div class="form-group">
-								<input name="usedSituation" type="radio" value="1" />在用
-								<input name="usedSituation" type="radio" value="0" />闲置
-							</div> 
+								<input name="usedSituation" type="radio" value="1" />在用 <input
+									name="usedSituation" type="radio" value="0" />闲置
+							</div>
 						</td>
 					</tr>
-
 				</table>
 			</div>
 			<button type="submit" class="btn btn-info">修改</button>
-			<button class="btn btn-info">返回</button>
+			<button id="comeback" class="btn btn-info">返回</button>
 		</form>
 	</div>
 
@@ -151,7 +148,8 @@
 						var specification = $(this).parent().siblings(
 								".specification").text();
 						var count = $(this).parent().siblings(".count").text();
-						var remark = $(this).parent().siblings(".remark").text();
+						var remark = $(this).parent().siblings(".remark")
+								.text();
 						var usedSituation = $(this).parent().siblings(
 								".usedSituation").text();
 
@@ -170,7 +168,6 @@
 						$("input.count").val(count);
 						$("input.remark").val(remark);
 						$("input.usedSituation").val(usedSituation);
-
 						$('#code').center();
 						$('#goodcover').show();
 						$('#code').fadeIn();
@@ -183,6 +180,11 @@
 				$('#code').hide();
 				$('#goodcover').hide();
 			});
+			$("#comeback").click(function(e) {
+				$("#code").hide();
+				e.preventDefault();
+			});
+
 			jQuery.fn.center = function(loaded) {
 				var obj = this;
 

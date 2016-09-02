@@ -20,6 +20,8 @@ public interface UserMapper {
 	
 	int updateUserInfo(User user);
 	
+	int updateUserInfoNPsw(User user);
+	
 	int updateIsExist(String userName);
 	
 	List<User> listUser();

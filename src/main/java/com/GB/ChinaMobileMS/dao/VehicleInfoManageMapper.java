@@ -17,4 +17,8 @@ public interface VehicleInfoManageMapper {
 	public List<VehicleInfoManageEntity> queryVehicleInfoByUsedUnit(String queryInformation);
 	
 	public List<VehicleInfoManageEntity> listVehicleInfoManage();
+	
+	boolean deleteVehicleInfoManage(int vehicleInfoId);
+	
+	int updateVehicleInfo(VehicleInfoManageEntity vehicleInfoManageEntity);
 }

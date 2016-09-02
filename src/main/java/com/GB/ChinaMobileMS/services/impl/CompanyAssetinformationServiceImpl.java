@@ -26,4 +26,10 @@ public class CompanyAssetinformationServiceImpl implements CompanyAssetinformati
 		return companyAssetinformationmapper.querylistFuniture();
 	}
 
+	@Override
+	public List<AssetFurniture> querylistFuniturewithTwoCon(int used_situation, String queryInformation) {
+		// TODO Auto-generated method stub
+		return companyAssetinformationmapper.querylistFuniturewithTwoCon(used_situation, queryInformation);
+	}
+
 }
