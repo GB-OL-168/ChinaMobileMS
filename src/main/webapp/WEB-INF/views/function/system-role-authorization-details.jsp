@@ -101,8 +101,8 @@
 						<div class="col-sm-offset-4 col-sm-8">
 							<button type="submit" class="btn btn-default">修改</button>
 							<button type="reset" class="btn btn-default">重置</button>
-							<button type="submit" class="btn btn-default"
-								onclick="javascript:history.back(-1);">返回</button>
+							<a href="/system/role-authorization">
+							<button type="button" class="btn btn-default">返回</button></a>
 						</div>
 					</div>
 				</form>
