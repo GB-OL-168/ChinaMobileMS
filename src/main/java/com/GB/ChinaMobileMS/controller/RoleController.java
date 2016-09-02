@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.GB.ChinaMobileMS.dao.RoleMapper;
@@ -57,22 +58,38 @@ public class RoleController {
 		return GetRoleList(-3);
 	}
 
+//	// 删除权限角色
+//	@RequestMapping(value = "/delRole/{roleId}", method = RequestMethod.GET)
+//	public ModelAndView delRole(HttpSession session,
+//			@PathVariable("roleId") int roleId) {
+//		System.out.println("delRole");
+//		System.out.println("Role_id:" + roleId);
+//		int flag = roleService.deleteRoleByName(roleId);
+//		if (flag == 1) {
+//			System.out.println("can't delete this Role");
+//			return GetRoleList(flag);
+//		} else {
+//			return GetRoleList(-1);
+//		}
+//
+//	}
+
 	// 删除权限角色
-	@RequestMapping(value = "/delRole/{roleId}", method = RequestMethod.GET)
-	public ModelAndView delRole(HttpSession session,
-			@PathVariable("roleId") int roleId) {
+	@RequestMapping(value = "/delRole/tryDelete", method = RequestMethod.GET)
+	public @ResponseBody String delRole(HttpSession session,
+			 int roleId) {
 		System.out.println("delRole");
 		System.out.println("Role_id:" + roleId);
 		int flag = roleService.deleteRoleByName(roleId);
 		if (flag == 1) {
 			System.out.println("can't delete this Role");
-			return GetRoleList(flag);
+			return "{\"key\":\"false\"}";
 		} else {
-			return GetRoleList(-1);
+			return "{\"key\":\"true\"}";
 		}
 
 	}
-
+	
 	// 更新用户的权限角色后跳转
 	public ModelAndView GetUserList2(int flag) {
 		List<User> listUser = userService.listUser();

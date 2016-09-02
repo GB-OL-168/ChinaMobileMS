@@ -41,7 +41,7 @@
                </c:forEach>
            </div>
         </table>
-        <a href="/service/management-check"><button class="btn btn-info" style="margin: 0 auto">返回</button></a>
+        <a href="/service/management-check"><button class="btn btn-sm" style="margin: 0 auto">返回</button></a>
     </div>
 </body>
 </html>

@@ -41,7 +41,8 @@
 							<td class="userName">${a.userName}</td>
 							<td class="roleName">${a.roleName}</td>
 							<td class="modify"><a class="assignment_modify"
-								href="javascript:void(0)">修改角色</a></td>
+								href="javascript:void(0)">
+								<button class="btn btn-sm">修改角色</button></a></td>
 						</tr>
 					</c:forEach>
 					

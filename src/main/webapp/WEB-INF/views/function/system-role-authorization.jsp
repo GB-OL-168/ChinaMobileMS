@@ -41,8 +41,10 @@
 							<td>${ status.index + 1}</td>
 							<td>${a.roleName}</td>
 							<td>${a.description}</td>
-							<td><a href="/authorization/details/${a.roleName}">查看</a></td>
-							<td><a href="/delRole/${a.roleId}"">删除角色</a></td>
+							<td><a href="/authorization/details/${a.roleName}">
+							<button class="btn btn-sm">查看</button></a></td>
+							<td><!-- <a href="/delRole/${a.roleId}"> </a>-->
+							<button onclick="deleted(${a.roleId})" class="btn btn-sm">删除角色</button></td>
 						</tr>
 					</c:forEach>
 					<p id="flag" style="display:none;">${flag}</p>

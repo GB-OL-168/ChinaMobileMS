@@ -52,8 +52,8 @@
 
 							<td class="userName">${a.userName}</td>
 							<td class="accountName">${a.accountName}</td>
-							<td><a class="modify" href="javascript:void(0)">修改资料</a> | <a
-									href="/deleteUser/${a.userName}">删除用户</a></td>
+							<td><a class="modify" href="javascript:void(0)"><button class="btn btn-sm">修改资料</button></a> 
+							| <a href="/deleteUser/${a.userName}" class="del"><button class="btn btn-sm">删除用户</button></a></td>
 					
 								<td style="display: none" class="remark">${a.remark}</td>
 								<td style="display: none" class="phone">${a.phone}</td>
@@ -151,13 +151,38 @@
 					</tr>
 				</table>
 			</div>
-			<button type="submit" class="btn">修改</button>
-			<button id="comeback" class="btn">返回</button>
+			<button onclick="mod()" class="btn one">修改</button>
+			<button id="comeback" class="btn one">返回</button>
 		</form>
 	</div>
 
 	<script>
+	$(".del").click(function(e){
+		if(confirm("你确认要删除吗？")){
+			return true;
+		}
+		else {
+			e.preventDefault();
+		};
+	});
+	function del(){
+		if(confirm("你确认要删除吗？")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
+		function mod(){
+			if(confirm("你确认要修改吗？")){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+	
 		function check() {
 			if ($("#password").val() != "") {
 				var hash = hex_md5($("#password").val());

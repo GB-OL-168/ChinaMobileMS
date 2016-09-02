@@ -116,21 +116,21 @@
 		</div>
 		<div class="goodtxt">
 			<table class="table table-bordered table-striped table-hover">
-				<tr><td style="width:40px;">礼仪接待</td>
+				<tr><td style="width:100px;">礼仪接待</td>
 					<td><p class="receptionService"></p></td></tr>
-				<tr><td>就餐服务</td>
+				<tr><td style="width:100px;">就餐服务</td>
 					<td><p class="diningService"></p></td></tr>
-				<tr><td>环境维护</td>
+				<tr><td style="width:100px;">环境维护</td>
 					<td><p class="enviromentMaintain"></p></td></tr>
-				<tr><td>工程管理</td>
+				<tr><td style="width:100px;">工程管理</td>
 					<td><p class="engineeringManage"></p></td></tr>
-				<tr><td>消防管理</td>
+				<tr><td style="width:100px;">消防管理</td>
 					<td><p class="firefightingManage"></p></td></tr>
-				<tr><td>服务地点</td>
+				<tr><td style="width:100px;">服务地点</td>
 					<td><p class="serviceLocation"></p></td></tr>
-				<tr><td>服务要求</td>
+				<tr><td style="width:100px;">服务要求</td>
 					<td><p class="serviceCommand"></p></td></tr>
-				<tr><td>备注</td>
+				<tr><td style="width:100px;">备注</td>
 					<td><p class="addition"></p></td></tr>
 			</table> 
 		</div>

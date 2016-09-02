@@ -9,7 +9,7 @@
 	z-index: 1002;
 	box-shadow:2px 2px 5px #333;
 }
-.goodtxt tr>td{
+.goodtxt>table>tr>td{
 	width:100px;
 }
 .close {

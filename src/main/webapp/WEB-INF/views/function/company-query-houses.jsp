@@ -80,7 +80,7 @@
 							<td>${a.companyName}</td>
 							<td>${a.location}</td>
 							<td>${a.buildingArea}</td>
-							<td><a href="/detailed/house/${a.assetInfoId}">查看</a></td>
+							<td><a href="/detailed/house/${a.assetInfoId}"><button class="btn btn-sm">查看</button></a></td>
 						</tr>
 					</c:forEach>
 					<p id="flag" style="display:none;">${flag}</p>

@@ -66,18 +66,25 @@
 }
 
 
-.btn{
+.one{
 	margin-left:100px;
 	color:#fff;
 	border:#333;
 	background-color:#333;
 }
 
-.btn:hover{
+.one:hover{
 	border:#333;
 		color:#fff;
 	background-color:#333;
 }
 
+a{
+	color:#000;
+}
+
+a:linked,a:hover,a:active,a:visites{
+	color:#000;
+}
 
 
