@@ -10,7 +10,15 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-    
+    <style>
+		.star{
+        	color:red;
+        	font-size:20px;
+        	display:inline;
+        	padding-top:8px;
+        }
+	
+	</style>
 </head>
 <body>
     <div class="container" style="width:900px;">
@@ -42,31 +50,31 @@
                         <div class="col-sm-3">
                             <input  type="text" class="form-control" name="brand" maxlength="5" placeholder="5个字符以内" required/>
                         </div>
-                        <label  class="col-sm-2 control-label">型号</label>
+                        <label  class="col-sm-2 control-label">型号</label><span class="star">*</span>
                         <div class="col-sm-3">
                             <input type="text" class="form-control"  name="model" maxlength="10" placeholder="10个字符以内" required/>
                         </div>
                     </div>
-
+            <span class="star" style="position:absolute; left:389px; top:71px;">*</span>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">车辆类型</label>
                         <div class="col-sm-3">
                             <input name="vehicleType" id="vehicleType" type="text" class="form-control" maxlength="2" placeholder="请输入2位标识代码" required/>
                         </div>
-                        <label  class="col-sm-2 control-label">车座</label>
+                        <label  class="col-sm-2 control-label">车座</label><span class="star">*</span>
                         <div class="col-sm-3">
                         <input name="seat" class="form-control"  maxlength="2" placeholder="仅支持2位以内的数字" required
                         onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
                         </div>
                     </div>
-
+          <span class="star" style="position:absolute; left:389px; top:115px;">*</span>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">国产/进口</label>
                         <div class="col-sm-3">
                             <input name="productSource" type="radio" value="1" checked/>国产
                             <input name="productSource" type="radio" value="2"/>进口
                         </div>
-                        <label  class="col-sm-2 control-label">制造厂名称</label>
+                        <label  class="col-sm-2 control-label">制造厂名称</label><span class="star">*</span>
                         <div class="col-sm-3">
                             <input name="manufacturer" type="text" class="form-control" maxlength="10" placeholder="10个字符以内" required/>
                         </div>
@@ -77,45 +85,46 @@
                         <div class="col-sm-3">
                             <input name="color" type="text" class="form-control" maxlength="5" placeholder="5个字符以内" required/>
                         </div>
-                        <label  class="col-sm-2 control-label">燃油种类</label>
+                        <label  class="col-sm-2 control-label">燃油种类</label><span class="star">*</span>
                         <div class="col-sm-3">
                             <input name="fuelType" type="text" class="form-control" maxlength="5" placeholder="5个字符以内" required/>
                         </div>
                     </div>
-
+		<span class="star" style="position:absolute; left:389px; top:210px;">*</span>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">发动机号</label>
                         <div class="col-sm-3">
                             <input name="engineType" type="text" class="form-control" maxlength="8" placeholder="8个字符以内" required/>
                         </div>
-                        <label  class="col-sm-2 control-label">VIN/车辆识别代码</label>
+                        <label  class="col-sm-2 control-label">VIN/车辆识别代码</label><span class="star">*</span>
                         <div class="col-sm-3">
                             <input name="vin" id="vin" type="text" class="form-control" maxlength="17" placeholder="请输入17位VIN码" required/>
                         </div>
                     </div>
-
+		<span class="star" style="position:absolute; left:389px; top:265px;">*</span>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">出厂日期</label>
                         <div class="col-sm-3">
                             <input name="productDate" id="productDate" type="date" class="form-control" required/>
                         </div>
-                        <label  class="col-sm-2 control-label">车主</label>
+                        <label  class="col-sm-2 control-label">车主</label><span class="star">*</span>
                         <div class="col-sm-3">
                             <input name="owner" type="text" class="form-control" maxlength="5" placeholder="5个字符以内" required/>
                         </div>
                     </div>
+       <span class="star" style="position:absolute; left:389px; top:315px;">*</span>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">车辆价格</label>
                         <div class="col-sm-3">
                            <input name="price" type="text" class="form-control" maxlength="5" placeholder="仅支持数字，单位：万" required
                        	   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
                         </div>
-                        <label  class="col-sm-2 control-label">使用单位</label>
+                        <label  class="col-sm-2 control-label">使用单位</label><span class="star">*</span>
                         <div class="col-sm-3">
                             <input name="usedUnit" type="text" class="form-control" maxlength="10" placeholder="10个字符以内" required/>
                         </div>
                     </div>
-
+	 <span class="star" style="position:absolute; left:389px; top:365px;">*</span>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-8">
                             <button type="submit" id="add" class="btn btn-default col-sm-offset-4">登记</button>

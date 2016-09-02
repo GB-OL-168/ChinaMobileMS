@@ -10,7 +10,15 @@
 	<link rel="stylesheet" href="/assets/css/system.css">
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
-   
+   <style>
+		.star{
+        	color:red;
+        	font-size:20px;
+        	display:inline;
+        	padding-top:8px;
+        }
+	
+	</style>
 </head>
 <body>
         <div class="container" style="width:900px;">
@@ -38,7 +46,7 @@
                         <h4 style="text-align: center">驾驶员信息登记</h4>
 
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">姓名</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">姓名</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input  type="text" class="form-control" name="name" maxlength="5" placeholder="5个字符以内" required/>
                             </div>
@@ -53,53 +61,53 @@
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">出生日期</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">出生日期</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="birthday" id="birthday" type="date" class="form-control" required/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">驾龄</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">驾龄</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="driveYear" type="text" class="form-control" maxlength="5" placeholder="5个字符以内" required/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">学历</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">学历</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="education" type="text" class="form-control" maxlength="5" placeholder="请输入最高学历" required/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">籍贯</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">籍贯</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="origin" type="text" class="form-control" maxlength="5" placeholder="5个字符以内" required/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">服务单位</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">服务单位</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="serviceUnit" type="text" class="form-control" maxlength="10" placeholder="10个字符以内" required/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">身份证号</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">身份证号</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="identification" id="identification" type="text" class="form-control" maxlength="18" placeholder="请输入18位身份证号" required/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">联系方式</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">联系方式</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="contactInfo" id="contactInfo" type="text" class="form-control" maxlength="11" placeholder="请输入11位手机号码" required
                                 onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-offset-3 col-sm-2 control-label">家庭住址</label>
+                            <label  class="col-sm-offset-3 col-sm-2 control-label">家庭住址</label><span class="star">*</span>
                             <div class="col-sm-3">
                                 <input name="homeAddress" type="text" class="form-control" maxlength="20" placeholder="20个字符以内" required/>
                             </div>

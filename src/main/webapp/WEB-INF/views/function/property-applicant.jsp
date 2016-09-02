@@ -95,9 +95,9 @@
 					      <input name ="concreteTime" type="time" class="form-control" id="inputPassword3" required placeholder="具体时间">
 					    </div>
 				  </div>
-				  <span class="star" style="position:absolute; left:459px; top:191px;">*</span>
+			      <span class="star" style="position:absolute; left:459px; top:191px;">*</span>
 				  <div class="form-group">
-					    <label for="inputPassword3" class="col-sm-1 control-label">服务地点</label><span class="star">*</span>
+					    <label for="inputPassword3" class="col-sm-1 control-label">服务地点</label>
 					    <div class="col-sm-4">
 					      <textarea name ="serviceLocation" type="text" class="form-control" maxlength="64"
 					       id="inputPassword3" required placeholder="最多可输入64字"></textarea>
@@ -108,7 +108,7 @@
 					       id="inputPassword3" placeholder="最多可输入64字"></textarea>
 					    </div>
 				  </div>
-				  
+				   <span class="star" style="position:absolute; left:459px; top:251px;">*</span>
 				  <div class="form-group">
 					    <label for="inputPassword3" class="col-sm-1 control-label">秩序维护</label>
 					    <div class="col-sm-4">

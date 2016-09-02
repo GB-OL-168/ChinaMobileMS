@@ -153,8 +153,8 @@
 
 				</table>
 			</div>
-			<button type="submit" class="btn btn-info" id="add">修改</button>
-			<button class="btn btn-info">返回</button>
+			<button type="submit" class="btn btn-info one " id="add">修改</button>
+			<button class="btn btn-info one">返回</button>
 		</form>
 	</div>
 

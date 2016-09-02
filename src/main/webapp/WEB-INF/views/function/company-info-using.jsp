@@ -13,6 +13,7 @@
 <script src="/assets/js/jquery-1.9.1.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
 <link rel="stylesheet" href="/assets/css/system-make.css">
+<script src="/assets/js/fenye.js"></script>
 
 </head>
 <body>
@@ -51,7 +52,7 @@
 			</div>
 
 			<div class="col-md-12">
-				<table class="table table-bordered table-striped"
+				<table class="table table-bordered table-striped"  id="idData"
 					style="width: 1050px;">
 					<h4 style="text-align: center;">查询结果</h4>
 					<tr>
@@ -72,11 +73,15 @@
 							<td class="count">${f.count}</td>
 							<td class="remark">${f.remark}</td>
 							<td class="usedSituation" style="display: none">${f.usedSituation}</td>
-							<td><a class="modify" href="javascript:void(0)">修改</a>| <a
-								href="/deleteFurnitureInfo/${f.officeFurnitureInfoId}">删除</a></td>
+							<td><a class="modify" href="javascript:void(0)">修改</a>| 
+							<a class="del" href="/deleteFurnitureInfo/${f.officeFurnitureInfoId}">删除</a></td>
 						</tr>
 					</c:forEach>
 				</table>
+				<br>
+		<table width="70%" align="right">
+	        <tr><td><div id="barcon" name="barcon"></div></td></tr>
+	    </table>
 			</div>
 		</div>
 	</div>
@@ -131,13 +136,35 @@
 					</tr>
 				</table>
 			</div>
-			<button type="submit" class="btn btn-info">修改</button>
-			<button id="comeback" class="btn btn-info">返回</button>
+			<button type="submit" class="btn btn-sm one mod">修改</button>
+			<button id="comeback" class="btn btn-sm one">返回</button>
 		</form>
+		
+		
+		
 	</div>
 
 	<script>
 		$(function() {
+			$(".mod").click(function(e){
+				if(confirm("你确认要修改吗？")){
+					return true;
+				}
+				else {
+					e.preventDefault();
+				};
+			});
+		
+			$(".del").click(function(e){
+				if(confirm("你确认要删除吗？")){
+					return true;
+				}
+				else {
+					e.preventDefault();
+				};
+			});
+			
+			
 			$('.a>td>.modify').click(
 					function() {
 						var officeFurnitureInfoId = $(this).parent().siblings(

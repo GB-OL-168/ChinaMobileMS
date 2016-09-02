@@ -27,7 +27,8 @@
                <table id="form_make" class='table table-bordered table-hover center'>
                	   <div style="margin-left:350px;">
    		             	<a style="display: inline-block">调查表名称</a>
-               			&nbsp&nbsp<input id="investigationItmeName" type="text" required name="investigationItmeName" maxlength="12"/>
+               			&nbsp&nbsp<input id="investigationItmeName" type="text" 
+               			required name="investigationItmeName" maxlength="12" placeholder="最多可输入12个字！"/>
                	   </div>
                    <tr>
                        <th>考评项目</th>
@@ -35,8 +36,17 @@
                        <th>操作</th>
                    </tr>
                    <tr>
-                       <td><input class="investigationItemValue" type="text"  required name="InvestigationItemsEntityList[0].investigationItemValue" maxlength="12"></td>
-                       <td><textarea class="investigationStandadard" required name="InvestigationItemsEntityList[0].investigationStanddard"  rows="3" cols="50"></textarea></td>
+                       <td>
+	                       <input class="investigationItemValue" type="text"  
+	                       required name="InvestigationItemsEntityList[0].investigationItemValue" 
+	                       maxlength="12"  placeholder="最多可输入12个字!">
+                       </td>
+                       <td>
+	                       <textarea class="investigationStandadard"  style="color:black;"
+	                       required name="InvestigationItemsEntityList[0].investigationStanddard" 
+	                        rows="3" cols="50" maxlength="64">
+	                        </textarea>
+                        </td>
                        <td><button class="remove btn btn-default" type="button">删除</button></td>
                    </tr>
                </table>
@@ -50,7 +60,8 @@
 <script>
         
       $(function(){
-    	  
+    	  $(".investigationStandadard").text("");
+          $(".investigationStandadard").attr("placeholder","最多可输入64个字！");
 				 var index=0;
 				 var number=0;
 		         $form_make=$("#form_make");//拿到Id
@@ -69,14 +80,14 @@
 		        	number--;
 		       	 	}); 
 		          
-		          $("#investigationItmeName").attr("placeholder","最多输入12个字！");
-			      $(".investigationItemValue").attr("placeholder","最多输入12个字！");
+		          $("#investigationItmeName").attr("placeholder","最多可输入12个字！");
+			      $(".investigationItemValue").attr("placeholder","最多可输入12个字！");
 			      $(".investigationStandadard").attr("maxlength","64");
-			      $(".investigationStandadard").attr("placeholder","最多输入64个字！");
+			      $(".investigationStandadard").attr("placeholder","最多可输入64个字！");
 	        			     
 		      });
 		      
-		      
+		         
 		 
 		      $(".remove").click(function(e){
 		     	$(this).parent().parent().remove();
