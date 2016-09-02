@@ -38,11 +38,11 @@
 					<h4 style="text-align: center">房屋资产信息登记</h4><br>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">坐落地点</label>
+						<label class="col-sm-2 control-label">坐落地点*</label>
 						<div class="col-sm-3">
 							<input name="location" type="text" class="form-control" required />
 						</div>
-						<label class="col-sm-2 control-label">建筑面积</label>
+						<label class="col-sm-2 control-label">建筑面积*</label>
 						<div class="col-sm-3">
 							<input name="buildingArea"class="form-control" placeholder="仅支持数字" required
                        	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
@@ -50,7 +50,7 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">使用公司名称</label>
+						<label class="col-sm-2 control-label">使用公司名称*</label>
 						<div class="col-sm-3">
 							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
@@ -59,7 +59,7 @@
 								</c:forEach>
 							</select>
 						</div>
-						<label class="col-sm-2 control-label">使用部门名称</label>
+						<label class="col-sm-2 control-label">使用部门名称*</label>
 						<div class="col-sm-3">
 							<select name="usedBranchId" class="company form-control" required>
 								<option value="">--请选择部门--</option>
@@ -72,34 +72,34 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">建筑名称</label>
+						<label class="col-sm-2 control-label">建筑名称*</label>
 						<div class="col-sm-3">
 							<input name=buildingName type="text" class="form-control" required/>
 						</div>
 						<label class="col-sm-2 control-label">结构类型</label>
 						<div class="col-sm-3">
-							<input name="structureType" type="text" class="form-control"  required/>
+							<input name="structureType" type="text" class="form-control"  />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">层数</label>
+						<label class="col-sm-2 control-label">层数*</label>
 						<div class="col-sm-3">
 							<input name="floorCount" class="form-control" placeholder="仅支持数字" required
                        	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
 						</div>
 						<label class="col-sm-2 control-label">房间数</label>
 						<div class="col-sm-3">
-							<input name="roomCount" class="form-control" placeholder="仅支持数字" required
+							<input name="roomCount" class="form-control" placeholder="仅支持数字" 
                        	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">房屋用途</label>
+						<label class="col-sm-2 control-label">房屋用途*</label>
 						<div class="col-sm-3">
 							<input name="roomUsage" type="text" class="form-control" required/>
 						</div>
-						<label class="col-sm-2 control-label">建成年份</label>
+						<label class="col-sm-2 control-label">建成年份*</label>
 						<div class="col-sm-3">
 							<input name="addition" type="date" class="form-control" required/>
 						</div>
@@ -108,12 +108,12 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">备注说明</label>
 						<div class="col-sm-3">
-							<input name="remark" type="text" class="form-control" required/>
+							<input name="remark" type="text" class="form-control" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">是否租贷</label>
+						<label class="col-sm-2 control-label">是否租贷*</label>
 						<div class="col-sm-3">
 							<input name="isLoan" type="radio" value="1" />是 
 							<input name="isLoan" type="radio" value="0" checked/>否
