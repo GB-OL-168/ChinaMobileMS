@@ -45,6 +45,12 @@ public class UserController {
 	@Autowired
 	private RoleService roleService;
 
+	/**
+	 * 
+	 * @param user
+	 * @param session
+	 * @return
+	 */
 	// 在Spring中生成set get方法 自动获取userService对象
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(User user, HttpSession session) {

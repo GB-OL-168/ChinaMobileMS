@@ -19,25 +19,47 @@ public class PropertyServicesImpl implements PropertyServices {
 	private ReviewMapper reviewMapper;
 	
 	public List<PropertyServiceEntity> auditParty() {
-		List<PropertyServiceEntity> propertylist=propertyMapper.findPropertyInfo();
-		return propertylist;
+		try{
+			return propertyMapper.findPropertyInfo();
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	public boolean setStatus(int id,int status){
-		System.out.println("进入了 updateStatus 方法");
-		boolean sure=propertyMapper.updateStatus(id, status);
-		return sure;
+		try{
+			return propertyMapper.updateStatus(id, status);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	@Override
 	public List<PropertyServiceEntity> getPropertyTableByID(int propertyID) {
-		return propertyMapper.queryPopertyTableByID(propertyID);
+		try{
+			return propertyMapper.queryPopertyTableByID(propertyID);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	@Override
 	public List<PropertyServiceEntity> getPropertyTableByVertifyUser(String vertifyUser) {
-		return reviewMapper.queryPropertyTableByVertifyUser(vertifyUser);
+		try{
+			return reviewMapper.queryPropertyTableByVertifyUser(vertifyUser);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	@Override
 	public boolean setTemporaryDemand(String temporaryDemand, int id) {
-		return propertyMapper.updateTemporaryDemand(id, temporaryDemand);
+		try{
+			return propertyMapper.updateTemporaryDemand(id, temporaryDemand);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

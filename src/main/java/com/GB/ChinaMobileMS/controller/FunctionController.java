@@ -197,6 +197,11 @@ public class FunctionController {
 	private List<AuditingPrpoertyEntity> dealPropertyData(List<PropertyServiceEntity> propertyList, User currentUser){
 		List<AuditingPrpoertyEntity> resultList = new ArrayList<>();
 		for(PropertyServiceEntity entity : propertyList){
+			String companyManager = companyService.getCompanyManager(entity.getCompanyId()).getCompanyManager();
+			if(currentUser.getUserName().equals(companyManager)){
+				if(entity.getStatus() < PropertyServiceController.SECOND_STAGE_START)
+					continue;
+			}
 			AuditingPrpoertyEntity audiEntity = new AuditingPrpoertyEntity();
 			//数据转移
 			audiEntity.setPropertyTableId(entity.getPropertyTableId());
@@ -224,7 +229,7 @@ public class FunctionController {
 			//角色控制
 			audiEntity.setCurrentUser(currentUser.getUserName());
 			audiEntity.setBranchVertifyUser(branchService.getBranchManager(entity.getBranchId()).getBranchManager());
-			audiEntity.setCompanyVertifyUser(companyService.getCompanyManager(entity.getCompanyId()).getCompanyManager());
+			audiEntity.setCompanyVertifyUser(companyManager);
 			
 			resultList.add(audiEntity);
 		}

@@ -12,6 +12,15 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/md5.js" type="text/javascript"></script>
+	  <style>
+		.star{
+        	color:red;
+        	font-size:20px;
+        	display:inline;
+        	padding-top:8px;
+        }
+	
+	</style>
 </head>
 <body>
 	<div class="container" style="width: 900px;">
@@ -43,6 +52,7 @@
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">密码</label>
+						<span class="star">*</span>
 						<div class="col-sm-5">
 							<input id='password' name="password" type="password" class="form-control"
 								placeholder="请输入密码" maxlength="20" required>
@@ -77,6 +87,7 @@
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">公司</label>
+						<span class="star">*</span>
 						<div class="col-sm-5">
 							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
@@ -89,6 +100,7 @@
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">部门</label>
+						<span class="star">*</span>
 						<div class="col-sm-5">
 							<select name="branch" class="branch form-control" required>
 								<option value="">--请选择部门--</option>
@@ -103,6 +115,7 @@
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">岗位</label>
+						<span class="star">*</span>
 						<div class="col-sm-5">
 							<select name="jobId" class="Job form-control" required>
 								<option value="">--请选择岗位--</option>

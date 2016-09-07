@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.GB.ChinaMobileMS.dao.DinnerPropertyTableMapper;
 import com.GB.ChinaMobileMS.dao.DinnerReviewMapper;
@@ -18,42 +19,79 @@ public class DinnerPropertyTableServiceImpl implements DinnerPropertyTableServic
 	@Autowired
 	private DinnerReviewMapper dinnerReviewMapper;
 	
+	@Transactional
 	@Override
-	public int addDinnerPropertyTable(DinnerPropertyTableEntity dinnerProperty) {
-		if(dinnerPropertyMapper.insertDinnerProperty(dinnerProperty))
-			return dinnerPropertyMapper.queryDinnerPropertyTableByApplyTime(dinnerProperty).getDinnerPropertyTableId();
-		else
+	public int addDinnerPropertyTable(DinnerPropertyTableEntity dinnerProperty)  {
+		try {
+			if(dinnerPropertyMapper.insertDinnerProperty(dinnerProperty))
+				return dinnerPropertyMapper.queryDinnerPropertyTableByApplyTime(dinnerProperty).getDinnerPropertyTableId();
+			else
+				return 0;
+		} catch (Exception e){
+			e.printStackTrace();
 			return 0;
+		}
 	}
 
 	@Override
 	public List<DinnerPropertyTableEntity> getAllDinnerPropertyTableByUserName(String UserName) {
-		return dinnerPropertyMapper.queryAllDinnerPropertyTableByUserName(UserName);
+		try {
+			return dinnerPropertyMapper.queryAllDinnerPropertyTableByUserName(UserName);
+		} catch (Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 	@Override
 	public DinnerPropertyTableEntity getDinnerPropertyTableById(int tableID) {
-		return dinnerPropertyMapper.queryDinnerPropertyTableByID(tableID);
+		try {
+			return dinnerPropertyMapper.queryDinnerPropertyTableByID(tableID);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public List<DinnerPropertyTableEntity> getDinnerPropertyTableByVertifyUser(String vertifyUser) {
-		return dinnerReviewMapper.queryDinnerPropertyTableByVertifyUser(vertifyUser);
+		try {
+			return dinnerReviewMapper.queryDinnerPropertyTableByVertifyUser(vertifyUser);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public boolean modifyDinnerReviewStatus(int id, int status, String stage) {
-		return dinnerReviewMapper.updateDinnerReviewStatus(id, status, stage);
+		try {
+			return dinnerReviewMapper.updateDinnerReviewStatus(id, status, stage);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean setDinnerTableStatus(int id, int status) {
-		return dinnerPropertyMapper.updateDinnerTableStatus(id, status);
+		try {
+			return dinnerPropertyMapper.updateDinnerTableStatus(id, status);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public List<DinnerPropertyTableEntity> getAllDinnerPropertyTable() {
-		return dinnerPropertyMapper.queryAllDinnerPropertyTable();
+		try {
+			return dinnerPropertyMapper.queryAllDinnerPropertyTable();
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

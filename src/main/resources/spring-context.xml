@@ -17,9 +17,9 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://114.215.101.221:3306/cmcc" />
-		<property name="username" value="remote" />
-		<property name="password" value="remote" />
+		<property name="url" value="jdbc:mysql://localhost:3306/cmcc" />
+		<property name="username" value="admin" />
+		<property name="password" value="admin" />
 	</bean>
 
 	<!-- 配置sqlSessionFactory -->

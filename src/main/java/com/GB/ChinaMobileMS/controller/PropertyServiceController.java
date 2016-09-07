@@ -60,10 +60,8 @@ public class PropertyServiceController {
 	
 	@RequestMapping(value="/property/propertyService/{id}/{status}", method=RequestMethod.GET)
 	public ModelAndView propertyService(@PathVariable("id") int id, @PathVariable("status") int status,HttpSession session){
-		updatePropertyServices = updatePropertyServicesTemp;
-		reviewService = reviewServiceTemp;
-		
 		//初始化数据
+		initService();
 		initData(id, status);
 		
 		//实体赋值，获取审核人的id（一审、二审人）
@@ -146,6 +144,10 @@ public class PropertyServiceController {
 	private List<AuditingPrpoertyEntity> dealPropertyData(List<PropertyServiceEntity> propertyList, User currentUser, String branchManager, String companyManager){
 		List<AuditingPrpoertyEntity> resultList = new ArrayList<>();
 		for(PropertyServiceEntity entity : propertyList){
+			if(currentUser.getUserName().equals(companyManager)){
+				if(entity.getStatus() < SECOND_STAGE_START)
+					continue;
+			}
 			AuditingPrpoertyEntity audiEntity = new AuditingPrpoertyEntity();
 			//数据转移
 			audiEntity.setPropertyTableId(entity.getPropertyTableId());
@@ -178,5 +180,10 @@ public class PropertyServiceController {
 			resultList.add(audiEntity);
 		}
 		return resultList;
+	}
+	
+	private void initService(){
+		updatePropertyServices = updatePropertyServicesTemp;
+		reviewService = reviewServiceTemp;
 	}
 }

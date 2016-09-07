@@ -63,13 +63,20 @@ public class InvestigationTableController {
 			ModelAndView model = new ModelAndView();
 			String nowTime =formatTime();//获取当前时间
 			//查询要填写的调查表
-			List<WaitForInvestigationUserEntity> waitForInvestigationUserEntityList=waitForInvestigationService.findWaitByUserName(sessionUser.getUserName());
-			
-			//获得调查表显示的数据
-			List<InvestigationTableEntitySet> investigationTableEntitySetList = investigationTableSetService.getInvestigationTableEntitySetList(nowTime, waitForInvestigationUserEntityList);
-	
-			model.addObject("investigationTableEntitySetList",investigationTableEntitySetList);
-			model.setViewName("/function/service-management-write");
+			try {
+				
+				List<WaitForInvestigationUserEntity> waitForInvestigationUserEntityList=waitForInvestigationService.findWaitByUserName(sessionUser.getUserName());
+				
+				//获得调查表显示的数据
+				List<InvestigationTableEntitySet> investigationTableEntitySetList = investigationTableSetService.getInvestigationTableEntitySetList(nowTime, waitForInvestigationUserEntityList);
+				
+				model.addObject("investigationTableEntitySetList",investigationTableEntitySetList);
+				model.setViewName("/function/service-management-write");
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return null;
+			}
 			return model;
 		}
 		
@@ -82,10 +89,17 @@ public class InvestigationTableController {
 		@RequestMapping (value = "/service/management-check", method = RequestMethod.GET)
 		public ModelAndView showManageTable(HttpSession session){
 			User sessionUser = (User)session.getAttribute("user");
-			List<InvestigationTableEntity> investigationTableEntityList = investigationTableService.getInvestigationTableEntityByUserName(sessionUser.getUserName());
 			ModelAndView model = new ModelAndView();
-			model.addObject("investigationTableEntityList",investigationTableEntityList);
-			model.setViewName("/function/service-management-check");
+			try {
+				
+				List<InvestigationTableEntity> investigationTableEntityList = investigationTableService.getInvestigationTableEntityByUserName(sessionUser.getUserName());
+				model.addObject("investigationTableEntityList",investigationTableEntityList);
+				model.setViewName("/function/service-management-check");
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return null;
+			}
 			return model;
 		}
 	
@@ -109,19 +123,22 @@ public class InvestigationTableController {
 		public ModelAndView createInvestigationTable(InvestigationItemsEntityModel model, HttpSession httpSession,
 				HttpServletRequest request) {
 			User sessionUser = (User) httpSession.getAttribute("user");
+			Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
 			String userName = sessionUser.getUserName();
 			//获得表格的名称
 			String investigationName = request.getParameter("investigationItmeName");
 			//调用插入考评项方法
-			for(int i = 0;i<model.size();i++){
-				if(model.getInvestigationItemsEntityList().get(i)!=null)
-				System.out.println("ffffff"+model.getInvestigationItemsEntityList().get(i));
+			try {
+				investigationItemsService.inserItems(model.getInvestigationItemsEntityList(),userName,investigationName);
+				List<InvestigationTableEntity> investigationTableEntityList = investigationTableService
+						.getInvestigationTableEntityByUserName(sessionUser.getUserName());
+				map.put("investigationTableEntityList", investigationTableEntityList);
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return null;
 			}
-			investigationItemsService.inserItems(model.getInvestigationItemsEntityList(),userName,investigationName);
-			List<InvestigationTableEntity> investigationTableEntityList = investigationTableService
-					.getInvestigationTableEntityByUserName(sessionUser.getUserName());
-			Map<String, List<InvestigationTableEntity>> map = new HashMap<String, List<InvestigationTableEntity>>();
-			map.put("investigationTableEntityList", investigationTableEntityList);
 			return new ModelAndView("/function/service-management-check", map);
 		}
 		
@@ -133,16 +150,23 @@ public class InvestigationTableController {
 		 */
 		@RequestMapping(value = "/showInvestigationItem/{id}", method = RequestMethod.GET)
 		public ModelAndView showInvestigationItem(@PathVariable("id") int id, HttpSession session) {
-			List<InvestigationItemsEntity> investigationItemsEntityList = investigationItemsService.getInvestigationItems(id);
 			String investigationName;
-			if(investigationItemsEntityList.isEmpty()||investigationItemsEntityList==null)
-				 investigationName="未发现任何项目";
-			else
-			investigationName = investigationItemsEntityList.get(0).getInvestigationItemName();
 			ModelAndView model = new ModelAndView();
-			model.addObject("investigationName",investigationName);
-			model.addObject("investigationItemsEntityList",investigationItemsEntityList);
-			model.setViewName("/function/service-table-info");
+			try {
+				
+				List<InvestigationItemsEntity> investigationItemsEntityList = investigationItemsService.getInvestigationItems(id);
+				if(investigationItemsEntityList.isEmpty()||investigationItemsEntityList==null)
+					investigationName="未发现任何项目";
+				else
+					investigationName = investigationItemsEntityList.get(0).getInvestigationItemName();
+				model.addObject("investigationName",investigationName);
+				model.addObject("investigationItemsEntityList",investigationItemsEntityList);
+				model.setViewName("/function/service-table-info");
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return null;
+			}
 			return model;
 		}
 		
@@ -155,13 +179,20 @@ public class InvestigationTableController {
 		@RequestMapping(value = "/service/delete",method = RequestMethod.POST)
 		public @ResponseBody boolean delete(int investigationId){
 			boolean flag = false;
-			List<InvestigationItemsEntity> investigationItemsEntityList = investigationItemsService.getInvestigationItems(investigationId);
-			for(int i=0;i<investigationItemsEntityList.size();i++){
-				investigationScoreService.deleteScoreByInvestigationItemId(investigationItemsEntityList.get(i).getInvestigationItemId());
+			try {
+				
+				List<InvestigationItemsEntity> investigationItemsEntityList = investigationItemsService.getInvestigationItems(investigationId);
+				for(int i=0;i<investigationItemsEntityList.size();i++){
+					investigationScoreService.deleteScoreByInvestigationItemId(investigationItemsEntityList.get(i).getInvestigationItemId());
+				}
+				investigationItemsService.deleteInvestigationItemsByInvestigationId(investigationId);
+				waitForInvestigationService.deleteWaitForInvestigationUserByInvestigationId(investigationId);
+				flag = investigationTableService.deleteInvestiationTableById(investigationId);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return false;
 			}
-			investigationItemsService.deleteInvestigationItemsByInvestigationId(investigationId);
-			waitForInvestigationService.deleteWaitForInvestigationUserByInvestigationId(investigationId);
-			flag = investigationTableService.deleteInvestiationTableById(investigationId);
 			return flag;
 		}
 		
@@ -176,10 +207,17 @@ public class InvestigationTableController {
 		public ModelAndView statistics(@PathVariable("id") int id,HttpSession httpSession){
 			ModelAndView model = new ModelAndView();
 			//获得统计后的结果
-			List<InvestigationScoreEntitySet> investigationScoreEntitySetList = investigationItemsService.getStatistics(id);
-
-			model.addObject("investigationScoreEntitySetList", investigationScoreEntitySetList);
-			model.setViewName("function/service-date-statistics");
+			try {
+				List<InvestigationScoreEntitySet> investigationScoreEntitySetList = investigationItemsService.getStatistics(id);
+				
+				model.addObject("investigationScoreEntitySetList", investigationScoreEntitySetList);
+				model.setViewName("function/service-date-statistics");
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return null;
+			}
 			return model;
 		}
 		

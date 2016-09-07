@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.GB.ChinaMobileMS.dao.PropertyApplicantMapper;
 import com.GB.ChinaMobileMS.entity.PropertyServiceEntity;
@@ -18,33 +19,50 @@ public class PropertyApplicantServiceImpl implements PropertyApplicantService {
 	private PropertyApplicantMapper propertyApplicantMapper;
 	//PropertyApplicantMapper映射接口，生成一个实现对象
 	
-
+	@Transactional
 	public int addPropertyApplicant(PropertyServiceEntity propertyApplicant) {
-		int result = propertyApplicantMapper.insertPropertyApplicant(propertyApplicant);
-		System.out.println(propertyApplicant);
-		if(result>0){
-			PropertyServiceEntity entity = propertyApplicantMapper.queryPropertyApplicantByAllCols(propertyApplicant);
-			
-			return entity.getPropertyTableId();
-		}else 
+		try{
+			int result = propertyApplicantMapper.insertPropertyApplicant(propertyApplicant);
+			System.out.println(propertyApplicant);
+			if(result>0){
+				PropertyServiceEntity entity = propertyApplicantMapper.queryPropertyApplicantByAllCols(propertyApplicant);
+				
+				return entity.getPropertyTableId();
+			}else 
+				return 0;
+		}catch(Exception e){
+			e.printStackTrace();
 			return 0;
+		}
 	}
 	
 	public List<PropertyServiceEntity> listPropertyApplicant() {
-		
-		List<PropertyServiceEntity> listPropertyApplicant = propertyApplicantMapper.listPropertyApplicant();	
-		return listPropertyApplicant;
+		try{
+			return propertyApplicantMapper.listPropertyApplicant();
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public List<PropertyServiceEntity> getPropertyApplicantByApplyUserName(String userName) {
-		
-		return propertyApplicantMapper.queryPropertyApplicantByUserName(userName);
+		try{
+			return propertyApplicantMapper.queryPropertyApplicantByUserName(userName);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public boolean setPropertyTempDemand(int id, String tempDemand) {
-		return propertyApplicantMapper.updateTempDemand(id, tempDemand);
+		try{
+			return propertyApplicantMapper.updateTempDemand(id, tempDemand);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

@@ -52,9 +52,16 @@ public class InvestigationItemsController {
 	 */
 	@RequestMapping(value = "/showWiriteInvestigationItems/{id}", method = RequestMethod.GET)
 	public ModelAndView showwiriteInvestigationItems(@PathVariable("id") int id, HttpSession session){
-		List<InvestigationItemsEntity> investigationItemsEntityList = investigationitemsService.getInvestigationItems(id);
 		Map<String, List<InvestigationItemsEntity>> map = new HashMap<String, List<InvestigationItemsEntity>>();
-		map.put("investigationItemsEntityList", investigationItemsEntityList);
+		try {
+			
+			List<InvestigationItemsEntity> investigationItemsEntityList = investigationitemsService.getInvestigationItems(id);
+			map.put("investigationItemsEntityList", investigationItemsEntityList);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
 		return new ModelAndView("/function/service-table-write",map);
 	}
 	
@@ -71,17 +78,24 @@ public class InvestigationItemsController {
 		String id=request.getParameter("investigationId");
 		int investigationId=Integer.parseInt(id);
 		//指定ID的考评项目
-		List<InvestigationItemsEntity> entityList=investigationitemsService.getInvestigationItems(investigationId);
-		for(int i=0;i<model.size();i++){
-			entityList.get(i).setGrade(model.getInvestigationScoreEntityList().get(i).getGrade());
-
+		try {
+			
+			List<InvestigationItemsEntity> entityList=investigationitemsService.getInvestigationItems(investigationId);
+			for(int i=0;i<model.size();i++){
+				entityList.get(i).setGrade(model.getInvestigationScoreEntityList().get(i).getGrade());
+				
+			}
+			//插入得分数据库
+			for(int i=0;i<entityList.size();i++){
+				investigationScoreService.insertScore(entityList.get(i).getGrade(), sessionUser.getUserName(), entityList.get(i).getInvestigationItemId());
+			}
+			//更新等待填写的数据,标志为已经填写
+			waitForInvestigationService.updateIsFill(investigationId,sessionUser.getUserName());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
 		}
-		//插入得分数据库
-		for(int i=0;i<entityList.size();i++){
-			investigationScoreService.insertScore(entityList.get(i).getGrade(), sessionUser.getUserName(), entityList.get(i).getInvestigationItemId());
-		}
-		//更新等待填写的数据,标志为已经填写
-		waitForInvestigationService.updateIsFill(investigationId,sessionUser.getUserName());
 		return "redirect:/service/management-write";
 	}
 	

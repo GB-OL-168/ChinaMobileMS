@@ -40,7 +40,6 @@ public class InvestigationItmesServiceImpl implements InvestigationItemsService 
 			}
 			
 			for(int i =0; i<list.size();i++){
-					System.out.println("aaaaaaaaaaaaaaaa"+list.get(i));
 					list.get(i).setInvestigationItemName(investigationName);
 			}
 

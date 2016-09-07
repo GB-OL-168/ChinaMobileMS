@@ -92,9 +92,7 @@ public class DinnerServiceController {
 	 */
 	@RequestMapping(value="/property/dinnerApplicationView", method=RequestMethod.GET)
 	public ModelAndView dinnerApplicationView(HttpSession session){
-		dinnerPropertyService = dinnerPropertyServiceTemp;
-		dinnerReviewService = dinnerReviewServiceTemp;
-		
+		initService();
 		User user = (User) session.getAttribute("user");
 		List<DinnerPropertyTableEntity> dinnerPropertys = dinnerPropertyService.getAllDinnerPropertyTableByUserName(user.getUserName());
 		Map<String, List<DinnerPropertyTableEntity>> map =new HashMap<>();
@@ -109,9 +107,7 @@ public class DinnerServiceController {
 	 */
 	@RequestMapping(value="/property/dinnerAuditing", method=RequestMethod.GET)
 	public ModelAndView dinnerAuditing(HttpSession session){
-		dinnerPropertyService = dinnerPropertyServiceTemp;
-		dinnerReviewService = dinnerReviewServiceTemp;
-		
+		initService();
 		List<DinnerPropertyTableEntity> dinnerPorpertys = dinnerPropertyService.getDinnerPropertyTableByVertifyUser(((User)session.getAttribute("user")).getUserName());
 		Map<String, List<AuditingDinnerPropertyEntity>> map = new HashMap<>();
 		map.put("dinnerPropertys", dealPropertyData(dinnerPorpertys, (User)session.getAttribute("user")));
@@ -128,9 +124,7 @@ public class DinnerServiceController {
 	 */
 	@RequestMapping(value="/property/dinnerAuditingControl/{id}/{status}", method=RequestMethod.GET)
 	public ModelAndView dinnerAuditingControl(@PathVariable("id") int id, @PathVariable("status") int status, HttpSession session){
-		dinnerPropertyService = dinnerPropertyServiceTemp;
-		dinnerReviewService = dinnerReviewServiceTemp;
-		
+		initService();
 		initData(id, status);
 		DinnerPropertyTableEntity entity = dinnerPropertyService.getDinnerPropertyTableById(id);
 		int branchID = entity.getBranchId();
@@ -173,8 +167,7 @@ public class DinnerServiceController {
 	 */
 	@RequestMapping(value="/property/dinnerManagement", method=RequestMethod.GET)
 	public ModelAndView dinnerManagement(HttpSession session){
-		dinnerPropertyService = dinnerPropertyServiceTemp;
-		dinnerReviewService = dinnerReviewServiceTemp;
+		initService();
 		return new ModelAndView("/function/dinner-management", controlManagementData());
 	}
 	
@@ -186,9 +179,7 @@ public class DinnerServiceController {
 	 */
 	@RequestMapping(value="/addDinnerProperty", method=RequestMethod.POST)
 	public ModelAndView addDinnerProperty(DinnerPropertyTableEntity dinnerPropertyEntity, HttpSession session){
-		dinnerPropertyService = dinnerPropertyServiceTemp;
-		dinnerReviewService = dinnerReviewServiceTemp;
-		
+		initService();
 		User user = (User) session.getAttribute("user");
 		JobEntity job = jobService.getJobByJobID(user.getJobId());
 		BranchEntity branchEntity = branchService.getBranchManager(job.getBranchId());
@@ -239,6 +230,10 @@ public class DinnerServiceController {
 	private List<AuditingDinnerPropertyEntity> dealPropertyData(List<DinnerPropertyTableEntity> dinnerPropertys, User currentUser, String branchManager, String companyManager){
 		List<AuditingDinnerPropertyEntity> resultList = new ArrayList<>();
 		for(DinnerPropertyTableEntity entity : dinnerPropertys){
+			if(currentUser.getUserName().equals(companyManager)){
+				if(entity.getStatus() < SECOND_STAGE_START)
+					continue;
+			}
 			AuditingDinnerPropertyEntity audiEntity = new AuditingDinnerPropertyEntity();
 			audiEntity.setDinnerPropertyTableId(entity.getDinnerPropertyTableId());
 			audiEntity.setApplyOrChargeUserName(entity.getApplyOrChargeUserName());
@@ -270,6 +265,11 @@ public class DinnerServiceController {
 	private List<AuditingDinnerPropertyEntity> dealPropertyData(List<DinnerPropertyTableEntity> dinnerPropertys, User currentUser){
 		List<AuditingDinnerPropertyEntity> resultList = new ArrayList<>();
 		for(DinnerPropertyTableEntity entity : dinnerPropertys){
+			String companyManager = companyService.getCompanyManager(entity.getCompanyId()).getCompanyManager();
+			if(currentUser.getUserName().equals(companyManager)){
+				if(entity.getStatus() < SECOND_STAGE_START)
+					continue;
+			}
 			AuditingDinnerPropertyEntity audiEntity = new AuditingDinnerPropertyEntity();
 			audiEntity.setDinnerPropertyTableId(entity.getDinnerPropertyTableId());
 			audiEntity.setApplyOrChargeUserName(entity.getApplyOrChargeUserName());
@@ -321,5 +321,11 @@ public class DinnerServiceController {
 		Map<String, List<ManagementDinnerPropertyEntity>> resultMap = new HashMap<>();
 		resultMap.put("dinnerPropertyList",managementPropertyList);
 		return resultMap;
+	}
+	
+	
+	private void initService(){
+		dinnerPropertyService = dinnerPropertyServiceTemp;
+		dinnerReviewService = dinnerReviewServiceTemp;
 	}
 }

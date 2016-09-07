@@ -18,7 +18,12 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	@Override
 	public List<ReviewEntity> getReviews(String vertifyUser) {
-		return reviewMapper.queryReview(vertifyUser);
+		try{
+			return reviewMapper.queryReview(vertifyUser);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	/**
@@ -26,21 +31,26 @@ public class ReviewServiceImpl implements ReviewService{
 	 */
 	@Override
 	public boolean startReview(int propertyTableId, String excutionID, String branchVertifyUserID, String companyVertifyUserID) {
-		ReviewEntity entity = new ReviewEntity();
-		entity.setPropertyTableId(propertyTableId);
-		entity.setStatus(0);
-		entity.setExcutionId(excutionID);
-		entity.setStage("进入一审");
-		entity.setBranchVertifyUser(branchVertifyUserID);
-		entity.setCompanyVertifyUser(companyVertifyUserID);
-		entity.setFlowInfo("待一审");
+		try{
+			ReviewEntity entity = new ReviewEntity();
+			entity.setPropertyTableId(propertyTableId);
+			entity.setStatus(0);
+			entity.setExcutionId(excutionID);
+			entity.setStage("进入一审");
+			entity.setBranchVertifyUser(branchVertifyUserID);
+			entity.setCompanyVertifyUser(companyVertifyUserID);
+			entity.setFlowInfo("待一审");
 
-		int insertResert = reviewMapper.insertReview(entity);
-		if (insertResert == 0) {
-			System.out.println("审核数据插入失败");
+			int insertResert = reviewMapper.insertReview(entity);
+			if (insertResert == 0) {
+				System.out.println("审核数据插入失败");
+				return false;
+			}
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
 			return false;
 		}
-		return true;
 	}
 
 	/**
@@ -48,22 +58,42 @@ public class ReviewServiceImpl implements ReviewService{
 	 */
 	@Override
 	public List<PropertyServiceEntity> getPropertyTableByVertifyUser(String vertifyUser) {
-		return reviewMapper.queryPropertyTableByVertifyUser(vertifyUser);
+		try{
+			return reviewMapper.queryPropertyTableByVertifyUser(vertifyUser);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public ReviewEntity getReviewByPropertyID(int propertyID) {
-		return reviewMapper.queryReviewEntityByPropertyID(propertyID);
+		try{
+			return reviewMapper.queryReviewEntityByPropertyID(propertyID);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public boolean modifyReviewStatus(int id, int status, String stage, String flowInfo) {
-		return reviewMapper.updateReviewStatus(id, status, stage, flowInfo);
+		try{
+			return reviewMapper.updateReviewStatus(id, status, stage, flowInfo);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean modifyReviewCompanyVertifyUser(int id, String vertifyUserName) {
-		return reviewMapper.updateReviewCompanyVertifyUser(id, vertifyUserName);
+		try{
+			return reviewMapper.updateReviewCompanyVertifyUser(id, vertifyUserName);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

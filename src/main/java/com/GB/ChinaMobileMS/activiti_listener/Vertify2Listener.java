@@ -11,7 +11,7 @@ import com.GB.ChinaMobileMS.controller.PropertyServiceController;
 public class Vertify2Listener implements Serializable, TaskListener {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * 物业二审监听
 	 */
