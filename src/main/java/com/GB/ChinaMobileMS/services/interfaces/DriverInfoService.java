@@ -23,6 +23,6 @@ public interface DriverInfoService {
 	boolean deleteVehiclePerson(int driverId);
 	
 	//驾驶员修改
-	String updateVehiclePerson(DriverInfoEntity driverInfoEntity);
+	int updateVehiclePerson(DriverInfoEntity driverInfoEntity);
 
 }

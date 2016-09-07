@@ -24,5 +24,5 @@ public interface VehicleInfoManageService {
 	boolean deleteVehicleInfoManage(int vehicleInfoId);
 	
 	//车辆修改
-	String updateVehicleInfo(VehicleInfoManageEntity vehicleInfoManageEntity);
+	int updateVehicleInfo(VehicleInfoManageEntity vehicleInfoManageEntity);
 }

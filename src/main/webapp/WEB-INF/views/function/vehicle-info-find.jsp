@@ -98,8 +98,7 @@
 							<td>${a.price}</td>
 							<td class="usedUnit">${a.usedUnit}</td>
 							<td><a class="modify" href="javascript:void(0)">修改</a>|
-							<a href="/deleteVehicleInfo/${a.vehicleInfoId}" onclick="javascript:if(confirm('确定要删除此信息吗？'))
-							{alert('删除成功！');return true;}return false;">删除</a></td>
+							<a href="javascript:void(0)" onclick="deleteTable(${a.vehicleInfoId})">删除</a></td>
 						</tr>
 					</c:forEach>
                   </table>
@@ -146,23 +145,28 @@
 					</tr>
 					<tr>
 						<td>车主</td>
-						<td><input name="owner" class="owner" maxlength="5"/></td>
+						<td><input name="owner" class="owner" maxlength="5" placeholder="5个字符以内" required/></td>
 					</tr>
 					<tr>
 						<td>使用单位</td>
-						<td><input name="usedUnit" class="usedUnit" maxlength="10"/></td>
+						<td><input name="usedUnit" class="usedUnit" maxlength="10" placeholder="10个字符以内" required/></td>
 					</tr>
 
 				</table>
 			</div>
 			<button type="submit" class="btn btn-sm one" onclick="javascript:if(confirm('确定要修改此信息吗？'))
-							{alert('修改成功！');return true;}return false;">修改</button>
-			<button class="btn btn-sm one">返回</button>
+							{return true;}return false;">修改</button>
+			<button id="comeback" class="btn btn-sm one">返回</button>
 		</form>
 	</div>
 
 	<script>
 		$(function() {
+			var d = '${infomation}';
+			if (d.length != 0 && d != null)
+				alert(d);
+			console.log(d);
+			
 			$('.a>td>.modify').click(
 					function() {
 						var vehicleInfoId = $(this).parent().siblings(".vehicleInfoId").text();
@@ -190,8 +194,12 @@
 			$('#closebt').click(function() {
 				$('#code').hide();
 			});
-			$(".one").click(function(e){
+			$('#goodcover').click(function() {
 				$('#code').hide();
+				$('#goodcover').hide();
+			});
+			$("#comeback").click(function(e) {
+				$("#code").hide();
 				e.preventDefault();
 			});
 			jQuery.fn.center = function(loaded) {
@@ -224,8 +232,33 @@
 					}, 200, 'linear');
 				}
 			}
-
 		});
+		
+		function deleteTable (vehicleInfoId){
+			var isDelete  = confirm("是否确认删除此车辆信息 ? ");
+			if(isDelete){
+				
+			$.ajax({
+				type: "POST",
+				url:"/deleteVehicleInfo",
+				data:{
+					vehicleInfoId:vehicleInfoId
+				},
+				dataType:"json",
+				success:function(flag){
+					if(flag==true){
+						alert("删除该车辆信息成功 ！ ");
+						window.location.href ="/vehicle/info-find";
+					}
+					else
+						alert("删除该车辆信息失败 ！ ");
+				},
+				error:function(e){
+					alert("连接服务器失败 ！ ");
+				}				
+			});
+		  	}
+		};
 	</script> 
 </body>
 </html>

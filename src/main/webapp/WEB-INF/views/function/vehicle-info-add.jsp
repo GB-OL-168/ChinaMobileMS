@@ -87,7 +87,12 @@
                         </div>
                         <label  class="col-sm-2 control-label">燃油种类</label><span class="star">*</span>
                         <div class="col-sm-3">
-                            <input name="fuelType" type="text" class="form-control" maxlength="5" placeholder="5个字符以内" required/>
+                           <select name="fuelType" class="form-control">
+						      <option value="汽油93号" selected="selected">汽油93号</option>
+						      <option value="汽油97号">汽油97号</option>
+						      <option value="京92号">京92号</option>
+						      <option value="京95号">京95号</option>
+						    </select>
                         </div>
                     </div>
 		<span class="star" style="position:absolute; left:389px; top:210px;">*</span>
@@ -138,10 +143,28 @@
     </div>
     <script>
 	$(function() {
+		var d = '${infomation}';
+		if (d.length != 0 && d != null)
+			alert(d);
+		console.log(d);
+		
 		$("#add").click(function(e){
  		var vehicleType=$('#vehicleType').val().length;
  		var vin=$('#vin').val().length;
  		var productDate=$('#productDate').val();
+ 		
+ 		var date = new Date();
+	    var seperator1 = "-";
+	    var seperator2 = ":";
+	    var month = date.getMonth() + 1;
+	    var strDate = date.getDate();
+	   	if (month >= 1 && month <= 9) {
+	        month = "0" + month;
+	    }
+	    if (strDate >= 0 && strDate <= 9) {
+	        strDate = "0" + strDate;
+	    }
+	    var nowDate = date.getFullYear() + seperator1 + (month+1) + seperator1 + strDate;/* 当前时间+1个月  */		
  		
 		if( vehicleType != 2 && vehicleType !=0) {
 			alert("请输入正确的车辆类型标识代码  ! ");
@@ -151,9 +174,11 @@
 			alert("请输入正确的VIN/车辆识别代码  ! ");
 			return false;
 	    }
-		if( productDate < "1886-01-29" || $('#productDate').val().length > 10) {
-			alert("请输入有效出厂日期  ！ ");
-			return false;
+		if( productDate != 0 && 
+				((productDate<"1886-01-29" || productDate>nowDate )
+				 || productDate.length > 10)) {
+				alert("请输入有效出厂日期  ！ ");
+				return false;
 		}
  	});
 });

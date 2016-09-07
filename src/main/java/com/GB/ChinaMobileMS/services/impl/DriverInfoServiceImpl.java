@@ -47,9 +47,8 @@ public class DriverInfoServiceImpl implements DriverInfoService{
 	}
 	
 	@Override
-	public String updateVehiclePerson(DriverInfoEntity driverInfoEntity) {		
-		System.out.println(driverInfoMapper.updateVehiclePerson(driverInfoEntity));		
-		return "";
+	public int updateVehiclePerson(DriverInfoEntity driverInfoEntity) {		
+		return driverInfoMapper.updateVehiclePerson(driverInfoEntity);
 	}
 
 }

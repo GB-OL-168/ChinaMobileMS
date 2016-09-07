@@ -50,14 +50,12 @@ public class VehicleInfoManageServiceImpl implements VehicleInfoManageService{
 	}
 	
 	@Override
-	public boolean deleteVehicleInfoManage(int vehicleInfoId) {		
-		System.out.println(vehicleInfoManageMapper.deleteVehicleInfoManage(vehicleInfoId));		
-		return false;
+	public boolean deleteVehicleInfoManage(int vehicleInfoId) {
+		return vehicleInfoManageMapper.deleteVehicleInfoManage(vehicleInfoId);
 	}
 	
 	@Override
-	public String updateVehicleInfo(VehicleInfoManageEntity vehicleInfoManageEntity) {		
-		System.out.println(vehicleInfoManageMapper.updateVehicleInfo(vehicleInfoManageEntity));		
-		return "";
+	public int updateVehicleInfo(VehicleInfoManageEntity vehicleInfoManageEntity) {
+		return vehicleInfoManageMapper.updateVehicleInfo(vehicleInfoManageEntity);
 	}
 }

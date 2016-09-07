@@ -92,8 +92,7 @@
 						<td class="homeAddress">${a.homeAddress}</td>
 						<td class="addition">${a.addition}</td>
 						<td><a class="modify" href="javascript:void(0)">修改</a>|
-						<a href="/deleteVehiclePerson/${a.driverId}" onclick="javascript:if(confirm('确定要删除此信息吗？'))
-							{alert('删除成功！');return true;}return false;">删除</a></td>
+						<a href="javascript:void(0)" onclick="deleteTable(${a.driverId})">删除</a></td>
 					</tr>
 				</c:forEach>
             </table>
@@ -154,12 +153,17 @@
 				</table>
 			</div>
 			<button type="submit" class="btn btn-info one " id="add">修改</button>
-			<button class="btn btn-info one">返回</button>
+			<button id="comeback" class="btn btn-info one">返回</button>
 		</form>
 	</div>
 
 	<script>
 		$(function() {
+			var d = '${infomation}';
+			if (d.length != 0 && d != null)
+				alert(d);
+			console.log(d);
+			
 			$('.a>td>.modify').click(
 					function() {
 						var driverId = $(this).parent().siblings(".driverId").text();
@@ -193,6 +197,10 @@
 			$('#goodcover').click(function() {
 				$('#code').hide();
 				$('#goodcover').hide();
+			});
+			$("#comeback").click(function(e) {
+				$("#code").hide();
+				e.preventDefault();
 			});
 			jQuery.fn.center = function(loaded) {
 				var obj = this;
@@ -231,18 +239,49 @@
 	<script>
 	$(function() {
 		$("#add").click(function(e){
- 		var contactInfo=$('#contactInfo').val().length;
-		if( contactInfo != 11 && contactInfo !=0) {
-			alert("请输入正确的手机号码 ! ");
+		var contactInfo=$('#contactInfo').val();
+ 		var contactInfoLenght=$('#contactInfo').val().length;
+ 		var reg = /^1(3|4|5|7|8)\d{9}$/;
+		if( contactInfoLenght != 11 && contactInfoLenght !=0 ) {
+			alert("电话号码长度不正确，请输入正确的手机号码 ! ");
 			return false;
 	    }
+		if(contactInfoLenght !=0 && contactInfo.match(reg) == null){
+			alert("电话号码格式不正确，请输入有效的手机号码 ! ");
+			return false;
+		}
 		if(confirm('确定要修改此信息吗？')){
-			alert('修改成功！');
 			return true;
 		}
 		return false;
  	  });
 	});
+	
+	function deleteTable (driverId){
+		var isDelete  = confirm("是否确认删除此驾驶员信息 ? ");
+		if(isDelete){
+			
+		$.ajax({
+			type: "POST",
+			url:"/deleteVehiclePerson",
+			data:{
+				driverId:driverId
+			},
+			dataType:"json",
+			success:function(flag){
+				if(flag==true){
+					alert("删除该驾驶员信息成功 ！ ");
+					window.location.href ="/vehicle/person-find";
+				}
+				else
+					alert("删除该驾驶员信息失败 ！ ");
+			},
+			error:function(e){
+				alert("连接服务器失败 ！ ");
+			}		
+		});
+	  	}
+	};
 	</script>
 
 </body>

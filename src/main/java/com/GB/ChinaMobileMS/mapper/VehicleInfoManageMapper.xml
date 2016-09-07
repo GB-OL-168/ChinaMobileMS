@@ -44,7 +44,7 @@
 		select * from vehicle_info_manage
 	</select>
 	
-	<delete id="deleteVehicleInfoManage">
+	<delete id="deleteVehicleInfoManage" parameterType="int">
 		delete from vehicle_info_manage 
 		where vehicle_info_id = #{vehicleInfoId}
 	</delete>
