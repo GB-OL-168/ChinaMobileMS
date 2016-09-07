@@ -108,9 +108,15 @@ ol>li {
 						<td>${ash.remark}</td>
 					</tr>
 				</table>
+				
+				<a href="javascript:history.go(-1)">
+				<button type="button" class="col-sm-offset-5 btn btn-default" >返回</button></a>
 			</div>
 		</div>
 	</div>
+
+
+
 
 </body>
 </html>

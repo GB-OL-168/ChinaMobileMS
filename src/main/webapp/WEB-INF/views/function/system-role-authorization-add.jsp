@@ -131,8 +131,10 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-5 col-sm-8">
-							<button type="submit" class="btn btn-default">设置</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="reset" class="btn btn-default">重置</button>
+							<button type="submit" class="btn btn-default">设置</button>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="/system/role-authorization"><button type="button" class="btn btn-default"
+								>返回</button></a>
+
 						</div>
 					</div>
 				</form>

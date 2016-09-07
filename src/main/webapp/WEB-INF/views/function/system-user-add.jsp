@@ -12,14 +12,14 @@
 	<script src="/assets/js/jquery-1.9.1.js"></script>
 	<script src="/assets/js/bootstrap.js"></script>
 	<script src="/assets/js/md5.js" type="text/javascript"></script>
-	  <style>
-		.star{
-        	color:red;
-        	font-size:20px;
-        	display:inline;
-        	padding-top:8px;
+
+	<style>
+        .star{
+	       	color:red;
+	       	font-size:20px;
+	       	display:inline-block;
+	       	padding-top:8px;
         }
-	
 	</style>
 </head>
 <body>
@@ -37,10 +37,9 @@
 				</div>
 				<form class="form-horizontal" style="width: 900px;"
 					action="/addUser" method="post" onsubmit="return check();">
-					<!-- <h4 style="text-align: center;">添加用户</h4> -->
-
+				<!-- 
 					<td><input name="isExist" class="isExist" value="1"
-						style='display: none' /></td>
+						style='display: none' /></td> -->
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">账号</label>
@@ -48,8 +47,8 @@
 							<input name="userName" type="text" class="form-control"
 								placeholder="请输入用户账号" maxlength="20">
 						</div>
+						<span class="star">*</span>
 					</div>
-
 					<div class="form-group">
 						<label class="col-sm-4 control-label">密码</label>
 						<span class="star">*</span>
@@ -57,6 +56,7 @@
 							<input id='password' name="password" type="password" class="form-control"
 								placeholder="请输入密码" maxlength="20" required>
 						</div>
+						<span class="star">*</span>
 					</div>
 
 					<div class="form-group">
@@ -65,6 +65,7 @@
 							<input name="accountName" type="text" class="form-control"
 								placeholder="请输入姓名" maxlength="20">
 						</div>
+						<span class="star">*</span>
 					</div>
 
 					<div class="form-group">
