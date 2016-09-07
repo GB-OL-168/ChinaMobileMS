@@ -190,7 +190,7 @@
 		右边主功能显示区域
 	  -->
 	<div class="right">
-		<iframe name="/u/main" style="width: 100%; min-height: 1000px;"
+		<iframe name="/u/main" style="width: 100%; min-height: 800px;"
 			scrolling="no" frameborder="0" border="0"> </iframe>
 	</div>
 	<div class="footer">

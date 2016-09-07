@@ -71,16 +71,14 @@
 						<th>使用单位名称</th>
 						<th>坐落地点</th>
 						<th>建筑面积（m3）</th>
-						<th>查看具体信息</th>
 					</tr>
 					<c:forEach items="${listash}" var="a">
-						<tr>
-							<td>${a.assetInfoId}</td>
+						<tr class="look">
+							<td class="assetInfoId">${a.assetInfoId}</td>
 							<td>${a.buildingName}</td>
 							<td>${a.companyName}</td>
 							<td>${a.location}</td>
 							<td>${a.buildingArea}</td>
-							<td><a href="/detailed/house/${a.assetInfoId}"><button class="btn btn-sm">查看</button></a></td>
 						</tr>
 					</c:forEach>
 					<p id="flag" style="display:none;">${flag}</p>
@@ -94,5 +92,19 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<script>
+		$(function(){
+			$("tr.look").click(function(){
+			   var assetInfoId=$(this).children("td.assetInfoId").text();
+			   //alert(assetInfoId);
+			   location.href="/detailed/house/"+assetInfoId;
+			});
+		});
+	
+	</script>
+	
+	
 </body>
 </html>

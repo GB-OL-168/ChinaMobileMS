@@ -35,9 +35,10 @@
 				</div>
 				<hr>
 				<form action="/company/info" style="width: 900px;">
-					<div class="col-md-offset-3 col-md-2">
-						<input type="radio" name="condition" value="use">在用 <input
-							type="radio" name="condition" value="notuse">闲置
+					<div class="col-md-offset-3 col-md-3">
+						<input type="radio" name="condition" value="" checked>全部
+						<input type="radio" name="condition" value="use">在用
+						<input type="radio" name="condition" value="notuse">闲置
 					</div>
 					<div class="col-md-4">
 						<div class="input-group">

@@ -63,6 +63,7 @@
 					     
 					    <label for="inputEmail3" class="col-sm-1 control-label">申请部门</label>
 					    <div class="col-sm-4">
+					      <span></span>
 					      <input type="text" readOnly="true" class="form-control" id="inputEmail3" placeholder=<%=branchName %>>
 					    </div>
 				   </div>

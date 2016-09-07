@@ -132,8 +132,8 @@
 					<div class="form-group">
 						<div class="col-sm-offset-5 col-sm-8">
 							<button type="submit" class="btn btn-default">设置</button>&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="submit" class="btn btn-default"
-								onclick="javascript:history.back(-1);">返回</button>
+							<a href="/system/role-authorization"><button type="button" class="btn btn-default"
+								>返回</button></a>
 						</div>
 					</div>
 				</form>

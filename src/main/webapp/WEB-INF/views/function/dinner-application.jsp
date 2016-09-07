@@ -23,6 +23,10 @@
         	display:inline-block;
         	padding-top:8px;
         }
+        .a>span{
+        	display:inline-block;
+        	margin-top:8px;
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery-ui-1.8.18.custom.min.js"></script>
@@ -56,37 +60,41 @@
             <form class="form-horizontal" action = "/addDinnerProperty" method="post">
                  <h4 style="text-align: center">用餐申请表格填写</h4> 
                 <div class="form-group">
-                    <label  class="col-sm-offset-2 col-sm-2 control-label">所属公司</label>
-                    <div class="col-sm-4">
-                        <input type="text" readOnly="true" class="form-control" placeholder=<%=companyName %>>
-                    </div>
+                    <label  class="col-sm-offset-2 col-sm-2 control-label">所属公司:</label>
+                    <div class="col-sm-4 a">
+                    	<span><%=companyName %></span>
+                        <%-- <input type="text" readOnly="true" class="form-control" placeholder=<%=companyName %>>
+                     --%></div>
                 </div>
                 <div class="form-group">
-                    <label  class="col-sm-offset-2 col-sm-2 control-label">申请部门</label>
-                    <div class="col-sm-4">
-                        <input type="text" readOnly="true" class="form-control" placeholder=<%=branchName %>>
-                    </div>
+                    <label  class="col-sm-offset-2 col-sm-2 control-label">申请部门:</label>
+                    <div class="col-sm-4 a">
+                    	<span><%=branchName %></span>
+                        <%-- <input type="text" readOnly="true" class="form-control" placeholder=<%=branchName %>>
+                     --%></div>
                 </div>
                 <div class="form-group">
-                    <label    class="col-sm-offset-2 col-sm-2 control-label">申请人</label>
-                    <div class="col-sm-4">
-                        <input type="text" readOnly="true" class="form-control" placeholder=<%=((User)session.getAttribute("user")).getAccountName() %>>
-                    </div>
+                    <label    class="col-sm-offset-2 col-sm-2 control-label">申请人:</label>
+                    <div class="col-sm-4 a">
+                    	<span><%=((User)session.getAttribute("user")).getAccountName() %></span>
+                       <%--  <input type="text" readOnly="true" class="form-control" placeholder=<%=((User)session.getAttribute("user")).getAccountName() %>>
+                     --%></div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">开始日期</label><span class="star">*</span>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">开始日期:</label>
+                    <span class="star">*</span>
                     <div class="col-sm-4">
                         <input id="startDate" name ="startDate" type="date" class="form-control" required  placeholder="开始日期">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">结束日期</label><span class="star">*</span>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">结束日期:</label><span class="star">*</span>
                     <div class="col-sm-4">
                         <input id="finishDate" name ="finishDate" type="date" class="form-control" required  placeholder="结束日期">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">联系方式</label><span class="star">*</span>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">联系方式:</label><span class="star">*</span>
                     <div class="col-sm-4">
                         <input name ="contactInfo" id="contactInfo" type="text"  maxlength = "11"  class="form-control" required  placeholder="联系方式"
                         onkeyup="this.value=this.value.replace(/\D/g,'')" 
@@ -96,13 +104,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">安排人数</label><span class="star">*</span>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">安排人数:</label><span class="star">*</span>
                     <div class="col-sm-4">
                         <input id="arrangePersonCount" name ="arrangePersonCount" type="text" class="form-control" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="安排人数">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">用餐类型</label><span class="star">*</span>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">用餐类型:</label><span class="star">*</span>
                     <div class="col-sm-4">
                        <select name="dinnerType" type="text" class="form-control" >
                            <option>新员工用餐</option>
@@ -112,7 +120,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label   class="col-sm-offset-2 col-sm-2 control-label">备注</label>
+                    <label   class="col-sm-offset-2 col-sm-2 control-label">备注:</label>
                     <div class="col-sm-4">
                         <input name ="addition" type="text" class="form-control"   placeholder="备注">
                     </div>
