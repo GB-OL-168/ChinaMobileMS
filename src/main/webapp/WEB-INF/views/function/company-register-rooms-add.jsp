@@ -41,7 +41,7 @@
 				<form class="form-horizontal col-md-12"  style="width:900px;" action="/addRoom" method="get">
 					<h4 style="text-align: center;">房间信息登记</h4>
 					<div class="form-group">
-						<label class="col-sm-3 control-label">所属公司</label>
+						<label class="col-sm-3 control-label">所属公司*</label>
 						<div class="col-sm-5">
 							<select name="companyId" class="company form-control" required>
 								<option value="">--请选择公司--</option>
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label">所属部门</label>
+						<label class="col-sm-3 control-label">所属部门*</label>
 						<div class="col-sm-5">
 							<select name="belongBranchId" class="branch form-control" required>
 								<option value="">--请选择部门--</option>
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label">所属建筑</label>
+						<label class="col-sm-3 control-label">所属建筑*</label>
 						<div class="col-sm-5">
 							<select name="assetInfoId" class="building form-control" required>
 								<option value="">--请选择建筑--</option>
@@ -77,23 +77,24 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label">所属楼层</label>
+						<label class="col-sm-3 control-label">所属楼层*</label>
 						<div class="col-sm-5">
 							<input name="floor" class="form-control" placeholder="仅支持数字" required
                        	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label class="col-sm-3 control-label">房间编号</label>
-						<div class="col-sm-5">
-							<input name="houseId" class="form-control" placeholder="仅支持数字" required
-                       	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
-						</div>
-					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="col-sm-3 control-label">房间编号</label> -->
+<!-- 						<div class="col-sm-5"> -->
+<!-- 							<input name="houseId" class="form-control" placeholder="仅支持数字" -->
+<!-- 								required onkeyup="this.value=this.value.replace(/\D/g,'')" -->
+<!-- 								onafterpaste="this.value=this.value.replace(/\D/g,'')" /> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label">房间面积</label>
+						<label class="col-sm-3 control-label">房间面积*</label>
 						<div class="col-sm-5">
 							<input name="area" class="form-control" placeholder="仅支持数字" required
                        	 	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>

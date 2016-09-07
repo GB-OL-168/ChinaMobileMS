@@ -30,14 +30,14 @@
 					action="/addRole" method="get">
 					<h4 style="text-align: center;">新增系统角色</h4>
 					<div class="form-group">
-						<label for="roleName" class="col-sm-3 control-label">角色名称</label>
+						<label for="roleName" class="col-sm-3 control-label">角色名称*</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="roleName"
 								placeholder="请输入系统角色名称" name="roleName">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label">权限</label>
+						<label class="col-sm-3 control-label">权限*</label>
 						<div class="col-sm-8">
 							<label class="checkbox-inline"> 
 								<input type="checkbox"
@@ -134,6 +134,7 @@
 							<button type="submit" class="btn btn-default">设置</button>&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="/system/role-authorization"><button type="button" class="btn btn-default"
 								>返回</button></a>
+
 						</div>
 					</div>
 				</form>

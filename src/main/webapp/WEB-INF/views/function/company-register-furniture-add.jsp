@@ -41,7 +41,7 @@
 				<form class="form-horizontal col-md-12"  style="width:900px;" action="/addFurniture" method="get">
 					<h4 style="text-align: center">办公家具信息登记</h4>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">所属公司</label>
+						<label class="col-sm-2 control-label">所属公司*</label>
 						<div class="col-sm-10">
 							<select name="company" class="company form-control" required>
 								<option value="">--请选择公司--</option>
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">所属部门</label>
+						<label class="col-sm-2 control-label">所属部门*</label>
 						<div class="col-sm-10">
 							<select class="branch form-control" name="usedBranchId" required>
 								<option value="">--请选择部门--</option>
@@ -65,7 +65,7 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">所属建筑</label>
+						<label class="col-sm-2 control-label">所属建筑*</label>
 						<div class="col-sm-10">
 							<select class="building form-control" required>
 								<option value="">请选择建筑</option>
@@ -79,7 +79,7 @@
 					
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">房间编号</label>
+						<label class="col-sm-2 control-label">房间编号*</label>
 						<div class="col-sm-10">
 							<select class="room form-control" name="houseId" required>
 								<option value="">请选择房间编号</option>
@@ -93,14 +93,14 @@
 					
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">家具类型</label>
+						<label class="col-sm-2 control-label">家具类型*</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="家具类型"
 								name="furnitureType" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">品牌/型号</label>
+						<label class="col-sm-2 control-label">品牌/型号*</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="品牌/型号"
 								name="brand" required>
@@ -110,19 +110,19 @@
 						<label class="col-sm-2 control-label">规格</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="规格"
-								name="specification" required>
+								name="specification" >
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">数量</label>
+						<label class="col-sm-2 control-label">数量*</label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" placeholder="数量"
 								name="count" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">使用情况</label>
+						<label class="col-sm-2 control-label">使用情况*</label>
 						<div class="col-sm-offset-2 col-sm-8">
 							<input type="radio" name="usedSituation" value="1" required/>在用 <input
 								type="radio" name="usedSituation" value="0" required/>闲置
